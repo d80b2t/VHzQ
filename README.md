@@ -7,7 +7,7 @@
 ===============================================================
 
 
-/cos_pc19a_npr/programs/quasars/highest_z
+https://github.com/d80b2t/VHzQ
 
 
 
@@ -15,6 +15,9 @@
 ===============================================================
 A directory for investigating the highest (z>5) redshift quasars.
 
+
+ Plots and code
+===============================================================
 
 The plots and codes here are primarily based on data here::
     /cos_pc19a_npr/data/highest_z_QSOs
@@ -26,8 +29,11 @@ and here::
     /cos_pc19a_npr/programs/WW4C/plots/VHzQs
 
 
-
-
+ Also check-out::
+===============================================================
+     /cos_pc19a_npr/programs/WW4C/plots
+and
+     /cos_pc19a_npr/programs/WW4C/plots/VHzQs
 
         
 
