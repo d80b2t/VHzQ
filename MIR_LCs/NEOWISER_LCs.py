@@ -48,10 +48,13 @@ for x in range(upto_this):
 #for x in range(10):
     x=x+1
     data_one = data[np.where(data['cntr_01'] == x)]
-    
-    if len(data_one) > 0:  
 
-        print(x, data_one['ra'][0], data_one['dec'][0], len(data_one))
+    if len(data_one) < 1:
+          print('0')
+          
+    if len(data_one) > 0:  
+#        print(x, data_one['ra'][0], data_one['dec'][0], len(data_one))
+        print(len(data_one))
         totes = totes + len(data_one)
         ra = data_one['ra'][0]
         dec = data_one['dec'][0]
@@ -99,4 +102,13 @@ for x in range(upto_this):
         pdf_pages.savefig(fig)
     
 ## Write the PDF document to the disk
-pdf_pages.close()   
+pdf_pages.close()
+
+plt.close()
+
+
+
+
+
+
+
