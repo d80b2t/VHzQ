@@ -142,7 +142,7 @@ Here we update \citet{Jiang2010} and \citet{Blain2013} \citep[along
 with Table 8 of][]{Banados2016}. Our motivations are numerous and
 include: {\it (i)} establishing the first complete catalogue of
 $z>5.00$ quasars since the pioneering work from SDSS; {\it (ii)}
-reporting homogenous near-infrared photometry for the quasars; {\it
+analysing all the WFCAM and VISTA [NJC: homogeneous isn't the write term. The NIR data is very heterogeneous] near-infrared photometry for the quasars; {\it
 (iii)} making the first study of NIR variability of the VHzQ
 population and {\it (iv)} establishing the photometric properties for
 upcoming surveys and telescopes, e.g. the Large Synoptic Survey
@@ -157,7 +157,7 @@ and the {\it James Webb Space Telescope}
 
 This paper can be considered an update of \citet{Blain2013} and also
 an extension of parts of \citet{Banados2016}, with the latter study
-reporting WISE W1, W2, W3 and W4 magnitudes for Panoramic Survey
+reporting WISE W1, W2, W3 and W4 magnitudes for the Panoramic Survey
 Telescope and Rapid Response System 1 \citep[Pan-STARRS1,
 PS1;][]{Kaiser2002, Kaiser2010}, but with no further investigation
 into the reddest WISE waveband for the VH$z$Qs.  \citet{Banados2016}
@@ -169,22 +169,22 @@ incorporate what knowledge we have gained over the last couple of
 decades since $z>5$ quasars were discovered.
 
 This paper is organized as follows.  In Section 2, we present the
-assembled list of the 424 $z\leq5.00$ VH$z$Qs that we have
+assembled list of the 424 $z\geq5.00$ VH$z$Qs that we have
 compiled. We then give a high-level overview of the photometric
 surveys and datasets we use and present the photometry of the VH$z$Qs.
-In Section 3 we In Section 4 we and we then note our Conclusions in
+\textbf{In Section 3 we } In Section 4 we and we then note our Conclusions in
 Section 5.
 
-We make the somewhat unconventional decision to present all our
+We make the somewhat unconventional decision [NJC: Is this unconventional?] to present all our
 photometry and magnitudes on the AB zero-point system
 \citep{Oke_Gunn1983, Fukugita1996}.  This includes the near-infrared,
 as well as the mid-infrared magnitudes.  Because of established
-conventions, we report SDSS $ugriz$ magnitudes on the AB zero-point
+conventions, we report SDSS [NJC: PanSTARRS/DES rather than SDSS?] $ugriz$ magnitudes on the AB zero-point
 system \citep{Oke_Gunn1983, Fukugita1996}, while the WISE W1 − 4
 magnitudes are calibrated on the Vega system (Wright et al. 2010). For
 WISE bands, $m_{\rm AB} = m_{\rm Vega} + m$ where m = (2.699, 3.339,
 5.174, 6.66) for W1, W2, W3 and W4, respectively \citep{Cutri2011,
-Brown2014b}. \citet{Brown2014b}, in PASA, is the paper about
+Brown2014b}. WFCAM and VISTA \citep{Hodgkin2009;GonzalezFernandez2018} are also calibrated on a Vega system (WFCAM), or near Vega system (VISTA). \citet{Brown2014b}, in PASA, is the paper about
 Recalibrating the Wide-field Infrared Survey Explorer (WISE) W4
 Filter. We make use of the Explanatory Supplement to the WISE All-Sky
 Data Release, as well as the WISE AllWISE Data Release Products
@@ -216,6 +216,7 @@ with \citet{Banados2016}.
     The $grizy$ filters are from the Pan-STARRS survey. The $JHK$ are from 
     UKIRT/WFCAM, while $K_{s}$ is a VISTA/VIRCAM filter. The 
     The narrow W-band centered at $\lambda\approx14,500$\AA\ is a CFHT/Wircam filter. 
+    [NJC: Do we use the W-band anywhere?]
     The WISE passbands  W1-4 are also presented.
     The quasar spectrum is a composite based on \citet{VdB2001} and 
     \citet{Banados2016}. The L and T dwarf spectra are from \citet{Cushing2006}. 
@@ -388,28 +389,6 @@ observed-frame optical but bright in the observed frame near-infrared,
 VH$z$Qs are generally detected in the near-infrared $yYJHK$-bands
 \citep[$\approx$0.98-2.38$\mu$m; e.g., ][]{Peth2011}.
 
-We query the WFCAM Science Archive
-\citep[\href{http://wsa.roe.ac.uk/}{WSA}; ][]{Hambly2008} which
-reports NIR photometry from the Wide Field Camera \citep[WFCAM;
-][]{Casali2007} on the United Kingdom Infrared Telescope (UKIRT).
-Data from the VIRCAM (VISTA InfraRed CAMera) on the VISTA
-\citep[Visible and Infrared Survey Telescope for Astronomy;
-][]{Emerson2006, Dalton2006} is also given in the WSA.
-
-Quasars are known to vary (both photometrically and spectroscopically)
-and very high-$z$ quasars under going super-Eddington accretion during
-a rapid BH growth phase are prime candidates for this variation.
-Therefore, with repeat observations over many epochs availble via the
-WSA, we have a choice to make for how we report the photometry. After
-tests, we decide to give the NIR photometry averaged on 4 week
-observed timescales. This time bracket is chosen as a good compromise
-between maximising signal-to-noise while keeping the cadence high. At
-our observed redshifts, we sample $\lesssim1$week in the rest-frame
-and luminous quasars are not expected to vary on timescales quicker
-than this \citep[e.g., ][]{Lawrence2016_ASPC}. 
- 
-We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
-
 The near-infrared data in this paper comes from the Wide Field Astronomy Unit's
 (WFAU) Science Archives for UKIRT-WFCAM, the WFCAM Science Archive
 \citep[WSA][]{WSA} and VISTA-VIRCAM, the VISTA Science Archive
@@ -420,37 +399,25 @@ In this paper we include all non-proprietary WFCAM data, which covers all
 public surveys and PI projects from Semester 05A to 1st January 2017 and all
 non-proprietary VISTA data, which covers all public surveys and PI projects from
 science verification (200910..) to 1st April 2016, to get as much coverage as
-possible. Hence, the NIR is extremely heterogeneous. 
+possible. Hence, the NIR coverage is extremely heterogeneous. 
 
 The data was processed using a forced photometry, or matched-aperture
 photometry. A pipeline for this has been developed by WFAU, but
 has not yet been incorporated into the main VDFS pipeline. Full details of the
 matched-aperture pipeline (MAP) will appear in a forthcoming paper, Cross et al.
 2018, in prep, and has also been discussed in \citet{Cross2013}.  
-%% and \citet{Cross2017} -- Can't find Cross et al. 2017 in NASA/ADS.
+%% and \citet{Cross2017} -- Can't find Cross et al. 2017 in NASA/ADS. [NJC: this was a conference proceeding
+%% from ADASS2016. They just contacted me about the copyright. They are so slow even though we 
+%% had to submit our proceedings before the conference. I had assumed it was already published.]
 We will give the pertinent points of the MAP and specific details of these data sets below.
-
-    \subsubsection{UKIDSS LAS} 
-    In a bit more detail, use:\\
-    dr10plus\\
-    lasSource table (merged catalogue), nearest object only; radius 2.0'' \\
-    424 results returned. Of which...
-    
-    \subsubsection{VISTA VHS} 
-    In a bit more detail, use:\\
-    VH5DR5 \\
-    sourceTable (merged catalogue), nearest object only; radius 2.0'' \\
-    424 results returned.  Of which...
-    
-    {\it N.B.}, a few objects will have both UKIDSS LAS and VISTA VHS photometry...
-    
-    The first step of the process was to ingest the catalogue of VHzQs into
-    the WSA/VSA. These data are in the table \verb+finalQsoCatalogue+. Next we set
-    up new programmes WSERV1000, VSERV1000 in the WSA and VSA respectively. We
-    assign all frames that contain the high-z QSO based on WCS information in the
-    WSA to WSERV1000, but adding a new line to the table \verb+ProgrammeFrame+ and
-    same in VSA for VSERV1000. Assigning these frames to a separate programme allows
-    us to process them together and put them into a single release. 
+   
+The first step of the process was to ingest the catalogue of VHzQs into
+the WSA/VSA. These data are stored in the table \verb+finalQsoCatalogue+. Next we set
+up new programmes WSERV1000, VSERV1000 in the WSA and VSA respectively. We
+assign all frames that potentially contain the high-z QSO based on WCS information in the
+WSA to WSERV1000, but adding a new line to the table \verb+ProgrammeFrame+ and
+same in VSA for VSERV1000. Assigning these frames to a separate programme allows
+us to process them together and put them into a single release. 
     
     \subsubsection{Setup Matched Aperture Product}
     
@@ -536,6 +503,21 @@ We will give the pertinent points of the MAP and specific details of these data 
     reflecting the fact that these are forced photometry on a known set of apertures
     and a set of catalogues, rather than detections above a threshold in a set of
     detector extensions to image multiframes.
+    
+    Quasars are known to vary (both photometrically and spectroscopically)
+and very high-$z$ quasars under going super-Eddington accretion during
+a rapid BH growth phase are prime candidates for this variation.
+Therefore, with repeat observations over many epochs available via the
+WSA, we have a choice to make for how we report the photometry. After
+tests, we decide to give the NIR photometry averaged on 4 week
+observed timescales. This time bracket is chosen as a good compromise
+between maximising signal-to-noise while keeping the cadence high. At
+our observed redshifts, we sample $\lesssim1$week in the rest-frame
+and luminous quasars are not expected to vary on timescales quicker
+than this \citep[e.g., ][]{Lawrence2016_ASPC}. 
+ 
+We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
+
     
     \subsubsection{Averaging matched photometry}
     Unfortunately the photometry in a single epoch image often has low
