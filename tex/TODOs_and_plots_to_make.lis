@@ -32,7 +32,8 @@ as a function of e.g. z, M_1450, color etc. etc.
 
 
 
-Blain et al. 2013::
+   Blain et al. 2013::
+==============================================================================
 
 Figure 1.
 WISE color–color and color–magnitude diagrams for
@@ -75,10 +76,13 @@ Figure 5.
        (bottom right)   i   vs.  (i-z)
        -- for WISE-detected and WISE-non-detected sources. 
 
-
 Figure 6. 
        Observed-frame optical–mid-IR SEDs of z > 6 QSOs from the i-band (0.8 μm) to WISE W2 at 4.6 μm. T
-       
+
+
+
+
+
 NIR plots -> SNR / nEpochs on sky /histogram
 Luminosity / redshift
 Variability 
