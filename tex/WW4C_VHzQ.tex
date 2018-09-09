@@ -585,6 +585,16 @@ We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
     not included.
     
 
+\subsubsection{Selection of NIR variables}
+
+To select potentially variable QSOs we first did a selection like Appendix D(??), selecting the photometry averaged over the whole time span to assess the overall signal-to-noise, total timespan and number of measurements. For each QSO in each filter measured by each instrument, our initial selection for potential variables was $N_{\rm meas}\geq8$, $T_{\rm tot}=\max{mjd}-\min{mjd}>30.$ days, $F>0.$ Jky and SNR>8, to give a signal-to-noise of $\sim\geq3$ per epoch and at least five measurements. An estimate was made of the number of useful epochs, such that $N_{\rm epc}=\min(N_{\rm meas},\frac{SNR}{sqrt{3.}}$. This in turn was used to estimate a typical time-scale for averaging, $T_{\rm avg}=\frac{T_{\rm tot}}{N_{\rm meas}}$. 
+
+We select average photometry where $(T_{\rm avg}/2.)\leq\verb+RequiredMapAverages.timeScale+\leq(2.*T_{\rm avg})$, a setup that should give the best combination of more epochs to resolve the variation and signal-to-noise per epoch. For each setup which satisfies this criteria, we get the averaged photometry and check the statistics. We calculate the median, and the median-absolute-deviation (MAD), and calculate the ratio of the standard deviation to the typical error, $r=\frac{1.48MAD}{ {\overline{error}/sqrt(N_{\rm epochs}}$. Likely variables have $rat\geq3.$ and $N_{\rm epoch}\geq4$. Using this selection, we found two potential variables, xx and yy, both of which show variability in VISTA, with timescales of xn and ym, respectively. [Put in results]
+
+As stated before, 114 QSOs have both WFCAM and VISTA data, and so some variables with fewer measurements in each, may also be variables. We took all of the intially selected variables that had both WFCAM and VISTA data, and looked for potential timescales in either WFCAM or VISTA, and if there was at least one good timescale, appropriate timescales were applied to both WFCAM and VISTA photometry: i.e. if a timescale of 30 days was found for WFCAM and 90 days for VISTA then the combined light curve would be averaged over 30 days for WFCAM and 90 days for VISTA; if only a 90 day average timescale for VISTA was found, then both WFCAM and VISTA would be averaged by 90 days, and if multiple averaging timescales were found, all suitable combinations would be tested. The same analysis of median and MAD was applied to the combined light-curves to find any additional potential variables. 2 more potential variables were found.
+
+
+
 \subsection{MIR data}
 The MIR data for this study comes exclusively from the Wide-field
 Infrared Survey Explorer (WISE) mission. Since we are only concerned
