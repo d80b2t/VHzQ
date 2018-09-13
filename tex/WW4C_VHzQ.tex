@@ -460,7 +460,7 @@ tell the \textbf{ProgrammeBuilder} software which tables to create and what type
 10999	& 1 & 7	& Average over 2 years & 0 & NONE & +730.000000	& -99999999 & 1 \\
 10999	& 1 & 8 & Average over 3 months & 0 & NONE & +91.000000	& -99999999 & 1 \\
           \hline \hline
-          \label{tab:The_Numbers}
+          \label{tab:reqMapAvg}
         \end{tabular}
         \caption{}
       \end{center}
@@ -468,30 +468,26 @@ tell the \textbf{ProgrammeBuilder} software which tables to create and what type
     
     
     \subsubsection{Processing MAP data and Forced photometry} 
-    A set of apertureIDs were created in \verb+MapApertureIDshighzQsoMap+, based on
-    the \verb+RequiredMatchedApertureProduct+ {\bf selection} value. This may
+    A set of apertures to do forced photometry with were created in 
+    \verb+MapApertureIDshighzQsoMap+, based on the \verb+RequiredMatchedApertureProduct+ 
+    {\it selection} value, which in this case is to use the known positions of $z>5$ QSOs. This may
     seem unnecessary layer since it is a one-to-one match with \verb+finalQsoCatalogue+,
-    but the layer is a general abstraction that allows multiple sources of
-    catalogue, and multiple types\ldots
-    Entries added to \verb+MapSurveyTables+ $\Rightarrow$ not pertinent
-
+    but the layer is a general abstraction that allows multiple selections of data, including complex queries
+    or input images.
+    
     CASU's \verb+imcore_list+ was run on each frame assigned to the programme with
     the input list equal to objects selected to be within \ldots of the multiframe
     centre. In this case, where there are 424 QSOs spread across the sky, there is
-    typically 1 object per multiframe, but many have two and one,
-    multiframeID=2614475 in the VSA, has 3 objects. The output of \verb+imcore_list+
+    typically 1 object per multiframe, but many have two and one frame,
+    multiframeID=2614475 in the VSA (a J-band stack from a P90 PI programme), has 3 objects. 
+    The output of \verb+imcore_list+
     is a multi-extension FITS binary table, with identical columns to the CASU FITS
-    binary tables produced using the CASU \verb+imcore+, the basis of all WFCAM and
-    VISTA survey products and also familiar to many astronomers through the INTWFS, 
-    VST-ATLAS and VPHAS.     {\it this needs tidied up, citations added...}
-    Since forced photometry can be run
-    in many ways on a particular image, a single science frame is not
+    binary tables produced using the CASU \verb+imcore+\footnote{http://casu.ast.cam.ac.uk/surveys-projects/vista/technical/catalogue-generation}, the basis of all WFCAM and
+    VISTA survey catalogue products and also familiar to many astronomers through the INTWFS, 
+    VST-ATLAS and VPHAS. Since forced photometry can be run
+    in many ways on a particular image depending on the input catalogue, a single science frame is not
     necessarily linked to a single MAP catalogue, so the \verb+MapFrameStatus+ table
-    links images ({\bf multiframeID}) to catalogues ({\bf catalogueID}) and gives
-    information on what processing stage they are at ({\bf bitProcessingFlag}),
-    whether they have been ingested ({\bf isIngested}), or what quality control has
-    been run on them ({\bf ppErrBitsStatus}).
-    
+    links images ({\bf multiframeID}) to catalogues ({\bf catalogueID}).
     For matched aperture measurements, we process these binary tables using the same
     software, as the standard extracted catalogues, but implement a few different
     processes. We calculate both Luptitudes \citep{Luptitudes}, and calibrated fluxes,
@@ -519,17 +515,10 @@ tell the \textbf{ProgrammeBuilder} software which tables to create and what type
     
     Quasars are known to vary (both photometrically and spectroscopically)
 and very high-$z$ quasars under going super-Eddington accretion during
-a rapid BH growth phase are prime candidates for this variation.
+a rapid BH growth phase are prime candidates for this variation. [NJC: This is better placed somewhere else. We first used it to justify averaging over ~4 weeks, but then decided to average over many periods and select later.]
 Therefore, with repeat observations over many epochs available via the
-WSA, we have a choice to make for how we report the photometry. After
-tests, we decide to give the NIR photometry averaged on 4 week
-observed timescales. This time bracket is chosen as a good compromise
-between maximising signal-to-noise while keeping the cadence high. At
-our observed redshifts, we sample $\lesssim1$week in the rest-frame
-and luminous quasars are not expected to vary on timescales quicker
-than this \citep[e.g., ][]{Lawrence2016_ASPC}. 
- 
-We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
+WSA, we have a choice to make for how we report the photometry. The remeasured photometry is averaged to
+improve signal-to-noise over all the averaging schemes setup in Table~\ref{tab:reqMapAvg}. This allows us to get the best combination of signal-to-noise and number of epochs for different QSOs.
 
     
     \subsubsection{Averaging matched photometry}
@@ -541,7 +530,8 @@ We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
     sources then averaging the calibrated photometry should give as good as
     extracting from a deep stack. In fact it will almost certainly do better, since
     the images in some cases are taken from multiple projects with different
-    pointings. In addition, corrections such as scattered light, pixel distortion
+    pointings, and orientations and exposures, so stacking may not be optimal. 
+    In addition, corrections such as scattered light, pixel distortion
     and aperture corrections will be more complex, if not impossible to apply to
     deep-stacks but will be automatically applied in the averaging of forced
     photometry. 
@@ -582,20 +572,29 @@ We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
     
     We calculate a set of averaged catalogues, for each pointing and filter, based
     on the requirements in \verb+RequiredMapAverages+, in these cases over time
-    spans of 7, 14, 28, 183 days, over 10 epochs and finally over all epochs. The
+    spans of 7, 14, 30, 91, 183 days, 365 days, 730 days, over 10 epochs and over all epochs,
+    see Tab.~\ref{tab:reqMapAvg}. The
     averaging process starts at the first epoch and works on. Possible future
     refinements could first look for denser groupings that satisfied the criteria so
-    that these were not split into two groups.
+    that these were not split into two groups. For this high-z QSO project we have averaged over overlaps, 
+    because in several cases data for one source comes from multiple original projects that have slightly 
+    different pointings. 
     
     Each averaged catalogue has a separate entry in
     \verb+MapFrameStatus+ and is linked to each original epoch remeasured catalogue
     through \verb+MapProvenance+, which contains the averaged catalogue
     identifier {\bf combiCatID}, the epoch catalogue identifier {\bf catalogueID}
     and the averaging setup ID {\bf avSetupID}. 
-    
+
+We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
+
+
+
     The code to calculate variability statistics as described in \cite{Cross2009} has
     not yet been completed to run with the matched aperture pipeline, so these are
-    not included.
+    not included. Variables were selected ...
+    
+    
     
 
 \subsection{MIR data}
