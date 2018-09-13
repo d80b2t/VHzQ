@@ -398,7 +398,7 @@ The near-infrared data in this paper comes from the Wide Field Astronomy Unit's
 In this paper we include all non-proprietary WFCAM data, which covers all
 public surveys and PI projects from Semester 05A to 1st January 2017 and all
 non-proprietary VISTA data, which covers all public surveys and PI projects from
-science verification (200910..) to 1st April 2016, to get as much coverage as
+science verification (20091015) to 1st April 2016, to get as much coverage as
 possible. Hence, the NIR coverage is extremely heterogeneous. 
 
 The data was processed using a forced photometry, or matched-aperture
@@ -419,33 +419,46 @@ WSA to WSERV1000, but adding a new line to the table \verb+ProgrammeFrame+ and
 same in VSA for VSERV1000. Assigning these frames to a separate programme allows
 us to process them together and put them into a single release. 
     
-    \subsubsection{Setup Matched Aperture Product}
+\subsubsection{Setup Matched Aperture Product}
     
-    Add a new entry \verb+RequiredMatchedApertureProduct+
+To create matched aperture products it is first necessary to define the product. We do this in two requirements tables, \verb+RequiredMatchedApertureProduct+ and \verb+RequiredMapAverages+ that
+tell the \textbf{ProgrammeBuilder} software which tables to create and what type of product is being created. These requirements tables also drive the pipeline. 
 
-    \begin{itemize}
-    \item mapID	archiveName	programmeID	extractor	mapType	name	description	selection	finalProductTable	addSurveyList
-    \item 1	1	WSA	10999	CASU	2	highzQsoMap	Variability via matched apertures for set of high-z QSOs	SELECTSTR qsoID,ra,dec FROMSTR finalQsoCatalogue	highzQsoMapVariability	NONE
-    \end{itemize}
+\verb+RequiredMatchedApertureProduct+ contains the following attributes for the High-z QSO MAP product.
+\begin{itemize}
+    \item mapID, Identifier of the MAP product, value=1	
+    \item archiveName, Main archive of product, value='VSA'/'WSA' 	
+    \item programmeID, UID of programme, in this case a combined programme, value=10999
+    \item extractor, Extractor used for forced photometry, value='CASU' (imcore_list)
+    \item mapType, Type of MAP product (options 0 internal band-merged, 1 band-merged across surveys, 2 multi-epoch), value=2 
+    \item name, Name of MAP product, value='highzQsoMap'
+    \item description, Description of MAP product, 'Variability via matched apertures for set of high-z QSOs'	
+    \item selection, Selection, e.g. File, pseudo-SQL, FITS image that is used to give input list, value='SELECTSTR qsoID,ra,dec FROMSTR finalQsoCatalogue'	
+    \item finalProductTable, Name of final product table, value='highzQsoMapVariability'
+    \item addSurveyList, List of additional archive/surveys that data comes from, value='NONE'
+\end{itemize}
     
-    Explain
+\verb+RequiredMatchedApertureProduct+ gives all of the information such as the {\it programmeID} (identifying which data), the {\it mapType} (type of processing), the {\it extractor} to use, the input list {\it selection}, which in this case is the IDs and positions of the QSOs in \verb+finalQsoCatalogue+ which contains all the literature data and pre-derived parameters for the 424 QSOs.   
     
-    Entries in \verb+RequiredMapAverages+
+\verb+RequiredMapAverages+ is used to setup the averaging of the MAP photometry from several images. We can average the epochs in multiple ways: over all the input images to a deep image, or similarly the input pawprint images to tile image in VISTA. Alternatively we can average over a fixed number of epochs or a fixed duration in time. Multiple setups can be defined in \verb+RequiredMapAverages+, and the different averages selected using the defined {\it setupID}.
     
     Add table?
     \begin{table*}
       \begin{center}
         \setlength{\tabcolsep}{4pt}
-        \begin{tabular}{lll lll lll l}
+        \begin{tabular}{ll lll lll l}
           \hline \hline
-          &  programmeID &	mapID &	setupID  &	description               &	useDeeps  &	useHighProd &	timeScale	    &  nEpochs     &	overLaps\\
+   programmeID &	mapID &	setupID  &	description               &	useDeeps  &	useHighProd &	timeScale	    &  nEpochs     &	overLaps\\
           \hline
-          1	& 10999	           &    1       &	1            &      Average over a week	 &     0        & 	NONE            &	+7.000000  &	-99999999 &	0\\
-          2	& 10999             & 	 1	  & 2   	     & Average over a fortnight &	0        &	NONE	&+14.000000	&-99999999 &	0\\
-          3	& 10999	           &    1  	 & 3	             & Average over a month	&      0        &	NONE	&+30.000000	&-99999999 &	0\\
-          4	& 10999             & 	 1	 & 4	              & Average over 10 epochs &	0        &	NONE	&-9.999995E008 &	10 &	0\\
-          5	& 10999             &	 1	 & 5	             & Average over 6 months   &	0        &	NONE	&+183.000000 &	-99999999 &	0\\
-          6	& 10999            &	 1	 & 6	           & Average over whole time  &	0        &	NONE	&-1.000000 &	-99999999 &	0\\
+10999	& 1 & 0 & Average over whole time & 0 &	NONE &	-1.000000 &	-99999999 &	1 \\
+10999	& 1 & 1 & Average over a week &	0 & NONE & +7.000000 &	-99999999 &	1\\
+10999	& 1 & 2	& Average over a fortnight & 0 & NONE &	+14.000000 & -99999999 & 1\\
+10999	& 1 & 3	& Average over a month & 0 & NONE & +30.000000 & -99999999 & 1\\
+10999	& 1 & 4	& Average over 10 epochs & 0 & NONE & -9.999995E008 & 10 & 1\\
+10999	& 1 & 5 & Average over 6 months	& 0 & NONE & +183.000000 & -99999999 & 1 \\
+10999	& 1 & 6	& Average over 1 year &	0 & NONE & +365.000000 & -99999999 & 1 \\
+10999	& 1 & 7	& Average over 2 years & 0 & NONE & +730.000000	& -99999999 & 1 \\
+10999	& 1 & 8 & Average over 3 months & 0 & NONE & +91.000000	& -99999999 & 1 \\
           \hline \hline
           \label{tab:The_Numbers}
         \end{tabular}
