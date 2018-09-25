@@ -38,8 +38,8 @@ alpha    = 1.00
 plot_num = 321
 totes    = 0
 
-#for x in range(upto_this):
-for x in range(10):
+for x in range(upto_this):
+#for x in range(10):
     x=x+1
     data_one = data[np.where(data['cntr_01'] == x)]
 
@@ -54,10 +54,9 @@ for x in range(10):
         dec = data_one['dec'][0]
 
         ## Setting up a 3 panel, "triptych" style plot
-        fig, (ax1, ax2, ax3) = plt.subplots(1,3, figsize=(21.5, 8.5), gridspec_kw = {'width_ratios':[3, 1, 1]}) # inches
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(21.5, 8.5), gridspec_kw = {'width_ratios':[2, 1]}) # inches
         #ax1 = plt.subplot(131, figsize=(12.0, 8.5) )
         #ax2 = plt.subplot(132, figsize=(5.0, 8.5))
-        #ax3 = plt.subplot(133, figsize=(5.0, 8.5), sharey=ax2)
 
         left   = 0.06   # the left side of the subplots of the figure
         right  = 0.98   # the right side of the subplots of the figure
@@ -66,7 +65,6 @@ for x in range(10):
         wspace = 0.26   # the amount of width reserved for blank space between subplots
         hspace = 0.06   # the amount of height reserved for white space between subplots
         plt.subplots_adjust(left=left, bottom=bottom, right=right, top=top, wspace=wspace, hspace=hspace)
-
 
         ## W1/2 Light-curves, y-axis reverse
         ##
@@ -93,25 +91,20 @@ for x in range(10):
         ax1.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
 
         ## W1 vs. color to look for color-changes...
-        ax2.scatter(data_one['w1mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
-        ax2.scatter(data_one['w1mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='r', alpha=alpha, s=ms)
-        ax2.set_xlabel('W1 magnitude',                   fontsize=fontsize)
+        #ax2.scatter(data_one['w1mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
+        #ax2.scatter(data_one['w1mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='r', alpha=alpha, s=ms)
+        ax2.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
+        ax2.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='c', alpha=alpha, s=ms)
+    
+        #ax2.set_xlabel('W1/W2 magnitude',                   fontsize=fontsize)
+        ax2.set_xlabel('W2 magnitude',                   fontsize=fontsize)
         ax2.set_ylabel('W1 - W2', fontsize=fontsize)
         ax2.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
         ax2.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
         ax2.set_title('(R.A., Decl.) = {} {} {}'.format(ra,',',dec), fontsize=fontsize)
 
-        ## W2 vs. color to look for color-changes...
-        ax3.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
-        ax3.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='c', alpha=alpha, s=ms)
-        ax3.set_xlabel('W2 magnitude',                   fontsize=fontsize)
-#        ax3.set_ylabel('W1 - W2', fontsize=fontsize)
-        ax3.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True',  labelsize=fontsize)
-        ax3.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='False', labelsize=fontsize)
-
-        ax2.get_shared_x_axes().join(ax2, ax3)
-        ax3.set_yticklabels([])
-        #plt.subplots_adjust(wspace=.0)
+        ax2.set_xlim((12.8,16.2))
+        ax2.set_ylim(-0.2, 3.2)
         
         ## Done with the page
         pdf_pages.savefig(fig)
