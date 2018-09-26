@@ -1,0 +1,20 @@
+
+
+wc IRSA_ALLWISE_Rejects.tbl
+      59    1155   10847 IRSA_ALLWISE_Rejects.tbl
+\RowsRetrieved = 40
+from
+\DATABASE = 'AllWISE Reject Table (allwise_p3as_psr)'
+
+
+wc IRSA_ALLWISE.tbl 
+     264    6282   58702 IRSA_ALLWISE.tbl
+\RowsRetrieved = 245
+from
+\DATABASE = 'AllWISE Source Catalog (allwise_p3as_psd)'
+
+
+wc IRSA_ALLWISE_and_Rejects.tbl 
+     289    7206   67249 IRSA_ALLWISE_and_Rejects.tbl
+
+should be 285??
