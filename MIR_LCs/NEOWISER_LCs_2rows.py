@@ -27,6 +27,7 @@ mjd_range_ALLWISE=[ALLWISE_MJD_min,ALLWISE_MJD_max]
 
 
 ## define the colormap
+plt.style.use('dark_background')
 cmap = plt.cm.inferno_r
 
 ls       = 'solid'
@@ -39,8 +40,8 @@ alpha    = 1.00
 plot_num = 321
 totes    = 0
 
-#for x in range(upto_this):
-for x in range(10):
+for x in range(upto_this):
+#for x in range(10):
     x=x+1
     data_one = data[np.where(data['cntr_01'] == x)]
 
@@ -71,10 +72,11 @@ for x in range(10):
         ##
         ## NEOWISE-R data
         #ax1.errorbar(DECaLS_g['mjd'], DECaLS_g['aper_diam2pnt0'], yerr=DECaLS_g['err_diam2pnt0'], ms=ms, fmt='P', linestyle=ls, linewidth=lw, color='olivedrab')
-        ms       = 6.0
-        ax1.errorbar(data_one['mjd'], data_one['w1mpro'], yerr=data_one['w1sigmpro'], color='k', alpha=alpha, ms=ms*1.8,  fmt='o')
+        ms       = 7.0
+        ## ms = 1.8 for 'k'; ms=  
+        ax1.errorbar(data_one['mjd'], data_one['w1mpro'], yerr=data_one['w1sigmpro'], color='w', alpha=alpha, ms=ms*1.6,  fmt='o')
         ax1.errorbar(data_one['mjd'], data_one['w1mpro'], yerr=data_one['w1sigmpro'], color='r', alpha=alpha, ms=ms,  fmt='o')
-        ax1.errorbar(data_one['mjd'], data_one['w2mpro'], yerr=data_one['w2sigmpro'], color='k', alpha=alpha, ms=ms*1.8,  fmt='o')
+        ax1.errorbar(data_one['mjd'], data_one['w2mpro'], yerr=data_one['w2sigmpro'], color='w', alpha=alpha, ms=ms*1.6,  fmt='o')
         ax1.errorbar(data_one['mjd'], data_one['w2mpro'], yerr=data_one['w2sigmpro'], color='c', alpha=alpha, ms=ms,  fmt='o')
 
         ## ALLWISE SINGLE MJD POINT
@@ -83,9 +85,9 @@ for x in range(10):
         #ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='k', alpha=alpha, s=s_large*1.8)
         #ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='c', alpha=alpha, s=s_large)
         s = 14.0
-        ax1.errorbar(ALLWISE_MJD_mid, data_one['w1mpro_allwise'][0], yerr=data_one['w1sigmpro_allwise'][0], color='k', alpha=alpha, ms=s*1.6,  fmt='o')
+        ax1.errorbar(ALLWISE_MJD_mid, data_one['w1mpro_allwise'][0], yerr=data_one['w1sigmpro_allwise'][0], color='w', alpha=alpha, ms=s*1.4,  fmt='o')
         ax1.errorbar(ALLWISE_MJD_mid, data_one['w1mpro_allwise'][0], yerr=data_one['w1sigmpro_allwise'][0], color='r', alpha=alpha, ms=s,  fmt='o')
-        ax1.errorbar(ALLWISE_MJD_mid, data_one['w2mpro_allwise'][0], yerr=data_one['w2sigmpro_allwise'][0], color='k', alpha=alpha, ms=s*1.6,  fmt='o')
+        ax1.errorbar(ALLWISE_MJD_mid, data_one['w2mpro_allwise'][0], yerr=data_one['w2sigmpro_allwise'][0], color='w', alpha=alpha, ms=s*1.4,  fmt='o')
         ax1.errorbar(ALLWISE_MJD_mid, data_one['w2mpro_allwise'][0], yerr=data_one['w2sigmpro_allwise'][0], color='c', alpha=alpha, ms=s,  fmt='o')
 
 
@@ -108,8 +110,8 @@ for x in range(10):
         #ax2.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
         #ax2.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='c', alpha=alpha, s=ms)
         mss= 60.
-        ax2.scatter(data_one['mjd'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=mss*1.8)
-        ax2.scatter(ALLWISE_MJD_mid, (data_one['w1mpro_allwise'][0]-data_one['w2mpro_allwise'][0]), color='k', alpha=alpha, s=s_large*1.8)
+        ax2.scatter(data_one['mjd'], (data_one['w1mpro']-data_one['w2mpro']),   color='w', alpha=alpha, s=mss*1.8)
+        ax2.scatter(ALLWISE_MJD_mid, (data_one['w1mpro_allwise'][0]-data_one['w2mpro_allwise'][0]), color='w', alpha=alpha, s=s_large*1.8)
     
     
         #ax2.set_xlabel('W1/W2 magnitude',                   fontsize=fontsize)
@@ -117,7 +119,6 @@ for x in range(10):
         ax2.set_ylabel('W1 - W2', fontsize=fontsize)
         ax2.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
         ax2.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
-
 
         ax2.set_xlim((55000,58140))
         ax2.set_ylim(-0.2, 3.2)
