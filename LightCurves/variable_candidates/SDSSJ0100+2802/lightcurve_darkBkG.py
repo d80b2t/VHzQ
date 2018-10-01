@@ -77,7 +77,6 @@ WFCAM_H_mjd = data_table[np.where(data_table['FILTERID'] == 4)]['MJD']
 WFCAM_K_mjd = data_table[np.where(data_table['FILTERID'] == 5)]['MJD']
 
 
-
 ##   
 ##   W I S E      reading-in the data...
 ##
@@ -176,14 +175,14 @@ yy_w1[5] = data['neowise_w1'][66:77].mean()
 yy_w1[6] = data['neowise_w1'][77:88].mean()
 yy_w1[7] = data['neowise_w1'][89:].mean()
 
-yy_w1err[0] = data['neowise_w1'][0:14].std()
-yy_w1err[1] = data['neowise_w1'][14:28].std()
-yy_w1err[2] = data['neowise_w1'][29:42].std()
-yy_w1err[3] = data['neowise_w1'][43:54].std()
-yy_w1err[4] = data['neowise_w1'][55:65].std()
-yy_w1err[5] = data['neowise_w1'][66:77].std()
-yy_w1err[6] = data['neowise_w1'][77:88].std()
-yy_w1err[7] = data['neowise_w1'][89:].std()
+yy_w1err[0] = data['neowise_w1'][0:14].std()/np.sqrt(10)
+yy_w1err[1] = data['neowise_w1'][14:28].std()/np.sqrt(10)
+yy_w1err[2] = data['neowise_w1'][29:42].std()/np.sqrt(10)
+yy_w1err[3] = data['neowise_w1'][43:54].std()/np.sqrt(10)
+yy_w1err[4] = data['neowise_w1'][55:65].std()/np.sqrt(10)
+yy_w1err[5] = data['neowise_w1'][66:77].std()/np.sqrt(10)
+yy_w1err[6] = data['neowise_w1'][77:88].std()/np.sqrt(10)
+yy_w1err[7] = data['neowise_w1'][89:].std()/np.sqrt(10)
 
 yy_w2[0] = data['neowise_w2'][0:14].mean()
 yy_w2[1] = data['neowise_w2'][14:28].mean()
@@ -194,14 +193,14 @@ yy_w2[5] = data['neowise_w2'][69:77].mean()
 yy_w2[6] = data['neowise_w2'][77:88].mean()
 yy_w2[7] = data['neowise_w2'][89:].mean()
 
-yy_w2err[0] = data['neowise_w2'][0:14].std()
-yy_w2err[1] = data['neowise_w2'][14:28].std()
-yy_w2err[2] = data['neowise_w2'][29:42].std()
-yy_w2err[3] = data['neowise_w2'][43:54].std()
-yy_w2err[4] = data['neowise_w2'][55:65].std()
-yy_w2err[5] = data['neowise_w2'][66:77].std()
-yy_w2err[6] = data['neowise_w2'][77:88].std()
-yy_w2err[7] = data['neowise_w2'][89:].std()
+yy_w2err[0] = data['neowise_w2'][0:14].std()/np.sqrt(10)
+yy_w2err[1] = data['neowise_w2'][14:28].std()/np.sqrt(10)
+yy_w2err[2] = data['neowise_w2'][29:42].std()/np.sqrt(10)
+yy_w2err[3] = data['neowise_w2'][43:54].std()/np.sqrt(10)
+yy_w2err[4] = data['neowise_w2'][55:65].std()/np.sqrt(10)
+yy_w2err[5] = data['neowise_w2'][66:77].std()/np.sqrt(10)
+yy_w2err[6] = data['neowise_w2'][77:88].std()/np.sqrt(10)
+yy_w2err[7] = data['neowise_w2'][89:].std()/np.sqrt(10)
 
 
 ##
@@ -222,68 +221,49 @@ alpha    = 1.00
 
 
 ## MJD ranges
-#xmin = 50000 - mjd_offset   # 
-xmin = 55000 - mjd_offset   #  No 2MASS
+xmin = 50000 - mjd_offset   # 
+#xmin = 55000 - mjd_offset   #  No 2MASS
 xmax = 56000 - mjd_offset   #  Just ALLWISE
 xmax = 58250 - mjd_offset   #  
 xmin_rest = (xmin/one_plus_z)
 xmax_rest = (xmax/one_plus_z)
-ymin = 17.70      # 18.20 with 2MASS
-ymax = 16.70   
+ymin = 18.20      # 18.20 with 2MASS  #17.70
+ymax = 16.70
+
 ##
 ## PLOTTING    2 M A S S
 ##
-#ax.scatter((twomass_mjd-mjd_offset)/one_plus_z, twomass_J_AB, s=ms*60*1.8, color='k',      label='')
 #ax.scatter((twomass_mjd-mjd_offset)/one_plus_z, twomass_J_AB, s=ms*60.,    color='orange', label="2MASSS J")
-#ax.scatter((twomass_mjd-mjd_offset)/one_plus_z, twomass_H_AB, s=ms*60*1.8, color='k',      label='')
 #ax.scatter((twomass_mjd-mjd_offset)/one_plus_z, twomass_H_AB, s=ms*60.,    color='gold',   label="2MASSS H")
-#ax.scatter((twomass_mjd-mjd_offset)/one_plus_z, twomass_K_AB, s=ms*60*1.8, color='k',      label='')
 #ax.scatter((twomass_mjd-mjd_offset)/one_plus_z, twomass_K_AB, s=ms*60.,    color='yellow', label="2MASSS Ks")
 ##
 ms=12
-ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_J_AB, yerr=twomass_Jerr, ms=ms*1.4, marker="o", color='k',      label=''     )
-ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_J_AB, yerr=twomass_Jerr, ms=ms,     marker="o", color='orange', label="2MASSS J")
-ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_H_AB, yerr=twomass_Herr, ms=ms*1.4, marker="o", color='k',      label='')
-ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_H_AB, yerr=twomass_Herr, ms=ms,     marker="o", color='gold',   label="2MASSS H")
-ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_K_AB, yerr=twomass_Kerr, ms=ms*1.4, marker="o", color='k',      label='')
-ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_K_AB, yerr=twomass_Kerr, ms=ms,     marker="o", color='yellow', label="2MASSS Ks")
-
+ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_J_AB, yerr=twomass_Jerr, ms=ms,     marker="o", color='darkgreen', label="2MASSS J")
+ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_H_AB, yerr=twomass_Herr, ms=ms,     marker="o", color='yellow',   label="2MASSS H")
+ax.errorbar((twomass_mjd-mjd_offset)/one_plus_z, twomass_K_AB, yerr=twomass_Kerr, ms=ms,     marker="o", color='orange', label="2MASSS Ks")
 
 ##
 ## PLOTTING   W F C A M 
 ##
 ms = 20
-ax.errorbar((WFCAM_J_mjd-mjd_offset)/one_plus_z, WFCAM_J, yerr=WFCAM_J_err, fmt='h', linestyle=ls, linewidth=lw, color='k',      ms=ms*1.4,  label='')
-ax.errorbar((WFCAM_J_mjd-mjd_offset)/one_plus_z, WFCAM_J, yerr=WFCAM_J_err, fmt='h', linestyle=ls, linewidth=lw, color='orange', ms=ms, label="WFCAM J")
-ax.errorbar((WFCAM_H_mjd-mjd_offset)/one_plus_z, WFCAM_H, yerr=WFCAM_H_err, fmt='h', linestyle=ls, linewidth=lw, color='k',      ms=ms*1.4,  label='')
-ax.errorbar((WFCAM_H_mjd-mjd_offset)/one_plus_z, WFCAM_H, yerr=WFCAM_H_err, fmt='h', linestyle=ls, linewidth=lw, color='gold',   ms=ms, label="WFCAM H")
-
+ax.errorbar((WFCAM_J_mjd-mjd_offset)/one_plus_z, WFCAM_J, yerr=WFCAM_J_err, fmt='h', linestyle=ls, linewidth=lw, color='darkgreen', ms=ms, label="WFCAM J")
+ax.errorbar((WFCAM_H_mjd-mjd_offset)/one_plus_z, WFCAM_H, yerr=WFCAM_H_err, fmt='h', linestyle=ls, linewidth=lw, color='yellow',    ms=ms, label="WFCAM H")
 
 ##
 ##  P L O T T I N G     W  I  S  E
 ##
 ##  PLOTTING  AllSky
 ms=6.0
-#ax.scatter(AllSky_W1mjd-mjd_offset, AllSky_W1_AB, s=ms*60*1.8, color='k',         label='')
-#ax.scatter(AllSky_W2mjd-mjd_offset, AllSky_W2_AB, s=ms*60*1.8, color='k',         label='')
-#ax.scatter(AllSky_W3mjd-mjd_offset, AllSky_W3_AB, s=ms*60*1.8, color='k')
-#ax.scatter(AllSky_W4mjd-mjd_offset, AllSky_W4_AB, s=ms*60*1.8, color='k')
 #ax.scatter(AllSky_W1mjd-mjd_offset, AllSky_W1_AB, s=ms*60,     color='peru',      label='WISE AllSky')
 #ax.scatter(AllSky_W2mjd-mjd_offset, AllSky_W2_AB, s=ms*60,     color='orangered', label='WISE AllSky')
 #ax.scatter(AllSky_W3mjd-mjd_offset, AllSky_W3_AB, s=ms*60,     color='red')
 #ax.scatter(AllSky_W4mjd-mjd_offset, AllSky_W4_AB, s=ms*60,     color='darkred')
 ms=12
-ax.errorbar(AllSky_W1mjd-mjd_offset, AllSky_W1_AB, ms=ms*1.4, marker="o", color='k',         label='')
-ax.errorbar(AllSky_W2mjd-mjd_offset, AllSky_W2_AB, ms=ms*1.4, marker="o", color='k',         label='')
-ax.errorbar(AllSky_W1mjd-mjd_offset, AllSky_W1_AB, ms=ms,     marker="o", color='peru',      label='')
-ax.errorbar(AllSky_W2mjd-mjd_offset, AllSky_W2_AB, ms=ms,     marker="o", color='orangered', label='')
+ax.errorbar(AllSky_W1mjd-mjd_offset, AllSky_W1_AB, yerr=AllSky_W1err, ms=ms,     marker="o", color='red',  label='')
+ax.errorbar(AllSky_W2mjd-mjd_offset, AllSky_W2_AB, yerr=AllSky_W1err, ms=ms,     marker="o", color='m',    label='')
 
 ##  PLOTTING  AllSky  L1bs
 ms=1.5
-#ax.scatter(AllSky_L1bs_mjd-mjd_offset, AllSky_w1_L1bs_AB, s=ms*60*1.8, color='k')
-#ax.scatter(AllSky_L1bs_mjd-mjd_offset, AllSky_w2_L1bs_AB, s=ms*60*1.8, color='k')
-#ax.scatter(AllSky_L1bs_mjd-mjd_offset, AllSky_w3_L1bs_AB, s=ms*60*1.8, color='k')
-#ax.scatter(AllSky_L1bs_mjd-mjd_offset, AllSky_w4_L1bs_AB, s=ms*60*1.8, color='k')
 #ax.scatter(AllSky_L1bs_mjd-mjd_offset, AllSky_w1_L1bs_AB, s=ms*60,     color='peru')
 #ax.scatter(AllSky_L1bs_mjd-mjd_offset, AllSky_w2_L1bs_AB, s=ms*60,     color='orangered')
 #ax.scatter(AllSky_L1bs_mjd-mjd_offset, AllSky_w3_L1bs_AB, s=ms*60,     color='red')
@@ -291,37 +271,29 @@ ms=1.5
 
 ms=6.0
 ##  PLOTTING  ALLWISE
-#ax.scatter(ALLWISE_W1mjd-mjd_offset, ALLWISE_W1_AB, s=ms*60*1.8, color='k')
-#ax.scatter(ALLWISE_W2mjd-mjd_offset, ALLWISE_W2_AB, s=ms*60*1.8, color='k')
-#ax.scatter(ALLWISE_W3mjd-mjd_offset, ALLWISE_W3_AB, s=ms*60*1.8, color='k')
-#ax.scatter(ALLWISE_W4mjd-mjd_offset, ALLWISE_W4_AB, s=ms*60*1.8, color='k')
 #ax.scatter(ALLWISE_W1mjd-mjd_offset, ALLWISE_W1_AB, s=ms*60, color='peru')
 #ax.scatter(ALLWISE_W2mjd-mjd_offset, ALLWISE_W2_AB, s=ms*60, color='orangered')
 #ax.scatter(ALLWISE_W3mjd-mjd_offset, ALLWISE_W3_AB, s=ms*60, color='red')
 #ax.scatter(ALLWISE_W4mjd-mjd_offset, ALLWISE_W4_AB, s=ms*60, color='darkred')
 ms=12.
-ax.errorbar(ALLWISE_W1mjd-mjd_offset, ALLWISE_W1_AB, yerr=ALLWISE['w1sigmpro'], ms=ms*1.4, color='k',         marker="o", label='')
-ax.errorbar(ALLWISE_W2mjd-mjd_offset, ALLWISE_W2_AB, yerr=ALLWISE['w2sigmpro'], ms=ms*1.4, color='k',         marker="o", label='')
-ax.errorbar(ALLWISE_W1mjd-mjd_offset, ALLWISE_W1_AB, yerr=ALLWISE['w1sigmpro'], ms=ms,     color='peru',      marker="o", label='WISE W1')  #label='ALLWISE W1' 
-ax.errorbar(ALLWISE_W2mjd-mjd_offset, ALLWISE_W2_AB, yerr=ALLWISE['w2sigmpro'], ms=ms,     color='orangered', marker="o", label='WISE W2')
+#ax.errorbar(ALLWISE_W1mjd-mjd_offset, ALLWISE_W1_AB, yerr=ALLWISE['w1sigmpro'], ms=ms*1.4, color='k',         marker="o", label='')
+#ax.errorbar(ALLWISE_W2mjd-mjd_offset, ALLWISE_W2_AB, yerr=ALLWISE['w2sigmpro'], ms=ms*1.4, color='k',         marker="o", label='')
+ax.errorbar(ALLWISE_W1mjd-mjd_offset, ALLWISE_W1_AB, yerr=ALLWISE['w1sigmpro'], ms=ms,     color='red',      marker="o", label='WISE W1')  #label='ALLWISE W1' 
+ax.errorbar(ALLWISE_W2mjd-mjd_offset, ALLWISE_W2_AB, yerr=ALLWISE['w2sigmpro'], ms=ms,     color='m', marker="o", label='WISE W2')
 
 
 ## NEOWISE averages
 ms=6.0
-#ax.scatter((xx-mjd_offset)/one_plus_z, (yy_w1 + 2.699), s=ms*60.*1.8, color='k')
-#ax.scatter((xx-mjd_offset)/one_plus_z, (yy_w2 + 3.339), s=ms*60.*1.8, color='k')
 #ax.scatter((xx-mjd_offset)/one_plus_z, (yy_w1 + 2.699), s=ms*60.,     color='peru')
 #ax.scatter((xx-mjd_offset)/one_plus_z, (yy_w2 + 3.339), s=ms*60.,     color='orangered')
 ms=8.0
-ax.errorbar((xx-mjd_offset)/one_plus_z, (yy_w1 + 2.699), yerr=yy_w1err, ms=ms*1.4,  color='k',         marker="o", label='')
-ax.errorbar((xx-mjd_offset)/one_plus_z, (yy_w1 + 2.699), yerr=yy_w1err, ms=ms,      color='peru',      marker="o", label='')  # label='NEOWISE W1'
-ax.errorbar((xx-mjd_offset)/one_plus_z, (yy_w2 + 3.339), yerr=yy_w2err, ms=ms*1.4,  color='k',         marker="o", label='')
-ax.errorbar((xx-mjd_offset)/one_plus_z, (yy_w2 + 3.339), yerr=yy_w2err, ms=ms,      color='orangered', marker="o", label='')
+ax.errorbar((xx-mjd_offset)/one_plus_z, (yy_w1 + 2.699), yerr=yy_w1err, ms=ms, color='red', marker="o", label='')  # label='NEOWISE W1'
+ax.errorbar((xx-mjd_offset)/one_plus_z, (yy_w2 + 3.339), yerr=yy_w2err, ms=ms, color='m',   marker="o", label='')
 
 ## Plotting the SPECTRA as vertical lines
 ## Wu et al., 2015, Nature, 518, 512
 lw = 5.0
-plt.axvline(x=56655-mjd_offset, linewidth=lw, color='b')
+plt.axvline(x=56655-mjd_offset, linewidth=lw, color='b', label='Wu+(2015) spectrum')
 
 
 ax.set_xlim((xmin, xmax))
@@ -334,12 +306,12 @@ plt.xlabel('MJD-50000')
 #plt.xlabel('Days in the rest-frame')
 plt.ylabel('magnitude (AB)')
 
-plt.legend(loc="lower right", ncol=1,
-#plt.legend(loc="lower center", ncol=3, 
+#plt.legend(loc="lower right", ncol=1,
+plt.legend(loc="lower center", ncol=2, 
            shadow=True, fancybox=False,frameon=True, 
-           fontsize=fontsize/2.)
+           fontsize=fontsize/1.6)
 
-
-plt.savefig('J0100_lc_temp.pdf', format='pdf')
+plt.savefig('J0100_lc_darkBkg_temp.pdf', format='pdf')
+plt.savefig('J0100_lc_darkBkg_temp.png', format='png')
 plt.close(fig)
 
