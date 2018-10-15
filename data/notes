@@ -1,5 +1,34 @@
 
 
+
+ Near Infrared Database
+===========================================================================
+
+
+Go to
+   wsa.roe.ac.uk
+
+and login with these credentials::
+
+    username: WSERV1000
+    password: highzqso
+    community: nonsurvey
+
+Menu query
+
+     http://wsa.roe.ac.uk:8080/wsa/menu_form.jsp
+
+WSERV1000v20180920
+vs
+WSERV1000v20180716
+
+
+
+
+
+
+
+
 wc IRSA_ALLWISE_Rejects.tbl
       59    1155   10847 IRSA_ALLWISE_Rejects.tbl
 \RowsRetrieved = 40

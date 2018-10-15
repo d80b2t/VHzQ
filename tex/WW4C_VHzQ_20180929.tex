@@ -396,57 +396,251 @@ The near-infrared data in this paper comes from the Wide Field Astronomy Unit's
 \citep[VDFS][]{VDFS}.
 
 In this paper we include all non-proprietary WFCAM data, which covers all
-public surveys and PI projects from Semester 05A to 1st January 2017, and all
+public surveys and PI projects from Semester 05A to 1st January 2017 and all
 non-proprietary VISTA data, which covers all public surveys and PI projects from
-science verification (20091015) to 1st April 2016. 
+science verification (20091015) to 1st April 2016, to get as much coverage as
+possible. Hence, the NIR coverage is extremely heterogeneous. 
 
-The data was processed using a matched-aperture photometry method
-where flux is recovered at the spectroscopic position of the quasar,
-without necessarily knowing if there is a formal detection in the NIR
-photometry beforehand.  Full details of the matched-aperture pipeline
-will appear in a forthcoming paper, Cross et al.  2018, in prep, and
-has also been discussed in \citet{Cross2013}.  
-
-We query the WSA and VSA performing matched-aperature photometry at
-the positions of our 424 VH$z$Qs. We return a database with $xxxx$
-entries. This database is world-readable and we give the full receipe
-and relevant SQL queries in Appendix~\ref{sec:SQL}.
+The data was processed using a forced photometry, or matched-aperture
+photometry. A pipeline for this has been developed by WFAU, but
+has not yet been incorporated into the main VDFS pipeline. Full details of the
+matched-aperture pipeline (MAP) will appear in a forthcoming paper, Cross et al.
+2018, in prep, and has also been discussed in \citet{Cross2013}.  
+%% and \citet{Cross2017} -- Can't find Cross et al. 2017 in NASA/ADS. [NJC: this was a conference proceeding
+%% from ADASS2016. They just contacted me about the copyright. They are so slow even though we 
+%% had to submit our proceedings before the conference. I had assumed it was already published.]
+We will give the pertinent points of the MAP and specific details of these data sets below.
    
+The first step of the process was to ingest the catalogue of VHzQs into
+the WSA/VSA. These data are stored in the table \verb+finalQsoCatalogue+. Next we set
+up new programmes WSERV1000, VSERV1000 in the WSA and VSA respectively. We
+assign all frames that potentially contain the high-z QSO based on WCS information in the
+WSA to WSERV1000, but adding a new line to the table \verb+ProgrammeFrame+ and
+same in VSA for VSERV1000. Assigning these frames to a separate programme allows
+us to process them together and put them into a single release. 
+    
+\subsubsection{Setup Matched Aperture Product}
+To create matched aperture products it is first necessary to define
+the product. We do this in two requirements tables,
+\verb+RequiredMatchedApertureProduct+ and \verb+RequiredMapAverages+
+that tell the \textbf{ProgrammeBuilder} software which tables to
+create and what type of product is being created. These requirements
+tables also drive the pipeline.
+
+\verb+RequiredMatchedApertureProduct+ contains the following attributes for the High-z QSO MAP product.
+\begin{itemize}
+    \item mapID, Identifier of the MAP product, value=1	
+    \item archiveName, Main archive of product, value='VSA'/'WSA' 	
+    \item programmeID, UID of programme, in this case a combined programme, value=10999
+    \item extractor, Extractor used for forced photometry, value='CASU' (imcore\_list)
+    \item mapType, Type of MAP product (options 0 internal band-merged, 1 band-merged across surveys, 2 multi-epoch), value=2 
+    \item name, Name of MAP product, value='highzQsoMap'
+    \item description, Description of MAP product, 'Variability via matched apertures for set of high-z QSOs'	
+    \item selection, Selection, e.g. File, pseudo-SQL, FITS image that is used to give input list, value='SELECTSTR qsoID,ra,dec FROMSTR finalQsoCatalogue'	
+    \item finalProductTable, Name of final product table, value='highzQsoMapVariability'
+    \item addSurveyList, List of additional archive/surveys that data comes from, value='NONE'
+\end{itemize}
+    
+\verb+RequiredMatchedApertureProduct+ gives all of the information such as the {\it programmeID} (identifying which data), the {\it mapType} (type of processing), the {\it extractor} to use, the input list {\it selection}, which in this case is the IDs and positions of the QSOs in \verb+finalQsoCatalogue+ which contains all the literature data and pre-derived parameters for the 424 QSOs.   
+    
+\verb+RequiredMapAverages+ is used to setup the averaging of the MAP photometry from several images. We can average the epochs in multiple ways: over all the input images to a deep image, or similarly the input pawprint images to tile image in VISTA. Alternatively we can average over a fixed number of epochs or a fixed duration in time. Multiple setups can be defined in \verb+RequiredMapAverages+, and the different averages selected using the defined {\it setupID}.
+    
+    Add table?
+    \begin{table*}
+      \begin{center}
+        \setlength{\tabcolsep}{4pt}
+        \begin{tabular}{ll lll lll l}
+          \hline \hline
+   programmeID &	mapID &	setupID  &	description               &	useDeeps  &	useHighProd &	timeScale	    &  nEpochs     &	overLaps\\
+          \hline
+10999	& 1 & 0 & Average over whole time & 0 &	NONE &	-1.000000 &	-99999999 &	1 \\
+10999	& 1 & 1 & Average over a week &	0 & NONE & +7.000000 &	-99999999 &	1\\
+10999	& 1 & 2	& Average over a fortnight & 0 & NONE &	+14.000000 & -99999999 & 1\\
+10999	& 1 & 3	& Average over a month & 0 & NONE & +30.000000 & -99999999 & 1\\
+10999	& 1 & 4	& Average over 10 epochs & 0 & NONE & -9.999995E008 & 10 & 1\\
+10999	& 1 & 5 & Average over 6 months	& 0 & NONE & +183.000000 & -99999999 & 1 \\
+10999	& 1 & 6	& Average over 1 year &	0 & NONE & +365.000000 & -99999999 & 1 \\
+10999	& 1 & 7	& Average over 2 years & 0 & NONE & +730.000000	& -99999999 & 1 \\
+10999	& 1 & 8 & Average over 3 months & 0 & NONE & +91.000000	& -99999999 & 1 \\
+          \hline \hline
+          \label{tab:reqMapAvg}
+        \end{tabular}
+        \caption{}
+      \end{center}
+    \end{table*}
+    
+    
+    \subsubsection{Processing MAP data and Forced photometry} 
+    A set of apertures to do forced photometry with were created in 
+    \verb+MapApertureIDshighzQsoMap+, based on the \verb+RequiredMatchedApertureProduct+ 
+    {\it selection} value, which in this case is to use the known positions of $z>5$ QSOs. This may
+    seem unnecessary layer since it is a one-to-one match with \verb+finalQsoCatalogue+,
+    but the layer is a general abstraction that allows multiple selections of data, including complex queries
+    or input images.
+    
+    CASU's \verb+imcore_list+ was run on each frame assigned to the programme with
+    the input list equal to objects selected to be within \ldots of the multiframe
+    centre. In this case, where there are 424 QSOs spread across the sky, there is
+    typically 1 object per multiframe, but many have two and one frame,
+    multiframeID=2614475 in the VSA (a J-band stack from a P90 PI programme), has 3 objects. 
+    The output of \verb+imcore_list+
+    is a multi-extension FITS binary table, with identical columns to the CASU FITS
+    binary tables produced using the CASU \verb+imcore+\footnote{http://casu.ast.cam.ac.uk/surveys-projects/vista/technical/catalogue-generation}, the basis of all WFCAM and
+    VISTA survey catalogue products and also familiar to many astronomers through the INTWFS, 
+    VST-ATLAS and VPHAS. Since forced photometry can be run
+    in many ways on a particular image depending on the input catalogue, a single science frame is not
+    necessarily linked to a single MAP catalogue, so the \verb+MapFrameStatus+ table
+    links images ({\bf multiframeID}) to catalogues ({\bf catalogueID}).
+    For matched aperture measurements, we process these binary tables using the same
+    software, as the standard extracted catalogues, but implement a few different
+    processes. We calculate both Luptitudes \citep{Luptitudes}, and calibrated fluxes,
+    see Eqn~\ref{eq:jky}. 
+    
+    \begin{equation}
+      F^{calib} = f\times10^{-0.4*(ZP+VAB-8.90+corr)} 
+      \label{eq:jky}
+    \end{equation}
+    
+    \noindent where $f$ is the measured flux in ADU, $ZP$ is the zeropoint of
+    frame, $VAB$ is the Vega-to-AB correction for the filter, and $corr$ are the
+    various correction terms, e.g. distortion correction, scattered light
+    correction, aperture correction, see \citep{Hambly2008, Cross2012}. 
+    
+    Once all data is processed, the data are ingested into
+    \verb+wserv1000MapRemeasurement+ and \verb+vserv1000MapRemeasurement+
+    respectively. These tables are similar in structure to \verb+lasDetection+
+    described in \citep{Hambly2008} or other UKIDSS or VISTA detection tables. One of
+    the main differences is the primary key which is ({\bf apertureID},{\bf
+      catalogueID}) rather than ({\bf multiframeID},{\bf extNum},{\bf seqNum}),
+    reflecting the fact that these are forced photometry on a known set of apertures
+    and a set of catalogues, rather than detections above a threshold in a set of
+    detector extensions to image multiframes.
+    
+    Quasars are known to vary (both photometrically and spectroscopically)
+and very high-$z$ quasars under going super-Eddington accretion during
+a rapid BH growth phase are prime candidates for this variation. [NJC: This is better placed somewhere else. We first used it to justify averaging over ~4 weeks, but then decided to average over many periods and select later.]
+Therefore, with repeat observations over many epochs available via the
+WSA, we have a choice to make for how we report the photometry. The remeasured photometry is averaged to
+improve signal-to-noise over all the averaging schemes setup in Table~\ref{tab:reqMapAvg}. This allows us to get the best combination of signal-to-noise and number of epochs for different QSOs.
+
+    
     \subsubsection{Averaging matched photometry}
-    The photometry in a single epoch image often has low
-    signal-to-noise.  The advantage of matched aperture photometry on QSOs
-    is that co-adding is relatively simple if each epoch is taken in the
-    same aperture and the aperture photometry has been corrected to
-    total. Indeed, the standard aperture corrections work well for point
-    sources. Coadding using the matched-aperature photometry, where the
-    individual epochs are taken from multiple projects with different
-    pointings and orientations, should help with issues such as scattered
-    light, pixel distortion and aperture corrections.
+    Unfortunately the photometry in a single epoch image often has low
+    signal-to-noise. The advantage of matched aperture photometry on QSOs is that
+    co-adding is relatively simple: if each epoch is taken in the same aperture
+    (assuming the astrometry is correct) and the aperture photometry has been
+    corrected to total: the standard aperture corrections work well for point
+    sources then averaging the calibrated photometry should give as good as
+    extracting from a deep stack. In fact it will almost certainly do better, since
+    the images in some cases are taken from multiple projects with different
+    pointings, and orientations and exposures, so stacking may not be optimal. 
+    In addition, corrections such as scattered light, pixel distortion
+    and aperture corrections will be more complex, if not impossible to apply to
+    deep-stacks but will be automatically applied in the averaging of forced
+    photometry. 
     
     We average the aperture corrected calibrated fluxes (e.g. {\bf aperJky3}), and
-    then convert to magnitudes. Since we do not have a deep image for
+    then convert to magnitudes or luptitudes. Since we do not have a deep image for
     each set of averages, we cannot calculate non-aperture corrected values, so the
     photometry is only appropriate for point-sources. 
-
+    
     \begin{equation}
       \bar{F} = \frac{\sum_i^N (w_i\,F_i)}{\sum_i^N w_i}  
       \label{eq:avg}
     \end{equation}
-    where $F_i$ is the $i^{th}$ epoch measurement of a parameter to be
+    
+    \noindent where $F_i$ is the $i^{th}$ epoch measurement of a parameter to be
     averaged such as the aperture corrected calibrated flux in a $1\arcsec$ aperture
     ({\bf aperJky3}) and $\bar{F}$ is the weighted mean average of this parameter.
     The weight for each epoch $w_i=1/(\sigma_{F})^2$ if the epoch is included and 
-    $w_i=0$ if an epoch is excluded for quality control purposes. 
+    $w_i=0$ if an epoch is excluded for quality control purposes. We exclude inputs
+    where the bitwise quality flag, {\bf ppErrBits}>256, and additionally, in the
+    case of VISTA, we exclude data on detector 16 ({\bf extNum=17}), where the 
+    quantum efficiency is variable. If all remeasurements are excluded, then one  of
+    the ones with the lowest {\bf ppErrBits} is used. In this case the averages 
+    will be equal to the original measurement, and the reader may wonder why we 
+    bother to duplicate the data. It is important to do this to simplify queries 
+    for users who will then not have to set up complex queries to work out where 
+    the data is, and only around $2\%$ of VISTA MAP measurements were excluded  so
+    the fraction of duplications is very low. The average data is stored in 
+    \verb+wserv1000MapRemeasAver+ for WFCAM and \verb+vserv1000MapRemeasAver+ for 
+    VISTA, which again are organised with a primary key of ({\bf apertureID},{\bf catalogueID}).
+    Some parameters that are averaged do not have an error $\sigma_{F}$, so in these
+    cases we weight them using the {\bf averageConf} parameter, which has a median
+    of 100. In the case of WFCAM where this is not calculated, we set each epoch to
+    have an {\bf averageConf}$=100$. The {\bf sumWeights} parameter in the
+    \verb+MapRemeasAver+ tables is the sum of all the {\bf averageConf} values that
+    went into the calculation and the \verb+vserv1000MapAverageWeights+ table gives
+    the weights for each epoch, linked to each average for VSERV1000. 
     
     We calculate a set of averaged catalogues, for each pointing and filter, based
     on the requirements in \verb+RequiredMapAverages+, in these cases over time
     spans of 7, 14, 30, 91, 183 days, 365 days, 730 days, over 10 epochs and over all epochs,
     see Tab.~\ref{tab:reqMapAvg}. The
-    averaging process starts at the first epoch and works on.
-    %%
-    We give examples of the SQL queries syntax in Appendix~\ref{sec:SQL}.
-           
-    114 quasars have both WFCAM and VISTA data. 
+    averaging process starts at the first epoch and works on. Possible future
+    refinements could first look for denser groupings that satisfied the criteria so
+    that these were not split into two groups. For this high-z QSO project we have averaged over overlaps, 
+    because in several cases data for one source comes from multiple original projects that have slightly 
+    different pointings. 
+    
+    Each averaged catalogue has a separate entry in
+    \verb+MapFrameStatus+ and is linked to each original epoch remeasured catalogue
+    through \verb+MapProvenance+, which contains the averaged catalogue
+    identifier {\bf combiCatID}, the epoch catalogue identifier {\bf catalogueID}
+    and the averaging setup ID {\bf avSetupID}. 
+
+We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
+
+
+
+    The code to calculate variability statistics as described in \cite{Cross2009} has
+    not yet been completed to run with the matched aperture pipeline, so these are
+    not included. Variables were selected ...
+    
+    
+    
+
+\subsubsection{Selection of NIR variables}
+To select potentially variable QSOs we first did a selection like
+Appendix D(??), selecting the photometry averaged over the whole time
+span to assess the overall signal-to-noise, total timespan and number
+of measurements. For each QSO in each filter measured by each
+instrument, our initial selection for potential variables was $N_{\rm
+meas}\geq8$, $T_{\rm tot}=\max{mjd}-\min{mjd}>30.$ days, $F>0.$ Jky
+and SNR>8, to give a signal-to-noise of $\sim\geq3$ per epoch and at
+least five measurements. An estimate was made of the number of useful
+epochs, such that $N_{\rm epc}=\min(N_{\rm
+meas},\frac{SNR}{sqrt{3.}}$. This in turn was used to estimate a
+typical time-scale for averaging, $T_{\rm avg}=\frac{T_{\rm
+tot}}{N_{\rm meas}}$.
+
+We select average photometry where $(T_{\rm
+avg}/2.)\leq\verb+RequiredMapAverages.timeScale+\leq(2.*T_{\rm avg})$,
+a setup that should give the best combination of more epochs to
+resolve the variation and signal-to-noise per epoch. For each setup
+which satisfies this criteria, we get the averaged photometry and
+check the statistics. We calculate the median, and the
+median-absolute-deviation (MAD), and calculate the ratio of the
+standard deviation to the typical error, 
+$r=\frac{1.48MAD} {{\overline{error}/\sqrt(N_{\rm epochs})}}$. Likely variables have
+$rat\geq3.$ and $N_{\rm epoch}\geq4$. Using this selection, we found
+two potential variables, xx and yy, both of which show variability in
+VISTA, with timescales of xn and ym, respectively. [Put in results]
+
+As stated before, 114 QSOs have both WFCAM and VISTA data, and so some
+variables with fewer measurements in each, may also be variables. We
+took all of the intially selected variables that had both WFCAM and
+VISTA data, and looked for potential timescales in either WFCAM or
+VISTA, and if there was at least one good timescale, appropriate
+timescales were applied to both WFCAM and VISTA photometry: i.e. if a
+timescale of 30 days was found for WFCAM and 90 days for VISTA then
+the combined light curve would be averaged over 30 days for WFCAM and
+90 days for VISTA; if only a 90 day average timescale for VISTA was
+found, then both WFCAM and VISTA would be averaged by 90 days, and if
+multiple averaging timescales were found, all suitable combinations
+would be tested. The same analysis of median and MAD was applied to
+the combined light-curves to find any additional potential
+variables. 2 more potential variables were found.
 
 
 
@@ -1025,10 +1219,6 @@ $\Delta$(vsCASU v1.3)::
 \end{table*}
 https://www.gemini.edu/sciops/instruments/magnitudes-and-fluxes
 
-
-
-
-
 \section{PanSTARRS1 SQL queries}\label{sec:PS1_SQL}
 The PS1 Casjobs SQL Server is located at
 \href{http://mastweb.stsci.edu/ps1casjobs}{mastweb.stsci.edu/ps1casjobs}.
@@ -1067,22 +1257,16 @@ inner join MeanObject m on o.objid=m.objid  and o.uniquePspsOBid=m.uniquePspsOBi
 \end{lstlisting}
 \twocolumn
 
-
 \section{Near-Infrared WFCAM Science Archive SQL queries}\label{sec:SQL}
 Here we give the receipe and SQL that returned the near-infrared photometry 
 for the VH$z$Qs. 
 
-The data are on the WFCAM Science Archive: \href{wsa.roe.ac.uk}{\tt wsa.roe.ac.uk}. 
-Access the User Login form \href{WFCAM Science Archive}{\tt wsa.roe.ac.uk/login.html} 
-with these credentials::
-\begin{itemize}
-    \item Username: {\tt WSERV1000}
-    \item password: {\tt highzqso}
-    \item community: {\tt nonsurvey}
-\end{itemize}
-Then going to the \href{http://wsa.roe.ac.uk:8080/wsa/SQL_form.jsp}{[\tt Free Form SQL 
-Query} page the Database release {\tt WSERV1000v20180716} can be accessed which 
-contains all the data we use here. 
+\begin{enumerate}
+\item http://wsa.roe.ac.uk/ 
+\item Login
+\item {\tt username:	WSERV1000;  password: 	highzqso;   community: 	nonSurvey} 
+\item Freeform SQL Query with  WSERV1000v20180327
+\end{enumerate}
 
 
 \onecolumn
