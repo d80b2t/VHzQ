@@ -1,0 +1,19 @@
+
+
+results15_17_45_23_44110.fits
+and
+results15_22_9_52_44155.csv
+made using::
+
+Connecting to WSERV1000v20180716 database
+QUERY STARTED: Mon Oct 15 17:45:23 BST 2018   [1 active, 164317 total]
+
+SELECT qso.qsoName, qso.ra, qso.dec, aver.apertureID, aver.aperJky3, aver.aperJky3Err, aver.sumWeight, aver.ppErrBits, m.mjdObs, m.filterID, remeas.aperJky3, remeas.aperJky3Err, w.weight, remeas.ppErrBits, m.project
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, wserv1000MapRemeasAver as aver, wserv1000MapRemeasurement as remeas, MapProvenance as v, wserv1000MapAverageWeights as w, MapFrameStatus as mfs, Multiframe as m
+WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and aver.apertureID=remeas.apertureID and aver.catalogueID=v.combicatID and v.avSetupID=1 and v.catalogueID=remeas.catalogueID and w.combicatID=v.combicatID and w.catalogueID=v.catalogueID and w.apertureID=aver.apertureID and mfs.catalogueID=remeas.catalogueID and m.multiframeID=mfs.multiframeID and mfs.programmeID=10999 and mfs.mapID=1 order by v.combicatID, m.mjdObs
+
+
+
+results15_22_24_24_44158.fits
+results15_22_22_45_44156.csv
+gets rid of the  aver. values
