@@ -14,9 +14,9 @@ Table~\ref{tab:THE_TABLE}.
         ]
 SELECT 
 qso.qsoName,  qso.ra,  qso.dec, 
-aver.apertureID,  aver.aperJky3, 
-aver.aperJky3Err, aver.sumWeight, 
-aver.ppErrBits, m.mjdObs, 
+aver.apertureID,  aver.aperJky3 as aperJky3Aver, 
+aver.aperJky3Err as aperJky3AverErr, aver.sumWeight, 
+aver.ppErrBits as ppErrBitsAver, m.mjdObs, 
 m.filterID, remeas.aperJky3, 
 remeas.aperJky3Err, 
 w.weight, remeas.ppErrBits, 
