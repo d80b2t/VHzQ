@@ -1080,9 +1080,27 @@ with these credentials::
     \item password: {\tt highzqso}
     \item community: {\tt nonsurvey}
 \end{itemize}
-Then going to the \href{http://wsa.roe.ac.uk:8080/wsa/SQL_form.jsp}{[\tt Free Form SQL 
-Query} page the Database release {\tt WSERV1000v20180716} can be accessed which 
-contains all the data we use here. 
+Then going to the
+\href{http://wsa.roe.ac.uk:8080/wsa/SQL_form.jsp}{{\tt Free Form SQL
+Query}} page the Database release {\tt WSERV1000v20180716} can be
+accessed which contains all the data we use here.
+
+We {\it nota bene} a few things. First, the quantity {\tt aperJky3}
+and {\tt aperJky3Err} are found in the {\tt wserv1000MapRemeasAver}
+and {\tt wserv1000MapRemeasurement}, so care has to be taken to return
+unique column names (otherwise e.g.
+\href{http://docs.astropy.org/en/stable/io/fits/}{astropy.io.fits}
+will crash).  As such, we alias {\tt aver.aperJky3} to {\tt
+aperJky3Aver} and likewise for the error quantity. Aliases will be
+necessary in some cases anyway, because some queries can be done
+sensibly on multiple instances of the same table. Other times, one may
+join tables on quantities such as {\tt catalogueID} or {\tt
+apertureID}, where you are meaning the same thing, but aliases would
+again be sensible.
+
+Second, the {\tt RA} and {\tt DEC} values returned by the WSA are in radians. 
+
+
 
 
 \onecolumn
