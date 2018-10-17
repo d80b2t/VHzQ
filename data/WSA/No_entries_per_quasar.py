@@ -59,7 +59,7 @@ def unique(list1):
         print(x)
 
 ## Look at the unique RAs
-unique(data.RA)
+#unique(data.RA)
 
 unique_elements, counts_elements = np.unique(data.QSONAME, return_counts=True)
 print("Frequency of unique values of the said array:")
