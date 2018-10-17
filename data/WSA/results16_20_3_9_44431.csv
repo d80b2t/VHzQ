@@ -1,23 +1,25 @@
-# qsoName,ra,dec,apertureID,aperJky3,aperJky3Err,sumWeight,ppErrBits,mjdObs,filterID,aperJky3,aperJky3Err,weight,ppErrBits,project
+# qsoName,ra,dec,apertureID,aperJky3Aver,aperJky3AverErr,sumWeight,ppErrBitsAver,mjdObs,filterID,aperJky3,aperJky3Err,weight,ppErrBits,project
 #
-# Results of Query: Database WSERV1000v20180716 15/10/18 22:09
-# SELECT qso.qsoName, qso.ra, qso.dec, aver.apertureID, aver.aperJky3, 
-# aver.aperJky3Err, aver.sumWeight, aver.ppErrBits, m.mjdObs, 
-# m.filterID, remeas.aperJky3, remeas.aperJky3Err, w.weight, 
-# remeas.ppErrBits, m.project FROM finalQsoCatalogue as qso, 
-# MapApertureIDshighzQsoMap as ma, wserv1000MapRemeasAver as aver, 
-# wserv1000MapRemeasurement as remeas, MapProvenance as v, 
-# wserv1000MapAverageWeights as w, MapFrameStatus as mfs, Multiframe as 
-# m WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and 
-# aver.apertureID=remeas.apertureID and aver.catalogueID=v.combicatID 
-# and v.avSetupID=1 and v.catalogueID=remeas.catalogueID and 
-# w.combicatID=v.combicatID and w.catalogueID=v.catalogueID and 
-# w.apertureID=aver.apertureID and mfs.catalogueID=remeas.catalogueID 
-# and m.multiframeID=mfs.multiframeID and mfs.programmeID=10999 and 
-# mfs.mapID=1 order by v.combicatID, m.mjdObs
+# Results of Query: Database WSERV1000v20180716 16/10/18 20:03
+# SELECT  qso.qsoName,  qso.ra,  qso.dec,  aver.apertureID,  
+# aver.aperJky3 as aperJky3Aver,  aver.aperJky3Err as aperJky3AverErr, 
+# aver.sumWeight,  aver.ppErrBits as ppErrBitsAver, m.mjdObs,  
+# m.filterID, remeas.aperJky3,  remeas.aperJky3Err,  w.weight, 
+# remeas.ppErrBits,  m.project  FROM  finalQsoCatalogue as qso,   
+# MapApertureIDshighzQsoMap as ma,   wserv1000MapRemeasAver as aver,   
+# wserv1000MapRemeasurement as remeas,   MapProvenance as v,   
+# wserv1000MapAverageWeights as w,  MapFrameStatus as mfs,  Multiframe 
+# as m    WHERE  qso.qsoID=ma.objectID and  
+# ma.apertureID=aver.apertureID and  aver.apertureID=remeas.apertureID 
+# and  aver.catalogueID=v.combicatID and  v.avSetupID=1 and  
+# v.catalogueID=remeas.catalogueID and  w.combicatID=v.combicatID and  
+# w.catalogueID=v.catalogueID and  w.apertureID=aver.apertureID and  
+# mfs.catalogueID=remeas.catalogueID and  
+# m.multiframeID=mfs.multiframeID and  mfs.programmeID=10999 and  
+# mfs.mapID=1  order by v.combicatID, m.mjdObs
 # Column Headers at start of file AND below
 #
-# qsoName,ra,dec,apertureID,aperJky3,aperJky3Err,sumWeight,ppErrBits,mjdObs,filterID,aperJky3,aperJky3Err,weight,ppErrBits,project
+# qsoName,ra,dec,apertureID,aperJky3Aver,aperJky3AverErr,sumWeight,ppErrBitsAver,mjdObs,filterID,aperJky3,aperJky3Err,weight,ppErrBits,project
                  CFHQSJ0216-0455,     +34.1158750,      -4.9261388,                  57,+5.483682E-007,+4.648775E-007,   +600.000000,          0,  +5.4763308E004,   2,-2.193190E-007,+9.524158E-007,   +100.000000,          0,                                                       U/08B/J10
                  CFHQSJ0216-0455,     +34.1158750,      -4.9261388,                  57,+5.483682E-007,+4.648775E-007,   +600.000000,          0,  +5.4763367E004,   2,-3.784366E-007,+2.329804E-006,   +100.000000,          0,                                                       U/08B/J10
                  CFHQSJ0216-0455,     +34.1158750,      -4.9261388,                  57,+5.483682E-007,+4.648775E-007,   +600.000000,          0,  +5.4763393E004,   2,+1.124332E-006,+8.407051E-007,   +100.000000,          0,                                                       U/08B/J10
