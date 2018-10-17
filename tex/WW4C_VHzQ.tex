@@ -395,7 +395,7 @@ The near-infrared data in this paper comes from the Wide Field Astronomy Unit's
 \citep[VSA][]{VSA}. These archives were developed for the VISTA Data Flow System
 \citep[VDFS][]{VDFS}.
 
-In this paper we include all non-proprietary WFCAM data, which covers all
+We access both the WSA and the VSA and include all non-proprietary WFCAM data, which covers all
 public surveys and PI projects from Semester 05A to 1st January 2017, and all
 non-proprietary VISTA data, which covers all public surveys and PI projects from
 science verification (20091015) to 1st April 2016. 
@@ -410,7 +410,7 @@ has also been discussed in \citet{Cross2013}.
 We query the WSA and VSA performing matched-aperature photometry at
 the positions of our 424 VH$z$Qs. We return a database with $xxxx$
 entries. This database is world-readable and we give the full receipe
-and relevant SQL queries in Appendix~\ref{sec:SQL}.
+and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
    
     \subsubsection{Averaging matched photometry}
     The photometry in a single epoch image often has low
@@ -443,10 +443,8 @@ and relevant SQL queries in Appendix~\ref{sec:SQL}.
     spans of 7, 14, 30, 91, 183 days, 365 days, 730 days, over 10 epochs and over all epochs,
     see Tab.~\ref{tab:reqMapAvg}. The
     averaging process starts at the first epoch and works on.
-    %%
-    We give examples of the SQL queries syntax in Appendix~\ref{sec:SQL}.
-           
-    114 quasars have both WFCAM and VISTA data. 
+
+    We detect 304 unique quasars in the WFCAM WSA database, 203 quasars are detected in the VISTA VSA database with 114 objects in common with both WFCAM and VISTA data. We give the necessary SQL queries syntax in Appendix~\ref{sec:SQL}. 
 
 
 
@@ -1070,7 +1068,7 @@ inner join MeanObject m on o.objid=m.objid  and o.uniquePspsOBid=m.uniquePspsOBi
 
 \section{Near-Infrared WFCAM Science Archive SQL queries}\label{sec:SQL}
 Here we give the receipe and SQL that returned the near-infrared photometry 
-for the VH$z$Qs. 
+for the VH$z$Qs from the  WFCAM Science Archive. 
 
 The data are on the WFCAM Science Archive: \href{wsa.roe.ac.uk}{\tt wsa.roe.ac.uk}. 
 Access the User Login form \href{WFCAM Science Archive}{\tt wsa.roe.ac.uk/login.html} 
@@ -1103,10 +1101,26 @@ used directly. To return values in degrees, use a selection with an alias, e.g.
 {\tt RA as RADeg} and {\tt DEC as DECDeg}.
 
 \onecolumn
-\input{SQL_examples}
+\input{SQL_examples_WSA}
 \twocolumn
 
 
+\section{Near-Infrared VISTA Science Archive SQL queries}\label{sec:SQL}
+In a very similar manner to the WSA, we give here the details on how to access
+the VISTA Science Archive (VSA)
+
+At the \href{http://horus.roe.ac.uk/vsa/login.html}{VSA Login}, enter 
+with these credentials::
+\begin{itemize}
+    \item Username: {\tt VSERV1000} 
+    \item password: {\tt highzqso} 
+    \item community: {\tt proprietary}
+\end{itemize}
+Then head to the \href{http://horus.roe.ac.uk:8080/vdfs/VSQL_form.jsp}{Freeform SQL Query} page where the database release to use is {\tt VSERV1000v20180716}. 
+
+\onecolumn
+\input{SQL_examples_VSA}
+\twocolumn
 
 
 

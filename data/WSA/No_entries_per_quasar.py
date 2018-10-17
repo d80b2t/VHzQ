@@ -20,14 +20,10 @@ data = hdul[1].data
 ## Saying what the columns are::
 data.columns
 
-## Converting from radians to degrees
-data.RA  = data.RA  * (180./np.pi)
-data.DEC = data.DEC * (180./np.pi)
-
 ## Looking for unique entries per column
 print('No. of unique enteries by QSONAME::         ', len(np.unique(data.QSONAME)))
-print('No. of unique enteries by RA::              ', len(np.unique(data.RA)))
-print('No. of unique enteries by DEC::             ', len(np.unique(data.DEC)))
+print('No. of unique enteries by RA::              ', len(np.unique(data.RAJ2000)))
+print('No. of unique enteries by DEC::             ', len(np.unique(data.DECJ2000)))
 print('No. of unique enteries by APERTUREID::      ', len(np.unique(data.APERTUREID)))
 print('No. of unique enteries by APERJKY3AVER::    ', len(np.unique(data.APERJKY3AVER)))
 print('No. of unique enteries by APERJKY3AVERERR:: ', len(np.unique(data.APERJKY3AVERERR)))
@@ -59,7 +55,7 @@ def unique(list1):
         print(x)
 
 ## Look at the unique RAs
-#unique(data.RA)
+#unique(data.RAJ2000)
 
 unique_elements, counts_elements = np.unique(data.QSONAME, return_counts=True)
 print("Frequency of unique values of the said array:")
