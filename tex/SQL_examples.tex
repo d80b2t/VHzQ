@@ -13,7 +13,7 @@ Table~\ref{tab:THE_TABLE}.
            commentstyle=\color{gray}
         ]
 SELECT 
-qso.qsoName,  qso.ra,  qso.dec, 
+qso.qsoName,  qso.raJ2000 as ra, qso.decJ2000 as dec, 
 aver.apertureID,  aver.aperJky3 as aperJky3Aver, 
 aver.aperJky3Err as aperJky3AverErr, aver.sumWeight, 
 aver.ppErrBits as ppErrBitsAver, m.mjdObs, 
