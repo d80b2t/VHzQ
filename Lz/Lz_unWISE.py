@@ -39,12 +39,12 @@ all_VHzQs  = ascii.read(readin, delimiter=r'\s')
 #GTO =  ascii.read('JWST_GTO_VeryHighZ_Quasar_targets_byRA.dat', delimiter=r'\s', guess=False)
 
 ## Setting up the variables for easier use
-w1mag = all_VHzQs['w1mag']
-w2mag = all_VHzQs['w2mag']
+w1mag = (-2.5)*(np.log10(all_VHzQs['FLUX_1']))+22.5
+w2mag = (-2.5)*(np.log10(all_VHzQs['FLUX_2']))+22.5
 w3mag = all_VHzQs['w3mag']
 w4mag = all_VHzQs['w4mag']
-w1snr   = all_VHzQs['w1snr']
-w2snr   = all_VHzQs['w2snr']
+w1snr   = ( all_VHzQs['FLUX_1'] / all_VHzQs['DFLUX_1'] )
+w2snr   = ( all_VHzQs['FLUX_2'] / all_VHzQs['DFLUX_2'] )
 w3snr   = all_VHzQs['w3snr']
 w4snr   = all_VHzQs['w4snr']
 w1_min_w2_all = (w1mag-w2mag)
@@ -111,7 +111,9 @@ zmax = xmax
 ##
 ## TOP  PANEL
 ##
-hdl=main_ax.scatter(z_all, M1450_all, c=w1_min_w2_all, cmap=cmap, s=ms, alpha=0.85)
+hdl=main_ax.scatter(z_all, M1450_all, c=w1snr, cmap=cmap, s=ms, alpha=0.85)
+#hdl=main_ax.scatter(z_all, M1450_all, c=w1_min_w2_all, cmap=cmap, s=ms, alpha=0.85)
+main_ax.scatter(z_all, M1450_all, c='w', alpha=0.85)
 
 ## Normally, this is:: left, bottom, width, height
 ## but with orientation='horizontal', then
@@ -123,9 +125,10 @@ cbar_ax = fig.add_axes(datco)
 cbar_min = 0.0
 cbar_max = 1.0
 cbar_step = 0.25
-#clevs = [0, 15, 30] ## w1snr
+#clevs = [0, 15, 30] ## w1snr  with ALLWISE
+clevs = [0, 90, 180] ## w1snr  with ALLWISE
 #clevs = [0,  6 , 12]  ## w3snr
-clevs = [cbar_min, cbar_max]  ## W1-W2
+#clevs = [cbar_min, cbar_max]  ## W1-W2
 
 
 cb1 = plt.colorbar(hdl, cax=cbar_ax, orientation='horizontal', ticks=clevs)
@@ -233,7 +236,7 @@ y_hist.set_xlim((50, 0))
 
 
 #plt.show()
-plt.savefig('VHzQ_Lz_temp.png',format='png')
-plt.savefig('VHzQ_Lz_temp.pdf',format='pdf')
+plt.savefig('VHzQ_Lz_unWISE_temp.png',format='png')
+plt.savefig('VHzQ_Lz_unWISE_temp.pdf',format='pdf')
 
 plt.close(fig)
