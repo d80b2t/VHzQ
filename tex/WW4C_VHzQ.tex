@@ -142,10 +142,9 @@ Here we update \citet{Jiang2010} and \citet{Blain2013} \citep[along
 with Table 8 of][]{Banados2016}. Our motivations are numerous and
 include: {\it (i)} establishing the first complete catalogue of
 $z>5.00$ quasars since the pioneering work from SDSS; {\it (ii)}
-analysing all the WFCAM and VISTA [NJC: homogeneous isn't the write term. The NIR data is very heterogeneous] near-infrared photometry for the quasars; {\it
-(iii)} making the first study of NIR variability of the VHzQ
-population and {\it (iv)} establishing the photometric properties for
-upcoming surveys and telescopes, e.g. the Large Synoptic Survey
+analysing all the WFCAM and VISTA near-infrared photometry for the quasars;
+{\it (iii)} making the first study of NIR variability of the VHzQ population 
+and {\it (iv)} establishing the photometric properties for upcoming surveys and telescopes, e.g. the Large Synoptic Survey
 Telescope (LSST) \footnote{\href{https://www.lsst.org}{{lsst.org}}},
 ESA {\it
 Euclid}\footnote{\href{https://sci.esa.int/euclid/}{sci.esa.int/euclid/}}
@@ -386,8 +385,8 @@ designation.
 \subsection{Near-infrared photometry}~\label{sec:NIR_data} 
 Due to their selection of being very faint/undetected in the
 observed-frame optical but bright in the observed frame near-infrared,
-VH$z$Qs are generally detected in the near-infrared $yYJHK$-bands
-\citep[$\approx$0.98-2.38$\mu$m; e.g., ][]{Peth2011}.
+VH$z$Qs are generally detected in the near-infrared $ZYJHK(s)$-bands
+\citep[$\approx$0.83-2.38$\mu$m; e.g., ][]{Peth2011}.
 
 The near-infrared data in this paper comes from the Wide Field Astronomy Unit's
 (WFAU) Science Archives for UKIRT-WFCAM, the WFCAM Science Archive
@@ -401,15 +400,14 @@ non-proprietary VISTA data, which covers all public surveys and PI projects from
 science verification (20091015) to 1st April 2016. 
 
 The data was processed using a matched-aperture photometry method
-where flux is recovered at the spectroscopic position of the quasar,
+where flux is measured at the spectroscopic position of the quasar,
 without necessarily knowing if there is a formal detection in the NIR
 photometry beforehand.  Full details of the matched-aperture pipeline
 will appear in a forthcoming paper, Cross et al.  2018, in prep, and
 has also been discussed in \citet{Cross2013}.  
 
 We query the WSA and VSA performing matched-aperature photometry at
-the positions of our 424 VH$z$Qs. We return a database with $xxxx$
-entries. This database is world-readable and we give the full receipe
+the positions of our 424 VH$z$Qs. This database is world-readable and we give the full receipe
 and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
    
     \subsubsection{Averaging matched photometry}
@@ -440,11 +438,13 @@ and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
     
     We calculate a set of averaged catalogues, for each pointing and filter, based
     on the requirements in \verb+RequiredMapAverages+, in these cases over time
-    spans of 7, 14, 30, 91, 183 days, 365 days, 730 days, over 10 epochs and over all epochs,
-    see Tab.~\ref{tab:reqMapAvg}. The
-    averaging process starts at the first epoch and works on.
+    spans of 7, 14, 30, 91, 183 days, 365 days, 730 days, over 10 epochs and
+    over all epochs. {\bf NJC: Should we add this table to suplemental online
+    only material?} The averaging process starts at the first epoch and works on.
 
-    We detect 304 unique quasars in the WFCAM WSA database, 203 quasars are detected in the VISTA VSA database with 114 objects in common with both WFCAM and VISTA data. We give the necessary SQL queries syntax in Appendix~\ref{sec:SQL}. 
+    We detect 304 unique quasars in the WFCAM WSA database, 203 quasars are 
+    detected in the VISTA VSA database with 114 objects in common with both
+    WFCAM and VISTA data.  We give the necessary SQL queries syntax in Appendix~\ref{sec:SQL}.
 
 
 
@@ -522,11 +522,12 @@ luminosity-redshift $Lz$-plane.
         \hline  \hline
         Selection   & number detected (\%) \\
         \hline  
-        Any band ($YJHK/K_{s}$   &  394  ( ) \\
-        $Y$-band    &    ( ) \\
-        $J$-band    &    ( ) \\
-        $H$-band    &    ( ) \\
-        $K$ or $Ks$-band    &    ( ) \\
+        Any band ($ZYJHK/K_{s}$   &  394  (92.9) \\
+        $Z$-band    &  72  (17.0) \\
+        $Y$-band    &  249  (58.7) \\
+        $J$-band    &  391  (92.2) \\
+        $H$-band    &  258  (60.8) \\
+        $K$ or $Ks$-band    &  297  ( ) \\
         \hline  \hline
       \end{tabular}
       \caption{Detection rate of VH$z$Qs in the near-infrared.}
@@ -705,8 +706,9 @@ Using the extended datasets described in Section~\ref{sec:NIR_data} and~\ref{sec
 \end{figure}
 
 Figure~\ref{fig:MIR_LC_epochs} gives the number of NEOWISE-R epochs and detections there are for each VH$z$Q, while 
-Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR lighcurves and associated colour changes. Here we show 
-J0100+2802 \citep{Wu2015}, J0224-4711 and  J1626+2751. 
+Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR lightcurves and
+associated colour changes. Here we show J0100+2802 \citep{Wu2015}, J0224-4711 and  J1626+2751. 
+{\bf NJC: What about NIR light-curves / combined light-curves}
 
 
 \subsection{Colours}
