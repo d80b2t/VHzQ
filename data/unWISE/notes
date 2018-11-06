@@ -35,6 +35,7 @@ Match Selection:: Best match from each Table 2 row  Join Type:: All from 1::	281
 
 
 http://astrometry.net/svn/tags/sequels-fp-1/wisecheck.py
+
 def fluxtomag(nmgy):
 	return -2.5 * (np.log10(np.maximum(1e-3, nmgy)) - 9.)
 
