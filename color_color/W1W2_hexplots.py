@@ -25,7 +25,7 @@ dr14q = Table(data)
 ##  V H z Q    data
 ##
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
-filename ='VHzQs457_unWISE_v1pnt0.dat'
+filename ='VHzQs455_unWISE_v1pnt01.dat'
 table=path+filename
 VHzQ = ascii.read(table)
 
@@ -38,13 +38,10 @@ plt.rcParams.update({'font.size': 14})
 #plt.style.use('dark_background')
 
 ## works well for xmin=13.6; xmax=16.9; ymin=-0.2; ymax=3.2:: 
-#fig, ax = plt.subplots(figsize=(10, 10), num=None, dpi=80, facecolor='w', edgecolor='k')  ## works well
+#fig, ax = plt.subplots(figsize=(10, 10), num=None, dpi=80, facecolor='w', edgecolor='k') 
 ## works well for xmin=13.0; xmax=16.9; ymin=-0.2; ymax=3.2:: 
-fig, ax = plt.subplots(figsize=(14, 10), num=None, dpi=80, facecolor='w', edgecolor='k')  ## works well
+fig, ax = plt.subplots(figsize=(14, 10), num=None, dpi=80, facecolor='w', edgecolor='k')  
 
-## Blain et al. (2013), Figure 1:: 
-#xmin =  1.7; xmax =  4.7; ymin = -0.2; ymax =  2.0 
-## Wright et al. (2010), Figure 
 xmin=12.4; xmax=17.6; ymin=-0.5; ymax=2.6
 
 ## Plotting setup
@@ -61,7 +58,6 @@ pointsize_large = pointsize*1.2
 ## Plotting the   D R 1 4 Q    hexbins
 ##
 hb = ax.hexbin( dr14q['W2MAG'], (dr14q['W1MAG'] - dr14q['W2MAG']), C=dr14q['Z'],
-#            gridsize=180, mincnt=5, marginals=False, cmap=cmap, vmin=0.00, vmax=3.00)  ##works well..
             gridsize=180, mincnt=3, marginals=False, cmap=cmap, vmin=0.20, vmax=3.00)
 
 cb = fig.colorbar(hb, ax=ax)
@@ -71,7 +67,7 @@ cb.set_label('redshift')
 ## Plotting the    V H z Q    points
 ##
 ax.scatter( VHzQ['unW1_mag'], (VHzQ['unW1_mag'] - VHzQ['unW2_mag']), color='k', s=pointsize*2.8 )
-ax.scatter( VHzQ['unW1_mag'], (VHzQ['unW1_mag'] - VHzQ['unW2_mag']), color='w', s=pointsize )
+ax.scatter( VHzQ['unW1_mag'], (VHzQ['unW1_mag'] - VHzQ['unW2_mag']), color='m', s=pointsize )
 #ax.scatter(0,0, color='w', s=pointsize_large)
 
 ## ``The vertical dashed line at W2-W3=5.3 is one of the selection
