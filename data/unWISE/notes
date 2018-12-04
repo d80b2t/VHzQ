@@ -1,9 +1,16 @@
 
 
 
+high_z_qsos_03Dec18
+===================================================================
+
+
+
+
+VHzQ_w1-unwise_source_catalogs
+===================================================================
 VHzQ_w1-unwise_source_catalog.fits	has	322 entries.
 VHzQ_w1-unwise_source_catalog.fits	has	281 entries.
-
 
 TOPCAT
 Match Tables
@@ -21,7 +28,6 @@ Match Selection:: Best match from each Table 1 row  Join Type:: All from 1::	322
 Match Selection:: Best match from each Table 2 row  Join Type:: All from 1::	322 pairs found, 424 rows, 52 columns
 
 
-
 Table 1: THE_TABLE_v0pnt98_temp.ascii
       	 ra, dec degrees
 Table 2: VHzQ_w2-unwise_source_catalog.fits
@@ -34,6 +40,8 @@ Match Selection:: Best match from each Table 2 row  Join Type:: All from 1::	281
 
 
 
+wisecheck
+===================================================================
 http://astrometry.net/svn/tags/sequels-fp-1/wisecheck.py
 
 def fluxtomag(nmgy):

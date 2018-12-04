@@ -1,0 +1,11 @@
+
+
+
+
+
+To make Table 1 of the paper, you need::
+
+   Input file::
+   ../data/LIST_OF_VHzQs.dat
+   Program::   
+   survey_origin.py
