@@ -3,6 +3,11 @@ This wee script combines the unWISE files for the VHzQs.
 Starting with 'just' the original 424 VHzQs and then added
 the "Halloween" 2018 Oct objects from arXiv:1810.11924-27v1.
 
+v1.0::
+Starting with 'just' the original 424 VHzQs and then added
+the "Halloween" 2018 Oct objects from arXiv:1810.11924-27v1.
+Tidied up version of the Jupyter notebook making_unWISE_W1s.ipynb
+
 Copy of making_unWISE_W2s.py, but needed since unWISE W2 catalog
 and unWISE W2 catalogs are separate
 ''' 
