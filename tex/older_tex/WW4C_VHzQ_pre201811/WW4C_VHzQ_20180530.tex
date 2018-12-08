@@ -1,0 +1,502 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                           
+%%  
+%%									    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[usenatbib]{mnras}
+
+\input {format}
+
+\begin{document}
+
+\title[Very high-$z$ Quasars]
+        {Near and mid-infrared properties of known $z\geq5$ Quasars}
+\author[N.P. Ross et al.]
+       {Nicholas P. Ross$^{1}$\thanks{email: npross@roe.ac.uk} and Nicholas J. Cross$^{1}$
+\\ 
+$^1$Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh, EH9 3HJ, United Kingdom\\
+}
+
+\maketitle
+\begin{abstract}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porta
+sodales est, vel cursus risus porta non. Vivamus vel pretium
+velit. Sed fringilla suscipit felis, nec iaculis lacus convallis
+ac. Fusce pellentesque condimentum dolor, quis vehicula tortor
+hendrerit sed. Class aptent taciti sociosqu ad litora torquent per
+conubia nostra, per inceptos himenaeos. Etiam interdum tristique diam
+eu blandit. Donec in lacinia libero.
+%%
+Sed elit massa, eleifend non sodales a, commodo ut felis. Sed id
+pretium felis. Vestibulum et turpis vitae quam aliquam convallis. Sed
+id ligula eu nulla ultrices tempus. Phasellus mattis erat quis metus
+dignissim malesuada. Nulla tincidunt quam volutpat nibh facilisis
+euismod. Cras vel auctor neque. Nam quis diam risus.
+\end{abstract}
+
+
+\begin{keywords}
+Astronomical data bases: surveys -- 
+Quasars: general -- 
+galaxies: evolution -- 
+galaxies: infrared.
+\end{keywords}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  S E C T I O  N   1         S E C T I O  N   1           S E C T I O  N   1       S E C T I O  N   1
+%%  S E C T I O  N   1         S E C T I O  N   1           S E C T I O  N   1       S E C T I O  N   1
+%%  S E C T I O  N   1         S E C T I O  N   1           S E C T I O  N   1       S E C T I O  N   1
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Very high redshift quasars (VH$z$Qs, defined here to have redshifts
+$z\gtrsim5$) are excellent probes of the early Universe. This includes
+studies of the Epoch of Reionization for hydrogen \citep[see e.g.][for
+reviews]{Fan2006review, Mortlock2016}, the formation and build-up of
+supermassive black holes \citep[e.g., ][]{Rees1984, WyitheLoeb2003,
+Volonteri2010, Agarwal2016, Valiante2018, Latif2018} and early metal
+enrichment \citep[see e.g., ][]{Simcoe2012, Chen2017, Bosman2017}.
+
+%The build-up of SMBHs via accretion is important due to the desire to understand the evolution of the black hole mass function (BHMF) and since there is a remarkable similarity between cosmic star-formation rate density (SFRD) and black hole accretion rate (BHAR). The SFRD and BHAR trace each other \citep[with a normalisation factor of $\sim3000$,][]{Willott2013b, MadauDickinson2014} across redshifts $z=0-4$.  However, new results \citet[e.g., ][]{Vito2018a, Calhau2018} suggest that the SFRD and BHAR do not have the same evolutionary form at higher, $z>4$ redshifts, for reasons that are currently poorly understood.  For some high-$z$ QSOs we can measure BHAR and SFR: most have BHAR $\gg 10^{-3}$ SFR, indeed {\it Herschel}-detected sources at $z\simeq.8$ have $L_{\rm SF} \simeq L_{\rm AGN}$ \citep[e.g., ][]{Netzer2014}. 
+%%However, we also note the potential for the non-causal origins of the
+%%black-hole galaxy scaling relations \citep{Jahnke2011}. 
+
+Quasars are also known to be prodigious emitters of infrared emission,
+thought to be from the thermal emission of dust grains heated by
+continuum emission from the accretion disc \citep[][]{Hill2014,
+Hickox2017}.  Observations in the mid-infrared, e.g. $\sim$3-30$\mu$m
+allow discrimation between AGN\footnote{Historically, ``quasars'' and
+``Active Galactic Nuclei (AGN)'' have described different
+luminosity/classes of objects, but here we use these terms
+interchangeably (with a preference for quasar) in recognition of the
+fact that they both describe accreting supermassive black holes
+\citep[e.g.][]{Haardt2016book}.}  and passive galaxies due to the
+1.6$\mu$m ``bump'' entering the MIR at $z\approx0.8-0.9$ \citep[e.g.,
+][]{Wright1994, Sawicki2002, Lacy2004, Stern2005, Richards2006b,
+Timlin2016} as well as AGN and star-forming galaxies due to the
+presence of Polycyclic Aromatic Hydrocarbon (PAHs) at $\lambda >3\mu$m
+\citep[e.g., ][]{Yan2007, Tielens2008}.
+
+\citet{Jiang2006dust} and \citet{Jiang2010} report on the discovery of
+a quasar without hot-dust emission in a sample of 21 $z\approx6$
+quasars. Such apparently hot-dust-free quasars have no counterparts at
+low redshift. Moreover, we demonstrate that the hot-dust abundance in
+the 21 quasars builds up in tandem with the growth of the central
+black hole,
+
+\citet{Blain2013} presented WISE mid-infrared (MIR) detections of 17
+(55\%) of the then known 31 quasars at $z > 6$. However,
+\citet{Blain2013} was compiled with the WISE `All-Sky' data release,
+as opposed to the superior ``AllWISE'' catalogs. That sample only
+examined the 31 known $z>6$ quasars; our sample has 148 objects with
+redshift $z\geq6.00$.
+
+Here we update \citet{Jiang2010}  and \citet{Blain2013} 
+\citep[along with Table 8 of][]{Banados2016}. 
+
+We chose redshift $z=5.0$ as our lower redshift limit due to a combination 
+of garnishing a large sample, adequately spanning physical properties 
+(e.g. luminosity, age of the Universe) and to incorporate what knowledge 
+we've gained over the last couple of decades since $z>5$ quasars were 
+discovered. 
+
+WISE mapped the sky in 4 passbands, in bands centered at wavelengths of 3.4, 4.6, 12, and 23$\mu$m.  In total the release all sky ``ALLWISE'' catalog, contains nearly 750 million detections at high-significance\footnote{\href{http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2\_1.html}{wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2\_1.html}}. \citet{Assef2013}, \citet{Stern2012}
+
+In this paper, we introduce the ``WISE W4 Compendium'' (WW4C); a detailed study into the objects that were detected in the longest waveband, 20-28$\mu$m observed, on the Wide-Field Infrared Survey Explorer \citep[WISE;][]{Wright2010, Cutri2013} mission. This study will describe all 40 million objects that are detected in the WISE W4-band, but will concentrate on those objects most affected by radiating dust emission and well described by extragalactic, and AGN, spectral energy distributions (SEDs).  The motivations of the WW4C are numerous, but the primary science we will pursue is the identification of bolometric luminous AGN, especially those that might not be observered in X-ray/UV/optical surveys. %%
+
+\citet{Brown2014b}, in PASA, is the paper about Recalibrating the Wide-field Infrared Survey Explorer (WISE) W4 Filter,
+
+This paper can be considered an update of \citet{Blain2013} and also
+an extension of parts of \citet{Banados2016}, with the latter study reporting
+WISE W1, W2, W3 and W4 magnitudes for Panoramic Survey Telescope and Rapid Response System 1 
+\citep[Pan-STARRS1, PS1;][]{Kaiser2002, Kaiser2010}, but with no  
+further investigation into the reddest WISE waveband for the VH$z$Qs.
+%%
+\citet{Banados2016} reports and investigates the W1, W2 and W3 properties
+of quasars at $z > 5.6$.
+
+$M_{\rm BH}, M_{\rm bulge}, M_{\star}$ are the SMBH mass, stellar mass of the bulge and 
+ galaxy total stellar mass, respectively. 
+
+Because of established conventions, we report SDSS $ugriz$ magnitudes on the AB zero-point system \citep{Oke_Gunn1983, Fukugita1996}, while the WISE W1 − 4 magnitudes are calibrated on the Vega system (Wright et al. 2010). For WISE bands, $m_{\rm AB} = m_{\rm Vega} + m$ where m = (2.699, 3.339, 5.174, 6.66) for W1, W2, W3 and W4, respectively \citep{Cutri2011, Brown2014b}. We make use of the Explanatory Supplement to the WISE All-Sky Data Release, as well as the WISE AllWISE Data Release  Products online. All optical ($ugriz$ bands) magnitudes are given in the AB system, all near-infrared  ($y/YJHK$) are also given in the AB system.  We use a flat $\Lambda$CDM cosmology with $H0 = 67.7$ km s$-1$ Mpc$−1$,  $\Omega_{\rm M} = 0.307$, and $\Omega_{\Lambda} = 0.693$ (Planck Collaboration et al. 2016) in order to be consistent with \citet{Banados2016}. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
+%%  S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
+%%  S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data}
+
+
+\input{THE_TABLE_v0pnt96_TOP10}
+
+Table~\ref{tab:THE_TABLE} gives the salient details for the objects
+used in this study. We use all the $z\geq5.00$ quasars that
+have been discovered and spectroscopically confirmed as of the time of
+writing (2018 June). We report near-infrared ($yYJHK$-bands)
+and mid-infrared (WISE W1/2/3/4) photometry and give our caculcated 
+$M_{1450}$
+
+\subsection{Very high redshift quasars}
+In Table~\ref{tab:THE_TABLE} we give the discovery reference for the
+VH$z$Qs noting that some objects were discovered independently and
+contemporaneously.  The redshifts for the VH$z$Qs generally come from
+the measurement of broad UV/optical emission lines. Where 
+there are far infra-red emission lines e.g. \cii~158 micron, we report 
+these, but at the level of our current analysis broadline redshifts are
+sufficient. 
+
+%% From Banado2016
+%% Fan et al. (2000) [2000AJ....120.1167F];     3 = Fan et al. (2001) [2001AJ....122.2833F];     4 = Fan et al. (2003) [2003AJ....125.1649F];     5 = Fan et al. (2004) [2004AJ....128..515F];     6 = Mahabal et al. (2005) [2005ApJ...634L...9M];     7 = Cool et al. (2006) [2006AJ....132..823C];     8 = Fan et al. (2006a) [2006AJ....131.1203F];     9 = Goto et al. (2006) [2006MNRAS.371..769G];    10 = Mcgreer et al. (2006) [2006ApJ...652..157M];    11 = Carilli et al. (2007) [2007ApJ...666L...9C];   12 = Kurk et al. (2007) [2007ApJ...669...32K];    13 = Stern et al. (2007) [2007ApJ...663..677S];    14 = Venemans et al. (2007a) [2007MNRAS.376...76V];    15 = Willott et al. (2007) [2007AJ....134.2435W];    16 = Jiang et al. (2008) [2008AJ....135.1057J];    17 = Wang et al. (2008b) [2008ApJ...687..848W];    18 = Jiang et al. (2009) [2009AJ....138..305J];    19 = Kurk et al. (2009) [2009ApJ...702..833K];    20 = Mortlock et al. (2009) [2009A&A...505...97M];    21 = Willott et al. (2009) [2009AJ....137.3541W];    22 = Carilli et al. (2010) [2010ApJ...714..834C];   23 = Wang et al. (2010) [2010ApJ...714..699W];    24 = Willott et al. (2010a) [2010AJ....140..546W];    25 = Willott et al. (2010b) [2010AJ....139..906W];    26 = Derosa et al. (2011) [2011ApJ...739...56D];    27 = Mortlock et al. (2011) [2011Natur..474..616M];   28 = Wang et al. (2011) [2011ApJ...739L..34W];   29 = Zeimann et al. (2011) [2011ApJ...736...57Z];    30 = Morganson et al. (2012) [2012AJ....143..142M];    31 = Venemans et al. (2012) [2012ApJ...751L..25V];   32 = Mcgreer et al. (2013) [2013ApJ...768..105M];    33 = Venemans et al. (2013) [2013ApJ...779...24V];   34 = Wang et al. (2013) [2013ApJ...773...44W];   35 = Willott et al. (2013b) [2013ApJ...770...13W];    36 = Banados et al. (2014) [2014AJ....148...14B];    37 = Calura et al. (2014) [2014MNRAS.438.2765C];    38 = Leipski et al. (2014) [2014ApJ...785..154L];   39 = Banados et al. (2015a) [2015ApJ...805L...8B];   40 = Banados et al. (2015b) [2015ApJ...804..118B];   41 = Becker et al. (2015) [2015PASA...32...45B];    42 = Carnall et al. (2015) [2015MNRAS.451...16C];    43 = Jiang et al. (2015) [2015AJ....149..188J];    44 = Kashikawa et al. (2015) [2015ApJ...798...28K];   45 = Kim et al. (2015) [2015ApJ...813L..35K];   46 = Reed et al. (2015) [2015MNRAS.454.3952R];    47 = Venemans et al. (2015a) [2015MNRAS.453.2259V];    48 = Venemans et al. (2015b) [2015ApJ...801L..11V];   49 = Willott et al. (2015) [2015ApJ...801..123W];   50 = Wu et al. (2015) [2015Natur..518..512W];    51 = Venemans et al. (2016) [2016ApJ...816...37V];   52 = Wang-Feige et al. (2016) [labaApJ...819...24W];   53 = Matsuoka et al. (2016) [2016arXiv160302281M];   54 = Wang et al. (2016) [2016arXiv160609634W];
+Specifically, we use data from: \citet{Fan2000}, \citet{Fan2001c},
+\citet{Fan2003} , \citet{Fan2004}, \citet{Mahabal2005},
+\citet{Cool2006}, \citet{Fan2006}, \citet{Goto2006},
+\citet{McGreer2006}, \citet{Carilli2007}, \citet{Kurk2007},
+\citet{Stern2007}, \citet{Venemans2007}, \citet{Willott2007},
+\citet{Jiang2008}, \citet{Wang2008} \citet{Jiang2009} \citet{Kurk2009}
+\citet{Mortlock2009} \citet{Willott2009} \citet{Carilli2010}
+\citet{Wang2010} \citet{Willott2010a} \citet{Willott2010b}
+\citet{DeRosa2011} \citet{Mortlock2011} \citet{Wang2011}
+\citet{Zeimann2011} \citet{Morganson2012} \citet{Venemans2012}
+\citet{McGreer2013} \citet{Venemans2013} \citet{Wang2013}
+\citet{Willott2013b} \citet{Banados2014} \citet{Calura2014}
+\citet{Leipski2014} \citet{Banados2015a} \citet{Banados2015b}
+\citet{Becker2015} \citet{Carnall2015} \citet{Jiang2015}
+\citet{Kashikawa2015} \citet{Kim2015} \citet{Reed2015}
+\citet{Venemans2015a} \citet{Venemans2015b} \citet{Willott2015}
+\citet{Wu2015} \citet{Venemans2016} \citet{Wang2016_WISE}
+\citet{Matsuoka2016} \citet{WangR2016} , \citet{Mortlock2011},
+\citet{McGreer2013}, \citet{Venemans2013}, \citet{Venemans2013},
+\citet{Venemans2015a}, \citet{Venemans2015b}, \citet{Banados2016},
+\citet{Matsuoka2016}, \citet{Reed2017}, \citet{Wang2017},
+\citet{Mazzucchelli2017}, \citet{Ikeda2017}, \citet{Tang2017},
+\citet{Koptelova2017}, \citet{Banados2018}, \citet{Matsuoka2018a}
+and \citet{Matsuoka2018b}. 
+        
+\subsection{Optical Photometry}
+\subsubsection{Pan-STARRS1 (PS1)} 
+We query the Panoramic Survey Telescope and Rapid Response System
+(Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}}
+Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs)
+service at
+\href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}.
+The PS1 survey observed the 30,000 deg$^{2}$ of sky north of
+declination $-30$ degrees in five filters $grizy$.  Pan-STARRS1 (PS1)
+is the first part of Pan-STARRS to be completed and is the basis for
+the DR1.  \citet{Chambers2016}, \citet{Magnier2016a},
+\citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and
+\citet{Flewelling2016} describe the instrument, survey, and data
+analyses.  The principal science product of the PS1 survey is the
+catalog accessible through the CasJobs interface.
+
+We query and return the mean PSF magnitudes from the $grizy$ filters
+({\tt MeanPSFMag}) which are in the AB system for our 425 VH$z$Q
+sample. Details of our SQL and links to the main tables are given
+in~\ref{sec:PS1_SQL}.
+
+
+
+%\newpage
+\subsection{Near-infrared photometry}
+Due to their selection of being very faint/undetected in the
+observed-frame optical but bright in the observed frame near-infrared,
+VH$z$Qs are generally detected in the near-infrared $yYJHK$-bands
+\citep[$\approx$0.98-2.38$\mu$m; e.g., ][]{Peth2011}.
+
+We query the WFCAM Science Archive
+\citep[\href{http://wsa.roe.ac.uk/}{WSA}; ][]{Hambly2008} which
+reports NIR photometry from the Wide Field Camera \citep[WFCAM;
+][]{Casali2007} on the United Kingdom Infrared Telescope (UKIRT).
+Data from the VIRCAM (VISTA InfraRed CAMera) on the VISTA
+\citep[Visible and Infrared Survey Telescope for Astronomy;
+][]{Emerson2006, Dalton2006} is also given in the WSA.
+
+Quasars are known to vary (both photometrically and spectroscopically)
+and very high-$z$ quasars under going super-Eddington accretion during
+a rapid BH growth phase are prime candidates for this variation.
+Therefore, with repeat observations over many epochs availble via the
+WSA, we have a choice to make for how we report the photometry. After
+tests, we decide to give the NIR photometry averaged on 4 week
+observed timescales. This time bracket is chosen as a good compromise
+between maximising signal-to-noise while keeping the cadence high. At
+our observed redshifts, we sample $\lesssim1$week in the rest-frame
+and luminous quasars are not expected to vary on timescales quicker
+than this \citep[e.g., ][]{Lawrence2016_ASPC}. 
+ 
+We give our recipe and SQL query syntax in Appendix~\ref{sec:SQL}.
+
+\subsubsection{UKIDSS LAS} 
+Use:\\
+%lasDetection \\
+dr10plus\\
+lasSource table (merged catalogue), nearest object only; radius 2.0'' \\
+424 results returned. Of which...
+
+
+\subsubsection{VISTA VHS} 
+Use:\\
+%lasDetection \\
+VH5DR5 \\
+sourceTable (merged catalogue), nearest object only; radius 2.0'' \\
+424 results returned.  Of which...
+
+{\it N.B.}, a few objects will have both UKIDSS LAS and VISTA VHS photometry...
+
+
+\iffalse
+\subsection{Filter and Survey choices} 
+We make some choices when reporting our archival photometry. 
+This includes:
+\begin{itemize}
+\item Report Pan-STARRS1 DR1 $grizy$ wherever we have it; 
+\item Report WFCAM $YJHK$ (mainly from the UKIDSS); 
+\item Report VIRCAM $YJHK_{\rm S}$ (mainly from the VISTA surveys); 
+\item Report VIRCAM $YJH$ over WFCAM  $YJH$; 
+\item Report both VIRCAM $K_{\rm S}$ and WFCAM  $K$; 
+\item Report DECam $grz$ wherever we have it (mainly from the DES and DECaLS); 
+\item Due to lack of coverage, do not report WFCAM $Z$-band. 
+\end{itemize}
+\fi
+
+
+%    \begin{figure}
+%      \includegraphics[height=8.0cm,width=8.0cm]
+%      {pdf/SDSS_Quasar_Nofz.pdf}
+%      \centering
+%      \caption[he selection of $z \sim 0.7$ LRGs using the SDSS $riz$-bands]
+%              {The selection of $z \sim 0.7$ LRGs using the SDSS $riz$-bands.}
+%      \label{fig:fig1}
+%    \end{figure}
+
+%    \begin{table}
+%    \begin{center}
+%    \setlength{\tabcolsep}{4pt}
+%    \begin{tabular}{lrrr}
+%    Sample Description  & Number in sample & North & South   \\
+%    \hline
+%    \label{tab:The_LRG_numbers}
+%    \end{tabular}
+%    \caption{}
+%    \end{center}
+%    \end{table}
+
+%    \begin{equation}
+%      \label{equ:simple_prob}
+%      dP = n \, dV.
+%    \end{equation}
+    
+%    \begin{eqnarray}
+%      \xi_{LS}(s) &=& 1 + \left(\frac{N_{rd}}{N} \right)^{2} \frac{DD(s)}{RR(s)} -
+%      2   \left( \frac{N_{rd}}{N} \right) \frac{DR(s)}{RR(s)} \\
+%      &\equiv&  \frac{DD(s)-2DR(s)+RR(s)}{RR(s)},
+%      \label{lseq}
+%    \end{eqnarray}
+
+%% http://www-astro.physics.ox.ac.uk/~kmb/latex_colour.html
+%{\color{red} ...bit of LaTeX text...}
+%an example of making an equation the colour DarkSeaGreen (rather a sophisticated shade, I think) one types the following:
+%\begin{equation}
+%{\color{DarkSeaGreen} x = \log_{10} (\nu/\rm MHz) }
+%\end{equation}
+
+%\subsection{Dust Overview}
+%http://arxiv.org/pdf/1605.06671.pdf
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  S E C T I O  N   3         S E C T I O  N   3           S E C T I O  N   3       S E C T I O  N   3
+%%  S E C T I O  N   3         S E C T I O  N   3           S E C T I O  N   3       S E C T I O  N   3
+%%  S E C T I O  N   3         S E C T I O  N   3           S E C T I O  N   3       S E C T I O  N   3
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+
+    \subsection{Very High-$z$ Quasars Detected in WISE}
+     \citet{Blain2013} 
+
+    \subsubsection{Very High-$z$ Quasars Detected in WISE W3 and W4}
+
+\subsection{Colours}
+
+
+
+%%\subsection{Mullaney SEDs}
+
+\subsection{Number Density of High-$z$ Sources}
+
+
+
+\subsection{Consequences of evolution of the $M_{\rm BH} - M_{\star}$ relation}
+From a study of 69 {\it Herschel}-detected broad-line active galactic
+nuclei, \citet{Sun2015} find there is no evolution in the $M_{\rm BH}
+- M_{\star}$ relation from $z\sim2$ to $z\sim0$, with the ratio of
+$\log (M_{\rm BH} / M_{\star}$ constant at -2.85 across this redshift
+range. If this ratio holds to $z>5$, and we assume the $M_{\rm BH}$
+for the $z>6$ measured from the e.g. \mgii line, are generally
+correct, then the galaxy total stellar mass for the $z>6$ objects
+should be...
+
+\citet{YangG2018} calculate the long-term SMBH accretion rate as a
+function of $M_{\rm star}$ and redshift $[BHAR(M_{\star} ,z)]$ over
+ranges of $\log (M_{\rm star} / M_{\odot}) = 9.5–12$ and $z = 0.4–4$.
+Our BHAR(M⋆,z) is constrained by high-quality survey data
+(GOODS-South, GOODS-North and COSMOS), and by the stellar mass
+function and the X-ray luminosity function.  This BHAR/SFR dependence
+on $M_{\star}$ does not support the scenario that SMBH and galaxy
+growth are in lockstep.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  S E C T I O  N   7         S E C T I O  N   7           S E C T I O  N   7       S E C T I O  N   7
+%%  S E C T I O  N   7         S E C T I O  N   7           S E C T I O  N   7       S E C T I O  N   7
+%%  S E C T I O  N   7         S E C T I O  N   7           S E C T I O  N   7       S E C T I O  N   7
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion and Conclusions}
+\label{sec:conclusions}
+In this study, we have, for the first time, ompiled the list of all
+$z>5$ spectroscopically confirmed quasars. We have assemble the NIR
+($y/Y, J, H, K/K_{s}$) and MIR (WISE W1/2/3/4) photometry for these
+objects, given their detection rates and SEDs. We find that::
+
+
+\begin{itemize}
+    \item{This sample spans a redshift range of $0.28 < z < 4.36$ and has a bimodal distribution, with peaks 
+        at $z\sim0.8$ and $z\sim2.5$.}
+   \item{We recover a wide range of quasar spectra in this selection.  
+        The majority of the objects have spectra of reddened Type 1
+        quasars, Type 2 quasars (both at low and high redshift) and objects
+        with strong absorption features.} 
+    \item{There is a relatively high fraction of Type 2 objects at low redshift,
+        suggesting that a high optical-to-infrared colour can be an efficient
+        selection of narrow-line quasars.}
+    \item{There are three objects that are detected in the $W4$-band but
+        not $W1$ or $W2$ (i.e., ``W1W2-dropouts''), all of which are at
+        $z>2.6$.}
+    \item{We identify an intriguing class of objects at $z\simeq 2-3$ which are
+        characterized by equivalent widths of REW(C\,{\sc iv})
+        $\gtrsim150$\AA.  These objects often also have unusual line
+        properties.  We speculate that the large REWs may be caused by
+        suppressed continuum emission analogous to Type 2 quasars in the
+        Unified Model. However, there is no obvious mechanism in the Unified
+        Model to suppress the continuum without also suppressing the broad
+        emission lines, thus potentially providing an interesting challenge to
+        quasar models.} 
+\end{itemize}
+Nunc lacus nibh, convallis ac lobortis ut, tempus ac lectus. Maecenas
+eu elit massa. Nulla vel lacus lorem. Proin et lobortis
+tortor. Phasellus ultrices nisl non enim porttitor dictum. Curabitur
+nec nunc ac nibh ornare elementum. Nunc ultrices hendrerit
+ultricies. Aliquam dapibus semper est et gravida. Etiam cursus, massa
+eget tempor elementum, lectus urna feugiat nisi, eget sagittis
+
+
+\section*{Acknowledgements}
+NPR acknowledges support from the STFC and the Ernest Rutherford Fellowship scheme. 
+
+We thank Bernie Shiao at STScI for help with the Pan-STARRS1 DR1 CasJobs interface. 
+
+This paper heavily used \href{http://www.star.bris.ac.uk/~mbt/topcat/}{TOPCAT} (v4.4)
+\citep[][]{Taylor2005, Taylor2011}.
+
+This research made use of \href{http://www.astropy.org}{\tt Astropy}, 
+a community-developed core Python package for Astronomy 
+\citep{AstropyCollaboration2013, AstropyCollaboration2018}. 
+
+The Pan-STARRS1 Surveys (PS1) and the PS1 public science archive have
+been made possible through contributions by the Institute for
+Astronomy, the University of Hawaii, the Pan-STARRS Project Office,
+the Max-Planck Society and its participating institutes, the Max
+Planck Institute for Astronomy, Heidelberg and the Max Planck
+Institute for Extraterrestrial Physics, Garching, The Johns Hopkins
+University, Durham University, the University of Edinburgh, the
+Queen's University Belfast, the Harvard-Smithsonian Center for
+Astrophysics, the Las Cumbres Observatory Global Telescope Network
+Incorporated, the National Central University of Taiwan, the Space
+Telescope Science Institute, the National Aeronautics and Space
+Administration under Grant No. NNX08AR22G issued through the Planetary
+Science Division of the NASA Science Mission Directorate, the National
+Science Foundation Grant No. AST-1238877, the University of Maryland,
+Eotvos Lorand University (ELTE), the Los Alamos National Laboratory,
+and the Gordon and Betty Moore Foundation.
+
+CasJobs was originally developed by the Johns Hopkins University/
+Sloan Digital Sky Survey (JHU/SDSS) team. With their permission, MAST
+used version 3.5.16 to construct CasJobs-based tools for GALEX,
+Kepler, the Hubble Source Catalog, and PanSTARRS.
+
+This publication makes use of data products from the Wide-field
+Infrared Survey Explorer, which is a joint project of the University
+of California, Los Angeles, and the Jet Propulsion
+Laboratory/California Institute of Technology, and NEOWISE, which is a
+project of the Jet Propulsion Laboratory/California Institute of
+Technology. WISE and NEOWISE are funded by the National Aeronautics
+and Space Administration.
+
+
+
+
+
+\newpage
+
+\appendix
+
+\section{PanSTARRS1 SQL queries}\label{sec:PS1_SQL}
+The PS1 Casjobs SQL Server is located at
+\href{http://mastweb.stsci.edu/ps1casjobs}{mastweb.stsci.edu/ps1casjobs}.
+The top level documentation is given
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs}{here}
+while the description of tables is given
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs#PS1Sourceextractionandcatalogs}{here}. The
+main tables are the
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+ObjectThin+table+fields}{{\tt
+objectThin}} and
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+MeanObject+table+fields}{{\tt
+meanObject}} tables.
+
+\section{Near-Infrared WFCAM Science Archive SQL queries}\label{sec:SQL}
+Here we give the receipe and SQL that returned the near-infrared photometry 
+for the VH$z$Qs. 
+
+\begin{enumerate}
+\item http://wsa.roe.ac.uk/ 
+\item Login
+\item {\tt username:	WSERV1000;  password: 	highzqso;   community: 	nonSurvey} 
+\item Freeform SQL Query with  WSERV1000v20180327
+\end{enumerate}
+
+\input{SQL_examples}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\bibliographystyle{apj}
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+\end{document}
