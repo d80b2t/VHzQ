@@ -8,18 +8,16 @@ import numpy as np
 from astropy.io import ascii
 from astropy.io import fits
 
-## `Super-set' list of VHzQs
+## `Super-set' of VHzQs, in that not of these will be unWISE
+## detections
 VHzQs = ascii.read("LIST_OF_VHzQs.dat") 
 
 ## unWISE magnitudes and fluxes
-unWISE_W1 = ascii.read("unWISE/unWISE_W1.dat")
-unWISE_W2 = ascii.read("unWISE/unWISE_W2.dat")
-
+unWISE_W1 = ascii.read("unWISE/unWISE_W1_20181204.dat")
+unWISE_W2 = ascii.read("unWISE/unWISE_W2_20181204.dat")
 
 ## matching distance in arcsecs
 dist = 2.75
-
-#matcher  =  VHzQs[np.where (  (VHzQs['ra'] - unWISE_W1['ra'][0]) < 1.0)]
 
 
 f = open('myfile', 'w')
@@ -31,6 +29,8 @@ counter_justW2_match  = 0
 counter_nomatch       = 0
 
 print('abcd count        RA           Dec   redshift  unW1_RA    unW1_Dec     unW2_RA    unW2_Dec     unW1_mag unW1_magerr    unW1_snr     unW2_mag unW2_magerr    unW2_snr idx_w1 idx_w2    sep_w1         sep_w2', file=f)
+## Looping over all the VHzQs and writing out R.A.s, Decls, redshifts.
+## Then figuring out/matching the VHzQs and unWISE objects
 for ii,jj,kk in zip(VHzQs['ra'], VHzQs['dec'], VHzQs['redshift'])  :
     counter = counter + 1
 
@@ -78,7 +78,8 @@ for ii,jj,kk in zip(VHzQs['ra'], VHzQs['dec'], VHzQs['redshift'])  :
             -99.999, -9.99, -99.999, 
             bm_w2['w2mpro'], bm_w2['w2sigmpro'], bm_w2['w2snr'], 
             idx_w1, idx_w2, delta_w1.min()*3600., delta_w2.min()*3600.,),  file=f)             
-              
+
+    ## neither W1 nor W2 matched    
     else:
         print('D,{: 4d}{: 14.8f}{: 14.8f} {:6.2f} {: 12.5f}{: 12.5f}{: 12.5f}{: 12.5f} {: 12.5f}{: 12.5f}{: 12.5f}  {: 11.5f}{:12.5f}{:12.5f} {: 4d}{: 4d} {: 14.6f} {: 14.6f} '.format(
             counter, ii, jj, kk, 
@@ -88,6 +89,7 @@ for ii,jj,kk in zip(VHzQs['ra'], VHzQs['dec'], VHzQs['redshift'])  :
             idx_w1, idx_w2, delta_w1.min()*3600., delta_w2.min()*3600.,),  file=f)             
         counter_nomatch = counter_nomatch +1
 
+        
 print()
 print('Both    matched :: ',  counter_both_matched)
 print('Just W1 matched :: ',  counter_justW1_match)
