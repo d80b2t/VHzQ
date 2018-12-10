@@ -1,8 +1,8 @@
-
-# coding: utf-8
-
-# In[1]:
-
+'''
+Some good ol' Distance Modulus code that
+(will ultimately) take in the e.g. z, y or J-band photometry
+of the VHzQs and return an Absolute Magnitude M_1450 value.
+'''
 
 from astropy.io import fits
 from astropy.io import ascii
@@ -85,81 +85,25 @@ z_kcorr_zband, kcorr_Lusso15_zband = np.loadtxt(kcorr_path+'kcorrz_l15.dat', use
 ## d is the distance to the object in parsecs
 
 
-# In[8]:
-
-
 cosmo
-
-
-# In[9]:
-
-
 cosmo.luminosity_distance(4)
-
-
-# In[10]:
-
-
 cosmo.luminosity_distance(all_VHzQs['redshift'])
 
-
-# In[11]:
-
-
 d_Mpc = cosmo.luminosity_distance(all_VHzQs['redshift'])
-
-
-# In[12]:
-
-
 #d_Mpc.value
-
-
-# In[13]:
-
 
 kcorr = 0.0
 
 
-# In[14]:
-
-
 Abs_Mag = (all_VHzQs['mag'])  - (5.*(np.log10(d_Mpc.value))) - 25. + kcorr
-#Abs_Mag
-
-
-# In[15]:
 
 
 delta_mags = Abs_Mag - all_VHzQs['M1450'] 
 
 
-# In[16]:
-
-
-Abs_Mag[0]
-
-
-# In[17]:
-
-
-all_VHzQs[1]
-
-
-# In[18]:
-
-
-Abs_Mag[1]
-
-
-# In[19]:
-
-
 z_slope_in = (np.arange(800)/100)
 z_slope = -2.5*(np.log10(1+z_slope_in))
 
-
-# In[20]:
 
 
 fig, ax = plt.subplots()
@@ -167,7 +111,7 @@ ax.scatter(all_VHzQs['redshift'], Abs_Mag, marker='.')
 ymin = -20.5
 ymax = -34.0
 ax.set_ylim((ymin, ymax))
-
+plt.show()
 
 # In[21]:
 
@@ -191,7 +135,7 @@ ax.set_xlim((xmin, xmax))
 ymin = -2.5
 ymax = -0.0
 ax.set_ylim((ymin, ymax))
-
+plt.show()
 
 # In[26]:
 
@@ -215,4 +159,4 @@ ax.set_xlim((xmin, xmax))
 ymin = -2.5
 ymax = -1.8
 ax.set_ylim((ymin, ymax))
-
+plt.show()
