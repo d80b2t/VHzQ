@@ -23,7 +23,7 @@ VHzQ_list = ascii.read(table)
 
 ## Just a little bit of info 
 print('type(VHzQ_list)', type(VHzQ_list))
-print('len(VHzQ_list)',   len(VHzQ_list))
+
 VHzQ_list.colnames
 
 ## Column 'na' has the original survey designations
@@ -35,10 +35,13 @@ np.unique(VHzQ_list['na'])
 ## objects from that survey -- thanks @nudomarinero !!
 survey, counts = np.unique(VHzQ_list["na"], return_counts=True)
 
+percent_count = 0.00
 ## Loop through the number of entries the variable 'survey' has
 print()
 for x in range(len(survey)):
-    print('{:7} & {:4d}'.format(survey[x], counts[x]))
-print()
+    print('{:7}  &  {:4d}  &  ({:5.2f})'.format(survey[x], counts[x], (counts[x]/463.*100) )) 
+    percent_count = percent_count + (counts[x]/463.*100)
     
-
+print()
+print('...for a total of ', len(VHzQ_list), ' VHzQs (at ', percent_count,'%)')
+print()

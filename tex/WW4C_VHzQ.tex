@@ -23,7 +23,7 @@ In this paper, we, for the first time since the discovery of $z\geq5$
 quasars, assemble all spectroscopically confirmed very high redshift
 quasars in one catalogue.  In particular we present the near
 ($zZyYJHK_{s}$ and $K$) infrared and mid-infrared (WISE) properties of
-all 424 spectroscopically confirmed redshift $z\geq5.00$ quasars.
+all 463 spectroscopically confirmed redshift $z\geq5.00$ quasars.
 Using archival public WFCAM/UKIRT and VIRCAM/VISTA data we check for
 photometric variability in the near-infrared that might be expected
 from Super-Eddington accretion and find {\it blah}.  We present a
@@ -184,7 +184,7 @@ incorporate what knowledge we have gained over the last couple of
 decades since $z>5$ quasars were discovered.
 
 This paper is organized as follows.  In Section 2, we present the
-assembled list of the 424 $z\geq5.00$ VH$z$Qs that we have
+assembled list of the 463 $z\geq5.00$ VH$z$Qs that we have
 compiled. We then give a high-level overview of the photometric
 surveys and datasets we use and present the photometry of the VH$z$Qs.
 In Section 3 we ... and In Section 4 we ... We conclude in Section 5 
@@ -260,22 +260,18 @@ Survey Explorer \citep[WISE;][]{Wright2010, Cutri2013} mission.
 For reference, Figure~\ref{fig:filters} displays the wavelength and normalised transmission 
 of the filters in question. 
 
-
 \input{THE_TABLE_v0pnt96_TOP10_betterformat}
 
 
+
+
 \subsection{Spectroscopy} 
-We have obtained a list of 424 spectroscopically confirmed 
-quasars with redshifts $z\geq5.00$. 
+We have obtained a list of 463 spectroscopically confirmed quasars
+with redshifts $z\geq5.00$. We use all the $z\geq5.00$ quasars that
+have been discovered and spectroscopically confirmed as of the time of
+writing (2018 November).
 
-In Table~\ref{tab:THE_TABLE}  we give the discovery reference for the
-VH$z$Qs noting that some objects were discovered independently and
-contemporaneously.  The redshifts for the VH$z$Qs generally come from
-the measurement of broad UV/optical emission lines. Where 
-there are far infra-red emission lines e.g. \cii~158 micron, we report 
-these, but at the level of our current analysis broadline redshifts are
-sufficient. 
-
+This list was complied from a range of surveys and papers. 
 Specifically, we use data from: 
 \citet{Banados2014, Banados2016, Banados2018}, 
 \citet{Becker2015}, 
@@ -304,55 +300,113 @@ Specifically, we use data from:
 \citet{Tang2017}, 
 \citet{Venemans2007, Venemans2012, Venemans2013, Venemans2015a, Venemans2015b, Venemans2016},
 \citet{WangF2016, WangF2017, WangF2018a, WangF2018b},
-\citet{Willott2007, Willott2009, Willott2010a, Willott2010b, Willott2013b, Willott2015}, 
+\citet{Willott2007, Willott2009, Willott2010a, Willott2013b, Willott2015}, 
 \citet{Wu2015} 
 \citet{YangJ2018a, YangJ2018b}  
 and 
 \citet{Zeimann2011}, 
+The breakdown of how many VH$z$Q each survey reports is given in
+Table~\ref{tab:surveys}. We assume the reader is familiar with the
+Sloan Digital Sky Survey (SDSS) and the Pan-STARRS1 (PS1; PSO in
+Table~\ref{tab:surveys}.  ) survey and these surveys alone identified
+over half (54.6\%) of the VH$z$Q population. Data from the
+Hyper Suprime-Cam (HSC) on the Subaru telecope is responsible for
+13.6\% of our dataset (HSC+SHELLQs in Table~\ref{tab:surveys}). The
+combination of surveys is also vital for identifying VH$z$Qs. The
+UKIDSS Large Area Survey (ULAS) on its own, or in combination with
+other surveys is responsible for 6.5\% of the sample (SUV+ULAS)
+including the highest-$z$ object. Where more than one survey is used
+for the high-redshift identification (e.g. via shorter-band veto and
+longer wavelength detection) we follow the discovery paper naming
+convention.
 
-Table~\ref{tab:THE_TABLE} gives the salient details for the objects
-used in this study. We use all the $z\geq5.00$ quasars that have been
-discovered and spectroscopically confirmed as of the time of writing
-(2018 November). We report near-infrared ($yYJHK$-bands) and
-mid-infrared (WISE W1/2/3/4) photometry.
-% and give our caculcated $M_{1450}$. 
 
 \begin{table}
-\begin{tabular}{l r l}
+\begin{tabular}{l r r l}
 \hline  \hline
-Survey              & \# VH$z$Qs & Notes/Survey reference  \\
+Survey              & \# VH$z$Qs & (\%) & Notes/Survey reference  \\
 \hline  
-  ATLAS             &     4       &  \citet{Shanks2015} \\
-  CFHQS            &   20       &  \citet{Willott2007} \\
-  DELS               &   16       &  \citet{Dey2018} \\
-  ELAIS              &     1       &  \citet{Vaisanen2000} \\
-  FIRST              &     1       &  \citet{Becker1995} \\
-  HSC                 &    8        & \citet{Miyazaki2018} \\
-  IMS                 &     5        &  \citet{Kim2015} \\
-  MMT               &   12        &  \citet{McGreer2013} \\
-  NDWFS           &     1         &  \citet{JD1999} \\
-  PSO                 &   83         &   \citet{Kaiser2002, Kaiser2010} \\
-  RD                   &     1         &  \citet{Mahabal2005} \\
-  SDSS                &  170         & \citet{EDR} \\
-  SDUV$^{a}$       &   20         & \citet{YangJ2017} \\
- SDWISE$^{b}$    &   27         &   \citet{WangF2016} \\
-%  SHELLQs         &  $^{c}$63   &  \citet{Matsuoka2016} \\  %% if you include 8 objects from the first HSC paper...
-  SHELLQs         &    55         &  \citet{Matsuoka2016}     \\  
-  UHS               &    1            &  \citet{Fan2018} \\
-  ULAS               &   10          & \citet{Lawrence2007} \\
-  VDES$^{c}$              &   17          &  \citet{Reed2017} \\
-  VIK                 &     9          &  \citet{Edge2013} \\
-  VIMOS           &    1            &   \citet{LeFevre2003} \\
+  ATLAS             &     4    &   ( 0.86)    &  \citet{Shanks2015} \\
+  CFHQS            &   20    &   ( 4.32)    &  \citet{Willott2007} \\
+  DELS               &   16    &   ( 3.46)    &  \citet{Dey2018} \\
+  ELAIS              &     1    &   ( 0.22)    &  \citet{Vaisanen2000} \\
+  FIRST              &     1    &   ( 0.22)    &  \citet{Becker1995} \\
+  HSC                 &    8    &   ( 1.73)    & \citet{Miyazaki2018} \\
+  IMS                 &     5    &   ( 1.08)     &  \citet{Kim2015} \\
+  MMT               &   12    &   ( 2.59)     &  \citet{McGreer2013} \\
+  NDWFS           &     1    &   ( 0.22)    &  \citet{JD1999} \\
+  PSO                 &   83   &   (17.93)   &   \citet{Kaiser2002, Kaiser2010} \\
+  RD                   &     1   &   ( 0.22)    &  \citet{Mahabal2005} \\
+  SDSS                &  170  &    (36.72)    & \citet{EDR} \\
+ SDWISE$^{b}$    &   27    &  ( 5.83)    &   \citet{WangF2016} \\
+%% SHELLQs    &  $^{c}$63  &  (13.6)   &  \citet{Matsuoka2016} \\  %% if you include 8 objects from the first HSC paper...
+  SHELLQs         &    55    &   (11.88)  &  \citet{Matsuoka2016}     \\  
+  SUV$^{c}$       &   20     &    ( 4.32)  & \citet{YangJ2017} \\
+  UHS               &    1      &  ( 0.22)     &  \citet{WangF2017} \\
+  ULAS               &   10   &   ( 2.16)     & \citet{Lawrence2007} \\
+  VDES$^{d}$       &   17  &    ( 3.67)     &  \citet{Reed2017} \\
+  VHS                 &     1  &     ( 0.22)    & \citet{WangF2018b} \\
+  VIK                 &     9    &  ( 1.94)    &  \citet{Edge2013} \\
+  VIMOS           &    1      &  ( 0.22)     &   \citet{LeFevre2003} \\
 \hline  \hline
 \end{tabular}
 \caption{The number of VH$z$Q from given surveys, with the key survey or telescope reference.  
-  $^{a}$SDUV  = SDSS+ULAS+VHS; 
+  Recent survey name and acronyms include: 
+  $^{a}$DESI Legacy Imaging Survey; 
   $^{b}$SDWISE = SDSS+WISE; 
+  $^{a}$SUV  = SDSS-ULAS/VHS; 
   $^{c}$VDES = VHS/VIKING+DES; 
 %  $^{c}$Includes 8 objects with a HyperSuprimeCam \citep[HSC; ][]{Miyazaki2018} designation.
 }
       \label{tab:surveys}
 \end{table}
+
+\begin{figure}
+%%trim=l b r t
+  \includegraphics[width=8.0cm, clip, trim=10mm 0mm 0mm 0mm]
+  {/cos_pc19a_npr/programs/quasars/highest_z/Nofz/Nofz_0pnt075bins_20181211.png}
+  \centering
+  \vspace{-12pt}
+  \caption[]
+  {The redshift distribution $N(z)$ of the VH$z$Q sample. 
+    The bins are $\detla-z=0.075$ in width. }
+  \label{fig:Nofz}
+\end{figure}
+
+The redshifts for the VH$z$Qs generally come from the measurement of
+broad UV/optical emission lines. Where there are far infra-red
+emission lines e.g. \cii~158 micron, we report these, but at the level
+of our current analysis broadline redshifts are sufficient.
+
+\begin{table}
+\centering
+\begin{tabular}{l r  r}
+\hline \hline
+$z \geq$  & Age / Myr & No. of objects \\
+\hline 
+7.50         &    700         &   1   \\
+7.00         &    767         &   4   \\
+6.78         &    800         &  14   \\
+6.50         &    845         &  40   \\
+6.19         &   900          &  86   \\
+6.00         &   937          &  170   \\
+5.70         & 1000          &  267   \\
+5.00         & 1180          &  463   \\
+\hline \hline
+\end{tabular}
+\caption{The number of objects at or above a given redshift. 
+The age of the Universe in megayears is also given. }
+      \label{tab:ages}
+\end{table}
+
+The number of objects at or above various redshifts, along with the 
+corresponding age of the Universe is given in Table~\ref{tab:ages}. 
+
+The $N(z)$ redshift histogram is given for the sample in Figure~\ref{fig:Nofz}. 
+We split the contribution up by survey. For clarity we show the individual 
+surveys of SDSS, PS1, HSC, the ULAS detection, and tally the remaining 
+surveys together (``various''). In Section~\ref{sec:Lz} we discuss the form 
+of the $N(z)$ as well as the coverage of the luminosity-redshift $L-z$ plane. 
 
         
 \subsection{Optical Photometry}
@@ -372,7 +426,7 @@ science product of the PS1 survey is the catalog accessible through
 the CasJobs interface.
     
 We query and return the mean PSF magnitudes from the $grizy$ filters
-({\tt MeanPSFMag}) which are in the AB system for our 424 VH$z$Q
+({\tt MeanPSFMag}) which are in the AB system for our 463 VH$z$Q
 sample. Details of our SQL and links to the main tables are given in
 Appendix~\ref{sec:PS1_SQL}.
     
@@ -407,7 +461,7 @@ will appear in a forthcoming paper, Cross et al.  2018, in prep, and
 has also been discussed in \citet{Cross2013}.  
 
 We query the WSA and VSA performing matched-aperature photometry at
-the positions of our 424 VH$z$Qs. This database is world-readable and we give the full receipe
+the positions of our 463 VH$z$Qs. This database is world-readable and we give the full receipe
 and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
    
     \subsubsection{Averaging matched photometry}
@@ -497,7 +551,7 @@ The WISE scan pattern leads to coverage of the full-sky approximately once every
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
-Having collated the sample of 424 VH$z$Qs, and obtained their optical,
+Having collated the sample of 463 VH$z$Qs, and obtained their optical,
 near- and mid-infrared photometry we report here the various
 photometric properites of the quasars.
 
@@ -668,7 +722,7 @@ luminosity-redshift $Lz$-plane.
     AGN candidates per deg$^2$) while the ``C75'' catalog 
     consists of 20.9M AGN candidates at 75\% completeness (and 
     ($\approx$700 AGN candidates per deg$^2$).  Crossmatching 
-    out catalogue of 424 VH$z$Qs with these catalogues, produces 
+    out catalogue of 463 VH$z$Qs with these catalogues, produces 
     42 matches with	the R90 sample and 98 matches with the C75 sample. 
     Both catalogues unsurprisingly match to the ultraluminous quasar 
     SDSS J0100+2802 \citep{Wu2015} while the C75, but not the R90 catalogue 

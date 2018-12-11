@@ -25,36 +25,24 @@ ATLAS   &    4     CFHQS   &   20     DELS    &   16
 ELAIS   &    1     FIRST   &    1     HSC     &    8
 IMS     &    5     MMT     &   12     NDWFS   &    1
 PSO     &   83     RD      &    1     SDSS    &  170
-SDUV    &   20     SDWISE  &   27     SHELLQs &   55
+SDWISE  &   27     SHELLQs &   55     SUV     &   20     
 UHS     &    1     ULAS    &   10     VDES    &   17
 VHS     &    1     VIK     &    9     VIMOS   &    1
 '''
 
 ## Make a separate list for each airline
-ATLAS  = list(VHzQs[VHzQs['na'] == 'ATLAS']['redshift'])      ## 4
-CFHQS  = list(VHzQs[VHzQs['na'] == 'CFHQS']['redshift'])      ## 20
-DELS   = list(VHzQs[VHzQs['na'] == 'DELS']['redshift'])       ## 16
 HSC    = list(VHzQs[(VHzQs['na'] == 'HSC') | (VHzQs['na'] == 'SHELLQs')]['redshift'])    ## 63
-IMS    = list(VHzQs[VHzQs['na'] == 'IMS']['redshift'])       ##  5
-MMT    = list(VHzQs[VHzQs['na'] == 'MMT']['redshift'])       ## 12
 PSO    = list(VHzQs[VHzQs['na'] == 'PSO']['redshift'])        
 SDSS   = list(VHzQs[VHzQs['na'] == 'SDSS']['redshift'])
-
-
-SDUV   = list(VHzQs[VHzQs['na'] == 'SDUV']['redshift'])
-SDWISE = list(VHzQs[VHzQs['na'] == 'SDWISE']['redshift'])
-SDplus = list(VHzQs[(VHzQs['na'] == 'SDUV') | (VHzQs['na'] == 'SDWISE')]['redshift']) 
-
-VDES   = list(VHzQs[VHzQs['na'] == 'VDES']['redshift'])
-ULAS   = list(VHzQs[VHzQs['na'] == 'ULAS']['redshift'])  
-VIK    = list(VHzQs[VHzQs['na'] == 'VIK']['redshift'])  
+ULASES = list(VHzQs[(VHzQs['na'] == 'ULAS') | (VHzQs['na'] == 'SUV')]['redshift']) 
 
 ## ELAIS+FIRST+NDWFS+RD+UHS+VHS+VIMOS
-others = list(VHzQs[ (VHzQs['na'] == 'ATLAS') | (VHzQs['na'] == 'CFHQS') | (VHzQs['na'] == 'DELS') |
-                     (VHzQs['na'] == 'ELAIS') | (VHzQs['na'] == 'FIRST') |
-                     (VHzQs['na'] == 'IMS')   | (VHzQs['na'] == 'MMT')   |   (VHzQs['na'] == 'NDWFS') |
-                     (VHzQs['na'] == 'RD')    | (VHzQs['na'] == 'UHS')   |  (VHzQs['na'] == 'VDES') | (VHzQs['na'] == 'VHS')   |
-                     (VHzQs['na'] == 'VIK')   |   (VHzQs['na'] == 'VIMOS') ] ['redshift'])
+others = list(VHzQs[ (VHzQs['na'] == 'ATLAS') | (VHzQs['na'] == 'CFHQS')  | (VHzQs['na'] == 'DELS') |
+                     (VHzQs['na'] == 'ELAIS') | (VHzQs['na'] == 'FIRST')  |
+                     (VHzQs['na'] == 'IMS')   | (VHzQs['na'] == 'MMT')    |  (VHzQs['na'] == 'NDWFS') |
+                     (VHzQs['na'] == 'RD')    | (VHzQs['na'] == 'SDWISE') |
+                     (VHzQs['na'] == 'UHS')   |  (VHzQs['na'] == 'VDES')  | (VHzQs['na'] == 'VHS')   |
+                     (VHzQs['na'] == 'VIK')   | (VHzQs['na'] == 'VIMOS') ] ['redshift'])
 
 ##  Assign colors for each survey
 cmap = plt.get_cmap('plasma')  ## rainbow Actually works pretty well for 6 datasets
@@ -83,7 +71,7 @@ plt.subplots_adjust(left=left, bottom=bottom, right=right, top=top, wspace=wspac
 
 ## Some NPR defaults
 alpha           = 1.0
-fontsize        = 16
+fontsize        = 12
 labelsize       = fontsize
 tickwidth       = 2.0
 linewidth       = 2.4
@@ -94,54 +82,46 @@ majorticklength = 12
 minorticklength = 6
 
 ## Setting up the N(z) binning..
-binwidth = 0.05
+binwidth = 0.075
 bins = int((VHzQs['redshift'].max()-VHzQs['redshift'].min())/binwidth +2)
 print('No. of bins... ', bins)
 
 ## matplotlib histogram
-ax.hist(VHzQs['redshift'], color = 'blue', bins = bins, range=[5.0,7.6])
-#ax.hist(CFHQS, color = cmap(0/5), bins = bins, range=[5.0,7.6], alpha=alpha,histtype='barstacked')
-#ax.hist(DELS,  color = cmap(1/5), bins = bins, range=[5.0,7.6], alpha=alpha)
-#ax.hist(HSC,   color = cmap(2/5), bins = bins, range=[5.0,7.6], alpha=alpha)
-#ax.hist(PSO,   color = cmap(3/5), bins = bins, range=[5.0,7.6], alpha=alpha)
-#ax.hist([SDSS,CFHQS],  color = (cmap(0/5),cmap(4/5)), bins = bins, range=[5.0,7.6], alpha=alpha, histtype='barstacked')
+#ax.hist(VHzQs['redshift'], color = 'blue', bins = bins, range=[5.0,7.6])
 
-#ax.hist([SDSS, PSO, HSC, SDplus, others, ULAS],
-  #      #color = (cmap(0/5), cmap(1/5), cmap(2/5), cmap(3/5), cmap(4/5), cmap(5/5)) ,
-  #      color = ('r', 'orange', 'yellow', 'green', 'blue', 'violet'), 
-   #     bins = bins, range=[5.0,7.6], alpha=alpha, histtype='barstacked')
-
-## Make the histogram using a list of lists
-## Stacked histogram with multiple airlines
-#ax.hist([ATLAS, CFHQS, DELS, HSC, IMS, MMT, PSO, SDSS,SDUV, SDWISE,VDES, ULAS, VIK, others],
-#ax.hist( [CFHQS, DELS, HSC, PSO, SDSS, SDUV, SDWISE, ULAS, VDES, others],
-#          bins = bins, stacked=True, color=colors, label=names, alpha=alpha)
+## Make stacked histogram with multiple airlines
+ax.hist([SDSS, others, PSO, HSC, ULASES],
+  #    color = (cmap(0/5), cmap(1/5), cmap(2/5), cmap(3/5), cmap(4/5), cmap(5/5)) ,
+        color = ('r', 'orange',  'green', 'blue', 'violet'), 
+       bins = bins, range=[5.0,7.6], alpha=alpha, histtype='barstacked')
 
 print()
-#print(len(VHzQs['redshift']))
-#print(len(ATLAS)+len(CFHQS)+len(DELS)+len(HSC) + len(IMS)+ len(MMT) + len(PSO) + len(SDSS) + len(SDUV)  + len(SDWISE)  + len(VDES)+ len(ULAS)+ len(VIK)+ len(others))
-#print()+len(CFHQS)+len(DELS)+len(HSC) + len(IMS)+ len(MMT) + len(PSO) + len(SDSS) + len(SDUV)  + len(SDWISE)  + len(VDES)+ len(ULAS)+ len(VIK)+ len(others))
-
 ## Create legend
 ## https://stackoverflow.com/questions/43872450/matplotlib-histogram-with-legend
 #handles = [Rectangle((0,0),1,1,color=c,ec="k") for c in names]
 labels  = names
-#ax.legend(['CFHQS',  'DELS', 'HSC', 'PSO',  'SDSS', 'SDUV', 'SDWISE','ULAS', 'VDES',  'others'], ncol=2)
-ax.legend(['SDSS', 'PSO', 'HSC','SDplus', 'others', 'ULAS'], fontsize=fontsize/2)
-#ax.legend(['463 VHzQs'],fontsize=fontsize/2)
+ax.legend(['SDSS    (170)',
+           'various (117)',
+           'PSO       (83)',
+           'HSC       (63)',
+           'w/ULAS (30)'],
+#           'wULAS+SUV  (30)'],
+           loc='upper right', fontsize=fontsize/1.2)
 
 
 ## Axes limits
 xmin =  4.90
 xmax =  7.65
 ymin =  0.0
-ymax = 38.0
+#ymax = 38.0 ## 0.05 bins
+ymax = 54.0 ## 0.075 bins
+#ymax = 66.0 ## 0.10 bins
 ax.set_xlim([xmin,xmax])
 ax.set_ylim([ymin, ymax])
 
 ## Axes labels
-ax.set_xlabel(r'$z$, redshift')
-ax.set_ylabel(r'No. of objects')
+ax.set_xlabel(r'$z$, redshift',  fontsize=labelsize)
+ax.set_ylabel(r'No. of objects', fontsize=labelsize)
 
 ## Axes style
 ax.tick_params(axis='both', which='major', labelsize=labelsize, top=True, right=True, direction='in', length=ticklength,   width=tickwidth)
