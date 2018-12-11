@@ -215,7 +215,7 @@ order to be consistent with \citet{Banados2016}.
 %%trim=l b r t
 %  \includegraphics[width=18.6cm, clip,trim=14mm 4mm 10mm 10mm]
   \includegraphics[width=8.6cm, clip,trim=32mm 4mm 32mm 10mm]
-  {/cos_pc19a_npr/programs/quasars/highest_z/SEDs/filters_vs_QSOstars_20180704.pdf}
+  {/cos_pc19a_npr/programs/quasars/highest_z/SEDs/filters_vs_QSOstars_z7pnt0.pdf}
   \centering
   \vspace{-12pt}
   \caption[]
@@ -447,22 +447,10 @@ and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
     WFCAM and VISTA data.  We give the necessary SQL queries syntax in Appendix~\ref{sec:SQL}.
 
 
-
 \subsection{MIR data}
-The MIR data for this study comes exclusively from the Wide-field
-Infrared Survey Explorer (WISE) mission. Since we are only concerned
-here with the very large area ($\gg1000$ deg$^2$) surveys, we leave
-exploration of the VH$z$Q population in e.g. the large Spitzer areal
-surveys such as the Spitzer IRAC Equatorial Survey \citep[SpIES;
-][]{Timlin2016}, the Spitzer-HETDEX Exploratory Large-area Survey
-\citep[SHELA; ][]{Papovich2016} and the Spitzer-SPT Deep Field
-\citep[SSDF; ][]{Ashby2013}, to a future investigation. This will also
-include a detailed study of MIR spectra e.g. \citet{Lambrides2018}.
+Since we are concerned here with the very large area ($\gg1000$ deg$^2$) surveys, we leave exploration of the VH$z$Q population in e.g. the large Spitzer areal surveys such as the Spitzer IRAC Equatorial Survey \citep[SpIES; ][]{Timlin2016}, the Spitzer-HETDEX Exploratory Large-area Survey \citep[SHELA; ][]{Papovich2016} and the Spitzer-SPT Deep Field \citep[SSDF; ][]{Ashby2013}, to future investigation. This will also include a detailed study of MIR spectra e.g. \citet{Lambrides2018}.
 
-We use data from the the beginning of the WISE mission \citep[2010
-January; ][]{Wright2010} through the fourth-year of NEOWISE-R
-operations \citep[2017 December;]{Mainzer2011}. More specifically, we
-use the data from the
+The MIR data for this study comes exclusively from the Wide-field Infrared Survey Explorer (WISE) mission. 
 \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE}
 program and catalogue, which combines data from the WISE cryogenic and
 NEOWISE (Mainzer et al. 2011 ApJ, 731, 53) post-cryogenic survey
@@ -479,11 +467,23 @@ data products are concatenated with those from the first three years
 (originally released on March 26, 2015, March 23, 2016 and June 1,
 2017) into a single archive.
 
-The WISE scan pattern leads to coverage of the full- sky approximately
-once every six months (a``sky pass''), but the satellite was placed in
-hibernation in 2011 February and then reactivated in 2013
-October. Hence, our light curves have a cadence of 6 months with a 32
-month sampling gap.
+We use data from the the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fourth-year of NEOWISE-R operations \citep[2017 December;]{Mainzer2011}.  More specifically, we utilise the recently released ``unWISE Catalog'' \citet{MeisnerSchlafly2019}. The unWISE effort\footnote{http://unwise.me/} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}. {\bf Few more words here on the unWISE catalog}. 
+
+All fluxes in the unWISE catalog are reported there are in ``Vega nanoMaggies'', with the Vega magnitude of a source is given by $m_{\rm Vega} = 22.5−2.5\log(f)$, where $f$ is the source flux. The absolute calibration for unWISE is ultimately inherited from AllWISE through the calibration of \citet{Meisner2017}. This inheritance depends on details of the PSF normalization at large radii, which is uncertain. Subtracting 4 mmag from the unWISE W1, and 32 mmag from unWISE W2 fluxes improves the agreement between unWISE and AllWISE fluxes.
+
+Thus to convert unWISE Vega magnitudes onto the AB system, we have,   
+\begin{eqnarray*}
+        W1_{\rm AB, unWISE}  & = &   22.5 - 2.5 \log(f_{W1}) - 0.004 + 2.699 \\
+        W2_{\rm AB, unWISE}  &  = &  22.5 - 2.5 \log(f_{W2}) - 0.032 + 3.339 
+\end{eqnarray*}
+%those two numbers are how far our flux measurements differed on average from the AllWISE flux estimates at high Galactic latitudes.  These tweaks will move you closer to the AllWISE absolute calibration, which we haven't tried to improve upon.
+%We note though that 
+%Especially in W1, though, this correction is uncertain, because the average offset between AllWISE and unWISE depends on magnitude, and we don't really know
+%- what the source of the trend is,
+%- which of unWISE and AllWISE is correct, or
+%- where the AllWISE tie to AB/Vega was done (though presumably it was done on the bright end?).
+
+The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
 
 
 

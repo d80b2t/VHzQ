@@ -22,14 +22,14 @@ from astropy.table import Table
 
 
 ##
-## READ-IN THE DATA FILE(S)
+##   READ-IN THE DATA FILE(S)
 ##
 
 ##
-## FILTERS
+##   FILTERS
 path = '/cos_pc19a_npr/data/filter_curves/'
 
-##     D E C a m
+##   D E C a m
 infile = 'DECam/DES_uband.dat'
 table = path+infile
 DES_uband      = ascii.read(table)
@@ -113,7 +113,6 @@ TwoMASS_Ksband      = ascii.read(table)
 TwoMASS_Ksband_wave = TwoMASS_Ksband['wavelength']
 TwoMASS_Ksband_thru = TwoMASS_Ksband['throughput']
 
-
 ##     WISE
 infile = 'WISE/RSR-W1.txt'
 table = path+infile
@@ -137,7 +136,7 @@ W4_band_wave = W4_band['W4']
 W4_band_thru = W4_band['RSR']
 
 ## 
-## Composite quasar spectra
+##  Composite quasar spectra
 ##
 ## The Vanden Berk et al. (2001) composite
 path = '/cos_pc19a_npr/data/SDSS/VdB01/'
@@ -147,7 +146,7 @@ VdB01_comp = ascii.read(table)
 VdB01_wave = VdB01_comp['Wavelength']
 VdB01_flux = VdB01_comp['Flux']
 
-## The Banados_2016_Table6 composite
+## The Banados et al. (2016) Table 6 composite
 path = '/cos_pc19a_npr/data/highest_z_QSOs/Banados_Tables/'
 infile = 'Banados_2016_Table6.dat'
 table = path+infile
@@ -156,7 +155,8 @@ Banados_wave        = Banados_2016_full['Wavelength']
 Banados_comp_flux   = Banados_2016_full['Flux_comp']
 Banados_strong_flux = Banados_2016_full['Flux_strong']
 Banados_weak_flux   = Banados_2016_full['Flux_weak']
-##
+
+## Glikman et al. (2006) Red/NIR composite
 path = '/cos_pc19a_npr/data/Glikman2006/'
 infile = 'Glikman_2006_ApJ_Table3.dat'
 table = path+infile
@@ -166,7 +166,7 @@ Glik_flux = Glikman_comp['Flux']
 Glik_flux = Glik_flux/Glik_flux.max()
 
 ##
-## L/T dwarf spectra; Cushing et al. (2008; ApJ, 678, 1372)
+##  L/T dwarf spectra; Cushing et al. (2008; ApJ, 678, 1372)
 ##
 ## 2MASS 1439+1929 (L1), 2MASS 0036+1821 (L3.5), 2MASS 1507-1627 (L5),
 ## DENIS 0255-4700 (L8), SDSS 1254-0122 (T2), and 2MASS 0559-1404 (T4.5) 
@@ -216,38 +216,31 @@ plt.rcParams.update({'font.size': 14})
 #fig = plt.figure(figsize=(14, 7))
 fig, ax = plt.subplots(figsize=(16, 7))
 
-xmin =  .38      ## um
-#xmin =  .53      ## um
-#xmin =  .68      ## um
-
-#xmax =    1.2    ## just PS1/DECam
-#xmax =    5.5    ## with WISE W2
-#xmax =   18.5    ## with WISE W3
-xmax = 28.00     ## with WISE W4
-
-ymin =   0.00
-ymax =   1.30
-
 ax.set_xscale('log')
 #ax.set_yscale('log')
-## if log, then...
-#ymin =   0.001
-#ymax =   2.30
+
+xmin =   0.38   ## in um, starting with g-band
+xmin =   0.52   ## in um, starting with r-band
+xmax =  5.5     ## with WISE W2
+#xmax = 18.5    ## with WISE W3
+#xmax = 28.00   ## with WISE W4
+ymin =  0.00
+ymax =  1.30
+#ymin = 0.001   ## for y-log,
+#ymax = 2.30    ## for y-log
 ax.set_xlim([xmin,xmax])
 ax.set_ylim([ymin, ymax])
 
+## Some NPR plotting defaults 
+alpha           = 1.0
+fontsize        = 22
+linewidth       = 2.4
 labelsize       = 18
 tickwidth       = 2.0
+ticklabelsize   = labelsize
 majorticklength = 12
 minorticklength = 6
-ticklabelsize   = labelsize
 
-linewidth = 2.4
-fontsize  = 22
-alpha = 1.0
-
-#ax.tick_params(axis='both', which='major', labelsize=ticklabelsize, top=True, right=True, direction='in', length=majorticklength, width=tickwidth)
-#ax.tick_params(axis='both', which='minor', right=True, direction='in', width=tickwidth)
 
 ##
 ## Named colors from::
@@ -261,17 +254,15 @@ alpha = 1.0
 #ax.plot( (DES_iband_wave/10000.),  (DES_iband_thru/100.), color='royalblue',      alpha=alpha, linewidth=linewidth)
 #ax.plot( (DES_zband_wave/10000.),  (DES_zband_thru/100.), color='deepskyblue',    alpha=alpha, linewidth=linewidth)
 #ax.plot( (DES_Yband_wave/10000.),  (DES_Yband_thru/100.), color='paleturquoise',  alpha=alpha, linewidth=linewidth)
-
 #ax.fill( (DES_gband_wave/10000.),  (DES_gband_thru/100.), color='violet',         alpha=alpha/2)
 #ax.fill( (DES_rband_wave/10000.),  (DES_rband_thru/100.), color='indigo',         alpha=alpha/2)
 #ax.fill( (DES_iband_wave/10000.),  (DES_iband_thru/100.), color='royalblue',      alpha=alpha/2)
 #ax.fill( (DES_zband_wave/10000.),  (DES_zband_thru/100.), color='deepskyblue',    alpha=alpha/2)
 #ax.fill( (DES_Yband_wave/10000.),  (DES_Yband_thru/100.), color='paleturquoise',  alpha=alpha/2)
 
-
 ## Pan-STARRS
-ax.plot( (PanSTARRS_wave/1000.),  (PanSTARRS_gp1/PanSTARRS_gp1.max()), color='darkviolet',      alpha=alpha, linewidth=linewidth)
-ax.fill( (PanSTARRS_wave/1000.),  (PanSTARRS_gp1/PanSTARRS_gp1.max()), color='darkviolet',      alpha=alpha/2)
+#ax.plot( (PanSTARRS_wave/1000.),  (PanSTARRS_gp1/PanSTARRS_gp1.max()), color='darkviolet',      alpha=alpha, linewidth=linewidth)
+#ax.fill( (PanSTARRS_wave/1000.),  (PanSTARRS_gp1/PanSTARRS_gp1.max()), color='darkviolet',      alpha=alpha/2)
 ax.plot( (PanSTARRS_wave/1000.),  (PanSTARRS_rp1/PanSTARRS_rp1.max()), color='slateblue',      alpha=alpha, linewidth=linewidth)
 ax.fill( (PanSTARRS_wave/1000.),  (PanSTARRS_rp1/PanSTARRS_rp1.max()), color='slateblue',      alpha=alpha/2)
 ax.plot( (PanSTARRS_wave/1000.),  (PanSTARRS_ip1/PanSTARRS_ip1.max()), color='dodgerblue',      alpha=alpha, linewidth=linewidth)
@@ -281,11 +272,18 @@ ax.fill( (PanSTARRS_wave/1000.),  (PanSTARRS_zp1/PanSTARRS_zp1.max()), color='sk
 ax.plot( (PanSTARRS_wave/1000.),  (PanSTARRS_yp1/PanSTARRS_yp1.max()), color='mediumturquoise', alpha=alpha, linewidth=linewidth)
 ax.fill( (PanSTARRS_wave/1000.),  (PanSTARRS_yp1/PanSTARRS_yp1.max()), color='mediumturquoise', alpha=alpha/2)
 
-plt.text(0.460, 1.1, r'g', color ='darkviolet', fontsize=fontsize)
-plt.text(0.570, 1.1, r'r', color ='slateblue', fontsize=fontsize)
-plt.text(0.700, 1.1, r'i', color ='dodgerblue', fontsize=fontsize)
-plt.text(0.800, 1.1, r'z', color ='skyblue', fontsize=fontsize)
-plt.text(0.900, 1.1, r'y', color ='mediumturquoise', fontsize=fontsize)
+## for xmin=0.38
+#plt.text(0.460, 1.1, r'g', color ='darkviolet',      fontsize=fontsize)
+#plt.text(0.570, 1.1, r'r', color ='slateblue',       fontsize=fontsize)
+#plt.text(0.700, 1.1, r'i', color ='dodgerblue',      fontsize=fontsize)
+#plt.text(0.800, 1.1, r'z', color ='skyblue',         fontsize=fontsize)
+#plt.text(0.900, 1.1, r'y', color ='mediumturquoise', fontsize=fontsize)
+
+## for xmin=0.52
+plt.text(0.590, 1.1, r'r', color ='slateblue',       fontsize=fontsize)
+plt.text(0.710, 1.1, r'i', color ='dodgerblue',      fontsize=fontsize)
+plt.text(0.840, 1.1, r'z', color ='skyblue',         fontsize=fontsize)
+plt.text(0.910, 1.1, r'y', color ='mediumturquoise', fontsize=fontsize)
 
 
 ## CFHT
@@ -296,8 +294,8 @@ plt.text(1.400, 1.1, r'W', color ='silver', fontsize=fontsize)
 ## UKIRT
 #ax.plot( (UKIRT_Zband_wave/10000.),  (UKIRT_Zband_thru/UKIRT_Zband_thru.max()), color='olive',         alpha=alpha, linewidth=linewidth)
 #ax.fill( (UKIRT_Zband_wave/10000.),  (UKIRT_Zband_thru/UKIRT_Zband_thru.max()), color='olive',         alpha=alpha/2)
-#ax.plot( (UKIRT_Yband_wave/10000.),  (UKIRT_Yband_thru/UKIRT_Yband_thru.max()), color='darkgoldenrod', alpha=alpha, linewidth=linewidth)
-#ax.fill( (UKIRT_Yband_wave/10000.),  (UKIRT_Yband_thru/UKIRT_Yband_thru.max()), color='darkgoldenrod', alpha=alpha/2)
+ax.plot( (UKIRT_Yband_wave/10000.),  (UKIRT_Yband_thru/UKIRT_Yband_thru.max()), color='darkgoldenrod', alpha=alpha, linewidth=linewidth)
+ax.fill( (UKIRT_Yband_wave/10000.),  (UKIRT_Yband_thru/UKIRT_Yband_thru.max()), color='darkgoldenrod', alpha=alpha/2)
 ax.plot( (UKIRT_Jband_wave/10000.),  (UKIRT_Jband_thru/UKIRT_Jband_thru.max()), color='orange',        alpha=alpha, linewidth=linewidth)
 ax.fill( (UKIRT_Jband_wave/10000.),  (UKIRT_Jband_thru/UKIRT_Jband_thru.max()), color='orange',        alpha=alpha/2)
 ax.plot( (UKIRT_Hband_wave/10000.),  (UKIRT_Hband_thru/UKIRT_Hband_thru.max()), color='gold',          alpha=alpha, linewidth=linewidth)
@@ -305,12 +303,12 @@ ax.fill( (UKIRT_Hband_wave/10000.),  (UKIRT_Hband_thru/UKIRT_Hband_thru.max()), 
 ax.plot( (UKIRT_Kband_wave/10000.),  (UKIRT_Kband_thru/UKIRT_Kband_thru.max()), color='yellow',        alpha=alpha, linewidth=linewidth)
 ax.fill( (UKIRT_Kband_wave/10000.),  (UKIRT_Kband_thru/UKIRT_Kband_thru.max()), color='yellow',        alpha=alpha/2)
 
-#plt.text(0.870, 1.1, r'Z', color ='olive', fontsize=fontsize)
-#plt.text(1.000, 1.1, r'Y', color ='darkgoldenrod', fontsize=fontsize)
-plt.text(1.280, 1.1, r'J', color ='orange', fontsize=fontsize)
-plt.text(1.600, 1.1, r'H', color ='gold',   fontsize=fontsize)
-#plt.text(2.020, 1.1, r'K', color ='k',      fontsize=fontsize*1.2)
-plt.text(2.020, 1.1, r'K', color ='yellow', fontsize=fontsize)
+#plt.text(0.870, 1.1, r'Z', color ='olive',        fontsize=fontsize)
+plt.text(1.000, 1.1, r'Y', color ='darkgoldenrod', fontsize=fontsize)
+plt.text(1.280, 1.1, r'J', color ='orange',        fontsize=fontsize)
+plt.text(1.600, 1.1, r'H', color ='gold',          fontsize=fontsize)
+#plt.text(2.020, 1.1, r'K', color ='k',            fontsize=fontsize*1.2)
+plt.text(2.020, 1.1, r'K', color ='yellow',        fontsize=fontsize)
 
 
 ## 2MASS
@@ -333,8 +331,6 @@ plt.text( 3.280, 1.1, r'W1', color ='peru',      fontsize=fontsize)
 plt.text( 4.200, 1.1, r'W2', color ='orangered', fontsize=fontsize)
 plt.text(10.120, 1.1, r'W3', color ='red',       fontsize=fontsize)
 plt.text(19.120, 1.1, r'W4', color ='darkred',   fontsize=fontsize)
-
-
 
 
 ##
@@ -383,7 +379,9 @@ Banados_comp_flux    = Banados_comp_flux    / Banados_comp_flux.max()
 Banados_strong_flux  = Banados_strong_flux  / Banados_strong_flux.max()
 Banados_weak_flux    = Banados_weak_flux    / Banados_weak_flux.max()
 
-redshift_in = float(input("What redshift is the quasar ??"))
+## Plot a redshifted quasar spectrum
+print()
+redshift_in = float(input("What redshift is the quasar? "))
 redshift = redshift_in
 ax.plot( ((VdB01_wave/10000.)*(1.0+redshift)),  (quasar_template_flux), color='k',alpha=1.0, linewidth=linewidth)
 #ax.plot( ((Banados_wave/10000.)*(1.0+redshift)), (Banados_comp_flux), color='b', alpha=0.85)
@@ -392,13 +390,18 @@ ax.plot( ((VdB01_wave/10000.)*(1.0+redshift)),  (quasar_template_flux), color='k
 ##ax.plot( ((Banados_wave/10000.)*(1.0+redshift)), (Banados_strong_flux), color='b', alpha=0.85)
 ##ax.plot( ((Banados_wave/10000.)*(1.0+redshift)), (Banados_weak_flux), color='b', alpha=0.85)
 
-font = {'color':  'k',        'weight': 'normal',         'size': 20,        }
-plt.text( 5.5, (ymax*0.72), r'z='+str(redshift)+' quasar', fontdict=font)
-font = {'color':  'r',        'weight': 'normal',         'size': 20,        }
-plt.text( 5.5, (ymax*0.62), r'L1 dwarf', fontdict=font)
-font = {'color':  'brown',        'weight': 'normal',         'size': 20,        }
-plt.text( 5.5, (ymax*0.52), r'T4.5 dwarf', fontdict=font)
+## Labels
+size=18
+x_placement = 2.40    ## Stopping at W2
+# x_placement = 5.5  ## With W4
+plt.text(x_placement, (ymax*0.72), r'$z$='+str(redshift)+' quasar', color='k',     weight='bold', size=size)
+plt.text(x_placement, (ymax*0.64), r'L1 dwarf',                     color='r',     weight='bold', size=size)
+plt.text(x_placement, (ymax*0.56), r'T4.5 dwarf',                   color='brown', weight='bold', size=size)
 
+
+## Axes parameters
+#ax.tick_params(axis='both', which='major', labelsize=ticklabelsize, top=True, right=True, direction='in', length=majorticklength, width=tickwidth)
+#ax.tick_params(axis='both', which='minor', right=True, direction='in', width=tickwidth)
 
 ## "Somehow", these three lines convert the
 ## 10^-1, 10^0 and 10^1 x-axis lables to 0.1, 1, 10...
@@ -409,7 +412,7 @@ for axis in [ax.xaxis, ax.yaxis]:
 ax.set_xlabel(r"Observed wavelength / $\mu$m")
 ax.set_ylabel("Normalised Transmission");
 
-
+## Save the figure
 plt.savefig('filters_vs_QSOstars_temp.png', format='png')
 plt.savefig('filters_vs_QSOstars_temp.pdf', format='pdf')
 plt.close(fig)
