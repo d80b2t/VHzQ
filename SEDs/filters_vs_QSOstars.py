@@ -280,10 +280,10 @@ ax.fill( (PanSTARRS_wave/1000.),  (PanSTARRS_yp1/PanSTARRS_yp1.max()), color='me
 #plt.text(0.900, 1.1, r'y', color ='mediumturquoise', fontsize=fontsize)
 
 ## for xmin=0.52
-plt.text(0.590, 1.1, r'r', color ='slateblue',       fontsize=fontsize)
-plt.text(0.710, 1.1, r'i', color ='dodgerblue',      fontsize=fontsize)
-plt.text(0.840, 1.1, r'z', color ='skyblue',         fontsize=fontsize)
-plt.text(0.910, 1.1, r'y', color ='mediumturquoise', fontsize=fontsize)
+plt.text(0.590, 1.1, r'r', color ='slateblue',       fontsize=fontsize, style='italic', weight='bold')
+plt.text(0.710, 1.1, r'i', color ='dodgerblue',      fontsize=fontsize, style='italic', weight='bold')
+plt.text(0.840, 1.1, r'z', color ='skyblue',         fontsize=fontsize, style='italic', weight='bold')
+plt.text(0.910, 1.1, r'y', color ='mediumturquoise', fontsize=fontsize, style='italic', weight='bold')
 
 
 ## CFHT
@@ -303,19 +303,18 @@ ax.fill( (UKIRT_Hband_wave/10000.),  (UKIRT_Hband_thru/UKIRT_Hband_thru.max()), 
 ax.plot( (UKIRT_Kband_wave/10000.),  (UKIRT_Kband_thru/UKIRT_Kband_thru.max()), color='yellow',        alpha=alpha, linewidth=linewidth)
 ax.fill( (UKIRT_Kband_wave/10000.),  (UKIRT_Kband_thru/UKIRT_Kband_thru.max()), color='yellow',        alpha=alpha/2)
 
-#plt.text(0.870, 1.1, r'Z', color ='olive',        fontsize=fontsize)
-plt.text(1.000, 1.1, r'Y', color ='darkgoldenrod', fontsize=fontsize)
-plt.text(1.280, 1.1, r'J', color ='orange',        fontsize=fontsize)
-plt.text(1.600, 1.1, r'H', color ='gold',          fontsize=fontsize)
-#plt.text(2.020, 1.1, r'K', color ='k',            fontsize=fontsize*1.2)
-plt.text(2.020, 1.1, r'K', color ='yellow',        fontsize=fontsize)
-
+#plt.text(0.870, 1.1, r'Z', color ='olive',        fontsize=fontsize,     weight='bold')
+plt.text(1.000, 1.1, r'Y', color ='darkgoldenrod', fontsize=fontsize,     weight='bold')
+plt.text(1.280, 1.1, r'J', color ='orange',        fontsize=fontsize,     weight='bold')
+plt.text(1.600, 1.1, r'H', color ='gold',          fontsize=fontsize,     weight='bold')
+#plt.text(2.020, 1.1, r'K', color ='k',            fontsize=fontsize*1.2, weight='bold')
+plt.text(2.020, 1.1, r'K', color ='yellow',        fontsize=fontsize,     weight='bold')
 
 ## 2MASS
 ax.plot( (TwoMASS_Ksband_wave/10000.), (TwoMASS_Ksband_thru/TwoMASS_Ksband_thru.max()), color='khaki', alpha=alpha, linewidth=linewidth, linestyle='-')
 ax.fill( (TwoMASS_Ksband_wave/10000.), (TwoMASS_Ksband_thru/TwoMASS_Ksband_thru.max()), color='khaki', alpha=alpha/2.)
 
-plt.text(2.200, 1.1, r'K$_{s}$', color ='khaki', fontsize=fontsize)
+plt.text(2.200, 1.1, r'K$_{s}$', color ='khaki', fontsize=fontsize, style='italic', weight='bold')
 
 
 ## WISE
@@ -327,10 +326,10 @@ ax.plot( (W3_band_wave),  (W3_band_thru/W3_band_thru.max()), color='red',       
 ax.fill( (W3_band_wave),  (W3_band_thru/W3_band_thru.max()), color='red',       alpha=alpha/2)
 ax.plot( (W4_band_wave),  (W4_band_thru/W4_band_thru.max()), color='darkred',   alpha=0.85, linewidth=linewidth)
 ax.fill( (W4_band_wave),  (W4_band_thru/W4_band_thru.max()), color='darkred',   alpha=alpha/2)
-plt.text( 3.280, 1.1, r'W1', color ='peru',      fontsize=fontsize)
-plt.text( 4.200, 1.1, r'W2', color ='orangered', fontsize=fontsize)
-plt.text(10.120, 1.1, r'W3', color ='red',       fontsize=fontsize)
-plt.text(19.120, 1.1, r'W4', color ='darkred',   fontsize=fontsize)
+plt.text( 3.280, 1.1, r'W1', color ='peru',      fontsize=fontsize, weight='bold')
+plt.text( 4.200, 1.1, r'W2', color ='orangered', fontsize=fontsize, weight='bold')
+plt.text(10.120, 1.1, r'W3', color ='red',       fontsize=fontsize, weight='bold')
+plt.text(19.120, 1.1, r'W4', color ='darkred',   fontsize=fontsize, weight='bold')
 
 
 ##
