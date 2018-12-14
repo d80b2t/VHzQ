@@ -1,6 +1,6 @@
 /*
 The SQL to query the WSA and VSA in order to get 'the best' ZYJHK
-photometry for the VHzQ sample.
+photometry for the VHzQ sample. (average over all epochs)
 */
 
 
@@ -14,10 +14,23 @@ photometry for the VHzQ sample.
 
 
 /*
-The SQL to query the WSA and VSA in order to get _all_ the repeat
-photometry for the objects in the VHzQ sample. 
+The SQL to query the WSA and VSA in order to get _all epochs_ for the
+repeat photometry for the objects in the VHzQ sample.  N.B. This will
+return the most epochs, *at all* time scales.
 */
 
+
+
+
+
+
+
+/*
+The SQL to query the WSA and VSA in order to get the 'average'
+photometery for a given time scale.  N.B. This is closer to optimum
+when wanting to look for e.g. any variability signatures for the
+VHzQs.
+*/
 
 
 
