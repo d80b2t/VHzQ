@@ -1,0 +1,47 @@
+===============================================================
+==
+==
+== 	 R E A D M E
+==
+==
+===============================================================
+
+
+https://github.com/d80b2t/VHzQ/tree/master/data/WSA_VSA
+
+
+ Purpose
+===============================================================
+This gives the salient details to (quickly) access the WSA
+(WFCAM Science Archive) and VSA (VISTA Science Archive) in order
+to obtain the near-infrared ZYJHK photometry for the VHzQ sample.
+
+
+
+ WSA
+===============================================================
+Go to:: 
+   wsa.roe.ac.uk
+
+and login with these credentials:: 
+    username: WSERV1000
+    password: highzqso
+    community: nonsurvey
+
+Menu query:: 
+     http://wsa.roe.ac.uk:8080/wsa/menu_form.jsp
+
+
+
+ VSA
+===============================================================
+Go to:: 
+   vsa.roe.ac.uk
+
+and login with these credentials::
+    username: VSERV1000
+    password: highzqso
+    community: nonsurvey
+
+Menu query
+
