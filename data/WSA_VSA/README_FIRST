@@ -24,14 +24,42 @@ to obtain the near-infrared ZYJHK photometry for the VHzQ sample.
 Go to:: 
    wsa.roe.ac.uk
 
-and login with these credentials:: 
+Go to: Login
+   and login with these credentials:: 
     username: WSERV1000
     password: highzqso
     community: nonsurvey
 
-Menu query:: 
-     http://wsa.roe.ac.uk:8080/wsa/menu_form.jsp
+Go to: Freeform SQL
+   Database release to use:	WSERV1000v20181217
 
+And enter your SQL. 
+
+
+
+To examine which columns are tables are available for
+the WSERV1000v20180716 database, the schema can be accessed
+at::
+
+Key tables include::
+    Schema browser	http://wsa.roe.ac.uk/www/wsa_browser.html
+    On the LHS		WSA Non-Survey
+    Expand 		wserv
+    Select and expand 	WSERV1000v20180716  (earlier version of WSERV1000v20181217,
+               				    but the same columns)
+    
+			
+
+    WSA Non-Survey	
+    	WSERV1000v20180716
+	-- wserv1000MapRemeasurement (initial forced photometery)
+ 	-- wserv1000MapRemeasAver (averaged forced photometry)
+	Multiframe::
+		project	
+		survey
+
+FOr the 
+MapFrameStatus
 
 
  Access the VSA
@@ -42,7 +70,7 @@ Go to::
 and login with these credentials::
     username: VSERV1000
     password: highzqso
-    community: nonsurvey
+    community: proprietary
 
 Menu query
 
