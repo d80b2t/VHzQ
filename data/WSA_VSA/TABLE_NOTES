@@ -1,0 +1,22 @@
+
+w/vwserv1000MapRemeasurement tables are built upon the Detection Tables.
+
+The Detection tables have a recording of each extracted object, so if
+you run your `image extrator', you get you positions, fluxes, etc. and
+that goes into the Detection tables.
+
+The *Remeasurement tables have a lot of the Detection table
+attributes, but also have crucial differences.
+
+For instance, for the Detection tables, the compound Primary Key (the
+way you catalog the object) is based on the MultiFrameID, which is id
+of, the multiextension FITS file, plus the MultiFrame extension number
+(usually givesn as ExtNum) and finally a Sequence number (running
+number from 1 upwards).
+
+Whereas for the MapRemeasurement tables, the Primary Key is the
+ApertureID -- which is based on your sources list -- and, catalogueID,
+which is just the number of your catalogue (an identifiier for
+the/your catalogue).
+
+Another difference between Detection and MapRemeasurement is that you can expect more of the fluxes measurements to be negative, in MapRemeasurement, and indeed some of the objects you might expect *all* the measurements to have negative fluxes in the MapRemeasurement tables. 

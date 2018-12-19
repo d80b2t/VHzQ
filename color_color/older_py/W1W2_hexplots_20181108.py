@@ -25,7 +25,7 @@ dr14q = Table(data)
 ##  V H z Q    data
 ##
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
-filename ='VHzQs463_unWISE_v1pnt00.dat'
+filename ='VHzQs455_unWISE_v1pnt01.dat'
 table=path+filename
 VHzQ = ascii.read(table)
 
@@ -45,26 +45,20 @@ fig, ax = plt.subplots(figsize=(14, 10), num=None, dpi=80, facecolor='w', edgeco
 xmin=12.4; xmax=17.6; ymin=-0.5; ymax=2.6
 
 ## Plotting setup
-ls              = 30.
-lw              = 2.0
+cmap = plt.cm.rainbow
 fontsize        = 30
+ls              = fontsize
+lw              = 2.0
 ticklength      = 18
 tickwidth       = 2.0
 pointsize       = 60
 pointsize_large = pointsize*1.2
 
-xmin = 12.4; xmax = 17.6; ymin = -0.5; ymax = 2.6   # decent enough
-xmin = 12.4; xmax = 18.4; ymin = -0.5; ymax = 2.6   # decent enough
-ax.axis([xmin, xmax, ymin, ymax])
-
-
 ##
 ## Plotting the   D R 1 4 Q    hexbins
 ##
-cmap = plt.cm.Greys
-hb = ax.hexbin( dr14q['W2MAG'], (dr14q['W1MAG'] - dr14q['W2MAG']),
-                C=dr14q['Z'], 
-                gridsize=180, mincnt=3, marginals=False, cmap=cmap, vmin=0.20, vmax=3.00)
+hb = ax.hexbin( dr14q['W2MAG'], (dr14q['W1MAG'] - dr14q['W2MAG']), C=dr14q['Z'],
+            gridsize=180, mincnt=3, marginals=False, cmap=cmap, vmin=0.20, vmax=3.00)
 
 cb = fig.colorbar(hb, ax=ax)
 cb.set_label('redshift')
@@ -72,22 +66,17 @@ cb.set_label('redshift')
 ##
 ## Plotting the    V H z Q    points
 ##
-cmap = plt.cm.rainbow
 ax.scatter( VHzQ['unW1_mag'], (VHzQ['unW1_mag'] - VHzQ['unW2_mag']), color='k', s=pointsize*2.8 )
-hiz =    ax.scatter( VHzQ['unW1_mag'], (VHzQ['unW1_mag'] - VHzQ['unW2_mag']),
-                     c=VHzQ['redshift'], 
-                     cmap=cmap, s=pointsize )
+ax.scatter( VHzQ['unW1_mag'], (VHzQ['unW1_mag'] - VHzQ['unW2_mag']), color='m', s=pointsize )
 #ax.scatter(0,0, color='w', s=pointsize_large)
-
-cb = fig.colorbar(hiz, ax=ax)
-#cb.set_label('redshift')
-
 
 ## ``The vertical dashed line at W2-W3=5.3 is one of the selection
 ## criteria for W1W2-dropouts; some are bluer than this because they
 ## satisfied the W2-W4>8.2 criterion.''
 lw = 2.0
 #ax.axvline(x=5.3, linewidth=lw,linestyle='dotted', color='k')
+
+ax.axis([xmin, xmax, ymin, ymax])
 
 ax.tick_params(axis='both', which='major', labelsize=ls, top=True, right=True, direction='in', length=ticklength,   width=tickwidth)
 ax.tick_params(axis='both', which='minor', labelsize=ls, top=True, right=True, direction='in', length=ticklength/2, width=tickwidth)
@@ -126,7 +115,7 @@ gamma_R = 13.86
 delta_c = 0.71 ## for 75% completeness
 delta_c = 0.50 ## for 90% completeness
 ## Horizontal lines
-#ax.axhline(y=delta_c, xmin=0, xmax=1, ls='--', color='w', linewidth=6.)
+ax.axhline(y=delta_c, xmin=0, xmax=1, ls='--', color='w', linewidth=6.)
 
 ax.set_xlabel(r" W2 (Vega) ",  fontsize=fontsize)
 ax.set_ylabel(r" W1 - W2 ",    fontsize=fontsize)
