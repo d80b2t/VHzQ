@@ -31,22 +31,28 @@ for ii in range(len(VHzQs['count'])):
 
         ## Check to see if List 1 = List 2...
         if VHzQs['count'][ii] == allwise['cntr_01'][jj]:
-            print('{:11.7f} {:11.7f} {: 5.3f}   {: 5.3f}    {:8.4f} {:8.4f} {:8.4f}  {: 8.3f} {: 7.2f} {: 6.1f}    {:8.4f} {:8.4f} {:8.4f}  {: 8.3f} {: 7.2f} {: 6.1f}'.format(
+            print('{:11.7f} {:11.7f} {: 5.3f}   {: 5.3f}    {:8.4f} {:8.4f} {:8.4f}  {: 8.3f} {: 7.2f} {: 6.1f}    {:8.4f} {:8.4f} {:8.4f}  {: 8.3f} {: 7.2f} {: 6.1f} {: 8.3f} {: 7.2f} {: 6.1f} {: 8.3f} {: 7.2f} {: 6.1f}  '.format(
                 VHzQs['RA'][ii], VHzQs['Dec'][ii], VHzQs['redshift'][ii],
                 allwise['dist_x'][jj], 
                 VHzQs['unW1_mag'][ii], VHzQs['unW1_magerr'][ii], VHzQs['unW1_snr'][ii], 
                 allwise['w1mpro'][jj], allwise['w1sigmpro'][jj], allwise['w1snr'][jj], 
                 VHzQs['unW2_mag'][ii], VHzQs['unW2_magerr'][ii], VHzQs['unW2_snr'][ii], 
-                allwise['w2mpro'][jj], allwise['w2sigmpro'][jj], allwise['w2snr'][jj]), file=f)
+                allwise['w2mpro'][jj], allwise['w2sigmpro'][jj], allwise['w2snr'][jj], 
+                allwise['w3mpro'][jj], allwise['w3sigmpro'][jj], allwise['w3snr'][jj],
+                allwise['w4mpro'][jj], allwise['w4sigmpro'][jj], allwise['w4snr'][jj]), file=f)
+            
             matched = 1
 
     if matched == 0:
-        print('{:11.7f} {:11.7f} {: 5.3f}    -9.99    {:8.4f} {:8.4f} {:8.4f}  {:8.3f} {:7.2f} {:6.1f}    {:8.4f} {:8.4f} {:8.4f}  {: 8.3f} {: 7.2f} {: 6.1f}'.format(
+        print('{:11.7f} {:11.7f} {: 5.3f}    -9.99    {:8.4f} {:8.4f} {:8.4f}  {:8.3f} {:7.2f} {:6.1f}    {:8.4f} {:8.4f} {:8.4f}  {: 8.3f} {: 7.2f} {: 6.1f} {: 8.3f} {: 7.2f} {: 6.1f} {: 8.3f} {: 7.2f} {: 6.1f}'.format(
                 VHzQs['RA'][ii], VHzQs['Dec'][ii], VHzQs['redshift'][ii], 
                 VHzQs['unW1_mag'][ii], VHzQs['unW1_magerr'][ii], VHzQs['unW1_snr'][ii], 
                 -9.99, -9.99, -9.9, 
                 VHzQs['unW2_mag'][ii], VHzQs['unW2_magerr'][ii], VHzQs['unW2_snr'][ii], 
-                -9.99, -9.99, -9.9), file=f)
+                -9.99, -9.99, -9.9,
+                -9.99, -9.99, -9.9,
+                -9.99, -9.99, -9.9,
+            ), file=f)
                 
 
 f.close() 
