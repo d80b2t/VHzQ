@@ -16,12 +16,8 @@ import math
 
 from matplotlib import colors as mcolors
 from matplotlib import gridspec
-
-
-# In[2]:
-
-
 from astropy.cosmology import FlatLambdaCDM
+
 # In this case we just need to define the matter density 
 # and hubble parameter at z=0.
 # Note the default units for the hubble parameter H0 are km/s/Mpc. 
@@ -29,17 +25,10 @@ from astropy.cosmology import FlatLambdaCDM
 cosmo = FlatLambdaCDM(H0=67.7, Om0=0.307)  #Banados thesis
 
 
-# In[3]:
-
-
 import astropy.units as u
 ages = np.array([13, 10, 8, 6, 5, 4, 3, 2, 1.5, 1.2, 1, 0.8, 0.70])*u.Gyr
 from astropy.cosmology import z_at_value
 ageticks = [z_at_value(cosmo.age, age) for age in ages]
-
-
-# In[4]:
-
 
 ## READ-IN THE DATA FILE(S)
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
@@ -47,15 +36,7 @@ infile = 'THE_TABLE_v0pnt971.ascii'
 readin = path+infile
 all_VHzQs  = ascii.read(readin, delimiter=r'\s')
 
-
-# In[5]:
-
-
 all_VHzQs
-
-
-# In[6]:
-
 
 ## Gotta give credit where it's due... 
 ## Kulkarni, of arXiv:1807.09774v1 fame, 
