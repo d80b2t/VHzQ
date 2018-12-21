@@ -18,7 +18,7 @@ Y=2, J=3, H=4 and K/Ks=5), the mjdObs, the project (e.g. VHS, LAS), and in Multi
 The quality control (deprecated in each table) is not consistent across the frames since it is applied partly in response to 
 the requirements and energy of the survey PIs, or for smaller PIs projects it is applied automatically if that data has been 
 released. In all cases the frames used are stacks created in a single Observing Block, not raw (normal) frames, tiles or 
-deep stacks or mosaics.
+deep stacks or mosaics. Filter --> 
 
 The new tables can be broken down into a few types:
 
@@ -100,9 +100,30 @@ if all other measurements are poor quality.
 
 How to most effectively use the database:
 
-Useful queries
+Below are some examples of queries to get scientifically useful data back. These demonstrate how to use the tables together.
+
 
 1) Select best magnitude in each band for each QSO.
+
+If you want a single measurement in each band for each QSO, then the best value comes from averaging over all epochs, i.e. the
+values in v/wserv1000MapRemeasAver selected from the appropriate catalogues created from the appropriate averaging.  
+
+@TODO: Correct to AB mags. Replace VegaToAB values in Filter table with our updated version if they are not there. Mention Filter table above
+
+SELECT qso.qsoName,qso.qsoID,qso.ra,qso.dec,aver.filterID,aver.aperMag3,aver.aperMag3Err,aver.ppErrBits 
+/* Select basic QSO parameters and photometry averaged over all epochs. ppErrBits gives some quality control information */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver, 
+/* Select main tables for query. MapApertureIDshighzQsoMap joins finalQsoCatalogue to vserv1000MapRemeasAver */ 
+(SELECT distinct combiCatID FROM MapProvenance WHERE avSetupID=0) as mapAvSetup 
+/* Create a temporary table in memory of only average catalogues that are created with avSetupID=0, i.e. 
+averaged over all epochs */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and aver.catalogueID=mapAvSetup.combiCatID 
+/* Join all the tables correctly. finalQsoCatalogue is linked to MapApertureIDshighzQsoMap with qsoID=objectID. 
+The apertureID in MapApertureIDshighzQsoMap links to vserv1000MapRemeasurement or vserv1000MapRemeasAver.
+The temporary table gives the correct list of combiCatIDs that constrain the catalogueID in vserv1000MapRemeasAver.
+*/ 
+ORDER BY qso.qsoID,aver.filterID 
+/* Order by qsoID and filterID */
 
 2) Select a light-curve for a QSO.
  2.1
