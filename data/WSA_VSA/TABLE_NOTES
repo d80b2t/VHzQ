@@ -132,8 +132,25 @@ ORDER BY qso.qsoID,aver.filterID
 /* Order by qsoID and filterID */
 
 2) Select a light-curve for a QSO.
- 2.1
- 2.2
+ 2.1 Select the light curve from epoch frame photometry 
+ 
+SELECT qso.qsoName,m.mjdObs,remeas.filterID,(remeas.aperMag3+f.VegaToAB) as aperMag3AverAB,remeas.aperMag3Err,
+remeas.ppErrBits 
+/* Select basic QSO parameters and photometry extracted from each OB epoch. */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, Filter as f,
+Multiframe as m,MapFrameStatus as mfs 
+/* Select main tables for query. MapApertureIDshighzQsoMap joins finalQsoCatalogue to vserv1000MapRemeasurement */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.catalogueID=mfs.catalogueID and 
+mfs.multiframeID=m.multiframeID and f.filterID=m.filterID 
+/* Join all the tables correctly MapFrameStatus links the catalogueID to the multiframeID, which allows us to link to 
+the image metadate in Multiframe to get the observation time (mjdObs) */ 
+and qso.qsoID=54 
+/* Select a particular QSO, qsoID=54 (MMTJ0215-0529) */
+ORDER BY qso.qsoID,remeas.filterID 
+/* Order by qsoID and filterID */
+
+
+ 2.2 Select a light curve averaged over 1 month.
 
 3) Get integration times for each QSO, band
 
