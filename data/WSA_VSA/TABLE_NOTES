@@ -97,3 +97,27 @@ w/vserv1000MapAverageWeights gives the weights of each object in a particular co
 apertureID, combiCatID and catalogueID, specifying both the raw image catalogue and the averaged catalogue, since some objects, e.g.
 an object with poor quality flags, may have a zero weight if there are lots of other good quality measurements, but have some weight
 if all other measurements are poor quality.
+
+How to most effectively use the database:
+
+Useful queries
+
+1) Select best magnitude in each band for each QSO.
+
+2) Select a light-curve for a QSO.
+ 2.1
+ 2.2
+
+3) Get integration times for each QSO, band
+
+4) Get project information for data that was used for a given QSO
+
+5) Get number of QSOs in VSA data in Ks band
+
+6) Get NIR data for QSOs with 6.0<z<6.5
+
+7) Select NIR data for VDES QSOs
+
+8) Select NIR data for QSOs with M1450...
+
+
