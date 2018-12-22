@@ -175,7 +175,20 @@ GROUP BY qso.qsoName,aver.filterID, aver.aperJky3,aver.aperJky3Err,aver.aperMag3
 /* GROUP BY attributes that are part of are associated with the average so that we get statistics for properties 
 measured at the frame level */
 
-3) Get integration times for each QSO, band
+3) Get integration times for each QSO, band, and return those with a total integration time > 50,000s.
+
+SELECT qso.qsoName,qso.qsoID,remeas.filterID,SUM(d.totalExpTime) as integrationTime
+/* Sum the total exposure times from MultiframeDetector for all images used. 
+*/ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, MultiframeDetector as d
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). Select OB photometry from vserv1000MapRemeasurement and MultiframeDetector */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.multiframeID=d.multiframeID and remeas.extNum=d.extNum
+/* Join all the tables correctly. MultiframeDetector has entries for each OB and is linked to vserv1000MapRemeasurement by multiframeID,extNum
+*/ 
+GROUP BY qso.qsoName,qso.qsoID,remeas.filterID HAVING SUM(d.totalExpTime)>50000.
+/* Group by invariant quantities, and select those with total integration time>50000 */
+ORDER BY qso.qsoID,remeas.filterID 
+/* Order by qsoID and filterID */
 
 4) Get project information for data that was used for a given QSO
 
