@@ -192,12 +192,61 @@ ORDER BY qso.qsoID,remeas.filterID
 
 4) Get project information for data that was used for a given QSO
 
+SELECT qso.qsoName,m.mjdObs,m.multiframeID,m.project,m.filterID 
+/* Select the mjd, multiframeID and project data for a QSO */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, Multiframe as m 
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). 
+Select OB photometry from vserv1000MapRemeasurement and MultiframeDetector */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.multiframeID=m.multiframeID 
+/* Join all the tables correctly. Multiframe has entries for each OB and is linked to vserv1000MapRemeasurement by 
+multiframeID */ 
+AND qso.qsoID in (455,456) 
+/* select the required QSOs by ID (or name) */ 
+ORDER BY qso.qsoName,m.mjdObs 
+/* order by each QSO and time of observation */
+
 5) Get number of QSOs in VSA data in Ks band
+
+SELECT COUNT(distinct qso.qsoName) 
+/* Select number of unique QSO names */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas 
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). Select OB photometry 
+from vserv1000MapRemeasurement */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID 
+/* Join all the tables correctly. */ 
+AND remeas.filterID=5 
+/* Only select data in Ks band */
 
 6) Get NIR data for QSOs with 6.0<z<6.5
 
+This is the same as Query 1) but with an additional AND qso.redshift BETWEEN 6.0 AND 6.5 selection.
+
+SELECT qso.qsoName,qso.qsoID,qso.ra,qso.dec,qso.redshift,aver.filterID,(aver.aperMag3+f.VegaToAB) as aperMag3AverAB,
+aver.aperMag3Err,aver.ppErrBits 
+/* Select basic QSO parameters and photometry averaged over all epochs. ppErrBits gives some quality control information. 
+It is safest to add an alias to each attribute to avoid confusion. */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver, Filter as f, 
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). MapApertureIDshighzQsoMap links 
+finalQsoCatalogue to vserv1000MapRemeasAver */ 
+(SELECT distinct combiCatID FROM MapProvenance WHERE avSetupID=0) as mapAvSetup 
+/* Create a temporary table in memory of only average catalogues that are created with avSetupID=0, 
+i.e. averaged over all epochs. Using distinct is very important since MapProvenance has multiple rows for each 
+averaged catalogue */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and aver.catalogueID=mapAvSetup.combiCatID and 
+f.filterID=aver.filterID 
+/* Join all the tables correctly. finalQsoCatalogue is linked to MapApertureIDshighzQsoMap with qsoID=objectID. 
+The apertureID in MapApertureIDshighzQsoMap links to vserv1000MapRemeasurement or vserv1000MapRemeasAver. 
+The temporary table gives the correct list of combiCatIDs that constrain the catalogueID in vserv1000MapRemeasAver. */ 
+AND qso.redshift BETWEEN 6.0 and 6.5 
+/* Select QSOs between 6.0 and 6.5 */ 
+ORDER BY qso.qsoID,aver.filterID 
+/* Order by qsoID and filterID */
+
 7) Select NIR data for VDES QSOs
 
-8) Select NIR data for QSOs with M1450...
+Do the same as 6) but replace " AND qso.redshift BETWEEN 6.0 and 6.5" with " AND qso.survey='VDES'"
 
+8) Select NIR data for QSOs with -26.<M1450<-25.
+
+Do the same as 6) but replace " AND qso.redshift BETWEEN 6.0 and 6.5" with "AND qso.m1450abs BETWEEN -26. AND -25."
 
