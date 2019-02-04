@@ -1,76 +1,54 @@
-===============================================================
+====================================================================
 ==
 ==
 == 	 R E A D M E
 ==
 ==
-===============================================================
+====================================================================
 
 
 https://github.com/d80b2t/VHzQ/tree/master/data/WSA_VSA
 
 
+
  Purpose
-===============================================================
-This gives the salient details to (quickly) access the WSA
-(WFCAM Science Archive) and VSA (VISTA Science Archive) in order
-to obtain the near-infrared ZYJHK photometry for the VHzQ sample.
+====================================================================
+This gives the salient details to quickly access the WFCAM Science
+Archive (WSA) and the VISTA Science Archive (VSA) in order to obtain
+the near-infrared ZYJHK photometry for the VHzQ sample.
 
 
 
 
- Access the WSA
-===============================================================
-Go to:: 
-   wsa.roe.ac.uk
-
-Go to: Login
-   and login with these credentials:: 
-    username: WSERV1000
-    password: highzqso
-    community: nonsurvey
-
-Go to: Freeform SQL
-   Database release to use:	WSERV1000v20181217
-
-And enter your SQL. 
+ WSA_VSA_LOGINS
+====================================================================
+Gives the details for how to login into the WSA and VSA.
 
 
-
-To examine which columns are tables are available for
-the WSERV1000v20180716 database, the schema can be accessed
-at::
-
-Key tables include::
-    Schema browser	http://wsa.roe.ac.uk/www/wsa_browser.html
-    On the LHS		WSA Non-Survey
-    Expand 		wserv
-    Select and expand 	WSERV1000v20180716  (earlier version of WSERV1000v20181217,
-               				    but the same columns)
-    
-			
-
-    WSA Non-Survey	
-    	WSERV1000v20180716
-	-- wserv1000MapRemeasurement (initial forced photometery)
- 	-- wserv1000MapRemeasAver (averaged forced photometry)
-	Multiframe::
-		project	
-		survey
-
-FOr the 
-MapFrameStatus
+ SAMPLE_SQL_QUERIES
+====================================================================
+Gives a set of example SQL queries that can be used to garner
+information from the WSA and VSA.
 
 
- Access the VSA
-===============================================================
-Go to:: 
-   surveys.roe.ac.uk/vsa
+ TABLE_DESCRIPTIONS
+====================================================================
+Gives further details on the various databased Tables that are most
+relevant in the WSA and VSA.
 
-and login with these credentials::
-    username: VSERV1000
-    password: highzqso
-    community: proprietary
 
-Menu query
 
+
+ QUICK References
+====================================================================
+filterID	band	WSA_result_rows
+1		Z	31
+2		Y	4123
+3		J	20870
+4		H	4200
+5		K	6125	
+6		H2	7921	
+7		Br	0
+8		blank	0
+9		NB_J	6241
+10 		NB_H	5109

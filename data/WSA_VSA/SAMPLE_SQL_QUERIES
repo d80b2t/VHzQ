@@ -1,3 +1,171 @@
+
+
+Here are a list of examples of queries that get scientifically useful data. 
+
+
+
+1) Select best magnitude in each band for each QSO.
+
+If you want a single measurement in each band for each QSO, then the best value comes from averaging over all epochs, i.e. the values in v/wserv1000MapRemeasAver selected from the appropriate catalogues created from the appropriate averaging. We have also corrected the Vega magnitudes in the archive to AB. The following query can be run on the VSA. Change vserv1000 to wserv1000 for the WSA.
+
+SELECT qso.qsoName,qso.qsoID,qso.ra,qso.dec,aver.filterID,(aver.aperMag3+f.VegaToAB) as aperMag3AverAB,aver.aperMag3Err,aver.ppErrBits 
+/* Select basic QSO parameters and photometry averaged over all epochs. ppErrBits gives some quality control information.
+It is safest to add an alias to each attribute to avoid confusion.
+*/ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver, Filter as f,
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). MapApertureIDshighzQsoMap links 
+finalQsoCatalogue to vserv1000MapRemeasAver */ 
+(SELECT distinct combiCatID FROM MapProvenance WHERE avSetupID=0) as mapAvSetup 
+/* Create a temporary table in memory of only average catalogues that are created with avSetupID=0, i.e. 
+averaged over all epochs. Using distinct is very important since MapProvenance has multiple rows for each 
+averaged catalogue */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and aver.catalogueID=mapAvSetup.combiCatID and 
+f.filterID=aver.filterID
+/* Join all the tables correctly. finalQsoCatalogue is linked to MapApertureIDshighzQsoMap with qsoID=objectID. 
+The apertureID in MapApertureIDshighzQsoMap links to vserv1000MapRemeasurement or vserv1000MapRemeasAver.
+The temporary table gives the correct list of combiCatIDs that constrain the catalogueID in vserv1000MapRemeasAver.
+*/ 
+ORDER BY qso.qsoID,aver.filterID 
+/* Order by qsoID and filterID */
+
+
+
+2) Select a light-curve for a QSO.
+ 2.1 Select the light curve from epoch frame photometry 
+ 
+SELECT qso.qsoName,m.mjdObs,remeas.filterID,(remeas.aperMag3+f.VegaToAB) as aperMag3AverAB,remeas.aperMag3Err,
+remeas.ppErrBits 
+/* Select basic QSO parameters and photometry extracted from each OB epoch. */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, Filter as f,
+Multiframe as m,MapFrameStatus as mfs 
+/* Select main tables for query. MapApertureIDshighzQsoMap joins finalQsoCatalogue to vserv1000MapRemeasurement */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.catalogueID=mfs.catalogueID and 
+mfs.multiframeID=m.multiframeID and f.filterID=m.filterID 
+/* Join all the tables correctly MapFrameStatus links the catalogueID to the multiframeID, which allows us to link to 
+the image metadate in Multiframe to get the observation time (mjdObs) */ 
+and qso.qsoID=54 
+/* Select a particular QSO, qsoID=54 (MMTJ0215-0529) */
+ORDER BY qso.qsoID,remeas.filterID 
+/* Order by qsoID and filterID */
+
+
+ 2.2 Select a light curve averaged over 1 month. This gives higher signal to noise than a light-curve from each epoch,
+ but with fewer points (lower time resolution). 
+
+SELECT qso.qsoName,aver.filterID,AVG(m.mjdObs) as mjd,(MAX(m.mjdObs)-MIN(m.mjdObs)) as duration,
+aver.aperJky3, aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as aperMag3Ab,aver.aperMag3Err, aver.ppErrBits,
+COUNT(mfs.catalogueID) as nMeas,SUM(d.totalExpTime) as totExpTime 
+/* In this selection we have included the average mjdObs (averaged over all frames in a 30 period) and the 
+duration (the mjd of the last frame in the period minus that of the first), the number of frames (nMeas) and 
+the sum of the integration times. We have also included the calibrated fluxes (aperJky3), since in many 
+cases the a faint source may have very low S/N */ 
+FROM finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver,MapProvenance as mp,
+MapFrameStatus as mfs,MultiframeDetector as d,Multiframe as m,Filter as f, vserv1000MapRemeasurement as remeas 
+/* The tables to select from include MapProvenance to select the correct averaging time scale and to get the frames 
+used in each average catalogue. Also include MultiframeDetector to get the integration time. */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and mp.combiCatID=aver.catalogueID and mp.avSetupID=3 and 
+/* Do joins and select avSetupID=3 --> average over 30 days. Other avSetupID values can be used to change the averaging 
+timescale */ 
+mp.catalogueID=mfs.catalogueID and d.multiframeID=mfs.multiframeID and mfs.catalogueID=remeas.catalogueID and 
+remeas.apertureID=aver.apertureID and remeas.extNum=d.extNum and qsoID=54 and f.filterID=d.filterID and 
+m.multiframeID=d.multiframeID 
+/* Select qsoID=54 */ 
+GROUP BY qso.qsoName,aver.filterID, aver.aperJky3,aver.aperJky3Err,aver.aperMag3,aver.aperMag3Err,aver.ppErrBits,f.VegaToAB 
+/* GROUP BY attributes that are part of are associated with the average so that we get statistics for properties 
+measured at the frame level */
+
+
+
+3) Get integration times for each QSO, band, and return those with a total integration time > 50,000s.
+
+SELECT qso.qsoName,qso.qsoID,remeas.filterID,SUM(d.totalExpTime) as integrationTime
+/* Sum the total exposure times from MultiframeDetector for all images used. 
+*/ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, MultiframeDetector as d
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). Select OB photometry from vserv1000MapRemeasurement and MultiframeDetector */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.multiframeID=d.multiframeID and remeas.extNum=d.extNum
+/* Join all the tables correctly. MultiframeDetector has entries for each OB and is linked to vserv1000MapRemeasurement by multiframeID,extNum
+*/ 
+GROUP BY qso.qsoName,qso.qsoID,remeas.filterID HAVING SUM(d.totalExpTime)>50000.
+/* Group by invariant quantities, and select those with total integration time>50000 */
+ORDER BY qso.qsoID,remeas.filterID 
+/* Order by qsoID and filterID */
+
+
+
+4) Get project information for data that was used for a given QSO
+
+SELECT qso.qsoName,m.mjdObs,m.multiframeID,m.project,m.filterID 
+/* Select the mjd, multiframeID and project data for a QSO */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, Multiframe as m 
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). 
+Select OB photometry from vserv1000MapRemeasurement and MultiframeDetector */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.multiframeID=m.multiframeID 
+/* Join all the tables correctly. Multiframe has entries for each OB and is linked to vserv1000MapRemeasurement by 
+multiframeID */ 
+AND qso.qsoID in (455,456) 
+/* select the required QSOs by ID (or name) */ 
+ORDER BY qso.qsoName,m.mjdObs 
+/* order by each QSO and time of observation */
+
+
+
+5) Get number of QSOs in VSA data in Ks band
+
+SELECT COUNT(distinct qso.qsoName) 
+/* Select number of unique QSO names */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas 
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). Select OB photometry 
+from vserv1000MapRemeasurement */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID 
+/* Join all the tables correctly. */ 
+AND remeas.filterID=5 
+/* Only select data in Ks band */
+
+
+
+6) Get NIR data for QSOs with 6.0<z<6.5
+
+This is the same as Query 1) but with an additional AND qso.redshift BETWEEN 6.0 AND 6.5 selection.
+
+SELECT qso.qsoName,qso.qsoID,qso.ra,qso.dec,qso.redshift,aver.filterID,(aver.aperMag3+f.VegaToAB) as aperMag3AverAB,
+aver.aperMag3Err,aver.ppErrBits 
+/* Select basic QSO parameters and photometry averaged over all epochs. ppErrBits gives some quality control information. 
+It is safest to add an alias to each attribute to avoid confusion. */ 
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver, Filter as f, 
+/* Select main tables for query, giving each an appropriate alias (e.g. as qso). MapApertureIDshighzQsoMap links 
+finalQsoCatalogue to vserv1000MapRemeasAver */ 
+(SELECT distinct combiCatID FROM MapProvenance WHERE avSetupID=0) as mapAvSetup 
+/* Create a temporary table in memory of only average catalogues that are created with avSetupID=0, 
+i.e. averaged over all epochs. Using distinct is very important since MapProvenance has multiple rows for each 
+averaged catalogue */ 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and aver.catalogueID=mapAvSetup.combiCatID and 
+f.filterID=aver.filterID 
+/* Join all the tables correctly. finalQsoCatalogue is linked to MapApertureIDshighzQsoMap with qsoID=objectID. 
+The apertureID in MapApertureIDshighzQsoMap links to vserv1000MapRemeasurement or vserv1000MapRemeasAver. 
+The temporary table gives the correct list of combiCatIDs that constrain the catalogueID in vserv1000MapRemeasAver. */ 
+AND qso.redshift BETWEEN 6.0 and 6.5 
+/* Select QSOs between 6.0 and 6.5 */ 
+ORDER BY qso.qsoID,aver.filterID 
+/* Order by qsoID and filterID */
+
+
+
+7) Select NIR data for VDES QSOs
+
+Do the same as 6) but replace " AND qso.redshift BETWEEN 6.0 and 6.5" with " AND qso.survey='VDES'"
+
+
+
+8) Select NIR data for QSOs with -26.<M1450<-25.
+
+Do the same as 6) but replace " AND qso.redshift BETWEEN 6.0 and 6.5" with "AND qso.m1450abs BETWEEN -26. AND -25."
+
+
+
+
+9)
+
 /*
 The SQL to query the WSA and VSA in order to get 'the best' ZYJHK
 photometry for the VHzQ sample. (average over all epochs)
@@ -12,16 +180,6 @@ with
    mapID=1.
 
 */
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,3 +243,16 @@ VHzQs.
 
 
 
+
+
+10) Just a couple of sanity checks
+
+WSERV1000v20181217 database
+
+SELECT *
+FROM   MapFrameStatus
+  Query returned		13810 result rows
+
+SELECT *
+FROM   wserv1000MapRemeasurement
+  Query returned		54621 result rows
