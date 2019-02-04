@@ -5,42 +5,27 @@
 Go to:: 
    wsa.roe.ac.uk
 
-Go to: Login
-   and login with these credentials:: 
-    username: WSERV1000
-    password: highzqso
-    community: nonsurvey
+Go to Login and enter these credentials:: 
+   Username: WSERV1000
+   Password: highzqso
+   Community: nonsurvey
 
-Go to: Freeform SQL
-   Database release to use:	WSERV1000v20181217
+Then go to: Freeform SQL, and select WSERV1000v20181217 as the
+database release to use.
 
-And enter your SQL. 
-
+Enter your SQL.
 
 
-To examine which columns are tables are available for
-the WSERV1000v20180716 database, the schema can be accessed
-at::
+To examine which columns are tables are available for the
+WSERV1000v20181217 database, the schema can be accessed at::
 
 Key tables include::
     Schema browser	http://wsa.roe.ac.uk/www/wsa_browser.html
     On the LHS		WSA Non-Survey
     Expand 		wserv
-    Select and expand 	WSERV1000v20180716  (earlier version of WSERV1000v20181217,
-               				    but the same columns)
-    
-			
-
-    WSA Non-Survey	
-    	WSERV1000v20180716
-	-- wserv1000MapRemeasurement (initial forced photometery)
- 	-- wserv1000MapRemeasAver (averaged forced photometry)
-	Multiframe::
-		project	
-		survey
-
-For the 
-MapFrameStatus
+    Select and expand 	WSERV1000v20181217  (WSERV1000v20180716 is an earlier
+    	       				     version of WSERV1000v20181217
+               				     but the same columns)
 
 
  Access the VSA
@@ -48,10 +33,10 @@ MapFrameStatus
 Go to:: 
    surveys.roe.ac.uk/vsa
 
-and login with these credentials::
-    username: VSERV1000
-    password: highzqso
-    community: proprietary
+Go to Login and enter these credentials:: 
+    Username: VSERV1000
+    Password: highzqso
+    Community: proprietary
 
 Menu query
 

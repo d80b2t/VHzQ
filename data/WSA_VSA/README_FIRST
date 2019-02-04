@@ -30,11 +30,18 @@ Gives the details for how to login into the WSA and VSA.
 Gives a set of example SQL queries that can be used to garner
 information from the WSA and VSA.
 
+ BestWSA_VSA_magnitudes.csv
+ is the result of running the
+ "Select best magnitude in each band for each QSO".
+
+
+ 
 
  TABLE_DESCRIPTIONS
 ====================================================================
 Gives further details on the various databased Tables that are most
 relevant in the WSA and VSA.
+
 
 
 

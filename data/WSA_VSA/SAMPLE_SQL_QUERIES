@@ -9,24 +9,27 @@ Here are a list of examples of queries that get scientifically useful data.
 If you want a single measurement in each band for each QSO, then the best value comes from averaging over all epochs, i.e. the values in v/wserv1000MapRemeasAver selected from the appropriate catalogues created from the appropriate averaging. We have also corrected the Vega magnitudes in the archive to AB. The following query can be run on the VSA. Change vserv1000 to wserv1000 for the WSA.
 
 SELECT qso.qsoName,qso.qsoID,qso.ra,qso.dec,aver.filterID,(aver.aperMag3+f.VegaToAB) as aperMag3AverAB,aver.aperMag3Err,aver.ppErrBits 
-/* Select basic QSO parameters and photometry averaged over all epochs. ppErrBits gives some quality control information.
-It is safest to add an alias to each attribute to avoid confusion.
-*/ 
+  /* Select basic QSO parameters and photometry averaged over all
+  epochs. ppErrBits gives some quality control information.  It is
+  safest to add an alias to each attribute to avoid confusion. */ 
 FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver, Filter as f,
-/* Select main tables for query, giving each an appropriate alias (e.g. as qso). MapApertureIDshighzQsoMap links 
-finalQsoCatalogue to vserv1000MapRemeasAver */ 
+  /* Select main tables for query, giving each an appropriate alias
+  (e.g. as qso). MapApertureIDshighzQsoMap links finalQsoCatalogue to
+  vserv1000MapRemeasAver */ 
 (SELECT distinct combiCatID FROM MapProvenance WHERE avSetupID=0) as mapAvSetup 
-/* Create a temporary table in memory of only average catalogues that are created with avSetupID=0, i.e. 
-averaged over all epochs. Using distinct is very important since MapProvenance has multiple rows for each 
-averaged catalogue */ 
+  /* Create a temporary table in memory of only average catalogues that
+  are created with avSetupID=0, i.e.  averaged over all epochs. Using
+  distinct is very important since MapProvenance has multiple rows for
+  each averaged catalogue */ 
 WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and aver.catalogueID=mapAvSetup.combiCatID and 
 f.filterID=aver.filterID
-/* Join all the tables correctly. finalQsoCatalogue is linked to MapApertureIDshighzQsoMap with qsoID=objectID. 
-The apertureID in MapApertureIDshighzQsoMap links to vserv1000MapRemeasurement or vserv1000MapRemeasAver.
-The temporary table gives the correct list of combiCatIDs that constrain the catalogueID in vserv1000MapRemeasAver.
-*/ 
+  /* Join all the tables correctly. finalQsoCatalogue is linked to
+  MapApertureIDshighzQsoMap with qsoID=objectID.  The apertureID in
+  MapApertureIDshighzQsoMap links to vserv1000MapRemeasurement or
+  vserv1000MapRemeasAver.  The temporary table gives the correct list
+  of combiCatIDs that constrain the catalogueID in
+  vserv1000MapRemeasAver. */ 
 ORDER BY qso.qsoID,aver.filterID 
-/* Order by qsoID and filterID */
 
 
 
@@ -35,18 +38,20 @@ ORDER BY qso.qsoID,aver.filterID
  
 SELECT qso.qsoName,m.mjdObs,remeas.filterID,(remeas.aperMag3+f.VegaToAB) as aperMag3AverAB,remeas.aperMag3Err,
 remeas.ppErrBits 
-/* Select basic QSO parameters and photometry extracted from each OB epoch. */ 
+  /* Basic QSO parameters and photometry extracted from each OB
+  epoch. */
 FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, Filter as f,
 Multiframe as m,MapFrameStatus as mfs 
-/* Select main tables for query. MapApertureIDshighzQsoMap joins finalQsoCatalogue to vserv1000MapRemeasurement */ 
+  /* Main tables for query. MapApertureIDshighzQsoMap joins
+  finalQsoCatalogue to vserv1000MapRemeasurement */
 WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.catalogueID=mfs.catalogueID and 
 mfs.multiframeID=m.multiframeID and f.filterID=m.filterID 
-/* Join all the tables correctly MapFrameStatus links the catalogueID to the multiframeID, which allows us to link to 
-the image metadate in Multiframe to get the observation time (mjdObs) */ 
+  /* Join all the tables correctly MapFrameStatus links the catalogueID to
+  the multiframeID, which allows us to link to the image metadate in
+  Multiframe to get the observation time (mjdObs) */
 and qso.qsoID=54 
-/* Select a particular QSO, qsoID=54 (MMTJ0215-0529) */
+  /* Select a particular QSO, qsoID=54 (MMTJ0215-0529) */
 ORDER BY qso.qsoID,remeas.filterID 
-/* Order by qsoID and filterID */
 
 
  2.2 Select a light curve averaged over 1 month. This gives higher signal to noise than a light-curve from each epoch,
@@ -55,17 +60,21 @@ ORDER BY qso.qsoID,remeas.filterID
 SELECT qso.qsoName,aver.filterID,AVG(m.mjdObs) as mjd,(MAX(m.mjdObs)-MIN(m.mjdObs)) as duration,
 aver.aperJky3, aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as aperMag3Ab,aver.aperMag3Err, aver.ppErrBits,
 COUNT(mfs.catalogueID) as nMeas,SUM(d.totalExpTime) as totExpTime 
-/* In this selection we have included the average mjdObs (averaged over all frames in a 30 period) and the 
-duration (the mjd of the last frame in the period minus that of the first), the number of frames (nMeas) and 
-the sum of the integration times. We have also included the calibrated fluxes (aperJky3), since in many 
-cases the a faint source may have very low S/N */ 
+  /* In this selection we have included the average mjdObs (averaged
+  over all frames in a 30 period) and the duration (the mjd of the last
+  frame in the period minus that of the first), the number of frames
+  (nMeas) and the sum of the integration times. We have also included
+  the calibrated fluxes (aperJky3), since in many cases the a faint
+  source may have very low S/N */
 FROM finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver,MapProvenance as mp,
 MapFrameStatus as mfs,MultiframeDetector as d,Multiframe as m,Filter as f, vserv1000MapRemeasurement as remeas 
-/* The tables to select from include MapProvenance to select the correct averaging time scale and to get the frames 
-used in each average catalogue. Also include MultiframeDetector to get the integration time. */ 
+  /* The tables to select from include MapProvenance to select the
+  correct averaging time scale and to get the frames used in each
+  average catalogue. Also include MultiframeDetector to get the
+  integration time. */
 WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and mp.combiCatID=aver.catalogueID and mp.avSetupID=3 and 
-/* Do joins and select avSetupID=3 --> average over 30 days. Other avSetupID values can be used to change the averaging 
-timescale */ 
+  /* Do joins and select avSetupID=3 --> average over 30 days. Other
+  avSetupID values can be used to change the averaging timescale */
 mp.catalogueID=mfs.catalogueID and d.multiframeID=mfs.multiframeID and mfs.catalogueID=remeas.catalogueID and 
 remeas.apertureID=aver.apertureID and remeas.extNum=d.extNum and qsoID=54 and f.filterID=d.filterID and 
 m.multiframeID=d.multiframeID 
