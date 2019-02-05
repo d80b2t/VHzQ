@@ -1,4 +1,4 @@
-qsoName,qsoID,ra,dec,filterID,aperMag3AverAB,aperMag3Err,ppErrBits
+qsoName, qsoID, ra, dec, filterID, aperMag3AverAB, aperMag3Err, ppErrBits
             PSOJ000.3401+26.8358,                   0,      +0.3401135,     +26.8358814,   3,    +19.284586,     +0.062458,          0
                   SDSSJ0002+2550,                   1,      +0.6641173,     +25.8430442,   3,    +19.373274,     +0.069474,          0
                 SDWISEJ0008+3616,                   4,      +2.2142917,     +36.2704138,   3,    +19.331099,     +0.063265,          0
