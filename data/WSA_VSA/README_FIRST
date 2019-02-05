@@ -20,9 +20,16 @@ the near-infrared ZYJHK photometry for the VHzQ sample.
 
 
 
+
  WSA_VSA_LOGINS
 ====================================================================
 Gives the details for how to login into the WSA and VSA.
+
+
+ TABLE_DESCRIPTIONS
+====================================================================
+Gives further details on the various databased Tables that are most
+relevant in the WSA and VSA.
 
 
  SAMPLE_SQL_QUERIES
@@ -35,12 +42,7 @@ information from the WSA and VSA.
  "Select best magnitude in each band for each QSO".
 
 
- 
 
- TABLE_DESCRIPTIONS
-====================================================================
-Gives further details on the various databased Tables that are most
-relevant in the WSA and VSA.
 
 
 

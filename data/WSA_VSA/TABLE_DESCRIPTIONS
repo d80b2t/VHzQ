@@ -7,59 +7,120 @@ The most relevant of the original tables are Multiframe and MultiframeDetector w
 
 In addition to the existing tables, we have developed new tables to curate and effectively archive matched aperture products (MAP). These are not described in the above papers, but some have been partially described in a conference proceeding (Cross et al. 2013). Some of the MAP tables use similar attributes to existing VDFS tables for extracted detections, and reuse some of the same software to process them.
 
+
 The new tables can be broken down into a few types:
 
 New curation tables:
-* RequiredMatchedApertureProduct
-* RequiredMapAverages
-* MapSurveyTables
+ * RequiredMatchedApertureProduct
+ * RequiredMapAverages
+ * MapSurveyTables
 
 New metadata tables:
-* MapFrameStatus
-* MapCatalogueDetector
-* MapProvenance
+ * MapFrameStatus
+ * MapCatalogueDetector
+ * MapProvenance
 
 New data tables:
-* finalQsoCatalogue
-* MapApertureIDshighzQsoMap
-* w/vserv1000MapRemeasurement
-* w/vserv1000MapRemeasAver
-* w/vserv1000MapAverageWeights
+ * finalQsoCatalogue
+ * MapApertureIDshighzQsoMap
+ * w/vserv1000MapRemeasurement
+ * w/vserv1000MapRemeasAver
+ * w/vserv1000MapAverageWeights
 
 
 The curation tables are setup to describe the requirements and are necessary for the processing. These are not usually required by scientists when working with the data, although RequiredMapAverages will be of use.
 
-RequiredMatchedApertureProduct describes each matched aperture setup: which matched aperture extractor to use, where the data that makes up the input list comes from, what type of product is being created: e.g. a band-merged table, or in this case, multi-epoch data. For WSERV1000 and VSERV1000, we have one product defined with QSOs selected from finalQsoCatalogue. It is of little use to scientists.
+RequiredMatchedApertureProduct describes each matched aperture setup:
+which matched aperture extractor to use, where the data that makes up
+the input list comes from, what type of product is being created:
+e.g. a band-merged table, or in this case, multi-epoch data. For
+WSERV1000 and VSERV1000, we have one product defined with QSOs
+selected from finalQsoCatalogue. It is of little use to scientists.
 
-RequiredMapAverages gives a set of averages modes to be used. For W/VSERV1000, we have setup 9 modes, mostly different time scales, so that we can find the optimal time-resolution to signal-to-noise ratio for all the different QSOs observed.
+RequiredMapAverages gives a set of averages modes to be used. For
+W/VSERV1000, we have setup 9 modes, mostly different time scales, so
+that we can find the optimal time-resolution to signal-to-noise ratio
+for all the different QSOs observed.
 
-MapSurveyTables gives information on where to find the data and attributes in MapApertureIDsXXX. It is of no use to scientists.
+MapSurveyTables gives information on where to find the data and
+attributes in MapApertureIDsXXX. It is of no use to scientists.
 
 
 The metadata tables help link the data tables and provide overall information for a catalogue.
 
-MapFrameStatus is the most important, since it gives a list of catalogues produced for a MAP. Each catalogue (catName) is a catalogue created from an image (when multiframeID>0) using the extractor (imcore_list) and the input list of QSOs, or it is created by averaging the photometry in a set of catalogues (multiframeID=-99999999). Some of the attributes (ppErrBitsStatus, bitProcessingFlag, isIngested, cuEventUD) are only for curation purpose, but the link between catalogueID and multiframeID is essential for linking back to the image data.
+MapFrameStatus is the most important, since it gives a list of
+catalogues produced for a MAP. Each catalogue (catName) is a catalogue
+created from an image (when multiframeID>0) using the extractor
+(imcore_list) and the input list of QSOs, or it is created by
+averaging the photometry in a set of catalogues
+(multiframeID=-99999999). Some of the attributes (ppErrBitsStatus,
+bitProcessingFlag, isIngested, cuEventUD) are only for curation
+purpose, but the link between catalogueID and multiframeID is
+essential for linking back to the image data.
 
-MapCatalogueDetector is designed to include data important for particular extensions, and as yet only includes the normalised softening parameter for luptitudes. Given the very heterogeneous nature of W/VSERV1000 data, we don't recommend using luptitudes, so this table will be of little use.
+MapCatalogueDetector is designed to include data important for
+particular extensions, and as yet only includes the normalised
+softening parameter for luptitudes. Given the very heterogeneous
+nature of W/VSERV1000 data, we don't recommend using luptitudes, so
+this table will be of little use.
 
-MapProvenance is essential to use when using w/vserv1000MapRemeasAver. It links the combined catalogue to to component catalogues, and the avSetupID points to the averaging mode in RequiredMapAverages. For instance, in VSERV1000v20181217, combiCatID=55178 links to catalogueIDs 50933 and 53903 when averaged over all epochs (avSetup=0). 
+MapProvenance is essential to use when using
+w/vserv1000MapRemeasAver. It links the combined catalogue to to
+component catalogues, and the avSetupID points to the averaging mode
+in RequiredMapAverages. For instance, in VSERV1000v20181217,
+combiCatID=55178 links to catalogueIDs 50933 and 53903 when averaged
+over all epochs (avSetup=0).
 
 
 The data tables contain most of the important data.
 
-finalQsoCatalogue is the table listing the 463 QSOs used in this project, and lists the surveys they came from, the positions, redshifts and derived parameters such as M1450.
+finalQsoCatalogue is the table listing the 463 QSOs used in this
+project, and lists the surveys they came from, the positions,
+redshifts and derived parameters such as M1450.
 
-MapApertureIDshighzQsoMap stores the list of apertures. While this may seem an unnecessary step since IDs and positions are already in finalQsoCatalogue, this abstraction is necessary for other MAP cases. The apertureIDs in the following tables 
-come from here.
+MapApertureIDshighzQsoMap stores the list of apertures. While this may
+seem an unnecessary step since IDs and positions are already in
+finalQsoCatalogue, this abstraction is necessary for other MAP
+cases. The apertureIDs in the following tables come from here.
 
-w/vserv1000MapRemeasurement tables contain the `initial' forced photometry from images in the apertures given in MapApertureIDshighzQsoMap. Each row has a unique apertureID, catalogueID combination. The rest of the structure is similar to a Detection table, such as those in UKIDSS/VISTA surveys which have a recording of each extracted object, so if you run your `image extractor', you get you positions, fluxes, etc. Another difference between Detection and MapRemeasurement is that you can expect more of the fluxes measurements to be negative, in MapRemeasurement, and indeed some of the objects you might expect *all* the measurements to have negative fluxes in the MapRemeasurement tables, so we provide luptitudes (e.g. aperLup3) and calibrated fluxes (e.g. aperJky3), since the magnitude system does not work for negative fluxes.
+w/vserv1000MapRemeasurement tables contain the `initial' forced
+photometry from images in the apertures given in
+MapApertureIDshighzQsoMap. Each row has a unique apertureID,
+catalogueID combination. The rest of the structure is similar to a
+Detection table, such as those in UKIDSS/VISTA surveys which have a
+recording of each extracted object, so if you run your `image
+extractor', you get you positions, fluxes, etc. Another difference
+between Detection and MapRemeasurement is that you can expect more of
+the fluxes measurements to be negative, in MapRemeasurement, and
+indeed some of the objects you might expect *all* the measurements to
+have negative fluxes in the MapRemeasurement tables, so we provide
+luptitudes (e.g. aperLup3) and calibrated fluxes (e.g. aperJky3),
+since the magnitude system does not work for negative fluxes.
 
-w/vserv1000MapRemeasAver tables contain the average forced photometry defined by averaging measurements in catalogues given in MapProvenance. The weighting is done by the error on a particular attribute in w/vserv1000MapRemeasurement, if given, or by a weight. In the case of VSERV1000, the weight is averageConf (median 100), and in the case of WSERV1000 it is set as 100. The average attributes are similar to the extracted attributes, but attributes such as the raw, uncalibrated fluxes (e.g. aperFlux3) are not averaged, since this makes little sense. Indeed photometry is averaged on the linear calibrated fluxes (aperJky3), and then converted to magnitudes and luptitudes. Like w/vserv1000MapRemeasurement each row is defined by a unique apertureID, catalogueID combination.
+w/vserv1000MapRemeasAver tables contain the average forced photometry
+defined by averaging measurements in catalogues given in
+MapProvenance. The weighting is done by the error on a particular
+attribute in w/vserv1000MapRemeasurement, if given, or by a weight. In
+the case of VSERV1000, the weight is averageConf (median 100), and in
+the case of WSERV1000 it is set as 100. The average attributes are
+similar to the extracted attributes, but attributes such as the raw,
+uncalibrated fluxes (e.g. aperFlux3) are not averaged, since this
+makes little sense. Indeed photometry is averaged on the linear
+calibrated fluxes (aperJky3), and then converted to magnitudes and
+luptitudes. Like w/vserv1000MapRemeasurement each row is defined by a
+unique apertureID, catalogueID combination.
 
-w/vserv1000MapAverageWeights gives the weights of each object in a particular combined catalogue and each row has a unique apertureID, combiCatID and catalogueID, specifying both the raw image catalogue and the averaged catalogue, since some objects, e.g. an object with poor quality flags, may have a zero weight if there are lots of other good quality measurements, but have some weight if all other measurements are poor quality.
+w/vserv1000MapAverageWeights gives the weights of each object in a
+particular combined catalogue and each row has a unique apertureID,
+combiCatID and catalogueID, specifying both the raw image catalogue
+and the averaged catalogue, since some objects, e.g. an object with
+poor quality flags, may have a zero weight if there are lots of other
+good quality measurements, but have some weight if all other
+measurements are poor quality.
 
 
 
-How to use the database:
-
-In SAMPLE_SQL_QUERIES, are examples of queries to acquire scientifically useful data. These demonstrate how to use the tables together.
+Suggested next reading:: 
+  SAMPLE_SQL_QUERIES.
+  Examples of queries to acquire scientifically useful data.
+  These demonstrate how to use the tables together.
