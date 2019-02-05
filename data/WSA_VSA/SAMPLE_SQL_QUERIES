@@ -31,6 +31,9 @@ f.filterID=aver.filterID
   vserv1000MapRemeasAver. */ 
 ORDER BY qso.qsoID,aver.filterID 
 
+# Results of Query: Database WSERV1000v20181217:: 938 result rows
+# Results of Query: Database VSERV1000v20181217:: 731 result rows
+
 
 
 2) Select a light-curve for a QSO.

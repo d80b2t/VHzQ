@@ -48,7 +48,7 @@ information from the WSA and VSA.
 
 
 
- QUICK References
+ Quick References and sanity checks. 
 ====================================================================
 filterID	band	WSA_result_rows
 1		Z	31
