@@ -36,59 +36,113 @@ ORDER BY qso.qsoID,aver.filterID
 
 
 
-2) Select a light-curve for a QSO.
- 2.1 Select the light curve from epoch frame photometry 
- 
-SELECT qso.qsoName,m.mjdObs,remeas.filterID,(remeas.aperMag3+f.VegaToAB) as aperMag3AverAB,remeas.aperMag3Err,
-remeas.ppErrBits 
-  /* Basic QSO parameters and photometry extracted from each OB
-  epoch. */
-FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasurement as remeas, Filter as f,
-Multiframe as m,MapFrameStatus as mfs 
+2) How many epochs, per filter, does each object have?
+
+SELECT qso.qsoName,qso.ra,qso.dec,remeas.filterID,COUNT(*) as nEpochs
+  /* Select name, ra, dec, filterID and counts of observations in each
+  filter */
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma,
+vserv1000MapRemeasurement as remeas, Filter as f, Multiframe as
+m,MapFrameStatus as mfs
   /* Main tables for query. MapApertureIDshighzQsoMap joins
   finalQsoCatalogue to vserv1000MapRemeasurement */
-WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and remeas.catalogueID=mfs.catalogueID and 
-mfs.multiframeID=m.multiframeID and f.filterID=m.filterID 
-  /* Join all the tables correctly MapFrameStatus links the catalogueID to
-  the multiframeID, which allows us to link to the image metadate in
-  Multiframe to get the observation time (mjdObs) */
-and qso.qsoID=54 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and
+remeas.catalogueID=mfs.catalogueID and mfs.multiframeID=m.multiframeID
+and f.filterID=m.filterID
+  /* Join all the tables correctly MapFrameStatus links the
+  catalogueID to the multiframeID, which allows us to link to the
+  image metadate in Multiframe to get the observation time (mjdObs) */
+GROUP BY qso.qsoName,qso.ra,qso.dec,remeas.filterID
+  /* Group by qso name and filter to get the counts as a function of
+  QSO and filterID */
+ORDER BY qso.ra,remeas.filterID 
+
+
+2) Select a light-curve for a QSO.
+ 2.1 Select the light curve from epoch frame photometry
+ 
+SELECT qso.qsoName,m.mjdObs,remeas.filterID,(remeas.aperMag3+f.VegaToAB) as
+aperMag3AverAB, remeas.aperMag3Err, remeas.ppErrBits
+  /* Basic QSO parameters and photometry extracted from each OB
+  epoch. */
+FROM finalQsoCatalogue as qso, MapApertureIDshighzQsoMap as ma,
+vserv1000MapRemeasurement as remeas, Filter as f, Multiframe as
+m,MapFrameStatus as mfs
+  /* Main tables for query. MapApertureIDshighzQsoMap joins
+  finalQsoCatalogue to vserv1000MapRemeasurement */
+WHERE qso.qsoID=ma.objectID and ma.apertureID=remeas.apertureID and
+remeas.catalogueID=mfs.catalogueID and mfs.multiframeID=m.multiframeID
+and f.filterID=m.filterID
+  /* Join all the tables correctly MapFrameStatus links the
+  catalogueID to the multiframeID, which allows us to link to the
+  image metadate in Multiframe to get the observation time (mjdObs) */
+and qso.qsoID=54
   /* Select a particular QSO, qsoID=54 (MMTJ0215-0529) */
 ORDER BY qso.qsoID,remeas.filterID 
 
 
- 2.2 Select a light curve averaged over 1 month. This gives higher signal to noise than a light-curve from each epoch,
- but with fewer points (lower time resolution). 
 
-SELECT qso.qsoName,aver.filterID,AVG(m.mjdObs) as mjd,(MAX(m.mjdObs)-MIN(m.mjdObs)) as duration,
-aver.aperJky3, aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as aperMag3Ab,aver.aperMag3Err, aver.ppErrBits,
-COUNT(mfs.catalogueID) as nMeas,SUM(d.totalExpTime) as totExpTime 
+ 2.2 Select a light curve averaged over 1 month. This gives higher
+ signal to noise than a light-curve from each epoch, but with fewer
+ points (lower time resolution).
+
+SELECT qso.qsoName,aver.filterID,AVG(m.mjdObs) as mjd,
+(MAX(m.mjdObs)-MIN(m.mjdObs)) as duration, aver.aperJky3,
+aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as
+aperMag3Ab,aver.aperMag3Err, aver.ppErrBits, COUNT(mfs.catalogueID) as
+nMeas,SUM(d.totalExpTime) as totExpTime
   /* In this selection we have included the average mjdObs (averaged
-  over all frames in a 30 period) and the duration (the mjd of the last
-  frame in the period minus that of the first), the number of frames
-  (nMeas) and the sum of the integration times. We have also included
-  the calibrated fluxes (aperJky3), since in many cases the a faint
-  source may have very low S/N */
-FROM finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver,MapProvenance as mp,
-MapFrameStatus as mfs,MultiframeDetector as d,Multiframe as m,Filter as f, vserv1000MapRemeasurement as remeas 
+  over all frames in a 30 period) and the duration (the mjd of the
+  last frame in the period minus that of the first), the number of
+  frames (nMeas) and the sum of the integration times. We have also
+  included the calibrated fluxes (aperJky3), since in many cases the a
+  faint source may have very low S/N */
+FROM finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma,
+vserv1000MapRemeasAver as aver,MapProvenance as mp, MapFrameStatus as
+mfs,MultiframeDetector as d,Multiframe as m,Filter as f,
+vserv1000MapRemeasurement as remeas
   /* The tables to select from include MapProvenance to select the
   correct averaging time scale and to get the frames used in each
   average catalogue. Also include MultiframeDetector to get the
   integration time. */
-WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and mp.combiCatID=aver.catalogueID and mp.avSetupID=3 and 
+WHERE qso.qsoID=ma.objectID and ma.apertureID=aver.apertureID and
+mp.combiCatID=aver.catalogueID and mp.avSetupID=3 and 
   /* Do joins and select avSetupID=3 --> average over 30 days. Other
   avSetupID values can be used to change the averaging timescale */
-mp.catalogueID=mfs.catalogueID and d.multiframeID=mfs.multiframeID and mfs.catalogueID=remeas.catalogueID and 
-remeas.apertureID=aver.apertureID and remeas.extNum=d.extNum and qsoID=54 and f.filterID=d.filterID and 
-m.multiframeID=d.multiframeID 
-/* Select qsoID=54 */ 
-GROUP BY qso.qsoName,aver.filterID, aver.aperJky3,aver.aperJky3Err,aver.aperMag3,aver.aperMag3Err,aver.ppErrBits,f.VegaToAB 
-/* GROUP BY attributes that are part of are associated with the average so that we get statistics for properties 
-measured at the frame level */
+mp.catalogueID=mfs.catalogueID and d.multiframeID=mfs.multiframeID and
+mfs.catalogueID=remeas.catalogueID and
+remeas.apertureID=aver.apertureID and remeas.extNum=d.extNum and
+qsoID=54 and f.filterID=d.filterID and m.multiframeID=d.multiframeID
+  /* Select qsoID=54 */ 
+GROUP BY qso.qsoName,aver.filterID, aver.aperJky3,aver.aperJky3Err,
+aver.aperMag3,aver.aperMag3Err,aver.ppErrBits,f.VegaToAB
+  /* GROUP BY attributes that are part of are associated with the
+  average so that we get statistics for properties measured at the
+  frame level */
 
 
 
-3) Get integration times for each QSO, band, and return those with a total integration time > 50,000s.
+3) What are the timescales available to us to average over?
+
+SELECT * from RequiredMapAverages where programmeID=10999
+
+ RESULTS::
+   	  programmeID	mapID	setupID	   	     description	timeScale	nEpochs	overLaps
+ 	 1	10999	    1	      0  Average over whole time	-1.000000	-99999999	1
+ 	 2	10999 	    1	      1	 Average over a week	 	+7.000000	-99999999	1
+ 	 3	10999	    1	      2	 Average over a fortnight      +14.000000	-99999999	1
+ 	 4	10999	    1	      3	 Average over a month	       +30.000000	-99999999	1
+ 	 5	10999	    1	      4	 Average over 10 epochs	    -9.999995E008	       10	1
+ 	 6	10999	    1	      5	 Average over 6 months	      +183.000000	-99999999	1
+ 	 7	10999	    1	      6	 Average over 1 year 	      +365.000000	-99999999	1
+ 	 8	10999	    1	      7	 Average over 2 years	      +730.000000	-99999999	1
+	 9	10999       1	      8	 Average over 3 months	       +91.000000	-99999999	1
+
+
+
+
+4) Get integration times for each QSO, band, and return those with a
+total integration time > 50,000s.
 
 SELECT qso.qsoName,qso.qsoID,remeas.filterID,SUM(d.totalExpTime) as integrationTime
 /* Sum the total exposure times from MultiframeDetector for all images used. 
@@ -105,7 +159,7 @@ ORDER BY qso.qsoID,remeas.filterID
 
 
 
-4) Get project information for data that was used for a given QSO
+5) Get project information for data that was used for a given QSO
 
 SELECT qso.qsoName,m.mjdObs,m.multiframeID,m.project,m.filterID 
 /* Select the mjd, multiframeID and project data for a QSO */ 
@@ -122,7 +176,7 @@ ORDER BY qso.qsoName,m.mjdObs
 
 
 
-5) Get number of QSOs in VSA data in Ks band
+6) Get number of QSOs in VSA data in Ks band
 
 SELECT COUNT(distinct qso.qsoName) 
 /* Select number of unique QSO names */ 
@@ -136,7 +190,7 @@ AND remeas.filterID=5
 
 
 
-6) Get NIR data for QSOs with 6.0<z<6.5
+7) Get NIR data for QSOs with 6.0<z<6.5
 
 This is the same as Query 1) but with an additional AND qso.redshift BETWEEN 6.0 AND 6.5 selection.
 
@@ -163,20 +217,20 @@ ORDER BY qso.qsoID,aver.filterID
 
 
 
-7) Select NIR data for VDES QSOs
+8) Select NIR data for VDES QSOs
 
 Do the same as 6) but replace " AND qso.redshift BETWEEN 6.0 and 6.5" with " AND qso.survey='VDES'"
 
 
 
-8) Select NIR data for QSOs with -26.<M1450<-25.
+9) Select NIR data for QSOs with -26.<M1450<-25.
 
 Do the same as 6) but replace " AND qso.redshift BETWEEN 6.0 and 6.5" with "AND qso.m1450abs BETWEEN -26. AND -25."
 
 
 
 
-9)
+10)
 
 /*
 The SQL to query the WSA and VSA in order to get 'the best' ZYJHK
@@ -240,9 +294,6 @@ order by v.combicatID, m.mjdObs
 
 
 
-
-
-
 /*
 The SQL to query the WSA and VSA in order to get the 'average'
 photometery for a given time scale.  N.B. This is closer to optimum
@@ -251,13 +302,7 @@ VHzQs.
 */
 
 
-
-
-
-
-
-
-10) Just a couple of sanity checks
+11) Just a couple of sanity checks
 
 WSERV1000v20181217 database
 
