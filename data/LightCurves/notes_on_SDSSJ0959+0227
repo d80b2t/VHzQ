@@ -1,0 +1,39 @@
+
+
+
+On Aug 30, 2018, at 3:37 PM, Nicholas Ross <npross@roe.ac.uk> wrote:
+
+Hi Nick, 
+
+Thanks for all these checks. 
+
+So, needed quite a big of digging, but...
+
+SDSS J0959+0227, with R.A., Decl., == 09:59:08.10 +02:27:07.4 and 149.78374999, +002.4520444 
+is in our list since it is in Wang et al. 2016, ApJ, 819, 24, and their Table1. However, the reference for 
+the Wang table is to Civano et al., 2011, ApJ, 741, 91 (High-redshift, z>3 AGN in Chandra-COSMOS) 
+and J0959+0227 is also known as CID-2220, CXOCJ095908.1+022707. 
+
+However, the spectrum from this object actually appears in Ikeda et al., 2012, ApJ, 756, 160, and is 
+called object "No. 11” (see that papers Table 1) and it is a beauty!! Figure 2 with the spectrum is attached. 
+Now, that’s a super-narrow LyA line, and indeed, this would likely be called a LAE galaxy, but it *is* 
+an X-ray source, and indeed has an X-ray luminosity of approx 3x10^44 erg s-1 in the 2–10 keV rest-frame 
+band, so it is an AGN. Not a regular broadline ‘Type 1’ AGN, but I see no reason to ‘throw’ this object out. 
+Indeed, if there’s even the slightest hint of variability, that could be *exceedingly* interesting…
+
+Thanks, 
+Nic
+
+
+<Ikeda_2012_Fig2.jpeg>
+
+
+
+On Aug 30, 2018, at 1:57 PM, Nicholas Cross <njc@roe.ac.uk> wrote:
+
+Hi Nic,
+I am surprised this is an SDSS QSO, since it is very faint and most of the observations are in UltraVISTA. There is a noticeable brightening by >0.5 mag over 4 years.
+Regards,
+Nick
+<qsoID162_setup5_light_curve.pdf>
+
