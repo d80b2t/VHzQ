@@ -1,0 +1,20 @@
+\EQUINOX = 'J2000'
+\DataPrimary = False
+\SKYAREA = 'within 10 arcsec of  ra=15.05426 dec=+28.04053 Eq J2000 '
+\source = /hydra/workarea/irsaviewer/temp_files/IpacTableFromSource7147761525444025559.tbl
+\DataTag = 'ADS/IRSA.Gator#2018/0930/035625_23664'
+\fixlen = T
+\RowsRetrieved = 1
+\SQL = 'SELECT (44 column names follow in next row.)'
+\CatalogCoordColumns = ra;dec;EQ_J2000
+\ORIGIN = 'IPAC Infrared Science Archive (IRSA), Caltech/JPL'
+\DATETIME = '2018-09-30 03:56:25'
+\DATABASE = 'WISE All-Sky Source Catalog (allsky_4band_p3as_psd)'
+\StatusFile = '/workspace/TMP_o0u4B2_14342/Gator/irsa/23664/log.23664.html'
+\CatalogOverlayType = USER
+\
+|ra        |dec       |source_id           |coadd_id     |src   |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |w3mpro|w3sigmpro|w3snr |w4mpro|w4sigmpro|w4snr |cc_flags|var_flg|det_bit|w1mjdmin      |w1mjdmax      |w1mjdmean     |w2mjdmin      |w2mjdmax      |w2mjdmean     |w3mjdmin      |w3mjdmax      |w3mjdmean     |w4mjdmin      |w4mjdmax      |w4mjdmean     |tmass_key|r_2mass|pa_2mass|n_2mass|j_m_2mass|j_msig_2mass|h_m_2mass|h_msig_2mass|k_m_2mass|k_msig_2mass|dist    |angle     |
+|double    |double    |char                |char         |int   |double|double   |double|double|double   |double|double|double   |double|double|double   |double|char    |char   |int    |double        |double        |double        |double        |double        |double        |double        |double        |double        |double        |double        |double        |int      |double |double  |int    |double   |double      |double   |double      |double   |double      |double  |double    |
+|deg       |deg       |                    |             |      |mag   |mag      |      |mag   |mag      |      |mag   |mag      |      |mag   |mag      |      |        |       |       |              |              |              |              |              |              |              |              |              |              |              |              |         |arcsec |deg     |       |mag      |mag         |mag      |mag         |mag      |mag         |arcsec  |deg       |
+|null      |null      |null                |null         |null  |null  |null     |null  |null  |null     |null  |null  |null     |null  |null  |null     |null  |null    |null   |null   |null          |null          |null          |null          |null          |null          |null          |null          |null          |null          |null          |null          |null     |null   |null    |null   |null     |null        |null     |null        |null     |null        |null    |null      |
+ 15.0542668 28.0405052 0154p287_ab41-004854 0154p287_ab41 4854   14.446 0.030     36.8   13.634 0.037     29.5   11.860 0.197     5.5    9.141  0.437     2.5    0000     00nn    15      55208.28597154 55395.47038200 55326.24660947 55208.28597154 55395.47038200 55326.24660947 55208.28597154 55395.47038200 55322.44861715 55208.28597154 55395.47038200 55322.44861715 110542521 0.110   -101.7   1       17.050    0.203        16.006    0.188        15.220    0.162        0.091900 166.395561 

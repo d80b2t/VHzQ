@@ -1,0 +1,6 @@
+|ra       |dec      |designation     |j_m   |j_cmsig|j_msigcom|j_snr |h_m   |h_cmsig|h_msigcom|h_snr |k_m   |k_cmsig|k_msigcom|k_snr |ph_qual|ndet  |hemis|xdate     |jdate       |rd_flg|dist    |angle     |j_h   |h_k   |j_k   |
+|double   |double   |char            |double|double |double   |double|double|double |double   |double|double|double |double   |double|char   |char  |char |char      |double      |char  |double  |double    |double|double|double|
+|deg      |deg      |                |mag   |mag    |mag      |      |mag   |mag    |mag      |      |mag   |mag    |mag      |      |       |      |     |          |jdate       |      |arcsec  |deg       |      |      |      |
+ 15.054233 28.040499 01001301+2802257 17.050 0.203   0.203     4.6    16.006 0.188   0.188     5.3    15.220 0.162   0.162     6.9    DCC     060606 n     1997-10-30 2450751.6723 222    0.140749 217.550552 1.0440 0.7860 1.8300 
+ 
+ 
