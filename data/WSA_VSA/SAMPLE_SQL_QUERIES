@@ -90,7 +90,6 @@ and qso.qsoID=54
 ORDER BY qso.qsoID,remeas.filterID 
 
 
-
  2.2 Select a light curve averaged over 1 month. This gives higher
  signal to noise than a light-curve from each epoch, but with fewer
  points (lower time resolution).
@@ -101,7 +100,7 @@ aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as
 aperMag3Ab,aver.aperMag3Err, aver.ppErrBits, COUNT(mfs.catalogueID) as
 nMeas,SUM(d.totalExpTime) as totExpTime
   /* In this selection we have included the average mjdObs (averaged
-  over all frames in a 30 period) and the duration (the mjd of the
+  over all frames in a 30 day period) and the duration (the mjd of the
   last frame in the period minus that of the first), the number of
   frames (nMeas) and the sum of the integration times. We have also
   included the calibrated fluxes (aperJky3), since in many cases the a
