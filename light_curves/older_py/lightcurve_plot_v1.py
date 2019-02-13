@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 from matplotlib import colors as mcolors
 from astropy.io import ascii
 
-## Setting up the path for the input data
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/LightCurves/'
+
 
 choice = '1'
 ## Ordered by qsoID number. 
@@ -38,8 +38,10 @@ print
 ##
 ##  P h o t o m e t r y    d a t a
 ##
+
 ## all: all the photometric data
 ## 30d: photometry averaged over a 30 MJD period
+##	
 
 ##  WSA  - WFCAM Science Archive
 WSA_data_all = ascii.read(path+inputQuasar+'/WSA_lc_all.dat')
@@ -48,6 +50,7 @@ WSA_data_30d = ascii.read(path+inputQuasar+'/WSA_lc_30d.dat')
 ## VSA - VISTA Science Archive
 VSA_data_all = ascii.read(path+inputQuasar+'/VSA_lc_all.dat')
 VSA_data_30d = ascii.read(path+inputQuasar+'/VSA_lc_30d.dat')
+
 
 ##  Assigned in WSA: 1=Z,2=Y,3=J,4=H,5=K,6=H2,7=Br,8=blank)
 Z_WFCAM_all = WSA_data_all[(WSA_data_all['filterID'] == 1) & (WSA_data_all['aperMag3AverAB']>0)]
@@ -61,6 +64,14 @@ Y_WFCAM_30d = WSA_data_30d[(WSA_data_30d['filterID'] == 2) & (WSA_data_30d['aper
 J_WFCAM_30d = WSA_data_30d[(WSA_data_30d['filterID'] == 3) & (WSA_data_30d['aperMag3Ab']>0)]
 H_WFCAM_30d = WSA_data_30d[(WSA_data_30d['filterID'] == 4) & (WSA_data_30d['aperMag3Ab']>0)]
 K_WFCAM_30d = WSA_data_30d[(WSA_data_30d['filterID'] == 5) & (WSA_data_30d['aperMag3Ab']>0)]
+
+##  W F C A M      (from the Ross & Cross appendix) 
+#Z_ABw_all = Z_WFCAM_all['aperMag3AverAB'] + 0.514
+#Y_ABw_all = Y_WFCAM_all['aperMag3AverAB'] + 0.617
+#J_ABw_all = J_WFCAM_all['aperMag3AverAB'] + 0.919 
+#H_ABw_all = H_WFCAM_all['aperMag3AverAB'] + 1.379
+#K_AB_all  = K_WFCAM_all['aperMag3AverAB'] + 1.900
+
 
 ##  UID of combined filter (assigned in WSA: 1=Z,2=Y,3=J,4=H,5=K,6=H2,7=Br,8=blank)
 Z_VIRCAM_all  = VSA_data_all[(VSA_data_all['filterID'] == 1) & (VSA_data_all['aperMag3AverAB']>0)]
@@ -193,8 +204,8 @@ mjd_offset = 50.
 xmin = min(min(WSA_data_all['mjdObs']), min(VSA_data_all['mjdObs'])) - mjd_offset
 xmax = max(min(WSA_data_all['mjdObs']), max(VSA_data_all['mjdObs'])) + mjd_offset
 mag_offset = 0.5
-ymin = max(max(WSA_data_all['aperMag3AverAB']), max(VSA_data_all['aperMag3AverAB'])) + (mag_offset*1.00)
-ymax = min(max(WSA_data_all['aperMag3AverAB']), min(VSA_data_all['aperMag3AverAB'])) - (mag_offset*2.25)
+ymin = max(max(WSA_data_all['aperMag3AverAB']), max(VSA_data_all['aperMag3AverAB'])) + (mag_offset*1.25)
+ymax = min(max(WSA_data_all['aperMag3AverAB']), min(VSA_data_all['aperMag3AverAB'])) - (mag_offset*2.0)
 
 ax.set_xlim((xmin, xmax))
 ax.set_ylim((ymin, ymax))
