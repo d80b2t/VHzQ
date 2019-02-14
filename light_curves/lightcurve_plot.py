@@ -35,8 +35,8 @@ if choice == '3' : inputQuasar = 'SHELLQsJ0220-0432'
 if choice == '4' : inputQuasar = 'SDSSJ0836+0054'
 if choice == '5' : inputQuasar = 'SDSSJ0959+0227'
 if choice == '6' : inputQuasar = 'SDSSJ1000+0234'
-if choice == '7' : inputQuasar = 'SDSSJ0959+0227'
-if choice == '8' : inputQuasar = 'SHELLQsJ1146+0124'
+if choice == '7' : inputQuasar = 'SHELLQsJ1146+0124'
+if choice == '8' : inputQuasar = 'VIKJ1148+0056'
 if choice == '9' : inputQuasar = 'SDSSJ2216+0013'
     
 
@@ -59,6 +59,7 @@ VSA_data_all = ascii.read(path+inputQuasar+'/VSA_lc_all.dat')
 VSA_data_30d = ascii.read(path+inputQuasar+'/VSA_lc_30d.dat')
 
 ## NEOWISE-R
+#if choice != '7':
 NEOWISER =  ascii.read(path+inputQuasar+'/NEOWISER-R_SingleExp_L1b.dat')
 #WISE_W1 = ascii.read(path+'WISE_W1_LC.dat')
 #WISE_W2 = ascii.read(path+'WISE_W2_LC.dat')
@@ -129,11 +130,11 @@ markeredgewidth = 1.5
 
 ## WSA
 ms = 3.
-ax.scatter(Z_WFCAM_all['mjdObs'], Z_WFCAM_all['aperMag3AverAB'], label='', s=ms*10, color='olive'             )
-ax.scatter(Y_WFCAM_all['mjdObs'], Y_WFCAM_all['aperMag3AverAB'], label='', s=ms*10, color='orange'             )
-ax.scatter(J_WFCAM_all['mjdObs'], J_WFCAM_all['aperMag3AverAB'], label='', s=ms*10, color='goldenrod'    )
-ax.scatter(H_WFCAM_all['mjdObs'], H_WFCAM_all['aperMag3AverAB'], label='', s=ms*10, color='y' )
-ax.scatter(K_WFCAM_all['mjdObs'], K_WFCAM_all['aperMag3AverAB'], label='', s=ms*10, color='yellow'    )
+ax.scatter(Z_WFCAM_all['mjdObs'], Z_WFCAM_all['aperMag3AverAB'], label='', s=ms, color='olive'             )
+ax.scatter(Y_WFCAM_all['mjdObs'], Y_WFCAM_all['aperMag3AverAB'], label='', s=ms, color='orange'             )
+ax.scatter(J_WFCAM_all['mjdObs'], J_WFCAM_all['aperMag3AverAB'], label='', s=ms, color='goldenrod'    )
+ax.scatter(H_WFCAM_all['mjdObs'], H_WFCAM_all['aperMag3AverAB'], label='', s=ms, color='y' )
+ax.scatter(K_WFCAM_all['mjdObs'], K_WFCAM_all['aperMag3AverAB'], label='', s=ms, color='yellow'    )
 
 ms = 7.
 ax.errorbar(Z_WFCAM_30d['mjd'], Z_WFCAM_30d['aperMag3Ab'],  yerr=Z_WFCAM_30d['aperMag3Err'],
@@ -156,34 +157,33 @@ ax.scatter( H_VIRCAM_all['mjdObs'],  H_VIRCAM_all['aperMag3AverAB'], label='', s
 ax.scatter(Ks_VIRCAM_all['mjdObs'], Ks_VIRCAM_all['aperMag3AverAB'], label='', s=ms, color='yellow')
 
 ms = 7.
-ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
-            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Z',  color='olive', ms=ms*1.4)
-ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
-            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Y',  color='orange', ms=ms*1.4)
-ax.errorbar(J_VIRCAM_30d['mjd'],  J_VIRCAM_30d['aperMag3Ab'],  yerr=J_VIRCAM_30d['aperMag3Err'],
-            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM J',  color='goldenrod',         ms=ms*1.4)
-ax.errorbar(H_VIRCAM_30d['mjd'],  H_VIRCAM_30d['aperMag3Ab'],  yerr=H_VIRCAM_30d['aperMag3Err'],
-            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM H',  color='y', ms=ms*1.4)
-ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_30d['aperMag3Err'],
-            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',ms=ms*1.4)
+#ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Z',  color='olive', ms=ms*1.4)
+#ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Y',  color='orange', ms=ms*1.4)
+#ax.errorbar(J_VIRCAM_30d['mjd'],  J_VIRCAM_30d['aperMag3Ab'],  yerr=J_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM J',  color='goldenrod',         ms=ms*1.4)
+#ax.errorbar(H_VIRCAM_30d['mjd'],  H_VIRCAM_30d['aperMag3Ab'],  yerr=H_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM H',  color='y', ms=ms*1.4)
+#ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',ms=ms*1.4)
 
 ## WISE W1/W2
-ms=10
+ms=6.
 ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W1',
             markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
 ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W2', 
-            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered') #linestyle=ls, linewidth=lw*2.5, 
-#ms=4
-#ax.errorbar(WISE_L1bs['mjd'], WISE_W1_ABs, yerr=WISE_L1bs['w1sigmpro'], fmt='o', ms=ms, color='indigo')
-#ax.errorbar(WISE_L1bs['mjd'], WISE_W2_ABs, yerr=WISE_L1bs['w2sigmpro'], fmt='o', ms=ms, color='brown')
+           markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered') #linestyle=ls, linewidth=lw*2.5,
+ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
+ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='', 
+           markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered') #linestyle=ls, linewidth=lw*2.5,
+ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
+           
 
-#alignment = {'horizontalalignment': 'center', 'verticalalignment': 'baseline'}
-#font0 = FontProperties()
-#font1 = font0.copy()
-#font1.set_size('large')
-#plt.text(-0.8, 0.9, 'family', fontproperties=font1)
 
-## Tidy up the figure
+ ## Tidy up the figure
 mjd_offset = 50.
 xmin = min(min(WSA_data_all['mjdObs']), min(VSA_data_all['mjdObs'])) - mjd_offset
 xmax = max(min(WSA_data_all['mjdObs']), max(VSA_data_all['mjdObs'])) + mjd_offset
