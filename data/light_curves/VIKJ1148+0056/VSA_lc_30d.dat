@@ -1,6 +1,6 @@
 # qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
 #
-# Results of Query: Database VSERV1000v20181217 12/02/19 10:36
+# Results of Query: Database VSERV1000v20181217 14/02/19 14:20
 # SELECT qso.qsoName,aver.filterID,AVG(m.mjdObs) as mjd, 
 # (MAX(m.mjdObs)-MIN(m.mjdObs)) as duration, aver.aperJky3, 
 # aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as aperMag3Ab,
@@ -26,18 +26,20 @@
 # d.multiframeID=mfs.multiframeID and 
 # mfs.catalogueID=remeas.catalogueID and 
 # remeas.apertureID=aver.apertureID and remeas.extNum=d.extNum and 
-# qsoID=121 and f.filterID=d.filterID and m.multiframeID=d.multiframeID 
-#   /* Select qsoID=54 */  GROUP BY qso.qsoName,aver.filterID, 
-# aver.aperJky3,aver.aperJky3Err, aver.aperMag3,aver.aperMag3Err,
-# aver.ppErrBits,f.VegaToAB   /* GROUP BY attributes that are part of 
-# are associated with the   average so that we get statistics for 
-# properties measured at the   frame level */
+# qsoID= 214 and f.filterID=d.filterID and 
+# m.multiframeID=d.multiframeID   /* Select qsoID=59 */  GROUP BY 
+# qso.qsoName,aver.filterID, aver.aperJky3,aver.aperJky3Err, 
+# aver.aperMag3,aver.aperMag3Err,aver.ppErrBits,f.VegaToAB   /* GROUP 
+# BY attributes that are part of are associated with the   average so 
+# that we get statistics for properties measured at the   frame level 
+# */
 # Column Headers at start of file AND below
 #
 # qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
-                  SDSSJ0836+0054,   1,  +55238.1655117,      +0.0032047,     +0.000110,+4.425055E-007,    +18.786840,     +0.004361,          0,          2,    +480.0000000
-                  SDSSJ0836+0054,   2,  +55237.7972908,      +1.0494089,     +0.000107,+7.222874E-007,    +18.810236,     +0.007334,          0,          3,    +600.0000000
-                  SDSSJ0836+0054,   3,  +55283.1167261,  +0.0000000E000,     +0.000125,+1.939730E-006,    +18.643170,     +0.016871,          0,          1,    +100.0000000
-                  SDSSJ0836+0054,   3,  +55237.8142366,      +1.0981218,     +0.000128,+1.080287E-006,    +18.619953,     +0.009197,          0,          3,    +300.0000000
-                  SDSSJ0836+0054,   4,  +55278.4404238,      +7.0697031,     +0.000166,+1.458380E-006,    +18.330956,     +0.009514,          0,          3,    +450.0000000
-                  SDSSJ0836+0054,   5,  +55278.4232243,      +7.0724076,     +0.000205,+1.928041E-006,    +18.109442,     +0.010191,          0,          3,    +720.0000000
+                   VIKJ1148+0056,   1,  +55305.2185749,      +0.0032229,+6.892050E-006,+3.860084E-007,    +21.796130,     +0.060810,          0,          2,    +480.0000000
+                   VIKJ1148+0056,   2,  +55303.7052826,      +2.9934461,+1.047400E-005,+6.364549E-007,    +21.332718,     +0.065975,          0,          4,    +800.0000000
+                   VIKJ1148+0056,   3,  +55349.0844030,      +0.0014672,+7.082481E-006,+1.244053E-006,    +21.758535,     +0.190712,          0,          2,    +200.0000000
+                   VIKJ1148+0056,   3,  +55593.1995297,      +0.0015009,+8.959326E-006,+1.580888E-006,    +21.503311,     +0.191580,          0,          2,    +200.0000000
+                   VIKJ1148+0056,   3,  +55303.6919323,      +2.9964496,+9.324245E-006,+9.547200E-007,    +21.459965,     +0.111170,          0,          4,    +400.0000000
+                   VIKJ1148+0056,   4,  +55593.2362785,      +0.0024000,+1.074031E-005,+2.379666E-006,    +21.306458,     +0.240560,          0,          2,    +300.0000000
+                   VIKJ1148+0056,   5,  +55349.0967770,      +0.0036676,+1.249220E-005,+1.829200E-006,    +21.149403,     +0.158981,          0,          2,    +480.0000000

@@ -1,0 +1,48 @@
+\fixlen = T
+\RowsRetrieved = 1
+\ORIGIN = 'IPAC Infrared Science Archive (IRSA), Caltech/JPL'
+\DATETIME = '2019-02-14 10:01:21'
+\DataTag = 'ADS/IRSA.Gator#2019/0214/100121_25813'
+\DATABASE = 'NEOWISE-R Single Exposure (L1b) Source Table (neowiser_p1bs_psd)'
+\EQUINOX = 'J2000'
+\SKYAREA = 'within 5. arcsec of  ra=34.11588 dec=-4.92614 Eq J2000 '
+\StatusFile = '/workspace/TMP_2cWt6P_27902/Gator/irsa/25813/log.25813.html'
+\SQL = 'WHERE (no constraints)
+\SQL = 'SELECT (14 column names follow in next row.)'
+\ 
+\ 
+\ ra (deg)
+\ ___ right ascension (J2000)
+\ dec (deg)
+\ ___ declination (J2000)
+\ w1mpro (mag)
+\ ___ instrumental profile-fit photometry magnitude, band 1
+\ w1sigmpro (mag)
+\ ___ instrumental profile-fit photometry flux uncertainty in mag units, band 1
+\ w1snr
+\ ___ instrumental profile-fit photometry S/N ratio, band 1
+\ w2mpro (mag)
+\ ___ instrumental profile-fit photometry magnitude, band 2
+\ w2sigmpro (mag)
+\ ___ instrumental profile-fit photometry flux uncertainty in mag units, band 2
+\ w2snr
+\ ___ instrumental profile-fit photometry S/N ratio, band 2
+\ cc_flags
+\ ___ prioritized artifacts affecting the source in each band
+\ ph_qual
+\ ___ photometric quality of each band (A=highest, U=upper limit)
+\ qual_frame
+\ ___ quality score value for frame
+\ mjd (mjdate)
+\ ___ modified Julian date of the mid-point of the observation of the frame
+\ dist (arcsec)
+\ ___ Distance between the target position and each source in arcsec.
+\ angle (deg)
+\ ___ Position Angle in degree.
+\ 
+\
+|ra        |dec       |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |cc_flags|ph_qual|qual_frame|mjd           |dist    |angle    |
+|double    |double    |double|double   |double|double|double   |double|char    |char   |int       |double        |double  |double   |
+|deg       |deg       |mag   |mag      |      |mag   |mag      |      |        |       |          |mjdate        |arcsec  |deg      |
+|null      |null      |null  |null     |null  |null  |null     |null  |null    |null   |null      |null          |null    |null     |
+ 34.1169695 -4.9256542 14.706     0.098   11.1 14.549      null    1.5 0000     AU              10 56675.07216417 4.281216 65.889355 
