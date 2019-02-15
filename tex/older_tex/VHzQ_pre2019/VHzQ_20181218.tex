@@ -31,9 +31,7 @@ comprehensive series of colour-redshift and colour-colour plots and
 make inferences into the hot dust properties of the very high-redshift
 quasar population. Extrapolating the known quasar luminosity function
 we suggest that $x$\% of the possibly detected $z\geq5$ quasars in the
-current datasets have been discovered. 
-All the data, analysis codes and plots used and generated here can be found at:
-\href{https://github.com/d80b2t/VHzQ}{\tt github.com/d80b2t/VHzQ}.
+current datasets have been discovered.
 \end{abstract}
 
 
@@ -89,7 +87,7 @@ $z\geq5.00$) are excellent probes of the early Universe. This includes
 studies of the Epoch of Reionization for hydrogen \citep[see e.g.][for
 reviews]{Fan2006review, Mortlock2016}, the formation and build-up of
 supermassive black holes \citep[e.g., ][]{Rees1984, WyitheLoeb2003,
-Volonteri2010, Agarwal2016, Valiante2018, Latif2018, Wise2019} and early metal
+Volonteri2010, Agarwal2016, Valiante2018, Latif2018} and early metal
 enrichment \citep[see e.g., ][]{Simcoe2012, Chen2017, Bosman2017}.
 
 Super-critical accretion, where $\dot{M} > \dot{M}_{\rm Edd}$, is a
@@ -478,11 +476,8 @@ and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
     In this study, we are not just quering the WSA or VSA data tables. 
     We are taking a list of objects (positions) are performing matched aperature (``forced'') photometry on the NIR imaging data. 
     As such, we generate a set of tables that are different in subtle ways to the regular ``Detection'' tables. 
-
-    The two most important tables for our needs are the {\tt [w/v]serv1000MapRemeasurement} and {\tt [w/v]serv1000MapRemeasAver}.
-     
-    Full documentation can be found at the \href{http://wsa.roe.ac.uk/www/wsa_browser.html}{WSA Schema Browser} 
-and the \href{http://horus.roe.ac.uk/vsa/www/vsa_browser.html}{VSA Schema Browser}. 
+    
+    
 
 
 \subsection{MIR data}
@@ -709,7 +704,7 @@ luminosity-redshift $Lz$-plane.
     \begin{figure}
       \centering
       \includegraphics[width=8.5cm]
-      {/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
+      {/cos_pc19a_npr/programs/quasars/highest_z/LightCurves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
       \vspace{-16pt}
       \caption[]
       {Histogram showing the number of NEOWISE-R epochs and detections there are for each 
@@ -724,7 +719,7 @@ Using the extended datasets described in Section~\ref{sec:NIR_data} and~\ref{sec
 
 \begin{figure}
   \includegraphics[width=8.5cm]
-  {/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/three_MIR_LC_egs_20180827.pdf}
+  {/cos_pc19a_npr/programs/quasars/highest_z/LightCurves/MIR_LCs/three_MIR_LC_egs_20180827.pdf}
   \centering
   \caption[]
   {Here we show the MIR NEOWISE-R for J0100+2802 \citep{Wu2015}, J0224-4711 and  J1626+2751. 
@@ -1027,9 +1022,9 @@ $\Delta$(vsCASU v1.3)::
       &&&&&&\\
       $z_{\rm PS1}$        &    8658    &	 8028    &      9346   &      966      &  $z_{\rm PS1}   $      &$    = z_{\rm AB} - 0.508 $       \\
       $z_{\rm LSST}$      &     8669   & 	 8035    &      9375   &      994     &   $z_{\rm LSST}  $      &$    = z_{\rm AB} - 0.509 $     \\
-      $Z_{\rm VIRCAM}$  &     8762   & 	 8157    &      9400   &      978    &   $Z_{\rm VIRCAM}  $   &$    = Z_{\rm AB} - 0.513 $     \\
-      $Z_{\rm WFCAM}$  &     8802   & 	 8129    &      9457   &      926    &   $Z_{\rm WFCAM}  $   &$    = Z_{\rm AB} - 0.514 $     \\
-      $z_{\rm HSC}$        &    8915  &   	8280     &      9498	&    793      & 	$Z_{\rm HSC} $         &$    = Z_{\rm AB} - 0.512$     \\
+      $Z_{\rm VIRCAM}$  &     8762   & 	 8157    &      9400   &      978    &   $Z_{\rm VIRCAM}  $   &$    = z_{\rm AB} - 0.513 $     \\
+      $Z_{\rm WFCAM}$  &     8802   & 	 8129    &      9457   &      926    &   $Z_{\rm WFCAM}  $   &$    = z_{\rm AB} - 0.514 $     \\
+      $z_{\rm HSC}$        &    8915  &   	8280     &      9498	&    793      & 	$Z_{\rm HSC} $         &$    = z_{\rm AB} - 0.512$     \\
       $z_{\rm DECam}$  &      9216   & 	 8360    &    10166   &   1502      &  $z_{\rm DECam} $     &$   = z_{\rm AB} - 0.521 $ \\
       &&&&&&\\
       $y_{\rm PS1}$       &       9603    &  9100    &    10838  &     615       &  $y_{\rm PS1}    $       &$   = y_{\rm AB} -  0.541 $ \\
@@ -1037,21 +1032,21 @@ $\Delta$(vsCASU v1.3)::
       $Y_{\rm DECam}$   &      9876   &	  9355    &      10730   &    676      &  $Y_{\rm DECam}  $   &$  =Y_{\rm AB} - 0.570 $ \\
       $Y_{\rm HSC}$       &      9976   &    9000    & 	10931  &   1386    &  $Y_{\rm HSC}  $   &$  =Y_{\rm AB} - 0.580 $ \\
       $Y_{\rm WFCAM}$    &   10305    &   9790      &   10810   &   1020     & $Y_{\rm WFCAM}$     &$ =  Y_{AB}  - 0.617$           \\
-      $Y_{\rm VIRCAM}$     &    10184    &   9427      &   10977   &    905        & $Y_{\rm VIRCAM} $     &$ = Y_{AB}  - 0.601 $          \\
+      $Y_{\rm VIRCAM}$     &    10184    &   9427      &   10977   &    905        & $Y_{\rm VISTA} $     &$ = Y_{AB}  - 0.601 $          \\
       &&&&&&\\
       $J_{\rm 2MASS}$       &   12350   &       10806  & 	14068  &  1624       &  $J_{\rm 2MASS}  $     & $= J_{AB}    - 0.894  $         \\
-      $J_{\rm VIRCAM} $     &   12464   &      11427   &    13759   &  1628     &  $J_{\rm VIRCAM}  $     & $= J_{AB}    - 0.921  $         \\
+      $J_{\rm VIRCAM} $     &   12464   &      11427   &    13759   &  1628     &  $J_{\rm VISTA}  $     & $= J_{AB}    - 0.921  $         \\
       $J_{\rm WFCAM} $    &    12483   &     11690  &    13280   &   1590      & $J_{\rm WFCAM}$     & $= J_{AB}    - 0.919 $          \\
       &&&&&&\\
       $W_{\rm Wircam}$   &    14514    &    13890   &    15166   &   1020    & $W_{\rm Wircam} $    & $= W_{AB}  -  1.163$           \\
       &&&&&&\\
       $H_{\rm WFCAM}$    &    16313     &    14920  &    17840   &   2920    & $H_{\rm WFCAM} $   & $= H_{AB}  - 1.379$          \\
-      $H_{\rm VIRCAM}$      &    16310    &    14604   &    18422   &   2833     & $H_{\rm VIRCAM}$      & $= H_{AB}  - 1.368 $        \\
+      $H_{\rm VIRCAM}$      &    16310    &    14604   &    18422   &   2833     & $H_{\rm VISTA}$      & $= H_{AB}  - 1.368 $        \\
       $H_{\rm 2MASS}$      & 16620        & 	14787  &   18231   & 2509      & $H_{\rm 2MASS}$      & $= H_{AB}  - 1.374 $        \\
       &&&&&&\\
-      $K$s$_{\rm VIRCAM}$     &    21337    &    19333  &    23674   &   3055     & $K$s$_{\rm VIRCAM}$      & $ = K$s$_{AB} - 1.83  $          \\ 
+      $K$s$_{\rm VIRCAM}$     &    21337    &    19333  &    23674   &   3055     & $K$s$_{\rm VISTA}$      & $ = K$s$_{AB} - 1.83  $          \\ 
       $K$s$_{\rm 2MASS}$     &   21590    & 	19544  &   23552        &   2619      & $K$s$_{\rm 2MASS}$      & $ = K$s$_{AB} -  1.84  $          \\ 
-      $K_{\rm WFCAM}$     &    22010     &    20290 &    23800         &   3510          & $K_{\rm WFCAM}$     & $ = K_{AB} - 1.90  $          \\ 
+      $K_{\rm WFCAM}$     &    22010     &    20290 &    23800         &   3510          & $K_{\rm WFCAM}$     & $ = K_{AB} - 1.9  $          \\ 
       &&&&&&\\
       WISE W1               &    33526    &    27541  &    38724   &    6626    & W1                        &   = W1$_{\rm AB} - 2.699$ \\
       WISE W2               &    46028    &    39633  &    53414   &  10423    & W2                        &   = W2$_{\rm AB} - 3.339$ \\

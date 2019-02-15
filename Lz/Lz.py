@@ -30,7 +30,7 @@ ageticks = [z_at_value(cosmo.age, age) for age in ages]
 
 ## READ-IN THE DATA FILE(S)
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
-infile = 'THE_TABLE_v0pnt981_temp.ascii'
+infile = 'THE_TABLE_v0pnt971.ascii'
 readin = path+infile
 all_VHzQs  = ascii.read(readin, delimiter=r'\s')
 

@@ -23,7 +23,7 @@ In this paper, we, for the first time since the discovery of $z\geq5$
 quasars, assemble all spectroscopically confirmed very high redshift
 quasars in one catalogue.  In particular we present the near
 ($zZyYJHK_{s}$ and $K$) infrared and mid-infrared (WISE) properties of
-all 463 spectroscopically confirmed redshift $z\geq5.00$ quasars.
+all 424 spectroscopically confirmed redshift $z\geq5.00$ quasars.
 Using archival public WFCAM/UKIRT and VIRCAM/VISTA data we check for
 photometric variability in the near-infrared that might be expected
 from Super-Eddington accretion and find {\it blah}.  We present a
@@ -31,9 +31,7 @@ comprehensive series of colour-redshift and colour-colour plots and
 make inferences into the hot dust properties of the very high-redshift
 quasar population. Extrapolating the known quasar luminosity function
 we suggest that $x$\% of the possibly detected $z\geq5$ quasars in the
-current datasets have been discovered. 
-All the data, analysis codes and plots used and generated here can be found at:
-\href{https://github.com/d80b2t/VHzQ}{\tt github.com/d80b2t/VHzQ}.
+current datasets have been discovered.
 \end{abstract}
 
 
@@ -89,7 +87,7 @@ $z\geq5.00$) are excellent probes of the early Universe. This includes
 studies of the Epoch of Reionization for hydrogen \citep[see e.g.][for
 reviews]{Fan2006review, Mortlock2016}, the formation and build-up of
 supermassive black holes \citep[e.g., ][]{Rees1984, WyitheLoeb2003,
-Volonteri2010, Agarwal2016, Valiante2018, Latif2018, Wise2019} and early metal
+Volonteri2010, Agarwal2016, Valiante2018, Latif2018} and early metal
 enrichment \citep[see e.g., ][]{Simcoe2012, Chen2017, Bosman2017}.
 
 Super-critical accretion, where $\dot{M} > \dot{M}_{\rm Edd}$, is a
@@ -132,7 +130,7 @@ quasars. Such apparently hot-dust-free quasars have no counterparts at
 low redshift. Moreover, those authors demonstrate that the hot-dust
 abundance in the 21 quasars builds up in tandem with the growth of the
 central black hole. But understanding how dust first forms and appears
-in the central engine remains an open question \citep{WangR2008, WangR2011}. 
+in the central engine remains an open question.
 
 WISE mapped the sky in 4 passbands, in bands centered at wavelengths
 of 3.4, 4.6, 12, and 23$\mu$m. The all sky ``ALLWISE'' catalog
@@ -186,7 +184,7 @@ incorporate what knowledge we have gained over the last couple of
 decades since $z>5$ quasars were discovered.
 
 This paper is organized as follows.  In Section 2, we present the
-assembled list of the 463 $z\geq5.00$ VH$z$Qs that we have
+assembled list of the 424 $z\geq5.00$ VH$z$Qs that we have
 compiled. We then give a high-level overview of the photometric
 surveys and datasets we use and present the photometry of the VH$z$Qs.
 In Section 3 we ... and In Section 4 we ... We conclude in Section 5 
@@ -197,10 +195,10 @@ We make the decision to present all our photometry and magnitudes on
 the AB zero-point system \citep{Oke_Gunn1983, Fukugita1996}.  This
 includes the near-infrared, as well as the mid-infrared magnitudes.
 Appendix~\ref{sec:filters} gives the AB to Vega transforms for a wide
-range of optical, NIR and MIR filters. 
-
-We use a flat $\Lambda$CDM cosmology with $H0 = 67.7$ km s$-1$ Mpc$−1$, $\Omega_{\rm M} = 0.307$, and $\Omega_{\Lambda} = 0.693$ (Planck Collaboration et al. 2016) in order to be consistent with \citet{Banados2016} and all logarithms are to the
-base 10. 
+range of optical, NIR and MIR filters. We use a flat $\Lambda$CDM
+cosmology with $H0 = 67.7$ km s$-1$ Mpc$−1$, $\Omega_{\rm M} = 0.307$,
+and $\Omega_{\Lambda} = 0.693$ (Planck Collaboration et al. 2016) in
+order to be consistent with \citet{Banados2016}.
 
 
 
@@ -217,7 +215,7 @@ base 10.
 %%trim=l b r t
 %  \includegraphics[width=18.6cm, clip,trim=14mm 4mm 10mm 10mm]
   \includegraphics[width=8.6cm, clip,trim=32mm 4mm 32mm 10mm]
-  {/cos_pc19a_npr/programs/quasars/highest_z/SEDs/filters_vs_QSOstars_z7pnt0.pdf}
+  {/cos_pc19a_npr/programs/quasars/highest_z/SEDs/filters_vs_QSOstars_20180704.pdf}
   \centering
   \vspace{-12pt}
   \caption[]
@@ -235,172 +233,151 @@ base 10.
 
 \vspace{-16pt}
 \section{Data}
-First we compile the list of all known, spectroscopically confirmed quasars from the literature. Most of these objects are easily identified by their broad Ly$\alpha$ emission line, \nv emission and characteristic shape blueward of 1215\AA\ in the rest-frame. As we shall see, some of the recently discovered objects are close to the galaxy luminosity function characteristic luminosity $M^{*}$, and some have relatively weak or maybe even completely absorbed Ly$\alpha$ \citep[e.g. Figures 7 and 10 in][]{Banados2016}. We leave aside detailed investigation and discussion into spectral features and line strengths, and take as given the published spectra and reshift identifications.
+In Table~\ref{tab:THE_TABLE} we present our dataset and 
+we have assembled this in the following manner.  First
+we compile the list of all known, spectroscopically confirmed quasars
+from the literature. Most of these objects are easily identified by
+their broad Ly$\alpha$ emission line, \nv emission and characteristic
+shape blueward of 1215\AA\ rest. As we shall see, some of the more
+recently discovered objects are close to the galaxy luminosity
+function characteristic luminosity $M^{*}$, and some have relatively
+weak or maybe even completely absorbed Ly$\alpha$ \citep[e.g. Figures
+7 and 10 in][]{Banados2016}. We leave aside detailed investigation and
+discussion into spectral features and line strengths, and take as given 
+the published spectra and identifications.
 
-We then obtain optical, near-infrared and mid-infrared photometry for the spectral dataset. The optical data comes from the Panoramic Survey Telescope and Rapid Response System (Pan-STARRS) survey \citep{Chambers2016}. The near-infrared data comes from two sources: first, the WFCAM \citep[][]{Casali2007} on the UKIRT, primarly, but not exclusively, as part of the UKIRT Infrared Deep Sky Survey \citep[UKIDSS; ][]{Lawrence2007}.  And second, data from the VIRCAM on the VISTA \citep[][]{Emerson2006, Dalton2006}. The mid-infrared, $\lambda=3-30\mu$m wavelength data is from the the Wide-Field Infrared Survey Explorer \citep[WISE;][]{Wright2010, Cutri2013} mission. 
-%%
-For reference, Figure~\ref{fig:filters} displays the wavelength and normalised transmission of the filters in question. 
+We then obtain optical, near-infrared and mid-infrared photometry for the
+spectral dataset. The optical data comes from the 
+Panoramic Survey Telescope and Rapid Response System (Pan-STARRS) 
+survey \citep{Chambers2016} and the Dark Energy Camera \citep{Flaugher2015}, 
+including the Dark Energy Survey \citep[DES;][]{Flaugher2005} and 
+the Dark Energy Camera Legacy Survey \citep[DECaLS]{Dey2018}. 
 
-Tables~\ref{tab:THE_TABLE}, \ref{tab:THE_TABLE_NIR} and~\ref{tab:THE_TABLE_MIR}, represent the culmination of this effort, and we now describe the assembly of their contents in more detail.  
+Recently, Hyper Suprime-Cam \citep[HSC; ][]{Miyazaki2018} has embarked
+on the Subaru Strategic Program \citep[SSP; ][]{Aihara2018a}
+delivering exquisite multi-band photometry data
+\citep[][]{Aihara2018b} the five broad bands $grizy$.
 
-\input{table_tex/THE_TABLE_v0pnt96_TOP10_betterformat}
+The near-infrared data comes from two primary sources. First, the Wide
+Field Camera \citep[WFCAM; ][]{Casali2007} on the the United Kingdom
+Infra-Red Telescope (UKIRT) primarly, but not exclusively as part of
+the UKIRT Infrared Deep Sky Survey \citep[UKIDSS; ][]{Lawrence2007}.
+And second, data from the VIRCAM (VISTA InfraRed CAMera) on the VISTA
+\citep[Visible and Infrared Survey Telescope for
+Astronomy;][]{Emerson2006, Dalton2006}.
 
-%\input{table_tex/THE_TABLE_v0pnt96_TOP10_redshifts}
-%\input{table_tex/THE_TABLE_v0pnt96_TOP10_NIR}
-%\input{table_tex/THE_TABLE_v0pnt96_TOP10_MIR}
+We also obtain mid-infrared, $\lambda=3-30\mu$m wavelength data from the
+the Wide-Field Infrared Survey Explorer \citep[WISE;][]{Wright2010, Cutri2013} mission.
+WISE mapped the sky in 4 passbands, in bands centered at wavelengths of 3.4, 4.6, 12, and 23$\mu$m. 
+In total the release all sky ``ALLWISE'' catalog, contains nearly 750 million detections at high-significance\footnote{
+\href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{wise2.ipac.caltech.edu/docs/release/allwise/}}. 
 
 
+Figure~\ref{fig:filters} displays the wavelength and normalised transmission 
+of the filters in question. 
+
+
+\input{THE_TABLE_v0pnt96_TOP10_betterformat}
 
 
 \subsection{Spectroscopy} 
-We have obtained a list of 463 spectroscopically confirmed quasars
-with redshifts $z\geq5.00$. We use all the $z\geq5.00$ quasars that
+We have obtained a list of 424 spectroscopically confirmed 
+quasars with redshifts $z\geq5.00$. 
+
+In Table~\ref{tab:THE_TABLE}  we give the discovery reference for the
+VH$z$Qs noting that some objects were discovered independently and
+contemporaneously.  The redshifts for the VH$z$Qs generally come from
+the measurement of broad UV/optical emission lines. Where 
+there are far infra-red emission lines e.g. \cii~158 micron, we report 
+these, but at the level of our current analysis broadline redshifts are
+sufficient. 
+
+Specifically, we use data from: \citet{Fan2000}, \citet{Fan2001c},
+\citet{Fan2003}, \citet{Fan2004}, \citet{Mahabal2005},
+\citet{Cool2006}, \citet{Fan2006}, \citet{Goto2006},
+\citet{McGreer2006}, \citet{Carilli2007}, \citet{Kurk2007},
+\citet{Stern2007}, \citet{Venemans2007}, \citet{Willott2007},
+\citet{Jiang2008}, \citet{Wang2008}, \citet{Jiang2009}, \citet{Kurk2009}, 
+\citet{Mortlock2009}, \citet{Willott2009}, \citet{Carilli2010}, 
+\citet{Wang2010}, \citet{Willott2010a}, \citet{Willott2010b}, 
+\citet{DeRosa2011}, \citet{Mortlock2011}, \citet{Wang2011}, 
+\citet{Zeimann2011}, \citet{Morganson2012}, \citet{Venemans2012}, 
+\citet{McGreer2013}, \citet{Venemans2013}, \citet{Wang2013}, 
+\citet{Willott2013b}, \citet{Banados2014}, \citet{Calura2014}, 
+\citet{Leipski2014}, \citet{Banados2015a}, \citet{Banados2015b}, 
+\citet{Becker2015}, \citet{Carnall2015}, \citet{Jiang2015}, 
+\citet{Kashikawa2015}, \citet{Kim2015}, \citet{Reed2015}, 
+\citet{Venemans2015a}, \citet{Venemans2015b}, \citet{Willott2015}, 
+\citet{Wu2015}, \citet{Venemans2016}, \citet{Wang2016_WISE}, 
+\citet{Matsuoka2016}, \citet{WangR2016}, \citet{Mortlock2011},
+\citet{McGreer2013}, \citet{Venemans2013}, \citet{Venemans2013},
+\citet{Venemans2015a}, \citet{Venemans2015b}, \citet{Banados2016},
+\citet{Matsuoka2016}, \citet{Reed2017}, \citet{Wang2017},
+\citet{Mazzucchelli2017}, \citet{Ikeda2017}, \citet{Tang2017},
+\citet{Koptelova2017}, \citet{Banados2018}, \citet{Matsuoka2018a} 
+and \citet{Matsuoka2018b}. 
+
+Table~\ref{tab:THE_TABLE} gives the salient details for the objects
+used in this study. We use all the $z\geq5.00$ quasars that
 have been discovered and spectroscopically confirmed as of the time of
-writing (2018 November).
-
-This list was complied from a range of surveys and papers. 
-Specifically, we use data from: 
-\citet{Banados2014, Banados2016, Banados2018}, 
-\citet{Becker2015}, 
-\citet{Calura2014}, 
-\citet{Carilli2007, Carilli2010}, 
-\citet{Carnall2015}, 
-\citet{Cool2006}, 
-\citet{DeRosa2011}, 
-\citet{Fan2000, Fan2001c, Fan2003, Fan2004, Fan2006, Fan2018}, 
-\citet{Goto2006}, 
-\citet{Ikeda2017}, 
-\citet{Jiang2008, Jiang2009, Jiang2015, Jiang2016},   
-\citet{Kashikawa2015}, 
-\citet{Koptelova2017}, 
-\citet{Kim2015, Kim2018},  
-\citet{Kurk2007, Kurk2009}, 
-\citet{Leipski2014}, 
-\citet{Mahabal2005}, 
-\citet{Matsuoka2016,  Matsuoka2018a, Matsuoka2018b},   
-\citet{Mazzucchelli2017}, 
-\citet{Morganson2012}, 
-\citet{Mortlock2009, Mortlock2011},
-\citet{McGreer2006, McGreer2013},  
-\citet{Reed2015, Reed2017}, 
-\citet{Stern2007},  
-\citet{Tang2017}, 
-\citet{Venemans2007, Venemans2012, Venemans2013, Venemans2015a, Venemans2015b, Venemans2016},
-\citet{WangF2016, WangF2017, WangF2018a, WangF2018b},
-\citet{Willott2007, Willott2009, Willott2010a, Willott2013b, Willott2015}, 
-\citet{Wu2015} 
-\citet{YangJ2018a, YangJ2018b}  
-and 
-\citet{Zeimann2011}, 
-The breakdown of how many VH$z$Q each survey reports is given in
-Table~\ref{tab:surveys}. We assume the reader is familiar with the
-Sloan Digital Sky Survey (SDSS) and the Pan-STARRS1 (PS1; PSO in
-Table~\ref{tab:surveys}.  ) survey and these surveys alone identified
-over half (54.6\%) of the VH$z$Q population. Data from the
-Hyper Suprime-Cam (HSC) on the Subaru telecope is responsible for
-13.6\% of our dataset (HSC+SHELLQs in Table~\ref{tab:surveys}). The
-combination of surveys is also vital for identifying VH$z$Qs. The
-UKIDSS Large Area Survey (ULAS) on its own, or in combination with
-other surveys is responsible for 6.5\% of the sample (SUV+ULAS)
-including the highest-$z$ object. Where more than one survey is used
-for the high-redshift identification (e.g. via shorter-band veto and
-longer wavelength detection) we follow the discovery paper naming
-convention.
-
+writing (2018 June). We report near-infrared ($yYJHK$-bands)
+and mid-infrared (WISE W1/2/3/4) photometry and give our caculcated 
+$M_{1450}$. 
 
 \begin{table}
-\begin{tabular}{l r r l}
+\begin{tabular}{l r l}
 \hline  \hline
-Survey              & \# VH$z$Qs & (\%) & Notes/Survey reference  \\
+Survey   & \# VH$z$Qs & Notes/Survey reference  \\
 \hline  
-  ATLAS             &     4    &   ( 0.86)    &  \citet{Shanks2015} \\
-  CFHQS            &   20    &   ( 4.32)    &  \citet{Willott2007} \\
-  DELS               &   16    &   ( 3.46)    &  \citet{Dey2018} \\
-  ELAIS              &     1    &   ( 0.22)    &  \citet{Vaisanen2000} \\
-  FIRST              &     1    &   ( 0.22)    &  \citet{Becker1995} \\
-  HSC                 &    8    &   ( 1.73)    & \citet{Miyazaki2018} \\
-  IMS                 &     5    &   ( 1.08)     &  \citet{Kim2015} \\
-  MMT               &   12    &   ( 2.59)     &  \citet{McGreer2013} \\
-  NDWFS           &     1    &   ( 0.22)    &  \citet{JD1999} \\
-  PSO                 &   83   &   (17.93)   &   \citet{Kaiser2002, Kaiser2010} \\
-  RD                   &     1   &   ( 0.22)    &  \citet{Mahabal2005} \\
-  SDSS                &  170  &    (36.72)    & \citet{EDR} \\
- SDWISE$^{b}$    &   27    &  ( 5.83)    &   \citet{WangF2016} \\
-%% SHELLQs    &  $^{c}$63  &  (13.6)   &  \citet{Matsuoka2016} \\  %% if you include 8 objects from the first HSC paper...
-  SHELLQs         &    55    &   (11.88)  &  \citet{Matsuoka2016}     \\  
-  SUV$^{c}$       &   20     &    ( 4.32)  & \citet{YangJ2017} \\
-  UHS               &    1      &  ( 0.22)     &  \citet{WangF2017} \\
-  ULAS               &   10   &   ( 2.16)     & \citet{Lawrence2007} \\
-  VDES$^{d}$       &   17  &    ( 3.67)     &  \citet{Reed2017} \\
-  VHS                 &     1  &     ( 0.22)    & \citet{WangF2018b} \\
-  VIK                 &     9    &  ( 1.94)    &  \citet{Edge2013} \\
-  VIMOS           &    1      &  ( 0.22)     &   \citet{LeFevre2003} \\
+  ATLAS      &     4    &  \citet{Shanks2015} \\
+  CFHQS     &   20    &  \citet{Willott2007} \\
+  DELS        &     2    &  \citet{Dey2018} \\
+  ELAIS       &     1    &  \citet{Vaisanen2000} \\
+  FIRST       &     1    &  \citet{Becker1995} \\
+%  HSC         &     8    &  \\
+  IMS          &     1     &  \citet{Kim2015} \\
+  MMT        &   12    &  \citet{McGreer2013} \\
+  NDWFS    &     1     &  \citet{JD1999} \\
+  PSO          &   84    &   \citet{Kaiser2002, Kaiser2010} \\
+  RD           &     1       &  \cite{Mahabal2005} \\
+  SDSS        & 156       & \citet{EDR} \\
+  SDUV       &   20       & \citet{Yang2017} \\
+  SDWISE    &   27    &     \citet{Wang2016} \\
+  SHELLQs  &  $^{a}$63   &  \citet{Matsuoka2016}\\  %% includes 8 objects from the first HSC paper..
+  ULAS       &   10   & \citet{Lawrence2007} \\
+  VDES       &   11   &  \citet{Reed2017} \\
+  VIK          &     9   &  \citet{Edge2013} \\
+  VIMOS     &     1   &  \citet{LeFevre2003} \\
 \hline  \hline
 \end{tabular}
-\caption{The source and number of the VH$z$Q, with the key survey reference also given. 
-  Recent survey name and acronyms include: 
-  $^{a}$DESI Legacy Imaging Survey; 
-  $^{b}$SDWISE = SDSS+WISE; 
-  $^{a}$SUV  = SDSS-ULAS/VHS; 
-  $^{c}$VDES = VHS/VIKING+DES; 
-%  $^{c}$Includes 8 objects with a HyperSuprimeCam \citep[HSC; ][]{Miyazaki2018} designation.
+\caption{The number of VH$z$Q from given surveys, with the key survey or telescope reference. 
+$^{a}$Includes 8 objects with a HyperSuprimeCam \citep[HSC; ][]{Miyazaki2018}  
+designation.
 }
       \label{tab:surveys}
 \end{table}
 
-\begin{figure}
-%%trim=l b r t
-  \includegraphics[width=8.0cm, clip, trim=10mm 0mm 0mm 0mm]
-  {/cos_pc19a_npr/programs/quasars/highest_z/Nofz/Nofz_0pnt075bins_20181211.png}
-  \centering
-  \vspace{-12pt}
-  \caption[]
-  {The redshift distribution $N(z)$ of the VH$z$Q sample. 
-    The bins are $\delta-z=0.075$ in width. }
-  \label{fig:Nofz}
-\end{figure}
-
-The redshifts for the VH$z$Qs generally come from the measurement of
-broad UV/optical emission lines. Where there are far infra-red
-emission lines e.g. \cii~158 micron, we report these, but at the level
-of our current analysis broadline redshifts are sufficient.
-
-\begin{table}
-\centering
-\begin{tabular}{l r  r}
-\hline \hline
-$z \geq$  & Age / Myr & No. of objects \\
-\hline 
-7.50         &    700         &   1   \\
-7.00         &    767         &   4   \\
-6.78         &    800         &  14   \\
-6.50         &    845         &  40   \\
-6.19         &   900          &  86   \\
-6.00         &   937          &  170   \\
-5.70         & 1000          &  267   \\
-5.00         & 1180          &  463   \\
-\hline \hline
-\end{tabular}
-\caption{The number of objects at or above a given redshift. 
-The age of the Universe in megayears is also given. }
-      \label{tab:ages}
-\end{table}
-
-The number of objects at or above various redshifts, along with the 
-corresponding age of the Universe is given in Table~\ref{tab:ages}. 
-
-The $N(z)$ redshift histogram is given for the sample in Figure~\ref{fig:Nofz}. 
-We split the contribution up by survey. For clarity we show the individual 
-surveys of SDSS, PS1, HSC, the ULAS detection, and tally the remaining 
-surveys together (``various''). In Section~\ref{sec:Lz} we discuss the form 
-of the $N(z)$ as well as the coverage of the luminosity-redshift $L-z$ plane. 
-
         
 \subsection{Optical Photometry}
-%\subsubsection{Pan-STARRS1 (PS1)} 
-We query the Panoramic Survey Telescope and Rapid Response System (Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}} Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs) service at \href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}. The Pan-STARRS1 (PS1) survey observed the 30,000 deg$^{2}$ of sky north of declination $\delta = -30$ degrees in the five $grizy$ filters.  PS1 is the first part of Pan-STARRS to be completed and is the basis for the DR1. \citet{Chambers2016}, \citet{Magnier2016a}, \citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and \citet{Flewelling2016} describe the instrument, survey, and data analyses.  The principal science product of the PS1 survey is the catalog accessible through the CasJobs interface. 
+    \subsubsection{Pan-STARRS1 (PS1)} 
+    We query the Panoramic Survey Telescope and Rapid Response System
+    (Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}}
+    Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs)
+    service at
+    \href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}.
+    The PS1 survey observed the 30,000 deg$^{2}$ of sky north of
+    declination $-30$ degrees in five filters $grizy$.  Pan-STARRS1 (PS1)
+    is the first part of Pan-STARRS to be completed and is the basis for
+    the DR1.  \citet{Chambers2016}, \citet{Magnier2016a},
+    \citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and
+    \citet{Flewelling2016} describe the instrument, survey, and data
+    analyses.  The principal science product of the PS1 survey is the
+    catalog accessible through the CasJobs interface.
     
-We query and return the mean PSF magnitudes from the $grizy$ filters ({\tt MeanPSFMag}) which are in the AB system for our 463 VH$z$Q sample. Details of our SQL and links to the main tables are given in Appendix~\ref{sec:PS1_SQL}.
+    We query and return the mean PSF magnitudes from the $grizy$ filters
+    ({\tt MeanPSFMag}) which are in the AB system for our 424 VH$z$Q
+    sample. Details of our SQL and links to the main tables are given
+    in Appendix~\ref{sec:PS1_SQL}.
     
     \iffalse
     \subsubsection{DECam} 
@@ -414,6 +391,11 @@ We query and return the mean PSF magnitudes from the $grizy$ filters ({\tt MeanP
     
 
 \subsection{Near-infrared photometry}~\label{sec:NIR_data} 
+Due to their selection of being very faint/undetected in the
+observed-frame optical but bright in the observed frame near-infrared,
+VH$z$Qs are generally detected in the near-infrared $ZYJHK(s)$-bands
+\citep[$\approx$0.83-2.38$\mu$m; e.g., ][]{Peth2011}.
+
 The near-infrared data in this paper comes from the Wide Field Astronomy Unit's
 (WFAU) Science Archives for UKIRT-WFCAM, the WFCAM Science Archive
 \citep[WSA][]{WSA} and VISTA-VIRCAM, the VISTA Science Archive
@@ -433,7 +415,7 @@ will appear in a forthcoming paper, Cross et al.  2018, in prep, and
 has also been discussed in \citet{Cross2013}.  
 
 We query the WSA and VSA performing matched-aperature photometry at
-the positions of our 463 VH$z$Qs. This database is world-readable and we give the full receipe
+the positions of our 424 VH$z$Qs. This database is world-readable and we give the full receipe
 and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
    
     \subsubsection{Averaging matched photometry}
@@ -473,44 +455,43 @@ and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
     WFCAM and VISTA data.  We give the necessary SQL queries syntax in Appendix~\ref{sec:SQL}.
 
 
-    \subsubsection{Salient details of WSA and VSA}. 
-    %% N.B.!!!    WFAU archives more than just the NIR Surveys -- it archives *all* the WFCAM and VISTA programmes!!
-    In this study, we are not just quering the WSA or VSA data tables. 
-    We are taking a list of objects (positions) are performing matched aperature (``forced'') photometry on the NIR imaging data. 
-    As such, we generate a set of tables that are different in subtle ways to the regular ``Detection'' tables. 
-
-    The two most important tables for our needs are the {\tt [w/v]serv1000MapRemeasurement} and {\tt [w/v]serv1000MapRemeasAver}.
-     
-    Full documentation can be found at the \href{http://wsa.roe.ac.uk/www/wsa_browser.html}{WSA Schema Browser} 
-and the \href{http://horus.roe.ac.uk/vsa/www/vsa_browser.html}{VSA Schema Browser}. 
-
 
 \subsection{MIR data}
-Since we are concerned here with the very large area ($\gg1000$ deg$^2$) surveys, we leave exploration of the VH$z$Q population in e.g. the large Spitzer areal surveys such as the Spitzer IRAC Equatorial Survey \citep[SpIES; ][]{Timlin2016}, the Spitzer-HETDEX Exploratory Large-area Survey \citep[SHELA; ][]{Papovich2016} and the Spitzer-SPT Deep Field \citep[SSDF; ][]{Ashby2013}, to future investigation. This will also include a detailed study of MIR spectra e.g. \citet{Lambrides2018}. 
+The MIR data for this study comes exclusively from the Wide-field
+Infrared Survey Explorer (WISE) mission. Since we are only concerned
+here with the very large area ($\gg1000$ deg$^2$) surveys, we leave
+exploration of the VH$z$Q population in e.g. the large Spitzer areal
+surveys such as the Spitzer IRAC Equatorial Survey \citep[SpIES;
+][]{Timlin2016}, the Spitzer-HETDEX Exploratory Large-area Survey
+\citep[SHELA; ][]{Papovich2016} and the Spitzer-SPT Deep Field
+\citep[SSDF; ][]{Ashby2013}, to a future investigation. This will also
+include a detailed study of MIR spectra e.g. \citet{Lambrides2018}.
 
-The MIR data for this study comes from the Wide-field Infrared Survey Explorer (WISE) mission, and we utlize data from the WISE cryogenic and NEOWISE (Mainzer et al. 2011 ApJ, 731, 53) post-cryogenic survey phases. 
+We use data from the the beginning of the WISE mission \citep[2010
+January; ][]{Wright2010} through the fourth-year of NEOWISE-R
+operations \citep[2017 December;]{Mainzer2011}. More specifically, we
+use the data from the
+\href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE}
+program and catalogue, which combines data from the WISE cryogenic and
+NEOWISE (Mainzer et al. 2011 ApJ, 731, 53) post-cryogenic survey
+phases. For the our variability investigations, we supplement the
+ALLWISE data with data from the
+\href{http://wise2.ipac.caltech.edu/docs/release/neowise/neowise_2018_release_intro.html}{NEOWISE
+2018 Data Release}. NEOWISE 2018 makes available the 3.4 and 4.6 μm
+(W1 and W2) single-exposure images and extracted source information
+that were acquired between 2016 December 13 and 2017 December 13 UTC,
+which was the fourth year of survey operations of the Near-Earth
+Object Wide-field Infrared Survey Explorer Reactivation Mission
+(NEOWISE; Mainzer et al. 2014, ApJ, 792, 30). The fourth year NEOWISE
+data products are concatenated with those from the first three years
+(originally released on March 26, 2015, March 23, 2016 and June 1,
+2017) into a single archive.
 
-We use data from the the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fourth-year of NEOWISE-R operations \citep[2017 December;]{Mainzer2011}.  More specifically, we utilise the recently released ``unWISE Catalog'' \citet{MeisnerSchlafly2019}. The unWISE effort\footnote{http://unwise.me/} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}. {\bf Few more words here on the unWISE catalog}. 
-
-All fluxes in the unWISE catalog are reported there are in ``Vega nanoMaggies'', with the Vega magnitude of a source is given by $m_{\rm Vega} = 22.5−2.5\log(f)$, where $f$ is the source flux. The absolute calibration for unWISE is ultimately inherited from AllWISE through the calibration of \citet{Meisner2017}. This inheritance depends on details of the PSF normalization at large radii, which is uncertain. Subtracting 4 mmag from the unWISE W1, and 32 mmag from unWISE W2 fluxes improves the agreement between unWISE and AllWISE fluxes.
-
-Thus to convert unWISE Vega magnitudes onto the AB system, we have    
-\begin{eqnarray*}
-        {\rm W1}_{\rm AB, unWISE}  & = &   22.5 - 2.5 \log(f_{\rm W1}) - 0.004 + 2.699 \\
-        {\rm W2}_{\rm AB, unWISE}  &  = &  22.5 - 2.5 \log(f_{\rm W2}) - 0.032 + 3.339 
-\end{eqnarray*}
-%Henceforth, when talking about we will simply refer to ``W1'' and ``W2'' as shorthand for ${\rm W1}_{\rm AB, unWISE}$ and {\rm W2}_{\rm AB, unWISE}
-those two numbers are how far our flux measurements differed on average from the AllWISE flux estimates at high Galactic latitudes.  These tweaks will move you closer to the AllWISE absolute calibration, which we haven't tried to improve upon.
-%We note though that 
-%Especially in W1, though, this correction is uncertain, because the average offset between AllWISE and unWISE depends on magnitude, and we don't really know
-%- what the source of the trend is,
-%- which of unWISE and AllWISE is correct, or
-%- where the AllWISE tie to AB/Vega was done (though presumably it was done on the bright end?).
-
-For the our MIR variability investigations, we do not use the unWISE coadds, but instead use 
-the \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE} catalogue and the \href{http://wise2.ipac.caltech.edu/docs/release/neowise/neowise_2018_release_intro.html}{NEOWISE 2018 Data Release}. NEOWISE 2018 makes available the 3.4 and 4.6 μm (W1 and W2) single-exposure images and extracted source information that was acquired between 2016 December 13 and 2017 December 13 UTC, which was the fourth year of survey operations of the Near-Earth Object Wide-field Infrared Survey Explorer Reactivation Mission (NEOWISE; Mainzer et al. 2014, ApJ, 792, 30). The fourth year NEOWISE data products are concatenated with those from the first three years into a single archive.
-
-The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
+The WISE scan pattern leads to coverage of the full- sky approximately
+once every six months (a``sky pass''), but the satellite was placed in
+hibernation in 2011 February and then reactivated in 2013
+October. Hence, our light curves have a cadence of 6 months with a 32
+month sampling gap.
 
 
 
@@ -524,7 +505,7 @@ The WISE scan pattern leads to coverage of the full-sky approximately once every
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
-Having collated the sample of 463 VH$z$Qs, and obtained their optical,
+Having collated the sample of 424 VH$z$Qs, and obtained their optical,
 near- and mid-infrared photometry we report here the various
 photometric properites of the quasars.
 
@@ -650,7 +631,7 @@ luminosity-redshift $Lz$-plane.
         W1/2 SNR $< 2.0$ $\land$ W3 SNR $>2.0$ & \\
         \hline  \hline
       \end{tabular}
-      \caption{}
+      \caption{ATLAS \citet{Shanks2015}; }
       \label{tab:mir_detection}
     \end{table}
 
@@ -695,7 +676,7 @@ luminosity-redshift $Lz$-plane.
     AGN candidates per deg$^2$) while the ``C75'' catalog 
     consists of 20.9M AGN candidates at 75\% completeness (and 
     ($\approx$700 AGN candidates per deg$^2$).  Crossmatching 
-    out catalogue of 463 VH$z$Qs with these catalogues, produces 
+    out catalogue of 424 VH$z$Qs with these catalogues, produces 
     42 matches with	the R90 sample and 98 matches with the C75 sample. 
     Both catalogues unsurprisingly match to the ultraluminous quasar 
     SDSS J0100+2802 \citep{Wu2015} while the C75, but not the R90 catalogue 
@@ -709,7 +690,7 @@ luminosity-redshift $Lz$-plane.
     \begin{figure}
       \centering
       \includegraphics[width=8.5cm]
-      {/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
+      {/cos_pc19a_npr/programs/quasars/highest_z/LightCurves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
       \vspace{-16pt}
       \caption[]
       {Histogram showing the number of NEOWISE-R epochs and detections there are for each 
@@ -724,7 +705,7 @@ Using the extended datasets described in Section~\ref{sec:NIR_data} and~\ref{sec
 
 \begin{figure}
   \includegraphics[width=8.5cm]
-  {/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/three_MIR_LC_egs_20180827.pdf}
+  {/cos_pc19a_npr/programs/quasars/highest_z/LightCurves/MIR_LCs/three_MIR_LC_egs_20180827.pdf}
   \centering
   \caption[]
   {Here we show the MIR NEOWISE-R for J0100+2802 \citep{Wu2015}, J0224-4711 and  J1626+2751. 
@@ -739,10 +720,19 @@ associated colour changes. Here we show J0100+2802 \citep{Wu2015}, J0224-4711 an
 
 
 \subsection{Colours}
-Currently, very high-redshift quasars are identified by their morphology, flux and colours in optical and infrared imaging data \citet{Fan1999, Mortlock2012} Quasars are generally selected to be point sources, but  be outliers from the stellar locus in colour space. For VH$z$Qs, the main technique is to look for objects with extreme optical-to-near-infrared colours The lack of proper motion can also help identified quasars \citep[e.g.][]{Lang2009}. 
+Currently, very high-redshift quasars are identified by their morphology, flux and colours in 
+optical and infrared imaging data \citet{Fan1999, Mortlock2012}
+Quasars are generally selected to be point sources, but 
+be outliers from the stellar locus in colour space. For VH$z$Qs, the main technique is to 
+look for objects with extreme optical-to-near-infrared colours
+The lack of proper motion can also help identified quasars \citep[e.g.][]{Lang2009}. 
+
+
+Pellentesque vel elit neque, in interdum lacus. Quisque sodales, nunc et luctus convallis, nisl dui luctus dui, at congue urna velit a nisl. Ut sit amet sapien a risus dapibus sagittis. Cras sed ultricies erat. Donec id metus sed urna lacinia convallis vel sed enim. Proin nisi libero, ornare vel bibendum eu, sollicitudin sed leo. Cras tincidunt aliquet ultricies. Cras pretium velit leo, in malesuada enim. Duis sagittis ultricies interdum. Proin sit amet sem nec metus feugiat pharetra.
 
 Figure~\ref{fig:Opt_colourredshift} presents the optical
 colour-redshift trends for Late Type M/L/T dwarfs and the VH$z$Qs.
+
 \begin{figure*}
    \includegraphics[width=18.0cm]
    {/cos_pc19a_npr/programs/quasars/highest_z/color_redshift/SpecType_vs_Optcolors_20180704.pdf}
@@ -755,6 +745,8 @@ bigger gaps between subplots??}}
    \label{fig:Opt_colourredshift}
  \end{figure*}
 
+Figure~\ref{fig:Opt_colourredshift} presents the near-infrared 
+colour-redshift trends for Late Type M/L/T dwarfs and the VH$z$Qs.
 \begin{figure*}
    \includegraphics[width=18.0cm]
    {/cos_pc19a_npr/programs/quasars/highest_z/color_redshift/SpecType_vs_NIRcolors_20180704.pdf}
@@ -779,41 +771,16 @@ the blue or red end respectively. Hmmm....}
 
 
 
+
 \subsection{L-$z$ Plane}
 Having obtained an as-near-to-homogenous set of photometry as we can, 
 we are now in a position to calculate the Absolute Magnitudes of the VH$z$Q 
-sample and in particulare the absolute magnitude at rest-frame 1450\AA\ , $M_{1450}$, 
+sample and in particulare the absolute magnitude at rest-frame 1450\AA'\, $M_{1450}$, 
 which is a key physical quantity and goes directly towards the quasar luminosity 
 function and thus the reionization of hydrogen calculation. 
 
-We calculate the Distance Modulus in the normal fashion, 
-\begin{equation}
-m_{1450} - M_{1450} = 5 \log \left (    \frac{ D_{\rm L}(z)}{\rm Mpc}  \right )  + 25 + K_{\rm corr}(X,z)
-\end{equation}
-where $m_{1450}$ is the apparent magnitude at 1450\AA\ ,  
-%$M_{1450}$ is the absolute magnitude at 1450 \AA\ , 
-$D_{\rm L}(z)$ is the luminosity distance and 
-$K_{\rm corr}(X,z)$ is the $K$-correction which corrects for the effects of redshifting of the bandpass and the spectrum. 
-
-The $m_{1450}$ apparent magnitude is derived from the $z-$, $y/Y-$ or $J-$band photometery.
-
-The Pan-STARSS1 $z_{\rm PS1}$ and $y_{\rm PS1}$-bands approximatley
-sample the redshift ranges $4.53\leq z \leq 5.45$ and $5.28\leq z \leq 6.47$, respectively 
-for 1450\AA'\ emission, while the VIRCAM $Y_{\rm VIRCAM}-$ and $J_{\rm VIRCAM}$-bands 
-cover $5.50\leq z \leq 6.57$ and $7.06\leq z \leq 8.16$. 
-
-\citet{Ross2013} has a detailed discussion of the $K$-correction (see that papers' Appendix B). 
-The key result in that paper is, if quasars are described as having a power-law slope, 
-$\alpha^{\nu}$ in spectral flux density, i.e., $f_\nu(\nu) \propto \nu^{\alpha_{\nu}}$ (as is conventional) 
-then 
-\begin{equation}
-K_{\rm corr}(z) = -2.5 (1 + \alpha_{\nu}) \log[1 + z].
-\end{equation}
-Here the $[-2.5 \log(1 + z)]$ term corrects for the effective narrowing of the filter width with redshift, (the ``bandpass correction'') and the $[-2.5 \alpha^{\nu} \log(1 + z)]$ term takes into account the spectral index correction. The bandpass correction is approximately $\approx -1.945$ at redshift $z=5$ decreasing to $-2.32$ at redshift $z=7.50$. 
-
-
-%At $z=5.00$, the rest-frame 1450\AA\ emission is redshifted to 8700\AA\ observed, i.e., in the $z$-band, while at $z=6.00$, $z=5.00$
-
+At $z=5.00$, the rest-frame 1450\AA\ emission is redshifted to 8700\AA\ iobserved, 
+i.e., in the $z$-band, while at 
 
 \begin{figure*}
   \includegraphics[width=18.0cm]
@@ -825,7 +792,9 @@ Here the $[-2.5 \log(1 + z)]$ term corrects for the effective narrowing of the f
 \end{figure*}
 
 
-\iffalse
+
+
+
 \subsection{SEDs and Dust properties of the VH$z$Qs}
 There are a range of IR SEDs e.g. \citet{Mullaney2013} etc. etc. etc. 
 However, they are, for our purposes all roughly the same. 
@@ -838,7 +807,7 @@ However, they are, for our purposes all roughly the same.
   {The rest-frame properties of the VH$z$Qs. }
   \label{fig:RestWavelength_SEDs}
 \end{figure*}
-\fi
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -885,14 +854,13 @@ eget tempor elementum, lectus urna feugiat nisi, eget sagittis.
 
 \subsection*{Author Contributions}   
 N.P.R. initiated the project, compiled the list of $z>5.00$ quasars, wrote most of the analysis code, developed the the plotting scripts, and developed and wrote the initial and subsequent drafts of the manuscript.
-%%
-N.J.G.C. supplied the critical near-infrared expertise and database for which the bulk of the project relies. N.J.G.C. also contributed directly to the writing of the manuscript.
-%%
 
+N.J.G.C. supplied the critical near-infrared expertise and database for which the bulk of the project relies. N.J.G.C. also contributed directly to the writing of the manuscript.
 
 
 \subsection*{Availability of Data and computer analysis codes} 
-All materials, databases, data tables and code are fully available at: 
+All materials, data, code and analysis algorithms are fully 
+available at: 
 \href{https://github.com/d80b2t/VHzQ}{\tt https://github.com/d80b2t/VHzQ}
 
 
@@ -957,8 +925,8 @@ The Filter Profile Service Access Protocol. Rodrigo, C., Solano, E. http://ivoa.
 \newpage
 
 \appendix
-%\section{Filter Curves}\label{sec:filters} 
-%From the SVO Filter Profile Service\footnote{http://svo2.cab.inta-csic.es/svo/theory/fps/}.
+\section{Filter Curves}\label{sec:filters} 
+FRom the SVO Filter Profile Service\footnote{http://svo2.cab.inta-csic.es/svo/theory/fps/}.
 
 \section{A. Photometric Bands and Conversions}
     Due to the differing normalizations between the
@@ -1027,9 +995,9 @@ $\Delta$(vsCASU v1.3)::
       &&&&&&\\
       $z_{\rm PS1}$        &    8658    &	 8028    &      9346   &      966      &  $z_{\rm PS1}   $      &$    = z_{\rm AB} - 0.508 $       \\
       $z_{\rm LSST}$      &     8669   & 	 8035    &      9375   &      994     &   $z_{\rm LSST}  $      &$    = z_{\rm AB} - 0.509 $     \\
-      $Z_{\rm VIRCAM}$  &     8762   & 	 8157    &      9400   &      978    &   $Z_{\rm VIRCAM}  $   &$    = Z_{\rm AB} - 0.513 $     \\
-      $Z_{\rm WFCAM}$  &     8802   & 	 8129    &      9457   &      926    &   $Z_{\rm WFCAM}  $   &$    = Z_{\rm AB} - 0.514 $     \\
-      $z_{\rm HSC}$        &    8915  &   	8280     &      9498	&    793      & 	$Z_{\rm HSC} $         &$    = Z_{\rm AB} - 0.512$     \\
+      $Z_{\rm VIRCAM}$  &     8762   & 	 8157    &      9400   &      978    &   $Z_{\rm VIRCAM}  $   &$    = z_{\rm AB} - 0.513 $     \\
+      $Z_{\rm WFCAM}$  &     8802   & 	 8129    &      9457   &      926    &   $Z_{\rm WFCAM}  $   &$    = z_{\rm AB} - 0.514 $     \\
+      $z_{\rm HSC}$        &    8915  &   	8280     &      9498	&    793      & 	$Z_{\rm HSC} $         &$    = z_{\rm AB} - 0.512$     \\
       $z_{\rm DECam}$  &      9216   & 	 8360    &    10166   &   1502      &  $z_{\rm DECam} $     &$   = z_{\rm AB} - 0.521 $ \\
       &&&&&&\\
       $y_{\rm PS1}$       &       9603    &  9100    &    10838  &     615       &  $y_{\rm PS1}    $       &$   = y_{\rm AB} -  0.541 $ \\
@@ -1037,21 +1005,21 @@ $\Delta$(vsCASU v1.3)::
       $Y_{\rm DECam}$   &      9876   &	  9355    &      10730   &    676      &  $Y_{\rm DECam}  $   &$  =Y_{\rm AB} - 0.570 $ \\
       $Y_{\rm HSC}$       &      9976   &    9000    & 	10931  &   1386    &  $Y_{\rm HSC}  $   &$  =Y_{\rm AB} - 0.580 $ \\
       $Y_{\rm WFCAM}$    &   10305    &   9790      &   10810   &   1020     & $Y_{\rm WFCAM}$     &$ =  Y_{AB}  - 0.617$           \\
-      $Y_{\rm VIRCAM}$     &    10184    &   9427      &   10977   &    905        & $Y_{\rm VIRCAM} $     &$ = Y_{AB}  - 0.601 $          \\
+      $Y_{\rm VIRCAM}$     &    10184    &   9427      &   10977   &    905        & $Y_{\rm VISTA} $     &$ = Y_{AB}  - 0.601 $          \\
       &&&&&&\\
       $J_{\rm 2MASS}$       &   12350   &       10806  & 	14068  &  1624       &  $J_{\rm 2MASS}  $     & $= J_{AB}    - 0.894  $         \\
-      $J_{\rm VIRCAM} $     &   12464   &      11427   &    13759   &  1628     &  $J_{\rm VIRCAM}  $     & $= J_{AB}    - 0.921  $         \\
+      $J_{\rm VIRCAM} $     &   12464   &      11427   &    13759   &  1628     &  $J_{\rm VISTA}  $     & $= J_{AB}    - 0.921  $         \\
       $J_{\rm WFCAM} $    &    12483   &     11690  &    13280   &   1590      & $J_{\rm WFCAM}$     & $= J_{AB}    - 0.919 $          \\
       &&&&&&\\
       $W_{\rm Wircam}$   &    14514    &    13890   &    15166   &   1020    & $W_{\rm Wircam} $    & $= W_{AB}  -  1.163$           \\
       &&&&&&\\
       $H_{\rm WFCAM}$    &    16313     &    14920  &    17840   &   2920    & $H_{\rm WFCAM} $   & $= H_{AB}  - 1.379$          \\
-      $H_{\rm VIRCAM}$      &    16310    &    14604   &    18422   &   2833     & $H_{\rm VIRCAM}$      & $= H_{AB}  - 1.368 $        \\
+      $H_{\rm VIRCAM}$      &    16310    &    14604   &    18422   &   2833     & $H_{\rm VISTA}$      & $= H_{AB}  - 1.368 $        \\
       $H_{\rm 2MASS}$      & 16620        & 	14787  &   18231   & 2509      & $H_{\rm 2MASS}$      & $= H_{AB}  - 1.374 $        \\
       &&&&&&\\
-      $K$s$_{\rm VIRCAM}$     &    21337    &    19333  &    23674   &   3055     & $K$s$_{\rm VIRCAM}$      & $ = K$s$_{AB} - 1.83  $          \\ 
+      $K$s$_{\rm VIRCAM}$     &    21337    &    19333  &    23674   &   3055     & $K$s$_{\rm VISTA}$      & $ = K$s$_{AB} - 1.83  $          \\ 
       $K$s$_{\rm 2MASS}$     &   21590    & 	19544  &   23552        &   2619      & $K$s$_{\rm 2MASS}$      & $ = K$s$_{AB} -  1.84  $          \\ 
-      $K_{\rm WFCAM}$     &    22010     &    20290 &    23800         &   3510          & $K_{\rm WFCAM}$     & $ = K_{AB} - 1.90  $          \\ 
+      $K_{\rm WFCAM}$     &    22010     &    20290 &    23800         &   3510          & $K_{\rm WFCAM}$     & $ = K_{AB} - 1.9  $          \\ 
       &&&&&&\\
       WISE W1               &    33526    &    27541  &    38724   &    6626    & W1                        &   = W1$_{\rm AB} - 2.699$ \\
       WISE W2               &    46028    &    39633  &    53414   &  10423    & W2                        &   = W2$_{\rm AB} - 3.339$ \\
@@ -1066,8 +1034,6 @@ $\Delta$(vsCASU v1.3)::
 https://www.gemini.edu/sciops/instruments/magnitudes-and-fluxes
 
 
-%% \section{Notes on Individual Objects}
-%% \input{/cos_pc19a_npr/data/highest_z_QSOs/notes_on_individual_objects}
 
 
 
