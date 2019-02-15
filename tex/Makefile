@@ -1,5 +1,5 @@
 
-TEXFILE=WW4C_VHzQ
+TEXFILE=VHzQ
 default: all
 
 # just run it
