@@ -1,0 +1,39 @@
+====================================================================
+==
+==
+== 	 R E A D M E
+==
+==
+====================================================================
+
+
+https://github.com/d80b2t/VHzQ/tree/master/data/PS1_DR1
+
+
+ Purpose
+====================================================================
+This gives the salient details to how the PanSTARRS-1 (PS1) data was
+accessed and obtained for the VHzQ sample.
+
+
+PanSTARRS1 SQL queries
+====================================================================
+The PS1 Casjobs SQL Server is located at:
+    mastweb.stsci.edu/ps1casjobs.
+The top level documentation is given at:
+    https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs. ere}
+The description of tables is given:
+    https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs#PS1Sourceextractionandcatalogs.
+The main tables are the
+objectThin (https://outerspace.stsci.edu/display/PANSTARRS/PS1+ObjectThin+table+fields)
+and
+meanObject (https://outerspace.stsci.edu/display/PANSTARRS/PS1+MeanObject+table+fields)
+tables.
+
+
+
+
+ SAMPLE_SQL_QUERIES
+====================================================================
+Gives a set of example SQL queries that can be used to garner
+information from the WSA and VSA.
