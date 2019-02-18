@@ -146,7 +146,7 @@ Here we present for the first time the combined near-infrared properites (from U
 
 This paper is organized as follows.  In Section 2, we present the assembled list of the 463 $z\geq5.00$ VH$z$Qs that we have compiled. We then give a high-level overview of the photometric surveys and datasets we use and present the photometry of the VH$z$Qs. In Section 3 we ... and In Section 4 we ... We conclude in Section 5 and present all the necessary details to obtain our dataset in the Appendices. 
 
-We present all our photometry and magnitudes on the AB zero-point system \citep{Oke_Gunn1983, Fukugita1996}.  This includes the near-infrared, as well as the mid-infrared magnitudes. Appendix~\ref{sec:filters} gives the AB to Vega transforms for a wide range of optical, NIR and MIR filters. We use a flat $\Lambda$CDM cosmology with $H0 = 67.7$ km s$-1$ Mpc$−1$, $\Omega_{\rm M} = 0.307$, and $\Omega_{\Lambda} = 0.693$ (Planck Collaboration et al. 2016) in order to be consistent with \citet{Banados2016} and all logarithms are to the base 10. 
+We present all our photometry and magnitudes on the AB zero-point system \citep{Oke_Gunn1983, Fukugita1996}.  This includes the near-infrared, as well as the mid-infrared magnitudes. Appendix~\ref{sec:filters} gives the AB to Vega transforms for a wide range of optical, NIR and MIR filters. We use a flat $\Lambda$CDM cosmology with $H0 = 67.7$ km s$-1$ Mpc$−1$, $\Omega_{\rm M} = 0.307$, and $\Omega_{\Lambda} = 0.693$ (Planck Collaboration et al. 2016) to be consistent with \citet{Banados2016} and all logarithms are to the base 10. 
 
 
 
@@ -244,7 +244,7 @@ The breakdown of how many VH$z$Q each survey reports is given in Table~\ref{tab:
 \begin{table}
 \begin{tabular}{l r r l}
 \hline  \hline
-Survey              & \# VH$z$Qs & (\%) & Notes/Survey reference  \\
+Survey              & \# VH$z$Qs & (\%) & Survey reference  \\
 \hline  
   ATLAS             &     4    &   ( 0.86)    &  \citet{Shanks2015} \\
   CFHQS            &   20    &   ( 4.32)    &  \citet{Willott2007} \\
@@ -294,9 +294,9 @@ Survey              & \# VH$z$Qs & (\%) & Notes/Survey reference  \\
 \end{figure}
 
 The redshifts for the VH$z$Qs generally come from the measurement of
-broad UV/optical emission lines. Where there are far infra-red
-emission lines e.g. \cii~158 micron, we report these, but at the level
-of our current analysis broadline redshifts are sufficient.
+broad UV/optical emission lines. There are far infra-red emission
+lines e.g. \cii~158 micron available for several objects, but at the
+level of our current analysis broadline redshifts are sufficient.
 
 \begin{table}
 \centering
@@ -330,100 +330,115 @@ of the $N(z)$ as well as the coverage of the luminosity-redshift $L-z$ plane.
 
         
 \subsection{Optical Photometry}
-%\subsubsection{Pan-STARRS1 (PS1)} 
-We query the Panoramic Survey Telescope and Rapid Response System (Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}} Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs) service at \href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}. The Pan-STARRS1 (PS1) survey observed the 30,000 deg$^{2}$ of sky north of declination $\delta = -30$ degrees in the five $grizy$ filters.  PS1 is the first part of Pan-STARRS to be completed and is the basis for the DR1. \citet{Chambers2016}, \citet{Magnier2016a}, \citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and \citet{Flewelling2016} describe the instrument, survey, and data analyses.  The principal science product of the PS1 survey is the catalog accessible through the CasJobs interface. 
+We query the Panoramic Survey Telescope and Rapid Response System
+(Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}}
+Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs)
+service at
+\href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}. The
+Pan-STARRS1 (PS1) survey observed the 30,000 deg$^{2}$ of sky north of
+declination $\delta = -30$ degrees in the five $grizy$ filters.  PS1
+is the first part of Pan-STARRS to be completed and is the basis for
+the DR1. \citet{Chambers2016}, \citet{Magnier2016a},
+\citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and
+\citet{Flewelling2016} describe the instrument, survey, and data
+analyses.  The principal science product of the PS1 survey is the
+catalog accessible through the CasJobs interface.
     
-We query and return the mean PSF magnitudes from the $grizy$ filters ({\tt MeanPSFMag}) which are in the AB system for our 463 VH$z$Q sample. Details of our SQL and links to the main tables are given in Appendix~\ref{sec:PS1_SQL}.
-    
-    \iffalse
-    \subsubsection{DECam} 
-    The Dark Energy Camera \citep[DECam][]{Flaugher2015} is 
-    is a wide-field imager with a 2.2 degree diameter field of view 
-    mounted at the prime focus of the Victor M. Blanco 4 m telescope 
-    at the Cerro Tololo International Observatory. We use data 
-    from both the Dark Energy Survey \citep[DES; ][]{DES2016} and 
-    the DESI Legacy Imaging Survey \citep[DECaLS; ][]{Dey2018}. 
-    \fi
-    
+We query and return the mean PSF magnitudes from the $grizy$ filters
+({\tt MeanPSFMag}) which are in the AB system for our 463 VH$z$Q
+sample. Our SQL and links to the main PS1 DR1 tables are given in
+Appendix~\ref{sec:PS1_SQL}.
 
+    
 \subsection{Near-infrared photometry}~\label{sec:NIR_data} 
-The near-infrared data in this paper comes from the Wide Field Astronomy Unit's
-(WFAU) Science Archives for UKIRT-WFCAM, the WFCAM Science Archive
-\citep[WSA][]{WSA} and VISTA-VIRCAM, the VISTA Science Archive
-\citep[VSA][]{VSA}. These archives were developed for the VISTA Data Flow System
-\citep[VDFS][]{VDFS}.
+The near-infrared data in this paper comes from the Wide Field
+Astronomy Unit's \href{https://www.roe.ac.uk/ifa/wfau/}{(WFAU)}
+Science Archives for UKIRT-WFCAM, the WFCAM Science Archive
+\citep[WSA; ][]{Hambly2008} and VISTA-VIRCAM, the VISTA Science
+Archive \citep[VSA; ][]{Cross2012}. These archives were developed for
+the VISTA Data Flow System \citep[VDFS][]{VDFS}.
 
-We access both the WSA and the VSA and include all non-proprietary WFCAM data, which covers all
-public surveys and PI projects from Semester 05A to 1st January 2017, and all
-non-proprietary VISTA data, which covers all public surveys and PI projects from
-science verification (20091015) to 1st April 2016. 
+We access both the WSA and the VSA and include all non-proprietary
+WFCAM data, which covers all public surveys and PI projects from
+Semester 05A to 2017-Jan-01, and all non-proprietary VISTA data, which
+covers all public surveys and PI projects from science verification on
+2009-Oct-15 to 2016-Apr-01.
 
-The data was processed using a matched-aperture photometry method
-where flux is measured at the spectroscopic position of the quasar,
-without necessarily knowing if there is a formal detection in the NIR
-photometry beforehand.  Full details of the matched-aperture pipeline
-will appear in a forthcoming paper, Cross et al.  2018, in prep, and
-has also been discussed in \citet{Cross2013}.  
+Here we are not just quering the WSA or VSA data tables. We are taking
+a list of objects (positions) are performing matched aperature
+(``forced'') photometry on the NIR imaging data. As such, we generate
+a set of tables that are different in subtle ways to the regular
+``Detection'' tables.  The two most important tables for our needs are
+the {\tt [w/v]serv1000MapRemeasurement} and {\tt
+[w/v]serv1000MapRemeasAver}.
 
-We query the WSA and VSA performing matched-aperature photometry at
-the positions of our 463 VH$z$Qs. This database is world-readable and we give the full receipe
-and relevant SQL queries for accessing both databases in Appendix~\ref{sec:SQL}.
+We produce and provide a two new databases with all the necessary
+quantaties and measurements to fully reproduce our tables, figures and
+results herein. Morever, these databases report considerably more
+information than we report here. Full documentation can be found at
+the \href{http://wsa.roe.ac.uk/www/wsa_browser.html}{WSA Schema
+Browser} and the
+\href{http://horus.roe.ac.uk/vsa/www/vsa_browser.html}{VSA Schema
+Browser}.
+
+
+  \subsubsection{Averaging matched photometry}
+  The data was processed using a matched-aperture photometry method
+  where flux is measured at the spectroscopic position of the quasar,
+  without necessarily knowing if there is a formal detection in the NIR
+  photometry beforehand. The matched-aperture pipeline is discussed in
+  \citet{Cross2013} and with fuller details to appear in a forthcoming
+  paper (Cross et al., 2019, in prep).
+  
+  We query the WSA and VSA performing matched-aperature photometry at
+  the positions of our 463 VH$z$Qs. This database is world-readable and
+  we give the full receipe and relevant SQL queries for accessing both
+  databases in Appendix~\ref{sec:SQL} as well as online. 
+  
+  The photometry in a single epoch image often has low
+  signal-to-noise.  The advantage of matched aperture photometry on
+  quasars is that co-adding is relatively simple if each epoch is taken
+  in the same aperture and the aperture photometry has been corrected to
+  total. Indeed, the standard aperture corrections work well for point
+  sources. Coadding using the matched-aperature photometry, where the
+  individual epochs are taken from multiple projects with different
+  pointings and orientations, should help with issues such as scattered
+  light, pixel distortion and aperture corrections.
+    
+  We average the aperture corrected calibrated fluxes (e.g. {\bf
+  aperJky3}), and then convert to magnitudes. Since we do not have a
+  deep image for each set of averages, we cannot calculate non-aperture
+  corrected values, so the photometry is only appropriate for
+  point-sources.
+
+  \begin{equation}
+    \bar{F} = \frac{\sum_i^N (w_i\,F_i)}{\sum_i^N w_i}  
+    \label{eq:avg}
+  \end{equation}
+  where $F_i$ is the $i^{th}$ epoch measurement of a parameter to be
+  averaged such as the aperture corrected calibrated flux in a $1\arcsec$ aperture
+  ({\bf aperJky3}) and $\bar{F}$ is the weighted mean average of this parameter.
+  The weight for each epoch $w_i=1/(\sigma_{F})^2$ if the epoch is included and 
+  $w_i=0$ if an epoch is excluded for quality control purposes. 
    
-    \subsubsection{Averaging matched photometry}
-    The photometry in a single epoch image often has low
-    signal-to-noise.  The advantage of matched aperture photometry on QSOs
-    is that co-adding is relatively simple if each epoch is taken in the
-    same aperture and the aperture photometry has been corrected to
-    total. Indeed, the standard aperture corrections work well for point
-    sources. Coadding using the matched-aperature photometry, where the
-    individual epochs are taken from multiple projects with different
-    pointings and orientations, should help with issues such as scattered
-    light, pixel distortion and aperture corrections.
-    
-    We average the aperture corrected calibrated fluxes (e.g. {\bf aperJky3}), and
-    then convert to magnitudes. Since we do not have a deep image for
-    each set of averages, we cannot calculate non-aperture corrected values, so the
-    photometry is only appropriate for point-sources. 
+  We calculate a set of averaged catalogues, for each pointing and filter, based
+  on the requirements in \verb+RequiredMapAverages+, in these cases over time
+  spans of 7, 14, 30, 91, 183 days, 365 days, 730 days, over 10 epochs and
+  over all epochs. The averaging process starts at the first epoch and works onwards 
+  from there. Again, we present these measurements in the new SQL tables. 
 
-    \begin{equation}
-      \bar{F} = \frac{\sum_i^N (w_i\,F_i)}{\sum_i^N w_i}  
-      \label{eq:avg}
-    \end{equation}
-    where $F_i$ is the $i^{th}$ epoch measurement of a parameter to be
-    averaged such as the aperture corrected calibrated flux in a $1\arcsec$ aperture
-    ({\bf aperJky3}) and $\bar{F}$ is the weighted mean average of this parameter.
-    The weight for each epoch $w_i=1/(\sigma_{F})^2$ if the epoch is included and 
-    $w_i=0$ if an epoch is excluded for quality control purposes. 
-    
-    We calculate a set of averaged catalogues, for each pointing and filter, based
-    on the requirements in \verb+RequiredMapAverages+, in these cases over time
-    spans of 7, 14, 30, 91, 183 days, 365 days, 730 days, over 10 epochs and
-    over all epochs. {\bf NJC: Should we add this table to suplemental online
-    only material?} The averaging process starts at the first epoch and works on.
-
-    We detect 304 unique quasars in the WFCAM WSA database, 203 quasars are 
-    detected in the VISTA VSA database with 114 objects in common with both
-    WFCAM and VISTA data.  We give the necessary SQL queries syntax in Appendix~\ref{sec:SQL}.
-
-
-    \subsubsection{Salient details of WSA and VSA}. 
-    %% N.B.!!!    WFAU archives more than just the NIR Surveys -- it archives *all* the WFCAM and VISTA programmes!!
-    In this study, we are not just quering the WSA or VSA data tables. 
-    We are taking a list of objects (positions) are performing matched aperature (``forced'') photometry on the NIR imaging data. 
-    As such, we generate a set of tables that are different in subtle ways to the regular ``Detection'' tables. 
-
-    The two most important tables for our needs are the {\tt [w/v]serv1000MapRemeasurement} and {\tt [w/v]serv1000MapRemeasAver}.
-     
-    Full documentation can be found at the \href{http://wsa.roe.ac.uk/www/wsa_browser.html}{WSA Schema Browser} 
-and the \href{http://horus.roe.ac.uk/vsa/www/vsa_browser.html}{VSA Schema Browser}. 
+  We detect 304 unique quasars in the WFCAM WSA database, 203 quasars are 
+  detected in the VISTA VSA database with 114 objects in common with both
+  WFCAM and VISTA data.  We give the necessary SQL queries syntax in Appendix~\ref{sec:SQL}.
 
 
 \subsection{MIR data}
-Since we are concerned here with the very large area ($\gg1000$ deg$^2$) surveys, we leave exploration of the VH$z$Q population in e.g. the large Spitzer areal surveys such as the Spitzer IRAC Equatorial Survey \citep[SpIES; ][]{Timlin2016}, the Spitzer-HETDEX Exploratory Large-area Survey \citep[SHELA; ][]{Papovich2016} and the Spitzer-SPT Deep Field \citep[SSDF; ][]{Ashby2013}, to future investigation. This will also include a detailed study of MIR spectra e.g. \citet{Lambrides2018}. 
+The MIR data for this study comes from the Wide-field Infrared Survey
+Explorer (WISE) mission, and we utlize data from the WISE cryogenic
+and NEOWISE (Mainzer et al. 2011 ApJ, 731, 53) post-cryogenic survey
+phases.
 
-The MIR data for this study comes from the Wide-field Infrared Survey Explorer (WISE) mission, and we utlize data from the WISE cryogenic and NEOWISE (Mainzer et al. 2011 ApJ, 731, 53) post-cryogenic survey phases. 
-
-We use data from the the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fourth-year of NEOWISE-R operations \citep[2017 December;]{Mainzer2011}.  More specifically, we utilise the recently released ``unWISE Catalog'' \citet{MeisnerSchlafly2019}. The unWISE effort\footnote{http://unwise.me/} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}. {\bf Few more words here on the unWISE catalog}. 
+We use data from the the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fourth-year of NEOWISE-R operations \citep[2017 December;]{Mainzer2011}.  More specifically, we utilise the recently released ``unWISE Catalog'' \citet{MeisnerSchlafly2019}. The unWISE effort\footnote{http://unwise.me/} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}. %{\bf Few more words here on the unWISE catalog...}. 
 
 All fluxes in the unWISE catalog are reported there are in ``Vega nanoMaggies'', with the Vega magnitude of a source is given by $m_{\rm Vega} = 22.5−2.5\log(f)$, where $f$ is the source flux. The absolute calibration for unWISE is ultimately inherited from AllWISE through the calibration of \citet{Meisner2017}. This inheritance depends on details of the PSF normalization at large radii, which is uncertain. Subtracting 4 mmag from the unWISE W1, and 32 mmag from unWISE W2 fluxes improves the agreement between unWISE and AllWISE fluxes.
 
