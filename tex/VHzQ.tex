@@ -330,24 +330,23 @@ of the $N(z)$ as well as the coverage of the luminosity-redshift $L-z$ plane.
 
         
 \subsection{Optical Photometry}
-We query the Panoramic Survey Telescope and Rapid Response System
-(Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}}
-Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs)
-service at
-\href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}. The
-Pan-STARRS1 (PS1) survey observed the 30,000 deg$^{2}$ of sky north of
-declination $\delta = -30$ degrees in the five $grizy$ filters.  PS1
-is the first part of Pan-STARRS to be completed and is the basis for
-the DR1. \citet{Chambers2016}, \citet{Magnier2016a},
-\citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and
-\citet{Flewelling2016} describe the instrument, survey, and data
-analyses.  The principal science product of the PS1 survey is the
-catalog accessible through the CasJobs interface.
-    
-We query and return the mean PSF magnitudes from the $grizy$ filters
-({\tt MeanPSFMag}) which are in the AB system for our 463 VH$z$Q
-sample. Our SQL and links to the main PS1 DR1 tables are given in
-Appendix~\ref{sec:PS1_SQL}.
+We query the Panoramic Survey Telescope and Rapid Response System (Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}} Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs) service at \href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}. The Pan-STARRS1 (PS1) survey observed the 30,000 deg$^{2}$ of sky north of declination $\delta = -30$ degrees in the five $grizy$ filters. PS1 is the first part of Pan-STARRS to be completed and is the basis for the DR1. \citet{Chambers2016}, \citet{Magnier2016a}, \citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and \citet{Flewelling2016} describe the instrument, survey, and data analyses. The principal science product of the PS1 survey is the catalog accessible through the CasJobs interface.
+
+The PS1 Casjobs SQL Server is located at
+\href{http://mastweb.stsci.edu/ps1casjobs}{mastweb.stsci.edu/ps1casjobs}.
+The top level documentation is given
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs}{here}
+while the description of tables is given
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs#PS1Sourceextractionandcatalogs}{here}.
+
+The main tables are the
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+ObjectThin+table+fields}{{\tt
+objectThin}} and
+\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+MeanObject+table+fields}{{\tt
+meanObject}} tables.  We query and return the mean PSF magnitudes from
+the $grizy$ filters ({\tt MeanPSFMag}) which are in the AB system for
+our 463 VH$z$Q sample. Our SQL and links to the main PS1 DR1 tables
+are given at  Appendix~\ref{sec:PS1_SQL}.
 
     
 \subsection{Near-infrared photometry}~\label{sec:NIR_data} 
@@ -989,49 +988,6 @@ $\Delta$(vsCASU v1.3)::
      \end{center}
 \end{table*}
 https://www.gemini.edu/sciops/instruments/magnitudes-and-fluxes
-
-
-%% \section{Notes on Individual Objects}
-%% \input{/cos_pc19a_npr/data/highest_z_QSOs/notes_on_individual_objects}
-
-
-\section{PanSTARRS1 SQL queries}\label{sec:PS1_SQL}
-The PS1 Casjobs SQL Server is located at
-\href{http://mastweb.stsci.edu/ps1casjobs}{mastweb.stsci.edu/ps1casjobs}.
-The top level documentation is given
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs}{here}
-while the description of tables is given
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs#PS1Sourceextractionandcatalogs}{here}. The
-main tables are the
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+ObjectThin+table+fields}{{\tt
-objectThin}} and
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+MeanObject+table+fields}{{\tt
-meanObject}} tables.
-
-\onecolumn
-\begin{lstlisting}[
-language=SQL,
-           showspaces=false,
-           basicstyle=\ttfamily,
-           numbers=left,
-           numberstyle=\tiny,
-           commentstyle=\color{gray}
-        ]
-SELECT s.ra, s.decl, 
-       o.objID, o.raMean, o.decMean, 
-       o.nDetections, o.ng, o.nr, o.ni, o.nz, o.ny, 
-       m.gMeanPSFMag, m.gMeanPSFMagErr,  m.gMeanPSFMagStd, 
-       m.rMeanPSFMag, m.rMeanPSFMagErr,  m.rMeanPSFMagStd, 
-       m.iMeanPSFMag, m.iMeanPSFMagErr,  m.iMeanPSFMagStd, 
-       m.zMeanPSFMag, m.zMeanPSFMagErr,  m.zMeanPSFMagStd, 
-       m.yMeanPSFMag, m.yMeanPSFMagErr,  m.yMeanPSFMagStd, 
-       s.jmag, s.jmag_error, s.hmag, s.hmag_error, s.kmag, s.kmag_error into mydb.MyTable_0 from MyDB.Ldwarfs as s
-
-cross apply fGetNearbyObjEq(s.ra,s.decl,2.0/60.0) nb
-inner join ObjectThin o on o.objid=nb.objid and o.nDetections>1 
-inner join MeanObject m on o.objid=m.objid  and o.uniquePspsOBid=m.uniquePspsOBid
-\end{lstlisting}
-\twocolumn
 
 
 \section{Near-Infrared WFCAM Science Archive SQL queries}\label{sec:SQL}
