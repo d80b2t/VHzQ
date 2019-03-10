@@ -1,8 +1,11 @@
 /*
+	                    works			returns
+Context:: PanSTARRS_DR1     yes (takes a while!)	328 rows
+Context:: PanSTARRS_DR2     yes (seems v. quick)	321 rows
 
 */
 
-SELECT s.ra, s.decl, 
+SELECT s.ra, s.dec, 
        o.objID, o.raMean, o.decMean, 
        o.nDetections, o.ng, o.nr, o.ni, o.nz, o.ny, 
        m.gMeanPSFMag, m.gMeanPSFMagErr,  m.gMeanPSFMagStd, 
@@ -12,8 +15,8 @@ SELECT s.ra, s.decl,
        m.yMeanPSFMag, m.yMeanPSFMagErr,  m.yMeanPSFMagStd, 
        s.jmag, s.jmag_error, s.hmag, s.hmag_error, s.kmag, s.kmag_error
 
-INTO mydb.MyTable_0 from MyDB.Ldwarfs as s
+FROM MyDB.VHzQ as s
 
-cross apply fGetNearbyObjEq(s.ra,s.decl,2.0/60.0) nb
+cross apply fGetNearbyObjEq(s.ra,s.dec,2.0/60.0) nb
 inner join ObjectThin o on o.objid=nb.objid and o.nDetections>1 
 inner join MeanObject m on o.objid=m.objid  and o.uniquePspsOBid=m.uniquePspsOBid
