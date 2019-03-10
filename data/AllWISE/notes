@@ -1,15 +1,28 @@
 
 
-
+Tables
+====================================================================================================
+> md5sum VHzQs463_4IPAC_20181214.tbl 
+1118e06e079d0c1468f23be122e22b08  VHzQs463_4IPAC_20181214.tbl
 
 
  AllWISE Source Catalog
 ====================================================================================================
 
- Multi-Object Search	
+ Multi-Object Search
+Upload Table:: VHzQs463_4IPAC.tbl
+
  One to One Match	NOT checked
  Cone Search Radius    	2.75''        ## to match the unWISE selections    ## 5.00'' gives 302 objects
  Table Selection	Long form
+
+Clear All Selections and then just::
+  w1mpro, w1sigmpro, w1snr
+283 sources found.
+
+Clear All Selections and then just::
+  w2mpro, w2sigmpro, w2snr
+283 sources found.
 
 
 
