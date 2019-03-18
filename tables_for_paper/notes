@@ -2,10 +2,28 @@
 
 
 
-
 To make Table 1 of the paper, you need::
 
    Input file::
    ../data/LIST_OF_VHzQs.dat
    Program::   
    survey_origin.py
+
+
+
+To make Table '2' of the paper::
+Step 1::
+=================================
+ran TOPCAT on
+    BestWSA_filterMags_1lineperobject_temp.csv   (331 objects)
+    BestVSA_filterMags_1lineperobject_temp.csv	 (210 objects)
+
+    LIST_OF_VHzQs.dat		(463 objects)		 
+
+Sky, 1.0.
+     Table 1: Best*SA_filterMags_
+     Table 2: LIST_OF_VHzQs.dat
+
+Best match for each Table 1 row
+All from 1.
+210 pairs found
