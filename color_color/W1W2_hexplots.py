@@ -32,7 +32,10 @@ VHzQ = ascii.read(table)
 
 ##  Making the plot(s)
 ## 
-##     W2  vs.  W1-W2       (Assef et al. 2018 and the `R90' and `C75' samples) 
+##     W2  vs.  W1-W2
+##
+##    (e.g. Blain et al. 2013, Figure 1;
+##          Assef et al. 2018 and the `R90' and `C75' samples) 
 ##
 plt.rcParams.update({'font.size': 14})
 #plt.style.use('dark_background')
