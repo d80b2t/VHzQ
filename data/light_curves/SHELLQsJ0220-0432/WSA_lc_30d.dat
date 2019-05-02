@@ -1,2 +1,0 @@
- qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
-               SHELLQsJ0220-0432,   1,  +55214.4453675,      +2.0120404,+1.741528E-006,+3.301684E-007,    +99.999,     +0.205840,          0,          3,    +720.0000000
