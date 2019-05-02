@@ -9,8 +9,12 @@ from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
 import random
 
-path='/cos_pc19a_npr/data/highest_z_QSOs/'
-file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
+#path='/cos_pc19a_npr/data/highest_z_QSOs/'
+#file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
+
+path='/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/NEOWISE-R/'
+file = 'NEOWISER-R_SingleExposure_L1bs_20190429.tbl'
+
 
 data = ascii.read(path+file) 
 type(data)
@@ -19,15 +23,18 @@ upto_this = data['cntr_01'].max()
 out_pdf = 'NEOWISER_LCs_VHzQs_temp.pdf'
 pdf_pages = PdfPages(out_pdf)
 
+## data['mjd'].max()
+## 58465.28598113        2018-Dec-13
 
-ALLWISE_MJD_min = 55210.     #  2010-January-14 
-ALLWISE_MJD_max = 55593.
+ALLWISE_MJD_min = 55210.     # 2010-Jan-14 
+ALLWISE_MJD_max = 55593.     # 2011-Feb-01
 ALLWISE_MJD_mid = ((ALLWISE_MJD_max + ALLWISE_MJD_min))/2.
 mjd_range_ALLWISE=[ALLWISE_MJD_min,ALLWISE_MJD_max]
 
+NEOWISER_MJD_max  = 58465.
 
 ## define the colormap
-plt.style.use('dark_background')
+#plt.style.use('dark_background')
 cmap = plt.cm.inferno_r
 
 ls       = 'solid'
@@ -85,14 +92,14 @@ for x in range(upto_this):
         #ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='k', alpha=alpha, s=s_large*1.8)
         #ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='c', alpha=alpha, s=s_large)
         s = 14.0
-        ax1.errorbar(ALLWISE_MJD_mid, data_one['w1mpro_allwise'][0], yerr=data_one['w1sigmpro_allwise'][0], color='w', alpha=alpha, ms=s*1.4,  fmt='o')
+        ax1.errorbar(ALLWISE_MJD_mid, data_one['w1mpro_allwise'][0], yerr=data_one['w1sigmpro_allwise'][0], color='k', alpha=alpha, ms=s*1.4,  fmt='o')
         ax1.errorbar(ALLWISE_MJD_mid, data_one['w1mpro_allwise'][0], yerr=data_one['w1sigmpro_allwise'][0], color='r', alpha=alpha, ms=s,  fmt='o')
-        ax1.errorbar(ALLWISE_MJD_mid, data_one['w2mpro_allwise'][0], yerr=data_one['w2sigmpro_allwise'][0], color='w', alpha=alpha, ms=s*1.4,  fmt='o')
+        ax1.errorbar(ALLWISE_MJD_mid, data_one['w2mpro_allwise'][0], yerr=data_one['w2sigmpro_allwise'][0], color='k', alpha=alpha, ms=s*1.4,  fmt='o')
         ax1.errorbar(ALLWISE_MJD_mid, data_one['w2mpro_allwise'][0], yerr=data_one['w2sigmpro_allwise'][0], color='c', alpha=alpha, ms=s,  fmt='o')
 
 
         ## Going back to ALLWISE...
-        ax1.set_xlim((55000,58140))
+        ax1.set_xlim((ALLWISE_MJD_min-210, NEOWISER_MJD_max+200))         # 2009-Jun-18  to  2019-Apr-27
         ## Just NEOWISE-R
         #ax1.set_xlim((56500,58140))
         ax1.set_ylim(ax1.get_ylim()[::-1])
@@ -102,6 +109,7 @@ for x in range(upto_this):
         ax1.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
         ax1.set_title('(R.A., Decl.) = {} {} {}'.format(ra,',',dec), fontsize=fontsize)
 
+        
         ##
         ## W1 vs. color to look for color-changes...
         ##
@@ -110,9 +118,8 @@ for x in range(upto_this):
         #ax2.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
         #ax2.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='c', alpha=alpha, s=ms)
         mss= 60.
-        ax2.scatter(data_one['mjd'], (data_one['w1mpro']-data_one['w2mpro']),   color='w', alpha=alpha, s=mss*1.8)
-        ax2.scatter(ALLWISE_MJD_mid, (data_one['w1mpro_allwise'][0]-data_one['w2mpro_allwise'][0]), color='w', alpha=alpha, s=s_large*1.8)
-    
+        ax2.scatter(data_one['mjd'], (data_one['w1mpro']-data_one['w2mpro']),                       color='k', alpha=alpha, s=mss*1.8)
+        ax2.scatter(ALLWISE_MJD_mid, (data_one['w1mpro_allwise'][0]-data_one['w2mpro_allwise'][0]), color='k', alpha=alpha, s=s_large*1.8)
     
         #ax2.set_xlabel('W1/W2 magnitude',                   fontsize=fontsize)
         ax2.set_xlabel('MJD',                   fontsize=fontsize)
@@ -120,7 +127,7 @@ for x in range(upto_this):
         ax2.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
         ax2.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
 
-        ax2.set_xlim((55000,58140))
+        ax2.set_xlim((ALLWISE_MJD_min-210, NEOWISER_MJD_max+200))    
         ax2.set_ylim(-0.2, 3.2)
 
         plt.subplots_adjust(hspace=0)

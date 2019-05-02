@@ -1,0 +1,20 @@
+Hi there,
+
+I've been investigating the NEOWISE-R properties and light curves for some high-redshift quasars.
+
+When I query the NEOWISE-R Single Exposure L1b Source Table, and ask for the
+w1/2mpro profile-fit photometry magnitudes to be returned, I can potentially get up to hundreds of
+values for a single object, which is great. 
+
+However, when I look at these values and compare them to the W1mpro magnitude of the associated ALLWISE
+source, i.e. the "w1mpro_allwise" values, there seems to be a systematic in that the
+values for the values of (w1/2mpro - w1/2mpro_allwise) tend negative (at fainter magnitudes)
+i.e. the ALLWISE values are generally larger in numercical value and are thus generally
+fainter??
+
+What's going on here??
+
+3 plots and the parent datafile are attached.
+
+Thannks,
+Nic

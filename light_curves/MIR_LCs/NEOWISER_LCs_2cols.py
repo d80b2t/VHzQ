@@ -9,8 +9,11 @@ from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
 import random
 
+#path='/cos_pc19a_npr/data/highest_z_QSOs/'
+#file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
 path='/cos_pc19a_npr/data/highest_z_QSOs/'
 file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
+
 
 data = ascii.read(path+file) 
 type(data)

@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+NEOWISER_LCs_singleObject.py
+NEOWISER_LC_histogram.py
+NEOWISER_LCs.py
+
+make_IPAC_table.py
+
+
+
+
+NEOWISER_LCs_2cols.py
+==================================================
+
+
+
+
+NEOWISER_LCs_2rows.py
+==================================================
+Makes plots for the NEOWISE-R L1bs and ALLWISE data.
+W1 and W2 lightcurves on a top plot; W1-W2 colour on the bottom.
+MJD x-axis is common to both.
+
+
+
+
+NoOfEpochs_perQuasar.dat
+==================================================
+
+The screen/Terminal output from
+    NEOWISER_LCs_singleObject.py
+(I think!!) gives the
+   number, ra, dec and no. of epochs
+for each NEOWISE-R detection.
+
+
