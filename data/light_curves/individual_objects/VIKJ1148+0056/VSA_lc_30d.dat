@@ -1,0 +1,45 @@
+# qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
+#
+# Results of Query: Database VSERV1000v20181217 14/02/19 14:20
+# SELECT qso.qsoName,aver.filterID,AVG(m.mjdObs) as mjd, 
+# (MAX(m.mjdObs)-MIN(m.mjdObs)) as duration, aver.aperJky3, 
+# aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as aperMag3Ab,
+# aver.aperMag3Err, aver.ppErrBits, COUNT(mfs.catalogueID) as nMeas,
+# SUM(d.totalExpTime) as totExpTime   /* In this selection we have 
+# included the average mjdObs (averaged   over all frames in a 30 day 
+# period) and the duration (the mjd of the   last frame in the period 
+# minus that of the first), the number of   frames (nMeas) and the sum 
+# of the integration times. We have also   included the calibrated 
+# fluxes (aperJky3), since in many cases the a   faint source may have 
+# very low S/N */ FROM finalQsoCatalogue as qso,
+# MapApertureIDshighzQsoMap as ma, vserv1000MapRemeasAver as aver,
+# MapProvenance as mp, MapFrameStatus as mfs,MultiframeDetector as d,
+# Multiframe as m,Filter as f, vserv1000MapRemeasurement as remeas   /* 
+# The tables to select from include MapProvenance to select the   
+# correct averaging time scale and to get the frames used in each   
+# average catalogue. Also include MultiframeDetector to get the   
+# integration time. */ WHERE qso.qsoID=ma.objectID and 
+# ma.apertureID=aver.apertureID and mp.combiCatID=aver.catalogueID and 
+# mp.avSetupID=3 and    /* Do joins and select avSetupID=3 --> average 
+# over 30 days. Other   avSetupID values can be used to change the 
+# averaging timescale */ mp.catalogueID=mfs.catalogueID and 
+# d.multiframeID=mfs.multiframeID and 
+# mfs.catalogueID=remeas.catalogueID and 
+# remeas.apertureID=aver.apertureID and remeas.extNum=d.extNum and 
+# qsoID= 214 and f.filterID=d.filterID and 
+# m.multiframeID=d.multiframeID   /* Select qsoID=59 */  GROUP BY 
+# qso.qsoName,aver.filterID, aver.aperJky3,aver.aperJky3Err, 
+# aver.aperMag3,aver.aperMag3Err,aver.ppErrBits,f.VegaToAB   /* GROUP 
+# BY attributes that are part of are associated with the   average so 
+# that we get statistics for properties measured at the   frame level 
+# */
+# Column Headers at start of file AND below
+#
+# qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
+                   VIKJ1148+0056,   1,  +55305.2185749,      +0.0032229,+6.892050E-006,+3.860084E-007,    +21.796130,     +0.060810,          0,          2,    +480.0000000
+                   VIKJ1148+0056,   2,  +55303.7052826,      +2.9934461,+1.047400E-005,+6.364549E-007,    +21.332718,     +0.065975,          0,          4,    +800.0000000
+                   VIKJ1148+0056,   3,  +55349.0844030,      +0.0014672,+7.082481E-006,+1.244053E-006,    +21.758535,     +0.190712,          0,          2,    +200.0000000
+                   VIKJ1148+0056,   3,  +55593.1995297,      +0.0015009,+8.959326E-006,+1.580888E-006,    +21.503311,     +0.191580,          0,          2,    +200.0000000
+                   VIKJ1148+0056,   3,  +55303.6919323,      +2.9964496,+9.324245E-006,+9.547200E-007,    +21.459965,     +0.111170,          0,          4,    +400.0000000
+                   VIKJ1148+0056,   4,  +55593.2362785,      +0.0024000,+1.074031E-005,+2.379666E-006,    +21.306458,     +0.240560,          0,          2,    +300.0000000
+                   VIKJ1148+0056,   5,  +55349.0967770,      +0.0036676,+1.249220E-005,+1.829200E-006,    +21.149403,     +0.158981,          0,          2,    +480.0000000

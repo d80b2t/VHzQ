@@ -1,0 +1,48 @@
+
+
+How to get the NEOWISE-R Light Curve data:: 
+========================================================================================================
+
+-- https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query
+
+-- NEOWISE-R Single Exposure (L1b) Source Table
+
+-- Multi-Object Search
+
+-- Upload table::
+       VHzQs_ZYJHK_WISE_justRADecl.tbl
+
+-- Do NOT select One to One match
+
+-- Cone Search Radius:
+     2.00 arcsec  (or 2.75, but this does return a fair bit of junk...)
+
+-- Long Form
+
+     source_id		frame_num	scan_id
+     w1mpro		w1sigmpro	w1snr
+     w2mpro		w2sigmpro	w2snr
+     cc_flags		ph_qual		qual_frame
+     mjd
+     w1mpro_allwise	w1sigmpro_allwise
+     w2mpro_allwise	w2sigmpro_allwise
+     w3mpro_allwise	w3sigmpro_allwise
+     w4mpro_allwise	w4sigmpro_allwise
+
+
+Takes about a few minutes to run...
+
+
+
+
+
+
+
+
+NEOWISER-R_SingleExposure_L1bs_20180829.tbl 
+========================================================================================================
+	\Upload = 'file=UforIRAC_temp.dat radius=2. unit=arcsec'
+	\source = /hydra/workarea/irsaviewer/temp_files/IpacTableFromSource8470139455236665443.tbl
+	\fixlen = T
+	\RowsRetrieved = 12129
+	\SQL = 'SELECT (28 column names follow in next row.)'
