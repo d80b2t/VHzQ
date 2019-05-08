@@ -1,6 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                           
-%%  
+%%   The `compliation' paper for all z>5 spec-z quasars, here called "Very High Redshift Quasars" (VHzQs) and 
+%%   looking into their IR properties. Motivations include putting a list of all the VHzQ in one place, looking for 
+%%   signs of super-critical accretion and having a super-set of objects and their given parameters ahead of 
+%%   JWST GO Cycle 1. 
 %%									    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[usenatbib]{mnras}
@@ -44,34 +47,6 @@ galaxies: evolution --
 galaxies: infrared.
 \end{keywords}
 
-\iffalse
-\section*{TO DOs}
-{\bf For NPR: }
-\begin{itemize}
-\item Concentrate on reporting NIR and W1/W2 figures and tables
-\item SED dust plots 
-\item Filter curve plot with LSST, Euclid and even wide JWST filters...; 
-\item Check for NIR and MIR variabilty with the Wu quasar
-\item Check with SpIES/SHELA (but only 3.4/4.6$\mu$m; 
-%%\item Almost certainly want to compile M$_{\rm BH}$; THIS CAN WAIT, otherwise is massive paper-creep
-%%\item May well wanna try and get M$_{\star}$ too...!! (yuck); THIS CAN WAIT, otherwise is massive paper-creep
-\end{itemize}
-
-\noindent
-{\bf For NJGC: }
-\begin{itemize}
-\item Write the NIR data section(s) 
-\end{itemize}
-
-\noindent
-{\bf For Both: }
-\begin{itemize}
-\item Need to decide what mags and mag system we are reporting, especially in the 
-NIR...
-\item Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
-\item Question from Sarah Bosman:: are the $y$-magnitudes AB? They seem all quite a bit brighter than the ones given in Banados+16. Do you know why that is?
-\end{itemize}
-\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,63 +59,19 @@ NIR...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-Very high redshift quasars (VH$z$Q; defined here to have redshifts
-$z\geq5.00$) are excellent probes of the early Universe. This includes
-studies of the Epoch of Reionization for hydrogen \citep[see e.g.][for
-reviews]{Fan2006review, Mortlock2016}, the formation and build-up of
-supermassive black holes \citep[e.g., ][]{Rees1984, WyitheLoeb2003,
-Volonteri2010, Agarwal2016, Valiante2018, Latif2018, Wise2019} and
-early metal enrichment \citep[see e.g., ][]{Simcoe2012, Chen2017,
-Bosman2017}.
+Very high redshift quasars (VH$z$Q; defined here to have redshifts $z\geq5.00$) are excellent probes of the early Universe. This includes studies of the Epoch of Reionization for hydrogen \citep[see e.g.][for reviews]{Fan2006review, Mortlock2016}, the formation and build-up of supermassive black holes \citep[e.g., ][]{Rees1984, WyitheLoeb2003, Volonteri2010, Agarwal2016, Valiante2018, Latif2018, Wise2019} and early metal enrichment \citep[see e.g., ][]{Simcoe2012, Chen2017, Bosman2017}.
 
-Super-critical accretion, where $\dot{M} > \dot{M}_{\rm Edd}$, is a
-viable mechanism to explain the high, potentially super-Eddington,
-luminosity and rapid growth of supermassive black holes in the early
-universe \citep[e.g.,][]{AlexanderNatarajan2014, MadauHaardtDotti2014,
-Volonteri2015, Pezzulli2016, Lupi2016, Pezzulli2017, Takeo2018}. Thus,
-one could expect VH$z$Qs to potentially vary in luminosity as they go
-through phases of super-critical accretion. These signatures of
-photometric variability should be looked for, noting the rest-frame
-optical emission is redshifted into the observed near-infrared (NIR)
-at redshifts $z>5$. Fortunately, data are now in place from deep,
-wide-field NIR instruments and surveys such as the Wide Field Camera
-(WFCAM) instrument on the United Kingdom Infra-Red Telescope (UKIRT)
-in the Northern Hemisphere and the VISTA InfraRed CAMera (VIRCAM) on
-the Visible and Infrared Survey Telescope for Astronomy (VISTA) in the
-Southern Hemisphere, that are necessary for identifying VH$z$Qs.
+Super-critical accretion, where $\dot{M} > \dot{M}_{\rm Edd}$, is a viable mechanism to explain the high, potentially super-Eddington, luminosity and rapid growth of supermassive black holes in the early universe \citep[e.g.,][]{AlexanderNatarajan2014, MadauHaardtDotti2014, Volonteri2015, Pezzulli2016, Lupi2016, Pezzulli2017, Takeo2018}. Thus, one could expect VH$z$Qs to potentially vary in luminosity as they go through phases of super-critical accretion. These signatures of photometric variability should be looked for, noting the rest-frame optical emission is redshifted into the observed near-infrared (NIR) at redshifts $z>5$. Fortunately, data are now in place from deep, wide-field NIR instruments and surveys such as the Wide Field Camera (WFCAM) instrument on the United Kingdom Infra-Red Telescope (UKIRT) in the Northern Hemisphere and the VISTA InfraRed CAMera (VIRCAM) on the Visible and Infrared Survey Telescope for Astronomy (VISTA) in the Southern Hemisphere, that are necessary for identifying VH$z$Qs.
 
-Quasars are known to be prodigious emitters of infrared emission,
-thought to be from the thermal emission of dust grains heated by
-continuum emission from the accretion disc
-\citep[e.g.,][]{Richards2006b, Leipski2014, Hill2014, Hickox2017}.
-Observations in the mid-infrared, e.g. $\sim$3-30$\mu$m allow
-discrimination between AGN\footnote{Historically, ``quasars'' and
-``Active Galactic Nuclei (AGN)'' have described different
-luminosity/classes of objects. In recognition of the
-fact that both terms describe accreting supermassive black holes, 
-we use these terms interchangeably, with a preference for quasar, 
-since we are generally in the higher-$L$ regime
-\citep[e.g.][]{Haardt2016book}.}  and passive galaxies due to the
-1.6$\mu$m ``bump'' entering the MIR at $z\approx0.8-0.9$ \citep[e.g.,
-][]{Wright1994, Sawicki2002, Lacy2004, Stern2005, Richards2006b,
-Timlin2016} as well as between AGN and star-forming galaxies due to
-the presence of Polycyclic Aromatic Hydrocarbon (PAHs) at $\lambda
->3\mu$m \citep[e.g., ][]{Yan2007, Tielens2008}.
+Quasars are known to be prodigious emitters of infrared emission, thought to be from the thermal emission of dust grains heated by continuum emission from the accretion disc \citep[e.g.,][]{Richards2006b, Leipski2014, Hill2014, Hickox2017}. Observations in the mid-infrared, e.g. $\sim$3-30$\mu$m allow discrimination between AGN\footnote{Historically, ``quasars'' and ``Active Galactic Nuclei (AGN)'' have described different
+luminosity/classes of objects. In recognition of the fact that both terms describe accreting supermassive black holes, we use these terms interchangeably, with a preference for quasar, since we are generally in the higher-$L$ regime \citep[e.g.][]{Haardt2016book}.}  and passive galaxies due to the 1.6$\mu$m ``bump'' entering the MIR at $z\approx0.8-0.9$ \citep[e.g., ][]{Wright1994, Sawicki2002, Lacy2004, Stern2005, Richards2006b, Timlin2016} as well as between AGN and star-forming galaxies due to the presence of Polycyclic Aromatic Hydrocarbon (PAHs) at $\lambda
+>3\mu$m \citep[e.g., ][]{Yan2007, Tielens2008}. 
 
-\citet{Jiang2006dust} and \citet{Jiang2010} report on the discovery of a quasar without hot-dust emission in a sample of 21 $z\approx6$ quasars. Such apparently hot-dust-free quasars have no counterparts at low redshift. Moreover, those authors demonstrate that the hot-dust abundance in the 21 quasars builds up in tandem with the growth of the central black hole. But understanding how dust first forms and appears in the central engine remains an open question \citep{WangR2008, WangR2011}. 
+\citet{Jiang2006dust} and \citet{Jiang2010} report on the discovery of a quasar without hot-dust emission in a sample of 21 $z\approx6$ quasars. Such apparently hot-dust-free quasars have no counterparts at low redshift. Moreover, those authors demonstrate that the hot-dust abundance in the 21 quasars builds up in tandem with the growth of the central black hole. But understanding how dust first forms and appears in the central engine remains an open question \citep{WangR2008, WangR2011}.
 
-WISE mapped the sky in 4 passbands, in bands centered at wavelengths of 3.4, 4.6, 12, and 23$\mu$m. The all sky `ALLWISE' catalogue release, contains nearly 750 million detections at high-significance\footnote{\href{wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2\_1.html}{wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2\_1.html}}, of which over 4.5M AGN candidates have been identified with 90\% reliability \citep{Assef2018}.  \citet{Blain2013} presented WISE mid-infrared (MIR) detections of 17 (55\%) of the then known 31 quasars at $z > 6$. However, \citet{Blain2013} was compiled with the WISE `All-Sky' data release, as opposed to the superior AllWISE catalogues. That sample only examined the 31 known $z>6$ quasars; our sample has 170 objects with redshift $z \geq 6.00$ (with $x$ detected in WISE {\bf NPR to double check!!}). \citet{Banados2016} reports WISE W1, W2, W3 and W4 magnitudes for the Panoramic Survey Telescope and Rapid Response System 1 \citep[Pan-STARRS1, PS1;][]{Kaiser2002, Kaiser2010}, but with no further investigation into the reddest WISE waveband for the VH$z$Qs. 
+WISE mapped the sky in 4 passbands, in bands centered at wavelengths of 3.4, 4.6, 12, and 23$\mu$m. The all sky `ALLWISE' catalogue release, contains nearly 750 million detections at high-significance\footnote{\href{wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2\_1.html}{wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2\_1.html}}, of which over 4.5M AGN candidates have been identified with 90\% reliability \citep{Assef2018}.  \citet{Blain2013} presented WISE mid-infrared (MIR) detections of 17 (55\%) of the then known 31 quasars at $z > 6$. However, \citet{Blain2013} was compiled with the WISE `All-Sky' data release, as opposed to the superior AllWISE catalogues. That sample only examined the 31 known $z>6$ quasars; our sample has 170 objects with redshift $z \geq 6.00$ (with $x$ detected in WISE {\bf NPR to double check!!}). \citet{Banados2016} reports WISE W1, W2, W3 and W4 magnitudes for the Panoramic Survey Telescope and Rapid Response System 1 \citep[Pan-STARRS1, PS1;][]{Kaiser2002, Kaiser2010}, but with no further investigation into the reddest WISE waveband for the VH$z$Qs.
 
-Critically, we now have available to us new W1 and W2 photometry from
-the `unWISE Source Catalog' \citep[][]{Schlafly_Meisner2018}, a
-WISE-selected catalogue that is based on significantly deeper imaging
-and has a more extensive modeling of crowded regions than the ALLWISE
-release. For the first time in a catalogue, unWISE takes advantage of
-the ongoing mid-IR Near-Earth Object Wide-Field Infrared Survey
-Explorer Reactivation mission \citep[NEOWISE-R; ][]{Mainzer2014}, and
-achieves depths $\sim$0.7 mag deeper than ALLWISE (in W1/2).  This
-additional depth is a significant advantage in the detection and study
-of VH$z$Qs in the 3-5 micron regime.
+Critically, we now have available to us new W1 and W2 photometry from the `unWISE Source Catalog' \citep[][]{Schlafly_Meisner2018}, a WISE-selected catalogue that is based on significantly deeper imaging and has a more extensive modeling of crowded regions than the ALLWISE release. For the first time in a catalogue, unWISE takes advantage of the ongoing mid-IR Near-Earth Object Wide-Field Infrared Survey Explorer Reactivation mission \citep[NEOWISE-R; ][]{Mainzer2014}, and achieves depths $\sim$0.7 mag deeper than ALLWISE (in W1/2).  This additional depth is a significant advantage in the detection and study of VH$z$Qs in the 3-5 micron regime.
 
 Here we present for the first time the combined near-infrared properites (from UKIRT and VIRCAM) and the new mid-infrared unWISE for all the spectroscopically known $z\geq5.00$ quasars. Our motivations are numerous and include: {\it (i)} establishing the first complete catalogue of $z>5.00$ quasars since the pioneering work from SDSS; {\it (ii)} utilizing all the WFCAM and VISTA near-infrared photometry available for the quasars; {\it (iii)} making the first study of near- and mid-IR variability of the VHzQ population and {\it (iv)} establishing the photometric properties for upcoming surveys and telescopes including the Large Synoptic Survey Telescope (LSST)\footnote{\href{https://www.lsst.org}{{lsst.org}}}, ESA {\it Euclid}\footnote{\href{https://sci.esa.int/euclid/}{sci.esa.int/euclid/}} and the {\it James Webb Space Telescope} (JWST)\footnote{\href{https://www.jwst.nasa.gov/}{jwst.nasa.gov};}$^,$\footnote{\href{https://sci.esa.int/jwst/}{sci.esa.int/jwst};}$^,$\footnote{\href{https://www.asc-csa.gc.ca/eng/satellites/jwst/}{www.asc-csa.gc.ca/eng/satellites/jwst};}$^,$\footnote{\href{https://jwst.stsci.edu/}{jwst.stsci.edu}}. We chose redshift $z=5.00$ as our lower redshift limit due to a combination of garnishing a large sample, adequately spanning physical properties (e.g. luminosity, age of the Universe) and to highlight the parts of $L-z$ parameter space where $z>5$ quasars still wait to be discovered. 
 
@@ -150,12 +81,13 @@ We present all our photometry and magnitudes on the AB zero-point system \citep{
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%%  S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
-%%  S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
-%%  S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
+%%    S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
+%%    S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
+%%    S E C T I O  N   2         S E C T I O  N   2           S E C T I O  N   2       S E C T I O  N   2
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -181,14 +113,9 @@ We present all our photometry and magnitudes on the AB zero-point system \citep{
 
 \vspace{-16pt}
 \section{Method and Data}
-Quasars are generally identified by photometric selection followed by
-spectroscopic confirmation. Here, we reverse this method obtaining
-first a list of spectroscopic quasars and then obtain photometric
-information.
+Quasars are generally identified by photometric selection followed by spectroscopic confirmation. Here, we reverse this method obtaining first a list of spectroscopic quasars and then obtain photometric information.
 
-We have compiled a list of 463 quasars with redshifts $z\geq5.00$. We use all the $z\geq5.00$ quasars that have been discovered, spectroscopically confirmed and published as of 2018-Dec-31. We then obtain optical, near-infrared and mid-infrared photometry for the spectral dataset. The optical data comes from the Panoramic Survey Telescope and Rapid Response System (Pan-STARRS) survey \citep{Chambers2016}. The near-infrared data comes from two sources: first, the WFCAM \citep[][]{Casali2007} on the UKIRT, primarly, but not exclusively, as part of the UKIRT Infrared Deep Sky Survey \citep[UKIDSS; ][]{Lawrence2007}.  And second, data from the VIRCAM on the VISTA \citep[][]{Emerson2006, Dalton2006}. The mid-infrared, $\lambda=3-30\mu$m wavelength data is from the the Wide-Field Infrared Survey Explorer \citep[WISE;][]{Wright2010, Cutri2013} mission. 
-%%
-For reference, Figure~\ref{fig:filters} displays the wavelength and normalised transmission of the filters in question. 
+We have compiled a list of 463 quasars with redshifts $z\geq5.00$. We use all the $z\geq5.00$ quasars that have been discovered, spectroscopically confirmed and published as of 2018 December 31 (MJD 58483). We then obtain optical, near-infrared and mid-infrared photometry for the spectral dataset. The optical data comes from the Panoramic Survey Telescope and Rapid Response System (Pan-STARRS) survey \citep{Chambers2016}. The near-infrared data comes from two sources: first, the WFCAM \citep[][]{Casali2007} on the UKIRT, primarly, but not exclusively, as part of the UKIRT Infrared Deep Sky Survey \citep[UKIDSS; ][]{Lawrence2007}.  And second, data from the VIRCAM on the VISTA \citep[][]{Emerson2006, Dalton2006}. The mid-infrared, $\lambda=3-30\mu$m wavelength data is from the the Wide-Field Infrared Survey Explorer \citep[WISE;][]{Wright2010, Cutri2013} mission. For reference, Figure~\ref{fig:filters} displays the wavelength and normalised transmission of the filters in question. 
 
 \subsection{Spectroscopy} 
 We compile the list of all known, spectroscopically confirmed
@@ -228,15 +155,7 @@ and
 \citet{Zeimann2011}. 
 %We have obtained a list of 463 spectroscopically confirmed quasars with redshifts $z\geq5.00$. 
 
-Most of these objects are easily identified by their broad Ly$\alpha$
-emission line, \nv emission and characteristic shape blueward of
-1215\AA\ in the rest-frame. As we shall see, some of the recently
-discovered objects are close to the galaxy luminosity function
-characteristic luminosity $M^{*}$, and some have relatively weak or
-maybe even completely absorbed Ly$\alpha$ \citep[e.g. Figures 7 and 10
-in][]{Banados2016}. We leave aside detailed investigation and
-discussion into spectral features and line strengths, and take as
-given the published spectra and redshift identifications.
+Most of these objects are easily identified by their broad Ly$\alpha$ emission line, \nv emission and characteristic shape blueward of 1215\AA\ in the rest-frame. As we shall see, some of the recently discovered objects are close to the galaxy luminosity function characteristic luminosity $M^{*}$, and some have relatively weak or maybe even completely absorbed Ly$\alpha$ \citep[e.g. Figures 7 and 10 in][]{Banados2016}. We leave aside detailed investigation and discussion into spectral features and line strengths, and take as given the published spectra and redshift identifications.
 
 The breakdown of how many VH$z$Q each survey reports is given in Table~\ref{tab:surveys}. The Sloan Digital Sky Survey (SDSS) and the Pan-STARRS1 (PS1; PSO in Table~\ref{tab:surveys}) survey and alone identified over half (54.6\%) of the VH$z$Q population. Data from the Hyper Suprime-Cam (HSC) on the Subaru telecope is responsible for 13.6\% of our dataset (HSC+SHELLQs in Table~\ref{tab:surveys}). The combination of surveys is also vital for identifying VH$z$Qs. The UKIDSS Large Area Survey (ULAS) on its own, or in combination with other surveys is responsible for 6.5\% of the sample (SUV+ULAS) including the highest-$z$ object. Where more than one survey is used for the high-redshift identification (e.g. via shorter-band veto and longer wavelength detection) we follow the discovery paper naming convention.
 
