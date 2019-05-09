@@ -2,6 +2,13 @@
 
 
 
+
+
+
+
+
+
+
 To make Table 1 of the paper, you need::
 
    Input file::
@@ -14,7 +21,7 @@ To make Table 1 of the paper, you need::
 To make Table '2' of the paper::
 
 Step 1::
-=================================
+==================================================================================================
 ran TOPCAT on
     BestWSA_filterMags_1lineperobject_temp.csv   (331 objects)
     BestVSA_filterMags_1lineperobject_temp.csv	 (210 objects)
@@ -36,8 +43,21 @@ All from 1.
 
 
 
+[W/V]SA_wWISE.dat     and     [W\V]SA_wWISE_plus.dat
+==================================================================================================
+[W/V]SA_wWISE.dat was the result of getting the 'best, single value
+average' NIR photometry from the [W/V]SA as given by the recipe in the
+data/ and data/WSA_VSA directories.
 
-=================================================
+The [W\V]SA_wWISE_plus.dat files are then gently updating these with
+the few extra photometry measurements we had after tracking down
+missing data (with the e.g. grep commannd/query below.)
+
+
+
+ Null NIR coverage
+==================================================================================================
+
  grep "\-999\.99999   \-999\.99999   \-999\.99999    \-999\.99999    \-999\.99999   \-999\.99999     \-999\.99999    \-999\.99999    \-999\.99999    \-999\.99999" VHzQs_ZYJHK_WISE.dat
 
 ... let’s you see which objects currently have zero NIR coverage.
