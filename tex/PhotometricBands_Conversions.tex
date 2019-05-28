@@ -1,0 +1,113 @@
+%\section{Filter Curves}\label{sec:filters} 
+%From the SVO Filter Profile Service\footnote{http://svo2.cab.inta-csic.es/svo/theory/fps/}.
+
+\section{A. Photometric Bands and Conversions}\label{sec:filters} 
+    Due to the differing normalizations between the
+    SDSS and  UKIDSS photometric systems, certain corrections are required.  To present
+    our data in the  purest sense, all the NIR magnitudes from UKIDSS
+    (originally AB magnitudes)  were corrected to Vega magnitudes as
+    suggested in \citet{Hewett2006}.
+    
+    Although ULAS magnitudes are reported in terms of Vega and SDSS
+    magnitudes are reported in AB terms for the most part whenever an
+    optical-NIR color was calculated both magnitudes were left in their
+    default term.
+    
+\begin{table*}
+  \begin{center}
+   \caption{Adapted from Table 9 of \citet{Peth2011}. 
+CTIO/DECam, PanSTARRS/PS1, LSST
+%References: www.cfht.hawaii.edu/Instruments/Filters/wircam.html
+Filter only values. 
+All wavelengths in ${\buildrel _{\circ} \over {\mathrm{A}}}$. 
+%%
+%%
+From \citet{GonzalezFernandez2018} 
+$Z_{\rm AB}   -  Z_{\rm Vega}  = 0.502$;  
+$Y_{\rm AB}  -  Y_{\rm Vega}    = 0.600 $;
+$J_{\rm AB}   -  J_{\rm Vega}    = 0.916  $;
+$H_{\rm AB}  -  H_{\rm Vega}    = 1.366 $;
+$Ks_{\rm AB}  -  Ks_{\rm Vega}  = 1.827 $;
+%%
+and the CASU Vega to AB conversions v1.3:: 
+	Z,Y,J,H,Ks were: 0.524, 0.618, 0.937, 1.384, 1.839. 
+%%
+So, $\Delta$(vs. Gonzalez-Fernandez)::
+	(11.2,     1.1,    5.4,     1.6,    0.1) millimags. 
+$\Delta$(vsCASU v1.3)::
+	(-10.8, -16.9, -15.6,  -16.4, -11.9) millimags. 
+}
+    \setlength{\tabcolsep}{4pt}
+     \begin{tabular}{l r r r  c l l}
+      %% https://www.gemini.edu/sciops/instruments/magnitudes-and-fluxes
+      %% http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec4_4h.html#conv2ab
+       %%
+       %% http://svo2.cab.inta-csic.es/svo/theory/fps/index.php?mode=browse&gname=UKIRT&gname2=WFCAM
+      %%                                                                                     
+     %% emails around 16 Aug 2018, Carlos Rodrigo
+      %% 
+     %%     (-2.5)*(log10( ZP_in_Jy / 3631.0)) 
+      \hline
+      \hline
+      Band & $\lambda_{\rm eff}  $ 
+              &  $\lambda_{\rm min} $ 
+              & $\lambda_{\rm max} $ 
+              & W$_{\rm eff}$
+              & \multicolumn{2}{c}{AB - Vega  Transformations} \\
+      \hline
+      % {\it u} & 3551  &  3005 &  4000 &  581 & $u$ = $u_{AB}$ - 0.927 \\
+      % {\it u_{\rm LSST}} &	3733 &	3182 &	4082 &	?? \\
+       $g_{\rm HSC}$    &  	4633   &     3940     &   5546	&  1460       &    $g_{\rm HSC}$         &$  = g_{\rm AB} + 0.097 $ \\
+      $g_{\rm LSST}$      &     4730     &	  3877    &	   5665   &  1333   &  $g_{\rm LSST}$       &$ = g_{\rm AB} +  0.083 $ \\   %% from SVO 3921.4 
+      $g_{\rm DECam}$  &      4734     &   3939    &    5528   &   1133        &  $g_{\rm DECam} $    &$  = g_{\rm AB} + 0.083 $ \\	     
+       $g_{\rm PS1}$        &    4776    &    3943    &    5593   &   1167        &  $g_{\rm PS1}$         &$  = g_{\rm AB} + 0.080 $ \\   %% from SVO; e.g.   (-2.5)*(log10(3909.1/3631.0)) 
+      &&&&&&\\
+      $r_{\rm HSC}$         &    6104     &   5325    &   7071	&   1503       & $r_{\rm HSC}   $       &$     = r_{\rm AB} - 0.151 $ \\
+      $r_{\rm PS1}$         &    6130    & 	  5386    &    7036   &   1318       &  $r_{\rm PS1}   $       &$     = r_{\rm AB} - 0.153 $ \\ %% from SVO; e.g.   (-2.5)*(log10(3151.4/3631.0)) 
+      $r_{\rm LSST}$       &     6139    &	  5375    &    7055   &   1338      &  $r_{\rm LSST}   $       &$    = r_{\rm AB} - 0.155 $ \\	
+      $r_{\rm DECam}$   &      6345    &    5506    &    7238   &   1379      &  $r_{\rm DECam}$       &$   = r_{\rm AB} - 0.192 $ \\	     
+      &&&&&&\\
+      $i_{\rm PS1}$         &    7485    &     6778    &    8304   &   1243      &  $i_{\rm PS1}    $       &$   = i_{\rm AB} - 0.369 $ \\  %% 2584.6
+      $i_{\rm LSST}$       &     7487    &	  6765    &     8325   &   1209      &  $i_{\rm LSST}   $       &$    = i_{\rm AB} - 0.369 $ \\   %% 2583.9
+      $i_{\rm HSC}$         &   7633    &     6791    &     8658	&   1483       &  $i_{\rm PS1}    $       &$   = i_{\rm AB} - 0.396 $ \\  %% 2521.6
+      $i_{\rm DECam}$   &      7750   &	  6950    &     8646    &   1371      &  $i_{\rm DECam} $     &$  = i_{\rm AB} - 0.415 $        \\	   
+      &&&&&&\\
+      $z_{\rm PS1}$        &    8658    &	 8028    &      9346   &      966      &  $z_{\rm PS1}   $      &$    = z_{\rm AB} - 0.508 $       \\
+      $z_{\rm LSST}$      &     8669   & 	 8035    &      9375   &      994     &   $z_{\rm LSST}  $      &$    = z_{\rm AB} - 0.509 $     \\
+      $Z_{\rm VIRCAM}$  &     8762   & 	 8157    &      9400   &      978    &   $Z_{\rm VIRCAM}  $   &$    = Z_{\rm AB} - 0.513 $     \\
+      $Z_{\rm WFCAM}$  &     8802   & 	 8129    &      9457   &      926    &   $Z_{\rm WFCAM}  $   &$    = Z_{\rm AB} - 0.514 $     \\
+      $z_{\rm HSC}$        &    8915  &   	8280     &      9498	&    793      & 	$Z_{\rm HSC} $         &$    = Z_{\rm AB} - 0.512$     \\
+      $z_{\rm DECam}$  &      9216   & 	 8360    &    10166   &   1502      &  $z_{\rm DECam} $     &$   = z_{\rm AB} - 0.521 $ \\
+      &&&&&&\\
+      $y_{\rm PS1}$       &       9603    &  9100    &    10838  &     615       &  $y_{\rm PS1}    $       &$   = y_{\rm AB} -  0.541 $ \\
+      $y_{\rm LSST}$      &       9677   &	 9089    &    10859  &     810         &  $y_{\rm LSST}  $      &$    = y_{\rm AB} - 0.546 $ \\
+      $Y_{\rm DECam}$   &      9876   &	  9355    &      10730   &    676      &  $Y_{\rm DECam}  $   &$  =Y_{\rm AB} - 0.570 $ \\
+      $Y_{\rm HSC}$       &      9976   &    9000    & 	10931  &   1386    &  $Y_{\rm HSC}  $   &$  =Y_{\rm AB} - 0.580 $ \\
+      $Y_{\rm WFCAM}$    &   10305    &   9790      &   10810   &   1020     & $Y_{\rm WFCAM}$     &$ =  Y_{AB}  - 0.617$           \\
+      $Y_{\rm VIRCAM}$     &    10184    &   9427      &   10977   &    905        & $Y_{\rm VIRCAM} $     &$ = Y_{AB}  - 0.601 $          \\
+      &&&&&&\\
+      $J_{\rm 2MASS}$       &   12350   &       10806  & 	14068  &  1624       &  $J_{\rm 2MASS}  $     & $= J_{AB}    - 0.894  $         \\
+      $J_{\rm VIRCAM} $     &   12464   &      11427   &    13759   &  1628     &  $J_{\rm VIRCAM}  $     & $= J_{AB}    - 0.921  $         \\
+      $J_{\rm WFCAM} $    &    12483   &     11690  &    13280   &   1590      & $J_{\rm WFCAM}$     & $= J_{AB}    - 0.919 $          \\
+      &&&&&&\\
+      $W_{\rm Wircam}$   &    14514    &    13890   &    15166   &   1020    & $W_{\rm Wircam} $    & $= W_{AB}  -  1.163$           \\
+      &&&&&&\\
+      $H_{\rm WFCAM}$    &    16313     &    14920  &    17840   &   2920    & $H_{\rm WFCAM} $   & $= H_{AB}  - 1.379$          \\
+      $H_{\rm VIRCAM}$      &    16310    &    14604   &    18422   &   2833     & $H_{\rm VIRCAM}$      & $= H_{AB}  - 1.368 $        \\
+      $H_{\rm 2MASS}$      & 16620        & 	14787  &   18231   & 2509      & $H_{\rm 2MASS}$      & $= H_{AB}  - 1.374 $        \\
+      &&&&&&\\
+      $K$s$_{\rm VIRCAM}$     &    21337    &    19333  &    23674   &   3055     & $K$s$_{\rm VIRCAM}$      & $ = K$s$_{AB} - 1.83  $          \\ 
+      $K$s$_{\rm 2MASS}$     &   21590    & 	19544  &   23552        &   2619      & $K$s$_{\rm 2MASS}$      & $ = K$s$_{AB} -  1.84  $          \\ 
+      $K_{\rm WFCAM}$     &    22010     &    20290 &    23800         &   3510          & $K_{\rm WFCAM}$     & $ = K_{AB} - 1.90  $          \\ 
+      &&&&&&\\
+      WISE W1               &    33526    &    27541  &    38724   &    6626    & W1                        &   = W1$_{\rm AB} - 2.699$ \\
+      WISE W2               &    46028    &    39633  &    53414   &  10423    & W2                        &   = W2$_{\rm AB} - 3.339$ \\
+      WISE W3               &  115608    &    74430  &  172613   &  55056    & W3                        &   = W3$_{\rm AB} - 5.174$ \\
+      WISE W4               &  228172    &  195201  &  279107   &  41017    & W4                        &   = W4$_{\rm AB} - 6.66$ \\
+      \hline
+      \hline
+      \label{tab:filter_details}
+    \end{tabular}
+     \end{center}
+\end{table*}
+%% https://www.gemini.edu/sciops/instruments/magnitudes-and-fluxes
