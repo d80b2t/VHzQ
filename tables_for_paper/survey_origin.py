@@ -2,11 +2,11 @@
 A simple little bit of code to figure out which survey the VHzQs came
 from.  I haven't gone "fully, fully" here's the plug in .tex, but
 could easily see that happening and would be happy for it!!
+
 v1.00    Wed Dec  5 19:14:34 GMT 2018
 '''
 
 import numpy as np
-import pandas as pd
 
 from astropy.io    import fits
 from astropy.io    import ascii
@@ -21,9 +21,10 @@ table    = path+filename
 
 VHzQ_list = ascii.read(table)
 
-## Just a little bit of info 
+## just a little bit of info 
 print('type(VHzQ_list)', type(VHzQ_list))
 
+## the column names
 VHzQ_list.colnames
 
 ## Column 'na' has the original survey designations
