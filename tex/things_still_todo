@@ -1,52 +1,30 @@
 
-
-
  Still To Dos
 =====================================================================
 
 
 
-
-{\bf For NPR: }
+For NPR
 =====================================================================
 
- -- plots_to_make
+ -- plots_to_make  (incl. a NIR+MIR joint analysis plot...)
+ -- Check for objects that are WISE bright and NIR faint. 
  -- Concentrate on reporting NIR and W1/W2 figures and tables
- -- SED dust plots 
- -- Filter curve plot with LSST, Euclid and even wide JWST filters...; 
  -- Check for NIR and MIR variabilty with the Wu quasar
- -- Check with SpIES/SHELA (but only 3.4/4.6$\mu$m;
- -- check UltraVISTA (NPR)
- -- 
-
-%%\item Almost certainly want to compile M$_{\rm BH}$; THIS CAN WAIT, otherwise is massive paper-creep
-%%\item May well wanna try and get M$_{\star}$ too...!! (yuck); THIS CAN WAIT, otherwise is massive paper-creep
+ -- Check UltraVISTA Luminosity function
+ -- Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
 
 
 
-
-
-
-
-\noindent
-{\bf For NJGC: }
+For NJGC
 =====================================================================
-
-\item Write the NIR data section(s) 
-- exposure time vs. depths
-
--- QSO Variables in their own right (not the VSA vs. WSA!) 
-
+  -- exposure time vs. depth,
+       a.k.a. an Exposure Coverage Map in the e.g. J-band
+  -- Are any of the VHzQs in the VISTA Magellanic Cloud Survey (near the South Ecliptic Pole)?
+  -- QSO Variables in their own right (not the VSA vs. WSA!) 
 
 
-\noindent
-{\bf For Both: }
+
+For Both: 
 =====================================================================
-
-\begin{itemize}
-\item Need to decide what mags and mag system we are reporting, especially in the 
-NIR...
-\item Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
-\item Question from Sarah Bosman:: are the $y$-magnitudes AB? They seem all quite a bit brighter than the ones given in Banados+16. Do you know why that is?
-\end{itemize}
-\fi
+   -- Question from Sarah Bosman:: are the $y$-magnitudes AB? They seem all quite a bit brighter than the ones given in Banados+16. Do you know why that is?
