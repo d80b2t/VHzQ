@@ -6,8 +6,10 @@
 
 
 
+
 {\bf For NPR: }
 =====================================================================
+
  -- plots_to_make
  -- Concentrate on reporting NIR and W1/W2 figures and tables
  -- SED dust plots 
@@ -15,9 +17,14 @@
  -- Check for NIR and MIR variabilty with the Wu quasar
  -- Check with SpIES/SHELA (but only 3.4/4.6$\mu$m;
  -- check UltraVISTA (NPR)
+ -- 
 
 %%\item Almost certainly want to compile M$_{\rm BH}$; THIS CAN WAIT, otherwise is massive paper-creep
 %%\item May well wanna try and get M$_{\star}$ too...!! (yuck); THIS CAN WAIT, otherwise is massive paper-creep
+
+
+
+
 
 
 
@@ -28,7 +35,7 @@
 \item Write the NIR data section(s) 
 - exposure time vs. depths
 
-
+-- QSO Variables in their own right (not the VSA vs. WSA!) 
 
 
 
