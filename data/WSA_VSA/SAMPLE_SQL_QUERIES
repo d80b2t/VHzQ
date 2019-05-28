@@ -38,10 +38,12 @@ aver.catalogueID=mapAvSetup.combiCatID and f.filterID=aver.filterID
   vserv1000MapRemeasAver.  The temporary table gives the correct list
   of combiCatIDs that constrain the catalogueID in
   vserv1000MapRemeasAver. */
-ORDER BY qso.qsoID,aver.filterID 
+ORDER BY qso.ra,aver.filterID 
 
 # Results of Query: Database WSERV1000v20181217:: 938 result rows
+
 # Results of Query: Database VSERV1000v20181217:: 731 result rows
+# Results of Query: Database VSERV1000v20190508:: 769 result rows
 
 
 
@@ -64,7 +66,12 @@ and f.filterID=m.filterID
 GROUP BY qso.qsoName,qso.ra,qso.dec,remeas.filterID
   /* Group by qso name and filter to get the counts as a function of
   QSO and filterID */
-ORDER BY qso.ra,remeas.filterID 
+ORDER BY qso.ra,remeas.filterID
+
+
+# Results of Query: Database VSERV1000v20190508:: 769 result rows
+
+
 
 
 2) Select a light-curve for a QSO.
