@@ -1,9 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                           
-%%   The `compliation' paper for all z>5 spec-z quasars, here called "Very High Redshift Quasars" (VHzQs) and 
-%%   looking into their IR properties. Motivations include putting a list of all the VHzQ in one place, looking for 
-%%   signs of super-critical accretion and having a super-set of objects and their given parameters ahead of 
-%%   JWST GO Cycle 1. 
+%%    The `compliation' paper for all z>5 spec-z quasars, here called
+%%    "Very High Redshift Quasars" (VHzQs) and looking into their IR
+%%    properties. Motivations include putting a list of all the VHzQ in one
+%%    place, looking for signs of super-critical accretion and having a
+%%    super-set of objects and their given parameters ahead of JWST GO Cycle 1.
 %%									    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[usenatbib]{mnras}
@@ -155,13 +156,15 @@ properties (e.g. luminosity, age of the Universe) and to highlight the
 parts of $L-z$ parameter space where $z>5$ quasars still wait to be
 discovered.
 
-This paper is organized as follows.  In Section 2, we present the
+This paper is organized as follows. In Section 2, we present the
 assembled list of the 463 $z\geq5.00$ VH$z$Qs that we have
 compiled. We then give a high-level overview of the photometric
 surveys and datasets we use and present the photometry of the
-VH$z$Qs. In Section 3 we ... and In Section 4 we ... We conclude in
-Section 5 and present all the necessary details to obtain our dataset
-in the Appendices.
+VH$z$Qs. In Section 3 we investigate the variability properties of the
+VH$z$Qs, looking for evidence of super-critical accretion. In Section
+4 we calculate how many $z>5$ quasars we should expect to find in
+current datasets. We conclude in Section 5 and present all the
+necessary details to obtain our dataset in the Appendices.
 
 We present all our photometry and magnitudes on the AB zero-point
 system \citep{Oke_Gunn1983, Fukugita1996}.  This includes the
@@ -374,30 +377,9 @@ corresponding age of the Universe is given in Table~\ref{tab:ages}.
 The $N(z)$ redshift histogram is given for the sample in Figure~\ref{fig:Nofz}. 
 We split the contribution up by survey. For clarity we show the individual 
 surveys of SDSS, PS1, HSC, the ULAS detection, and tally the remaining 
-surveys together (``various''). In Section~\ref{sec:Lz} we discuss the form 
-of the $N(z)$ as well as the coverage of the luminosity-redshift $L-z$ plane. 
+surveys together (``various''). 
 
-        
-\subsection{Optical Photometry}
-We query the Panoramic Survey Telescope and Rapid Response System (Pan-STARRS)\footnote{\href{https://outerspace.stsci.edu/display/PANSTARRS}{https://outerspace.stsci.edu/display/PANSTARRS}} Data Release 1 (DR1) Catalog Archive Server Jobs System (CasJobs) service at \href{http://mastweb.stsci.edu/ps1casjobs/}{mastweb.stsci.edu/ps1casjobs/}. The Pan-STARRS1 (PS1) survey observed the 30,000 deg$^{2}$ of sky north of declination $\delta = -30$ degrees in the five $grizy$ filters. PS1 is the first part of Pan-STARRS to be completed and is the basis for the DR1. \citet{Chambers2016}, \citet{Magnier2016a}, \citet{Waters2016}, \citet{Magnier2016b}, \citet{Magnier2016c} and \citet{Flewelling2016} describe the instrument, survey, and data analyses. The principal science product of the PS1 survey is the catalog accessible through the CasJobs interface.
 
-The PS1 Casjobs SQL Server is located at
-\href{http://mastweb.stsci.edu/ps1casjobs}{mastweb.stsci.edu/ps1casjobs}.
-The top level documentation is given
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs}{here}
-while the description of tables is given
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+Source+extraction+and+catalogs#PS1Sourceextractionandcatalogs}{here}.
-
-The main tables are the
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+ObjectThin+table+fields}{{\tt
-objectThin}} and
-\href{https://outerspace.stsci.edu/display/PANSTARRS/PS1+MeanObject+table+fields}{{\tt
-meanObject}} tables.  We query and return the mean PSF magnitudes from
-the $grizy$ filters ({\tt MeanPSFMag}) which are in the AB system for
-our 463 VH$z$Q sample. Our SQL and links to the main PS1 DR1 tables
-are given at  Appendix~\ref{sec:PS1_SQL}.
-
-    
 \subsection{Near-infrared photometry}~\label{sec:NIR_data} 
 The near-infrared data in this paper comes from the Wide Field
 Astronomy Unit's \href{https://www.roe.ac.uk/ifa/wfau/}{(WFAU)}
@@ -486,26 +468,44 @@ Explorer (WISE) mission, and we utlize data from the WISE cryogenic
 and NEOWISE (Mainzer et al. 2011 ApJ, 731, 53) post-cryogenic survey
 phases.
 
-We use data from the the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fourth-year of NEOWISE-R operations \citep[2017 December;]{Mainzer2011}.  More specifically, we utilise the recently released ``unWISE Catalog'' \citet{MeisnerSchlafly2019}. The unWISE effort\footnote{http://unwise.me/} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}. %{\bf Few more words here on the unWISE catalog...}. 
+We use data from the the beginning of the WISE mission \citep[2010
+January; ][]{Wright2010} through the fourth-year of NEOWISE-R
+operations \citep[2017 December;]{Mainzer2011}.  More specifically, we
+utilise the recently released ``unWISE Catalog''
+\citet{Schlafly2019}. The unWISE effort\footnote{http://unwise.me/} is
+the unblurred coadds of the WISE imaging using the AllWISE and
+NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
 
-All fluxes in the unWISE catalog are reported there are in ``Vega nanoMaggies'', with the Vega magnitude of a source is given by $m_{\rm Vega} = 22.5−2.5\log(f)$, where $f$ is the source flux. The absolute calibration for unWISE is ultimately inherited from AllWISE through the calibration of \citet{Meisner2017}. This inheritance depends on details of the PSF normalization at large radii, which is uncertain. Subtracting 4 millimag from the unWISE W1, and 32 millimag from unWISE W2 fluxes improves the agreement between unWISE and AllWISE fluxes.
+All fluxes in the unWISE catalog are reported there are in ``Vega
+nanoMaggies'', with the Vega magnitude of a source is given by 
+\begin{equation}
+m_{\rm Vega} = 22.5 - 2.5\log(f),
+\end{equation} 
+where $f$ is the source flux. The absolute calibration for unWISE is
+ultimately inherited from AllWISE through the calibration of
+\citet{Meisner2017a}. This inheritance depends on details of the PSF
+normalization at large radii, which is uncertain. Subtracting 4
+millimag from the unWISE W1, and 32 millimag from unWISE W2 fluxes
+improves the agreement between unWISE and AllWISE fluxes.
 
 Thus to convert unWISE Vega magnitudes onto the AB system, we have:     
 \begin{eqnarray*}
         {\rm W1}_{\rm AB, unWISE}  & = &   22.5 - 2.5 \log(f_{\rm W1}) - 0.004 + 2.699 \\
         {\rm W2}_{\rm AB, unWISE}  &  = &  22.5 - 2.5 \log(f_{\rm W2}) - 0.032 + 3.339. 
 \end{eqnarray*}
-%Henceforth, when talking about we will simply refer to ``W1'' and ``W2'' as shorthand for ${\rm W1}_{\rm AB, unWISE}$ and {\rm W2}_{\rm AB, unWISE}
-%those two numbers are how far our flux measurements differed on average from the AllWISE flux estimates at high Galactic latitudes.  These tweaks will move you closer to the AllWISE absolute calibration, which we haven't tried to improve upon.
-%%
-%% We note though that 
-%%  Especially in W1, though, this correction is uncertain, because the average offset between AllWISE and unWISE depends on magnitude, and we don't really know
-%%   - what the source of the trend is,
-%%   - which of unWISE and AllWISE is correct, or
-%%   - where the AllWISE tie to AB/Vega was done (though presumably it was done on the bright end?).
-
-For the our MIR variability investigations, we do not use the unWISE coadds, but instead use 
-the \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE} catalogue and the \href{http://wise2.ipac.caltech.edu/docs/release/neowise/neowise_2018_release_intro.html}{NEOWISE 2018 Data Release}. NEOWISE 2018 makes available the 3.4 and 4.6 μm (W1 and W2) single-exposure images and extracted source information that was acquired between 2016 December 13 and 2017 December 13 UTC, which was the fourth year of survey operations of the Near-Earth Object Wide-field Infrared Survey Explorer Reactivation Mission (NEOWISE; Mainzer et al. 2014, ApJ, 792, 30). The fourth year NEOWISE data products are concatenated with those from the first three years into a single archive.
+For the our MIR variability investigations, we do not use the unWISE
+coadds, but instead use the
+\href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE}
+catalogue and the
+\href{http://wise2.ipac.caltech.edu/docs/release/neowise/neowise_2018_release_intro.html}{NEOWISE
+2018 Data Release}. NEOWISE 2018 makes available the 3.4 and 4.6 μm
+(W1 and W2) single-exposure images and extracted source information
+that was acquired between 2016 December 13 and 2017 December 13 UTC,
+which was the fourth year of survey operations of the Near-Earth
+Object Wide-field Infrared Survey Explorer Reactivation Mission
+(NEOWISE; Mainzer et al. 2014, ApJ, 792, 30). The fourth year NEOWISE
+data products are concatenated with those from the first three years
+into a single archive.
 
 The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
 
@@ -690,6 +690,7 @@ SDSSJ2220-0101, in J band: VSA = 19.38+/-0.04, WSA = 22.23+/-0.15
       \label{tab:mir_detection}
     \end{table}
 
+
     \begin{table}
       \begin{tabular}{l r l}
         \hline  \hline
@@ -711,6 +712,29 @@ SDSSJ2220-0101, in J band: VSA = 19.38+/-0.04, WSA = 22.23+/-0.15
       \label{tab:mir_detection}
     \end{table}
     
+\begin{table}
+\centering
+\begin{tabular}{l r  r}
+\hline \hline
+$z \geq$  & Age / Myr & No. of objects \\
+\hline 
+7.50         &    700         &   1   \\
+7.00         &    767         &   4   \\
+6.78         &    800         &  14   \\
+6.50         &    845         &  40   \\
+6.19         &   900          &  86   \\
+6.00         &   937          &  170   \\
+5.70         & 1000          &  267   \\
+5.00         & 1180          &  463   \\
+\hline \hline
+\end{tabular}
+\caption{The number of objects at or above a given redshift. 
+The age of the Universe in megayears is also given. }
+      \label{tab:ages}
+\end{table}
+
+
+
     \begin{figure}
       %% trim=l b r t
       \includegraphics[width=8.6cm, clip,trim=2mm 0mm 2mm 0mm]
@@ -779,12 +803,12 @@ Thenn a requirement of SNR$>3$ per `average' epoch, where `average epoch' is the
 
 Then calculate the clipped median and standard deviation, 
 \begin{equation}
-1.48 \times \sigma_{median} / \bar{epsilon}
+1.48 \times \sigma_{median} / \bar{\epsilon}
 \end{equation}
-where $\bar{epsilon}$ is the mean of the error in each point in the light curve, divided by the total number of points. 
+where $\bar{\epsilon}$ is the mean of the error in each point in the light curve, divided by the total number of points. 
 %%
 With this definition, although some of the objects have very well sampled, 
-`Average' light curves where you are averaging over e.g. a month, or two weeks. 
+`average' light curves where you are averaging over e.g. a month, or two weeks. 
 
 Longer time-series, better SNR and moreover, $(1+z)$. 
 Just selecting things that would
@@ -800,6 +824,28 @@ objiD 164 is SDSSJ1000+0234, faint; very faint.
 SHELLQsJ0220-0432: (qso59) show this too. 
 CFHQSJ0216-0455
 
+
+\begin{figure}[H]
+  \begin{subfigure}{}
+    \centering
+    \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190214.png}
+    \caption{MMTJ0215-0529}
+    \label{fig:1}
+  \end{subfigure}%
+  \begin{subfigure}{}
+    \centering
+    \includegraphics[width=8.5cm]{../light_curves/CFHQSJ0216-0455LC_20190214.png}
+    \caption{CFHQSJ0216-0455}
+    \label{fig:2}
+  \end{subfigure}
+  \begin{subfigure}{}\quad
+    \centering
+    \includegraphics[width=8.5cm]{../light_curves/SHELLQsJ0220-0432LC_20190214.png}
+    \caption{SHELLQsJ0220-04323}
+    \label{fig:3}
+  \end{subfigure}
+  \medskip
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -825,6 +871,32 @@ redshifts, e.g.
 where $z$ is the sample redshift. 
 %Fan, X., Strauss, M. A., Schneider, D. P., et al. 2001b, AJ, 121, 54
 
+UHS J-band depth 19.6 \citep[Vega; ][]{Dye2018}
+
+VISTA HEMISPHERE SURVEY DATA RELEASE 1
+Release date (will be set by ESO)
+PROPOSAL ESO No.: 179.A-2010
+PRINCIPAL INVESTIGATOR: Richard McMahon
+Authors: R. McMahon, M. Banerji, N. Lodieu for the VHS Collaboration
+
+The aim of the Vista Hemisphere Survey (VHS) is to carry out a near
+Infra-Red survey, which when combined with other VISTA Public Surveys
+will result in coverage of the whole southern celestial hemisphere
+($\sim$20,000 deg$^2$) to a depth 30 times fainter than 2MASS/DENIS in
+at least two wavebands (J and K$_s$), with an exposure time of 60 seconds
+per waveband to produce median 5σ point source (Vega) limits of $J =
+20.2$ and $K_{S} = 18.1$. In the South Galactic Cap, $\sim$5000 deg$^{2}$ will be
+imaged deeper with an exposure time of 120 seconds and also including
+the H band producing median 5$\sigma$ point limits of: J = 20.6; H = 19.8; K$_{s}$ = 18.5. 
+In this 5000 deg$^{2}$ region of sky deep multi-band optical (grizY)
+imaging data will be provided by the Dark Energy Survey (DES). The
+remainder of the high galactic latitude ($|b|>$30$^{\circ}$) sky will be imaged
+in YJHK for 60sec per band to be combined with ugriz waveband
+observations from the VST ATLAS survey. \\ 
+
+VHS                   YJHK            99.99, 21.2,  21.2,  20.6,  20.0                (9) \\
+
+{\tt ABmagLimits} for each survey in the database. \\
 
 
 
