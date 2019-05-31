@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                           
-%%    The `compliation' paper for all z>5 spec-z quasars, here called
+%%    The `compilation' paper for all z>5 spec-z quasars, here called
 %%    "Very High Redshift Quasars" (VHzQs) and looking into their IR
 %%    properties. Motivations include putting a list of all the VHzQ in one
 %%    place, looking for signs of super-critical accretion and having a
@@ -167,11 +167,11 @@ current datasets. We conclude in Section 5 and present all the
 necessary details to obtain our dataset in the Appendices.
 
 We present all our photometry and magnitudes on the AB zero-point
-system \citep{Oke_Gunn1983, Fukugita1996}.  This includes the
+system \cites{Oke_Gunn1983, Fukugita1996}.  This includes the
 near-infrared, as well as the mid-infrared
 magnitudes. Appendix~\ref{sec:filters} gives the AB to Vega transforms
 for a wide range of optical, NIR and MIR filters. We use a flat
-$\Lambda$CDM cosmology with $H0 = 67.7$ km s$-1$ Mpc$−1$, $\Omega_{\rm
+$\Lambda$CDM cosmology with $H_0 = 67.7$ km s$^{-1}$ Mpc$^{−1}$, $\Omega_{\rm
 M} = 0.307$, and $\Omega_{\Lambda} = 0.693$ (Planck Collaboration et
 al. 2016) to be consistent with \citet{Banados2016} and all logarithms
 are to the base 10.
@@ -281,7 +281,7 @@ The breakdown of how many VH$z$Q each survey reports is given in
 Table~\ref{tab:surveys}. The Sloan Digital Sky Survey (SDSS) and the
 Pan-STARRS1 (PS1; PSO in Table~\ref{tab:surveys}) survey and alone
 identified over half (54.6\%) of the VH$z$Q population. Data from the
-Hyper Suprime-Cam (HSC) on the Subaru telecope is responsible for
+Hyper Suprime-Cam (HSC) on the Subaru telescope is responsible for
 13.6\% of our dataset (HSC+SHELLQs in Table~\ref{tab:surveys}). The
 combination of surveys is also vital for identifying VH$z$Qs. The
 UKIDSS Large Area Survey (ULAS) on its own, or in combination with
@@ -299,7 +299,7 @@ Survey              & \# VH$z$Qs & (\%) & Survey reference  \\
 \hline  
   ATLAS             &     4    &   ( 0.86)    &  \citet{Shanks2015} \\
   CFHQS            &   20    &   ( 4.32)    &  \citet{Willott2007} \\
-  DELS               &   16    &   ( 3.46)    &  \citet{Dey2018} \\
+  DELS$^{a}$       &   16    &   ( 3.46)    &  \citet{Dey2018} \\
   ELAIS              &     1    &   ( 0.22)    &  \citet{Vaisanen2000} \\
   FIRST              &     1    &   ( 0.22)    &  \citet{Becker1995} \\
   HSC                 &    8    &   ( 1.73)    & \citet{Miyazaki2018} \\
@@ -325,8 +325,8 @@ Survey              & \# VH$z$Qs & (\%) & Survey reference  \\
   Recent survey name and acronyms include: 
   $^{a}$DESI Legacy Imaging Survey; 
   $^{b}$SDWISE = SDSS+WISE; 
-  $^{a}$SUV  = SDSS-ULAS/VHS; 
-  $^{c}$VDES = VHS/VIKING+DES; 
+  $^{c}$SUV  = SDSS-ULAS/VHS; 
+  $^{d}$VDES = VHS/VIKING+DES; 
 %  $^{c}$Includes 8 objects with a HyperSuprimeCam \citep[HSC; ][]{Miyazaki2018} designation.
 }
       \label{tab:surveys}
@@ -389,12 +389,12 @@ the VISTA Data Flow System \citep[VDFS][]{VDFS}.
 
 We access both the WSA and the VSA and include all non-proprietary
 WFCAM data, which covers all public surveys and PI projects from
-Semester 05A to 2017-Jan-01, and all non-proprietary VISTA data, which
+Semester 05A (2005-05-01) to 2017-Jan-01, and all non-proprietary VISTA data, which
 covers all public surveys and PI projects from science verification on
-2009-Oct-15 to 2016-Apr-01.
+2009-Oct-15 to 2017-Jan-01.
 
-Here we are not just quering the WSA or VSA data tables. We are taking
-a list of objects (positions) are performing matched aperature
+Here we are not just querying the WSA or VSA data tables. We are taking
+a list of objects (positions) and are performing matched aperture
 (``forced'') photometry on the NIR imaging data. As such, we generate
 a set of tables that are different in subtle ways to the regular
 ``Detection'' tables.  The two most important tables for our needs are
@@ -402,8 +402,8 @@ the {\tt [w/v]serv1000MapRemeasurement} and {\tt
 [w/v]serv1000MapRemeasAver}.
 
 We produce and provide a two new databases with all the necessary
-quantaties and measurements to fully reproduce our tables, figures and
-results herein. Morever, these databases report considerably more
+quantities and measurements to fully reproduce our tables, figures and
+results herein. Moreover, these databases report considerably more
 information than we report here. Full documentation can be found at
 the \href{http://wsa.roe.ac.uk/www/wsa_browser.html}{WSA Schema
 Browser} and the
@@ -419,9 +419,9 @@ Browser}.
   \citet{Cross2013} and with fuller details to appear in a forthcoming
   paper (Cross et al., 2019, in prep).
   
-  We query the WSA and VSA performing matched-aperature photometry at
+  We query the WSA and VSA performing matched-aperture photometry at
   the positions of our 463 VH$z$Qs. This database is world-readable and
-  we give the full receipe and relevant SQL queries for accessing both
+  we give the full recipe and relevant SQL queries for accessing both
   databases in Appendix~\ref{sec:SQL} as well as online. 
   
   The photometry in a single epoch image often has low
@@ -429,16 +429,11 @@ Browser}.
   quasars is that co-adding is relatively simple if each epoch is taken
   in the same aperture and the aperture photometry has been corrected to
   total. Indeed, the standard aperture corrections work well for point
-  sources. Coadding using the matched-aperature photometry, where the
-  individual epochs are taken from multiple projects with different
-  pointings and orientations, should help with issues such as scattered
-  light, pixel distortion and aperture corrections.
+  sources. Coadding using the matched-aperture photometry can give better results for the photometry, 
+  where the individual epochs are taken from multiple projects with different field-centres and orientations and point-spread functions since the individual epoch scattered light, pixel distortion and aperture corrections can be applied with the correct weighting.
     
   We average the aperture corrected calibrated fluxes (e.g. {\bf
-  aperJky3}), and then convert to magnitudes. Since we do not have a
-  deep image for each set of averages, we cannot calculate non-aperture
-  corrected values, so the photometry is only appropriate for
-  point-sources.
+  aperJky3}), and then convert to magnitudes. 
 
   \begin{equation}
     \bar{F} = \frac{\sum_i^N (w_i\,F_i)}{\sum_i^N w_i}  
@@ -448,7 +443,7 @@ Browser}.
   averaged such as the aperture corrected calibrated flux in a $1\arcsec$ aperture
   ({\bf aperJky3}) and $\bar{F}$ is the weighted mean average of this parameter.
   The weight for each epoch $w_i=1/(\sigma_{F})^2$ if the epoch is included and 
-  $w_i=0$ if an epoch is excluded for quality control purposes. 
+  $w_i=0$ if an epoch is excluded for quality control purposes. The weights of each epoch in each averaged catalogue are tabulated in the {\tt [w\v]serv1000MapAverageWeights}.
    
   We calculate a set of averaged catalogues, for each pointing and filter, based
   on the requirements in \verb+RequiredMapAverages+, in these cases over time
@@ -463,7 +458,7 @@ Browser}.
 
 \subsection{MIR data}
 The MIR data for this study comes from the Wide-field Infrared Survey
-Explorer (WISE) mission, and we utlize data from the WISE cryogenic
+Explorer (WISE) mission, and we utilize data from the WISE cryogenic
 and NEOWISE (Mainzer et al. 2011 ApJ, 731, 53) post-cryogenic survey
 phases.
 
