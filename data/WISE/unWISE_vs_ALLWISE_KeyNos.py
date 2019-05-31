@@ -7,9 +7,34 @@ import numpy as np
 from astropy.table import Table
 from astropy.io import ascii
 
-
-
+## Data files and path
+path     = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
+filename = 'VHzQs_ZYJHK_WISE.dat'
 VHzQs = ascii.read("VHzQs463_unWISE_vs_ALLWISE_v1.dat")
+
+
+## Setting up the variables just for me to use a bit easier
+unW1           = VHzQs[np.where( VHzQs['unW1mag']>-1)]
+unW1_just      = VHzQs[np.where((VHzQs['unW1mag']>-1) & (VHzQs['unW2mag']<-1))]
+unW1_not_AllW1 = VHzQs[np.where((VHzQs['unW1mag']>-1) & (VHzQs['w1mpro']<-1))]
+
+unW2           = VHzQs[np.where( VHzQs['unW2mag']>-1)]
+unW2_just      = VHzQs[np.where((VHzQs['unW2mag']>-1) & (VHzQs['unW1mag']<-1))]
+unW2_not_AllW2 = VHzQs[np.where((VHzQs['unW2mag']>-1) & (VHzQs['w2mpro']<-1))]
+
+## Wee bit out .tex outputting...
+print('\hline \hline')
+print('Detection band & No. of objects')
+print('\hline')
+print('unWISE W1                 & ', len(unW1),             ' \\\ ')
+print('unWISE W1     !unWISE W2  & ', len(unW1_just),        '  \\\ ')
+print('unWISE W1 and !AllWISE W1 & ', len(unW1_not_AllW1),   '  \\\ ')
+print()
+print('unWISE W2                 & ', len(unW2),             ' \\\ ')
+print('unWISE W2     !unWISE W1  & ', len(unW2_just),        '   \\\ ')
+print('unWISE W2 and !AllWISE W1 & ', len(unW2_not_AllW2),   '  \\\ ')
+print('\hline \hline')
+
 
 
 print('Number of objects with unWISE W1 detections (unW1mag>0)', np.count_nonzero(VHzQs['unW1mag']>0))
