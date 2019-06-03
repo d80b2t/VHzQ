@@ -560,8 +560,8 @@ There are 14 objects that have no NIR detections.  3 of these
 (PSOJ053.9605-15.7956, PSO J056.7168-16.4769 and DELSJ0411-0907) have
 been observed (by VHS) but are out of our queried time range.  6
 objects have not been observed (or at least the data is not in the
-WSA/VSA archives yet) and 5 objects at $\geq +60$ deg$^{2}$ are too
-far north for UKIRT and cannot be observed.
+WSA/VSA archives yet) and 5 objects at declination $\delta \geq +60$
+deg are too far north for UKIRT and cannot be observed.
 
 
   \subsubsection{Comparing WFCAM and VISTA}
@@ -660,8 +660,8 @@ minimum number of exposures 17 and 12, and the maximum number or
 exposures being 114 (for both bands).  For the W3/4 filters, the
 corresponding mean, minimum and maximum exposure are 17.4 and 17.5,
 5.8 and 6.8 and 69 (for both bands). These values are direclty from
-the {\tt w$x$cov} enteries in the 
-\href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{WISE ALLWISE catalogue}.
+the {\tt w$x$cov} enteries in the WISE
+\href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
 
 
 \begin{figure}
@@ -696,74 +696,58 @@ VH$z$Qs in the MIR WISE W1-4 bands.
   \label{tab:mir_detection}
 \end{table}
 
-    
-\begin{table}
-\centering
-\begin{tabular}{l r  r}
-\hline \hline
-$z \geq$  & Age / Myr & No. of objects \\
-\hline 
-7.50         &    700         &   1   \\
-7.00         &    767         &   4   \\
-6.78         &    800         &  14   \\
-6.50         &    845         &  40   \\
-6.19         &   900          &  86   \\
-6.00         &   937          &  170   \\
-5.70         & 1000          &  267   \\
-5.00         & 1180          &  463   \\
-\hline \hline
-\end{tabular}
-\caption{The number of objects at or above a given redshift. 
-The age of the Universe in megayears is also given. }
-      \label{tab:ages}
-\end{table}
 
+\begin{figure}
+  %% trim=l b r t
+  \includegraphics[width=8.6cm, clip,trim=2mm 0mm 2mm 0mm]
+  {/cos_pc19a_npr/programs/quasars/highest_z/detections/WISEsnrW1W2W3W4_2by3_v1.pdf}
+  \centering
+  \vspace{-14pt}
+  \caption[]{WISE signal-to-noise measures for the four bands, as well
+    as for (W1-W2) colour.  The points are colour coded by redshift.}
+  \label{fig:WISEmag_vs_coverage}
+\end{figure}
 
+\citet{Blain2013} 
 
-    \begin{figure}
-      %% trim=l b r t
-      \includegraphics[width=8.6cm, clip,trim=2mm 0mm 2mm 0mm]
-      {/cos_pc19a_npr/programs/quasars/highest_z/detections/WISEsnrW1W2W3W4_2by3_v1.pdf}
-      \centering
-      \vspace{-14pt}
-      \caption[]{WISE signal-to-noise measures for the four bands, as well
-        as for (W1-W2) colour.  The points are colour coded by redshift.}
-      \label{fig:WISEmag_vs_coverage}
-    \end{figure}
+Recently, \citet{Assef2018} released two large catalogues of AGN 
+candidates identified across 30,000 deg$^2$ of extragalactic sky 
+from the WISE AllWISE Data Release. The ``R90'' catalogue, is 
+contains 4.5M AGN candidates at 90\% reliability (and $\approx$150 
+AGN candidates per deg$^2$) while the ``C75'' catalog 
+consists of 20.9M AGN candidates at 75\% completeness (and 
+($\approx$700 AGN candidates per deg$^2$).  Crossmatching 
+out catalogue of 463 VH$z$Qs with these catalogues, produces 
+42 matches with	the R90 sample and 98 matches with the C75 sample. 
+Both catalogues unsurprisingly match to the ultraluminous quasar 
+SDSS J0100+2802 \citep{Wu2015} while the C75, but not the R90 catalogue 
+mathes to ULAS J1120+0641 \citep{Mortlock2011}. Neither catalogue 
+matches J1342+0928 \citep{Banados2018}. 
 
-    \citet{Blain2013} 
+Very High-$z$ Quasars Detected in WISE W3 and W4.
 
-    Recently, \citet{Assef2018} released two large catalogues of AGN 
-    candidates identified across 30,000 deg$^2$ of extragalactic sky 
-    from the WISE AllWISE Data Release. The ``R90'' catalogue, is 
-    contains 4.5M AGN candidates at 90\% reliability (and $\approx$150 
-    AGN candidates per deg$^2$) while the ``C75'' catalog 
-    consists of 20.9M AGN candidates at 75\% completeness (and 
-    ($\approx$700 AGN candidates per deg$^2$).  Crossmatching 
-    out catalogue of 463 VH$z$Qs with these catalogues, produces 
-    42 matches with	the R90 sample and 98 matches with the C75 sample. 
-    Both catalogues unsurprisingly match to the ultraluminous quasar 
-    SDSS J0100+2802 \citep{Wu2015} while the C75, but not the R90 catalogue 
-    mathes to ULAS J1120+0641 \citep{Mortlock2011}. Neither catalogue 
-    matches J1342+0928 \citep{Banados2018}. 
-
-    %\subsubsection{
-    Very High-$z$ Quasars Detected in WISE W3 and W4.
-
-
-    \begin{figure}
-      \centering
-      \includegraphics[width=8.5cm]
-      {/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
-      \vspace{-16pt}
-      \caption[]
-      {Histogram showing the number of NEOWISE-R epochs and detections there are for each 
-        VH$z$Q.} 
-      \label{fig:MIR_LC_epochs}
-    \end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=8.5cm]
+  {/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
+  \vspace{-16pt}
+  \caption[]
+  {Histogram showing the number of NEOWISE-R epochs and detections there are for each 
+    VH$z$Q.} 
+  \label{fig:MIR_LC_epochs}
+\end{figure}
     
 \subsection{Variability}
-VH$z$Qs, if accreting at, or above the Eddington Limit, might well have have large values of changing mass accretion rate, $\ddot{m_{\rm accr}}$. A consequence of this would be that these quasar exhibit signs of variability, most likely showing up in their UV/optical rest-frame spectra. We look for evidence of this variability signature in the NIR and MIR light-curves of the VH$z$Qs. As a guide, \civ enters the $Y$-band at redshift $z$=5.32 and exits at $z$=5.99, and enters the $J$-band at redshift $z=6.55$ and exits at $z$=7.57. \mgii enters the $H$-band at redshift $z=4.33$ and exits at $z=5.37$ and enters the $K$-band at redshift $z=6.25$ and exits at $7.50$.
+VH$z$Qs, if accreting at, or above the Eddington Limit, might well
+have have large values of changing mass accretion rate, $\ddot{m}_{\rm
+accr}$. A consequence of this would be that these quasar exhibit signs
+of variability, most likely showing up in their UV/optical rest-frame
+spectra. We look for evidence of this variability signature in the NIR
+and MIR light-curves of the VH$z$Qs. As a guide, \civ enters the
+$Y$-band at redshift $z$=5.32 and exits at $z$=5.99, and enters the
+$J$-band at redshift $z=6.55$ and exits at $z$=7.57. \mgii enters the
+$H$-band at redshift $z=4.33$ and exits at $z=5.37$ and enters the
+$K$-band at redshift $z=6.25$ and exits at $7.50$.
 
 Using the extended datasets described in Section~\ref{sec:NIR_data} and~\ref{sec:NIR_SQL}, we 
 
@@ -833,6 +817,7 @@ CFHQSJ0216-0455
 \end{figure}
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 
@@ -855,10 +840,9 @@ $J$=21.2 mag, $H$=20.6 mag, $K_{s}$=20.2 mag.
 VIKING is more uniform, so I calculated the averages over the whole area:
 $Z$=22.7 mag, $Y$=21.9 mag, $J$=21.4 mag, $H$=21.2 mag, $Ks$=21.1 mag.
 
-
-\begin{figure}[h]
+\begin{figure}
   \centering
-  \includegraphics[width=8.5cm]{../data/WSA_VSA/VHS_H_abMagLim.png}
+  \includegraphics[width=8.5cm]{../data/WSA_VSA/VHS_J_abMagLim.png}
   \caption{The calculated average {\tt AB MAGLIM} in the VHS.
     As one can see, VHS is not completely uniform. The are 3 areas with different filter sets, 
     and the depths changed in 2 of these areas, particularly in $J$ and $K_{s}$. 
