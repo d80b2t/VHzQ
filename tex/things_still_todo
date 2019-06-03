@@ -7,7 +7,7 @@
 For NPR
 =====================================================================
 
- -- plots_to_make  (incl. a NIR+MIR joint analysis plot...)
+ -- plots_to_make  (incl. a NIR+MIR joint analysis plot... amybe a Y-H vs. K-W2 kinda plot??)
  -- Check for objects that are WISE bright and NIR faint. 
  -- Concentrate on reporting NIR and W1/W2 figures and tables
  -- Check for NIR and MIR variabilty with the Wu quasar
