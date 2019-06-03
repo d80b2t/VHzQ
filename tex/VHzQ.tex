@@ -350,18 +350,18 @@ level of our current analysis broadline redshifts are sufficient.
 \hline \hline
 $z \geq$  & Age / Myr & No. of objects \\
 \hline 
-7.50         &    700         &   1   \\
-7.00         &    767         &   4   \\
-6.78         &    800         &  14   \\
-6.50         &    845         &  40   \\
-6.19         &   900          &  86   \\
-6.00         &   937          &  170   \\
-5.70         & 1000          &  267   \\
 5.00         & 1180          &  463   \\
+5.70         & 1000          &  267   \\
+6.00         &   937          &  170   \\
+6.19         &   900          &  86   \\
+6.50         &    845         &  40   \\
+6.78         &    800         &  14   \\
+7.00         &    767         &   4   \\
+7.50         &    700         &   1   \\
 \hline \hline
 \end{tabular}
 \caption{The number of objects at or above a given redshift. 
-The age of the Universe in megayears is also given. }
+The age of the Universe in Megayears is also given. }
       \label{tab:ages}
 \end{table}
 
@@ -398,8 +398,7 @@ Semester 05A to 2017-Jan-01, and all non-proprietary VISTA data, which
 covers all public surveys and PI projects from science verification on
 2009-Oct-15 to 2016-Apr-01.
 
-Here we are not just quering the WSA or VSA data tables. We are taking
-a list of objects (positions) are performing matched aperature
+Here we are not just querying the WSA or VSA data tables. We are taking a list of objects (positions) are performing matched aperture
 (``forced'') photometry on the NIR imaging data. As such, we generate
 a set of tables that are different in subtle ways to the regular
 ``Detection'' tables.  The two most important tables for our needs are
@@ -407,8 +406,8 @@ the {\tt [w/v]serv1000MapRemeasurement} and {\tt
 [w/v]serv1000MapRemeasAver}.
 
 We produce and provide a two new databases with all the necessary
-quantaties and measurements to fully reproduce our tables, figures and
-results herein. Morever, these databases report considerably more
+quantities and measurements to fully reproduce our tables, figures and
+results herein. Moreover, these databases report considerably more
 information than we report here. Full documentation can be found at
 the \href{http://wsa.roe.ac.uk/www/wsa_browser.html}{WSA Schema
 Browser} and the
@@ -424,9 +423,9 @@ Browser}.
   \citet{Cross2013} and with fuller details to appear in a forthcoming
   paper (Cross et al., 2019, in prep).
   
-  We query the WSA and VSA performing matched-aperature photometry at
+  We query the WSA and VSA performing matched-aperture photometry at
   the positions of our 463 VH$z$Qs. This database is world-readable and
-  we give the full receipe and relevant SQL queries for accessing both
+  we give the full recipe and relevant SQL queries for accessing both
   databases in Appendix~\ref{sec:SQL} as well as online. 
   
   The photometry in a single epoch image often has low
@@ -434,7 +433,7 @@ Browser}.
   quasars is that co-adding is relatively simple if each epoch is taken
   in the same aperture and the aperture photometry has been corrected to
   total. Indeed, the standard aperture corrections work well for point
-  sources. Coadding using the matched-aperature photometry, where the
+  sources. Coadding using the matched-aperture photometry, where the
   individual epochs are taken from multiple projects with different
   pointings and orientations, should help with issues such as scattered
   light, pixel distortion and aperture corrections.
@@ -485,7 +484,7 @@ the unblurred coadds of the WISE imaging using the AllWISE and
 NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
 
 All fluxes in the unWISE catalog are reported there are in ``Vega
-nanoMaggies'', with the Vega magnitude of a source is given by 
+nanoMaggies'', with the Vega magnitude of a source is given by
 \begin{equation}
 m_{\rm Vega} = 22.5 - 2.5\log(f),
 \end{equation} 
@@ -525,7 +524,7 @@ effort, and we now exam the assembly of its contents in more detail.
 \section{Results}
 Having collated the sample of 463 VH$z$Qs, and obtained their near-
 and mid-infrared photometry we report here the various photometric
-properites of the quasars.
+properties of the quasars.
 
 First, we will concentrate on detection rate in the infrared, go on to
 report on the color-redshift and color-color properties of our sample
@@ -610,12 +609,36 @@ far north for UKIRT and cannot be observed.
   = 19.38$\pm$0.04.
   
         
+  
+\begin{table}
+  \centering
+  \begin{tabular}{l r r r r}
+    \hline \hline
+    \multirow{ 2}{*}{$z \geq$} & \multicolumn{2}{c}{unWISE} &  \multicolumn{2}{c}{ALLWISE}   \\ 
+                                             & \multicolumn{1}{c}{W1} & \multicolumn{1}{c}{W2} & \multicolumn{1}{c}{W3} & \multicolumn{1}{c}{W4}  \\ 
+    \hline
+    5.00   &   362 ( 78.2\%)   &   308 ( 66.5\%)  &    51 ( 11.0\%)  &    10 (  2.2\%) \\ 
+    5.70   &   186 ( 69.4\%)   &   151 ( 56.3\%)  &    15 (  5.6\%)  &     2 (  0.7\%) \\ 
+    6.00   &   109 ( 63.7\%)   &    91 ( 53.2\%)  &     8 (  4.7\%)  &     2 (  1.2\%) \\ 
+    6.19   &    63 ( 72.4\%)   &    47 ( 54.0\%)  &     3 (  3.4\%)  &     2 (  2.3\%) \\ 
+    6.50   &    34 ( 85.0\%)   &    26 ( 65.0\%)  &     1 (  2.5\%)  &     2 (  5.0\%) \\ 
+    6.78   &    12 ( 85.7\%)   &     9 ( 64.3\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
+    7.00   &     4 (100.0\%)   &     4 (100.0\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
+    7.50   &     1 (100.0\%)   &     1 (100.0\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
+    \hline \hline
+  \end{tabular}
+  \caption{Detection rates in the mid-infrared bands from WISE as a function of 
+    redshift. A signal-to-noise cut of W$x$snr$>3.0$ has been used for each band.}
+  \label{tab:WFCAM_vs_VISTA}
+\end{table}
+
+
 \subsection{Detection Rates in the MIR}
-Unlike the NIR coverage, the WISE
-satellite and mission performed an all-sky survey, so the location of
-evey VH$z$Q in our dataset is covered. However, the depth of the WISE
-ALLWISE survey depends heavily on sky location, with locations near
-the Ecliptic Poles having the highest number of exposures.
+Unlike the NIR coverage, the WISE satellite and mission performed an
+all-sky survey, so the location of every VH$z$Q in our dataset is
+covered. However, the depth of the WISE ALLWISE survey depends heavily
+on sky location, with locations near the Ecliptic Poles having the
+highest number of exposures.
 
 Before reporting on the detection rates, we investigate this
 effect. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE magnitude
