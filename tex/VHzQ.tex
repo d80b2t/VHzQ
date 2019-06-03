@@ -558,7 +558,7 @@ luminosity-redshift $Lz$-plane.
         Selection   & number detected (\%) \\
         \hline  
         Any band ($ZYJHK/K_{s}$   &  449  (97.0) \\
-        $Z$-band    &  75  (16.1) \\
+        $Z$-band    &  75  (16.2) \\
         $Y$-band    &  273  (59.0) \\
         $J$-band    &  447  (96.5) \\
         $H$-band    &  269  (58.1) \\
@@ -829,19 +829,19 @@ CFHQSJ0216-0455
     \centering
     \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190214.png}
     \caption{MMTJ0215-0529}
-    \label{fig:1}
+    \label{fig:MMTJ0215-0529}
   \end{subfigure}%
   \begin{subfigure}{}
     \centering
     \includegraphics[width=8.5cm]{../light_curves/CFHQSJ0216-0455LC_20190214.png}
     \caption{CFHQSJ0216-0455}
-    \label{fig:2}
+    \label{fig:CFHQSJ0216-0455}
   \end{subfigure}
   \begin{subfigure}{}\quad
     \centering
     \includegraphics[width=8.5cm]{../light_curves/SHELLQsJ0220-0432LC_20190214.png}
-    \caption{SHELLQsJ0220-04323}
-    \label{fig:3}
+    \caption{SHELLQsJ0220-0432}
+    \label{fig:SHELLQsJ0220-0432}
   \end{subfigure}
   \medskip
 \end{figure}
@@ -860,6 +860,25 @@ CFHQSJ0216-0455
 One interesting question to ask is given the compilation of VH$z$Qs assembled here, 
 are there bright $z>5.00$ quasars that are in {\it current} photometric datasets, and if 
 so, how many are still to be discovered and confirmed spectroscopcially?
+
+VHS, Area 1: 150$<$RA/deg$<200$ annd $-40<$Decl./deg$<-20$:
+$Y$=21.1 mag, $J$=20.6 mag, $H$=20.3 mag, $K_{s}$=19.8 mag (all AB). 
+Area 2: 10$<$RA/deg$<$60, $-60<$Dec$<-40$:
+$J$=21.2 mag, $H$=20.6 mag, $K_{s}$=20.2 mag. 
+
+VIKING is more uniform, so I calculated the averages over the whole area:
+$Z$=22.7 mag, $Y$=21.9 mag, $J$=21.4 mag, $H$=21.2 mag, $Ks$=21.1 mag.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8.5cm]{../data/WSA_VSA/VHS_H_abMagLim.png}
+  \caption{The calculated average {\tt AB MAGLIM} in the VHS.
+    As one can see, VHS is not completely uniform. The are 3 areas with different filter sets, 
+    and the depths changed in 2 of these areas, particularly in $J$ and $K_{s}$. 
+    Y and H are almost uniform, but the coverage is much less.}
+  \label{fig:1}
+\end{figure}
 
 Following \citet{Fan2001b} and \citet{McGreer2013}, we use use an
 exponential decline to describe the space density of VH$z$Qs at high
