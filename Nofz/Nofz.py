@@ -30,18 +30,18 @@ UHS     &    1     ULAS    &   10     VDES    &   17
 VHS     &    1     VIK     &    9     VIMOS   &    1
 '''
 
-## Make a separate list for each airline
-HSC    = list(VHzQs[(VHzQs['na'] == 'HSC') | (VHzQs['na'] == 'SHELLQs')]['redshift'])    ## 63
+## Make a separate list for each astro survey
+HSC    = list(VHzQs[(VHzQs['na'] == 'HSC')  | (VHzQs['na'] == 'SHELLQs')]['redshift'])    ## 63
 PSO    = list(VHzQs[VHzQs['na'] == 'PSO']['redshift'])        
 SDSS   = list(VHzQs[VHzQs['na'] == 'SDSS']['redshift'])
 ULASES = list(VHzQs[(VHzQs['na'] == 'ULAS') | (VHzQs['na'] == 'SUV')]['redshift']) 
 
 ## ELAIS+FIRST+NDWFS+RD+UHS+VHS+VIMOS
-others = list(VHzQs[ (VHzQs['na'] == 'ATLAS') | (VHzQs['na'] == 'CFHQS')  | (VHzQs['na'] == 'DELS') |
+others = list(VHzQs[ (VHzQs['na'] == 'ATLAS') | (VHzQs['na'] == 'CFHQS')  | (VHzQs['na'] == 'DELS')  |
                      (VHzQs['na'] == 'ELAIS') | (VHzQs['na'] == 'FIRST')  |
-                     (VHzQs['na'] == 'IMS')   | (VHzQs['na'] == 'MMT')    |  (VHzQs['na'] == 'NDWFS') |
+                     (VHzQs['na'] == 'IMS')   | (VHzQs['na'] == 'MMT')    | (VHzQs['na'] == 'NDWFS') |
                      (VHzQs['na'] == 'RD')    | (VHzQs['na'] == 'SDWISE') |
-                     (VHzQs['na'] == 'UHS')   |  (VHzQs['na'] == 'VDES')  | (VHzQs['na'] == 'VHS')   |
+                     (VHzQs['na'] == 'UHS')   | (VHzQs['na'] == 'VDES')   | (VHzQs['na'] == 'VHS')   |
                      (VHzQs['na'] == 'VIK')   | (VHzQs['na'] == 'VIMOS') ] ['redshift'])
 
 ##  Assign colors for each survey

@@ -239,9 +239,17 @@ T4pnt5_flux = T4pnt5_2MASS_0559['flux']
 
 plot_DECam     = 'N'
 plot_PanSTARRS = 'N' 
-plot_UKIRT     = 'y'
-plot_VISTA     = 'n'
+plot_UKIRT     = 'N'
+plot_VISTA     = 'y'
 plot_WISE      = 'y'
+
+print()
+print('plot_DECam     = ', plot_DECam)
+print('plot_PanSTARRS = ', plot_PanSTARRS)
+print('plot_UKIRT     = ', plot_UKIRT)
+print('plot_VISTA     = ', plot_VISTA)
+print('plot_WISE      = ', plot_WISE)
+print()
 
 ##
 ## Making the plot...
@@ -255,10 +263,14 @@ ax.set_xscale('log')
 
 #xmin =   0.38   ## in um, starting with g-band
 #xmin =   0.52   ## in um, starting with r-band
-xmin =   0.72   ## in um, starting with Z-band
+#xmin =   0.72   ## in um, starting with Z-band
+xmin =   0.77   ## in um, starting with Z-band
+
+xmax =  2.6    ## with K/Ks-band
 #xmax =  5.5    ## with WISE W2
 #xmax = 18.5    ## with WISE W3
-xmax = 28.00    ## with WISE W4
+#xmax = 28.00    ## with WISE W4
+
 ymin =  0.00
 ymax =  1.30
 #ymin = 0.001   ## for y-log,
@@ -359,7 +371,14 @@ if plot_VISTA == 'y':
     ax.fill( (VISTA_Hband_wave/10000.), (VISTA_Hband_thru/VISTA_Hband_thru.max()), color='gold',          alpha=alpha/2)
     ax.plot( (VISTA_Ksband_wave/10000.), (VISTA_Ksband_thru/VISTA_Ksband_thru.max()), color='yellow',        alpha=alpha, linewidth=linewidth)
     ax.fill( (VISTA_Ksband_wave/10000.), (VISTA_Ksband_thru/VISTA_Ksband_thru.max()), color='yellow',        alpha=alpha/2)
-       
+
+    plt.text(0.870, 1.1, r'Z', color ='olive',        fontsize=fontsize,     weight='bold')
+    plt.text(1.000, 1.1, r'Y', color ='darkgoldenrod', fontsize=fontsize,     weight='bold')
+    plt.text(1.280, 1.1, r'J', color ='orange',        fontsize=fontsize,     weight='bold')
+    plt.text(1.600, 1.1, r'H', color ='gold',          fontsize=fontsize,     weight='bold')
+    #plt.text(2.020, 1.1, r'K', color ='k',            fontsize=fontsize*1.2, weight='bold')
+    plt.text(2.020, 1.1, r'Ks', color ='yellow',        fontsize=fontsize,     weight='bold')
+
 ## 2MASS
 #ax.plot( (TwoMASS_Ksband_wave/10000.), (TwoMASS_Ksband_thru/TwoMASS_Ksband_thru.max()), color='khaki', alpha=alpha, linewidth=linewidth, linestyle='-')
 #ax.fill( (TwoMASS_Ksband_wave/10000.), (TwoMASS_Ksband_thru/TwoMASS_Ksband_thru.max()), color='khaki', alpha=alpha/2.)

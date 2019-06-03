@@ -13,6 +13,8 @@ For NPR
  -- Check for NIR and MIR variabilty with the Wu quasar
  -- Check UltraVISTA Luminosity function
  -- Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
+ -- At the end of 2.2 (before 2.2.1) point to the Appendices A/B and to the GitHub section on SQL queries.
+ -- Section 2.3: What type of aperture is used for the WISE magnitudes.
 
 
 
@@ -23,7 +25,11 @@ For NJGC
        a.k.a. an Exposure Coverage Map in the e.g. J-band
   -- Are any of the VHzQs in the VISTA Magellanic Cloud Survey (near the South Ecliptic Pole)?
   -- QSO Variables in their own right (not the VSA vs. WSA!) 
-  -- Double check numbers in Tables 4 and 5. 
+  -- Page 2, para 1: I make it 95 WISE z>=6 QSO in
+     finalQsoCatalogue. I am worried that I only updated the 41 QSOs
+     added later with WISE photometry. I must check this. There are
+     314 in total with WISE photometry.
+
 
 
 
