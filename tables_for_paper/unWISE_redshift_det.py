@@ -28,6 +28,19 @@ VHzQs    = ascii.read(path+filename)
 ## just a quick wee check
 len(VHzQs)
 
+##  S N R   C U T 
+
+##     BY    SNR
+unW1            = VHzQs[np.where( VHzQs['unW1snr'] > snr_cut)]
+unW1_not_unW2   = VHzQs[np.where((VHzQs['unW1snr'] > snr_cut)  & (VHzQs['unW2mag'] < snr_cut))]
+unW2            = VHzQs[np.where( VHzQs['unW2snr'] > snr_cut)]
+unW2_not_unW1   = VHzQs[np.where((VHzQs['unW2snr'] > snr_cut)  & (VHzQs['unW1mag'] < snr_cut))]
+AllW3           = VHzQs[np.where( VHzQs['w3snr']   > snr_cut)]
+AllW3_not_AllW4 = VHzQs[np.where((VHzQs['w3snr']   > snr_cut)  & (VHzQs['w4snr']   < snr_cut))]
+AllW4           = VHzQs[np.where( VHzQs['w4snr']   > snr_cut)]
+AllW4_not_AllW3 = VHzQs[np.where((VHzQs['w4snr']   > snr_cut)  & (VHzQs['w3snr']   < snr_cut))]
+
+
 ## Setting up the variables just for me to use a bit easier
 ##     BY    MAGNITUDES
 unW1            = VHzQs[np.where( VHzQs['unW1mag']>-1)]
@@ -39,16 +52,6 @@ AllW3_not_AllW4 = VHzQs[np.where((VHzQs['w3mpro']>-1)  & (VHzQs['w4mpro']<-1))]
 AllW4           = VHzQs[np.where( VHzQs['w4mpro']>-1)]
 AllW4_not_AllW3 = VHzQs[np.where((VHzQs['w4mpro']>-1)  & (VHzQs['w3mpro']<-1))]
 
-##     BY    SNR
-snr_cut = 2.0
-unW1            = VHzQs[np.where( VHzQs['unW1snr'] > snr_cut)]
-unW1_not_unW2   = VHzQs[np.where((VHzQs['unW1snr'] > snr_cut)  & (VHzQs['unW2mag'] < snr_cut))]
-unW2            = VHzQs[np.where( VHzQs['unW2snr'] > snr_cut)]
-unW2_not_unW1   = VHzQs[np.where((VHzQs['unW2snr'] > snr_cut)  & (VHzQs['unW1mag'] < snr_cut))]
-AllW3           = VHzQs[np.where( VHzQs['w3snr']   > snr_cut)]
-AllW3_not_AllW4 = VHzQs[np.where((VHzQs['w3snr']   > snr_cut)  & (VHzQs['w4snr']   < snr_cut))]
-AllW4           = VHzQs[np.where( VHzQs['w4snr']   > snr_cut)]
-AllW4_not_AllW3 = VHzQs[np.where((VHzQs['w4snr']   > snr_cut)  & (VHzQs['w3snr']   < snr_cut))]
 
 
 ## Wee bit out .tex outputting...
