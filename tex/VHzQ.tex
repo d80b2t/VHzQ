@@ -137,10 +137,10 @@ available for the quasars; {\it (iii)} making the first study of near-
 and mid-IR variability of the VHzQ population and {\it (iv)}
 establishing the photometric properties for upcoming surveys and
 telescopes including the Large Synoptic Survey Telescope
-(LSST)\footnote{\href{https://www.lsst.org}{{lsst.org}}}, ESA {\it
-Euclid}\footnote{\href{https://sci.esa.int/euclid/}{sci.esa.int/euclid/}}
+(LSST)\blindtext\footnote{\href{https://www.lsst.org}{lsst.org};}, ESA {\it
+Euclid}\footnote{\href{https://sci.esa.int/euclid/}{sci.esa.int/euclid};}
 and the {\it James Webb Space Telescope}
-(JWST)\footnote{\href{https://www.jwst.nasa.gov/}{jwst.nasa.gov};}$^,$\footnote{\href{https://sci.esa.int/jwst/}{sci.esa.int/jwst};}$^,$\footnote{\href{https://www.asc-csa.gc.ca/eng/satellites/jwst/}{www.asc-csa.gc.ca/eng/satellites/jwst};}$^,$\footnote{\href{https://jwst.stsci.edu/}{jwst.stsci.edu}}. We
+(JWST)\footnote{\href{https://www.jwst.nasa.gov/}{jwst.nasa.gov};}$^,$\footnote{\href{https://sci.esa.int/jwst/}{sci.esa.int/jwst};}$^,$\footnote{\href{https://www.asc-csa.gc.ca/eng/satellites/jwst/}{www.asc-csa.gc.ca/eng/satellites/jwst};}$^,$\footnote{\href{https://jwst.stsci.edu/}{jwst.stsci.edu}.}. We
 chose redshift $z=5.00$ as our lower redshift limit due to a
 combination of garnishing a large sample, adequately spanning physical
 properties (e.g. luminosity, age of the Universe) and to highlight the
@@ -389,7 +389,8 @@ Semester 05A to 2017-Jan-01, and all non-proprietary VISTA data, which
 covers all public surveys and PI projects from science verification on
 2009-Oct-15 to 2016-Apr-01.
 
-Here we are not just querying the WSA or VSA data tables. We are taking a list of objects (positions) are performing matched aperture
+Here we are not just querying the WSA or VSA data tables. We are
+taking a list of objects (positions) are performing matched aperture
 (``forced'') photometry on the NIR imaging data. As such, we generate
 a set of tables that are different in subtle ways to the regular
 ``Detection'' tables.  The two most important tables for our needs are
@@ -454,8 +455,7 @@ Browser}.
   We detect 359 unique quasars in the WFCAM WSA database, 220 quasars
   are detected in the VISTA VSA database with 130 objects in common with
   both WFCAM and VISTA data.  We give the necessary SQL queries syntax
-  at
-  \href{https://github.com/d80b2t/VHzQ/blob/master/data/WSA_VSA/SAMPLE_SQL_QUERIES}{\tt
+  at \href{https://github.com/d80b2t/VHzQ/blob/master/data/WSA_VSA/SAMPLE_SQL_QUERIES}{\tt
     d80b2t/VHzQ}.
   
 
@@ -470,9 +470,26 @@ We use data from the the beginning of the WISE mission \citep[2010
 January; ][]{Wright2010} through the fifth-year of NEOWISE-R
 operations \citep[2018 December;]{Mainzer2011}.  More specifically, we
 utilise the recently released ``unWISE Catalog''
-\citet{Schlafly2019}. The unWISE effort\footnote{http://unwise.me/} is
-the unblurred coadds of the WISE imaging using the AllWISE and
-NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
+\citet{Schlafly2019}. The unWISE
+effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the
+unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R
+stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
+
+Previous works \citep[e.g., ][]{Krawczyk2013, Ross2015, Bilick2016}
+found that cross-matches performed with a radius of 2-3'' between the user
+catalogue and WISE was a good compromise between completeness and
+contamination \citep[see e.g. Figure 4 of ][]{Krawczyk2013}. 
+We thus use a cross-match radius of 2.75''. 
+
+For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and 
+$\lambda_{\rm eff}$4.62$\mu$m W2 we use the deeper, unblurred unWISE coadd data. 
+For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m 
+we use the ALLWISE Data Release 
+
+When querying the ALLWISE catalogs, ``Cone Search Radius'' in the ALLWISE table search was set to 2.75'' for the Spatial Constraints. The ``One to One Match'' was ``not'' checked; although possible, we consider it highly unlikely there would be more than one MIR source contributing to the flux of a single UV/optically bright rest-frame quasar. Investigating this in detail is very interesting but left to a future study.
+
+Knowing we have secure detections in the near-infrared bands, and wanting to boost the number of WISE W3/W4 detections, we allow ourselves to be less conservative in querying the ALLWISE catalog and also query the AllWISE Reject Table. 
+However, with the exception of one object (SHELLQs   J1208-0200), the ALLWISE Reject Table does not contain any further W3/W4 detection informationn. 
 
 All fluxes in the unWISE catalog are reported there are in ``Vega
 nanoMaggies'', with the Vega magnitude of a source is given by
@@ -491,9 +508,23 @@ Thus to convert unWISE Vega magnitudes onto the AB system, we have:
         {\rm W1}_{\rm AB, unWISE}  & = &   22.5 - 2.5 \log(f_{\rm W1}) - 0.004 + 2.699 \\
         {\rm W2}_{\rm AB, unWISE}  &  = &  22.5 - 2.5 \log(f_{\rm W2}) - 0.032 + 3.339. 
 \end{eqnarray*}
-For the our MIR variability investigations, we do not use the unWISE coadds, but instead use the \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE} catalogue and the NEOWISE \href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{2019 Data Release}. NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2) single-exposure images and extracted source information that was acquired up until 2018 December 13 (MJD 58465) including the fifth year of survey operations of NEOWISE. These fifth year NEOWISE data products are concatenated with those from the first four years into a single archive from 2013 December 13 (MJD 56639).
+For the our MIR variability investigations, we do not use the unWISE
+coadds, but instead use the
+\href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE}
+catalogue and the NEOWISE
+\href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{2019 Data
+Release}. NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2)
+single-exposure images and extracted source information that was
+acquired up until 2018 December 13 (MJD 58465) including the fifth
+year of survey operations of NEOWISE. These fifth year NEOWISE data
+products are concatenated with those from the first four years into a
+single archive from 2013 December 13 (MJD 56639).
 
-The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
+The WISE scan pattern leads to coverage of the full-sky approximately
+once every six months (a``sky pass''), but the satellite was placed in
+hibernation in 2011 February and then reactivated in 2013
+October. Hence, our light curves have a cadence of 6 months with a 32
+month sampling gap.
 
 Table~\ref{tab:output_table} represents the culmination of this
 effort, and we now exam the assembly of its contents in more detail.
@@ -543,7 +574,11 @@ not overlap the full area for where the VH$z$Qs are detected.
     $K$ or $Ks$-band                &  322  (69.5) \\
     \hline  \hline
   \end{tabular}
-  \caption{Detection rate of VH$z$Qs in the near-infrared.}
+  \caption{Detection rate of VH$z$Qs in the near-infrared. 
+For the 14 objects that have no NIR detections, 3 have 
+been observed but are not in our queried time range, 6 have 
+not been observed yet and 5 objects are too far north to be visible 
+by UKIRT. }
   \label{tab:nir_detection}
 \end{table}
 
@@ -619,40 +654,19 @@ deg are too far north for UKIRT and cannot be observed.
     \hline \hline
   \end{tabular}
   \caption{Detection rates in the mid-infrared bands from WISE as a function of 
-    redshift. A signal-to-noise cut of W$x$snr$>3.0$ has been used for each band.}
+    redshift. A signal-to-noise cut of {\tt w$x$snr}$>3.0$ has been used for each band.}
   \label{tab:WFCAM_vs_VISTA}
 \end{table}
 
 
+
 \subsection{Detection Rates in the MIR}
-Unlike the NIR coverage, the WISE satellite and mission performed an
-all-sky survey, so the location of every VH$z$Q in our dataset is
-covered. However, the depth of the WISE ALLWISE survey depends heavily
-on sky location, with locations near the Ecliptic Poles having the
-highest number of exposures.
+Unlike the NIR coverage, the WISE satellite and mission performed an all-sky survey, so the location of every VH$z$Q in our dataset is covered. However, the depth of the WISE survey depends heavily on sky location, with locations near the Ecliptic Poles having the highest number of exposures.
 
-Before reporting on the detection rates, we investigate this
-effect. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE magnitude
-versus signal-to-noise, colour coded by {\tt w$x$cov} the mean
-coverage depth, in each corresponding band. In the two shorter bands
-W1/2 we see the clear and expected trend for brighter objects to have
-larger SNR, and also for the higher signal to noise for objects with
-more exposures at a given magnitude. The behaviour for the W3/4 bands
-is different, with two populations clearly evident in W3 and although
-a bit more mixed, also in W4. With the suggested split at SNR$>2$, and
-no obvious R.A./Declination dependence seen, this behaviour is
-explained by the fact that there are non-detectiopns in W3/4 for
-objects (with high W1/2 SNR) that are reported in the ALLWISE
-catalogue.
+Before reporting on the detection rates, we investigate this effect. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. In the two shorter bands W1/2 we see the clear and expected trend for brighter objects to have larger SNR, and also for the higher signal to noise for objects with more exposures at a given magnitude. The behaviour for the W3/4 bands is different, with two populations clearly evident in W3 and although a bit more mixed, also in W4. With the suggested split at SNR$>2$, and no obvious R.A./Declination dependence seen, this behaviour is explained by the fact that there are non-detectiopns in W3/4 for objects (with high W1/2 SNR) that are reported in the ALLWISE catalogue.
 
-For the 278 VH$z$Q with coverage detections, the mean number of
-exposures for the W1/2 bands is 32.0 and 31.5, respectively, with a
-minimum number of exposures 17 and 12, and the maximum number or
-exposures being 114 (for both bands).  For the W3/4 filters, the
-corresponding mean, minimum and maximum exposure are 17.4 and 17.5,
-5.8 and 6.8 and 69 (for both bands). These values are direclty from
-the {\tt w$x$cov} enteries in the WISE
-\href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
+For the 278 VH$z$Q with coverage detections, the mean number of exposures for the W1/2 bands is 32.0 and 31.5, respectively, with a minimum number of exposures 17 and 12, and the maximum number or exposures being 114 (for both bands).  For the W3/4 filters, the corresponding mean, minimum and maximum exposure are 17.4 and 17.5, 5.8 and 6.8 and 69 (for both bands). These values are direclty from the {\tt w$x$cov} enteries in the WISE \href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
+
 
 
 \begin{figure}
@@ -940,7 +954,9 @@ NPR acknowledges support from the STFC and the Ernest Rutherford Fellowship sche
 We thank Mike Read at the ROE WFAU for help with the WFCAM Science Archiv (WSA), and 
 also the VISTA Science Archive (VSA). We thank Bernie Shiao at STScI for help with the Pan-STARRS1 DR1 CasJobs interface. 
 
-We very much thank Aaron Meisner and Eddie Schlafly for facilitating early access to the unWISE Catalog. 
+We thank Aaron Meisner and Eddie Schlafly for facilitating early access to the unWISE Catalog. 
+
+We thank Michael Cushing for supplying the Late Type stellar spectra and Beth Biller for useful discussion. 
 
 This paper heavily used \href{http://www.star.bris.ac.uk/~mbt/topcat/}{TOPCAT} (v4.4)
 \citep[][]{Taylor2005, Taylor2011}.
