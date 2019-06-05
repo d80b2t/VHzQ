@@ -54,7 +54,8 @@ for ii in range(no_types):
     if (len(w)) > 0:
         print(ii, w['SpT-opt'][0], len(w))
 
-path = '/cos_pc19a_npr/data/highest_z_QSOs/'
+#path = '/cos_pc19a_npr/data/highest_z_QSOs/'
+path = '/cos_pc19a_npr/data/highest_z_QSOs/THE_TABLES/v0pnt97/'
 filename  ='THE_TABLE_v0pnt97x_PS1_ULAS_VHS_photom_v2.dat'
 table=path+filename
 VHzQ = ascii.read(table)

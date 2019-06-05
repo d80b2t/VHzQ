@@ -7,23 +7,34 @@
 For NPR
 =====================================================================
 
- -- plots_to_make  (incl. a NIR+MIR joint analysis plot...)
- -- Check for objects that are WISE bright and NIR faint. 
+ -- plots_to_make::
+ 
+    redshift vs. unW[1/2]SNR
+    
+    (incl. a NIR+MIR joint analysis plot...
+    	   maybe a  Y-H vs. K-W2 kinda plot??)
+       	   maybe a  J-K vs. K-W1 kinda plot??)
+       	   maybe a  J-K vs. K-W2 kinda plot??)
+       	   maybe a  J-K vs. W1-W2 kinda plot??)
+ 
+ -- Check for objects that are WISE bright and NIR faint.
+ -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3). 
  -- Concentrate on reporting NIR and W1/W2 figures and tables
  -- Check for NIR and MIR variabilty with the Wu quasar
  -- Check UltraVISTA Luminosity function
  -- Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
+ -- Section 2.3: What type of aperture is used for the WISE magnitudes.
 
 
 
 For NJGC
 =====================================================================
 
-  -- exposure time vs. depth,
-       a.k.a. an Exposure Coverage Map in the e.g. J-band
+  -- UHS, VHS coverage map (white background)
   -- Are any of the VHzQs in the VISTA Magellanic Cloud Survey (near the South Ecliptic Pole)?
-  -- QSO Variables in their own right (not the VSA vs. WSA!) 
-  -- Double check numbers in Tables 4 and 5. 
+  -- "I make it 95 WISE z>=6 QSO in finalQsoCatalogue. I am worried that I only updated the 41 QSOs
+     added later with WISE photometry. I must check this. There are 314 in total with WISE photometry."
+  -- Section 3.1 and 3.1.1 to check/polish.
 
 
 

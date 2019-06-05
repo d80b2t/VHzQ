@@ -30,6 +30,12 @@ all :
 #	rm -f ERQs_PaperI_rv2.ps
 	open ${TEXFILE}.pdf
 
+tect :
+	tectonic ${TEXFILE}.tex
+	open ${TEXFILE}.pdf
+
+
+
 clean:
 	rm -f \
 	${TEXFILE}.dvi \
