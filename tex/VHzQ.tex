@@ -543,7 +543,7 @@ and mid-infrared photometry we report here the various photometric
 properties of the quasars.
 
 First, we will concentrate on detection rate in the infrared, go on to
-report on the color-redshift and color-color properties of our sample
+report on the colour-redshift and colour-colour properties of our sample
 and then report on how the current sample populates the
 luminosity-redshift $Lz$-plane.
 
@@ -578,16 +578,17 @@ by UKIRT. }
 
 There are 14 objects that have no NIR detections.  3 of these
 (PSOJ053.9605-15.7956, PSO J056.7168-16.4769 and DELSJ0411-0907) have
-been observed (by VHS) but are out of our queried time range.  6
-objects have not been observed (or at least the data is not in the
-WSA/VSA archives yet) and 5 objects at declination $\delta \geq +60$
+been observed (by VHS) but are out of our queried time range 
+(for which the data is publicly available). 6 objects have not been 
+observed (or at least the data is not in the
+WSA/VSA archives yet) and 5 objects are at a declination $\delta \geq +60$
 deg are too far north for UKIRT and cannot be observed.
 
 
   \subsubsection{Comparing WFCAM and VISTA}
-  There are 130 overlapping QSOs between WFCAM and VISTA. Using the
-  {\tt VegaToAB} value to put these objects on the same AB system, and
-  for each object compared the two measurements. First, the calculated
+  There are 130 overlapping QSOs between WFCAM and VISTA. We used the
+  {\tt VegaToAB} values to put these objects on the same AB system, and
+  for each object compared the two measurements. First, we calculated the
   weighted average (calibrated flux) in each filter of both and
   calculated the ratio and difference between each measurement and the
   average.  Then for each filter we calculated the weighted average of
@@ -595,8 +596,8 @@ deg are too far north for UKIRT and cannot be observed.
   significant offsets. The results are given in
   Table~\ref{tab:WFCAM_vs_VISTA}.  The only filter with a significant
   offset is the $Y$-band. All of the VISTA averages are negative and all
-  of the WFCAM ones are positive. The $Ks$ versus $K$ band may be
-  lightly dodgy, given the different shapes of the filters.
+  of the WFCAM ones are positive. The $Ks$ versus $K$ band comparison may be
+  affected the different shapes of the filters, with $K$ being significantly wider than $K_s$.
   \begin{table}
     \centering
     \begin{tabular}{l r r}
@@ -645,7 +646,7 @@ deg are too far north for UKIRT and cannot be observed.
     6.78   &    12 ( 85.7\%)   &     9 ( 64.3\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
     7.00   &     4 (100.0\%)   &     4 (100.0\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
     7.50   &     1 (100.0\%)   &     1 (100.0\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
-    \hline \hline
+    \hline \line
   \end{tabular}
   \caption{Detection rates in the mid-infrared bands from WISE as a function of 
     redshift. A signal-to-noise cut of {\tt w$x$snr}$>3.0$ has been used for each band.}
@@ -657,9 +658,9 @@ deg are too far north for UKIRT and cannot be observed.
 \subsection{Detection Rates in the MIR}
 Unlike the NIR coverage, the WISE satellite and mission performed an all-sky survey, so the location of every VH$z$Q in our dataset is covered. However, the depth of the WISE survey depends heavily on sky location, with locations near the Ecliptic Poles having the highest number of exposures.
 
-Before reporting on the detection rates, we investigate this effect. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. In the two shorter bands W1/2 we see the clear and expected trend for brighter objects to have larger SNR, and also for the higher signal to noise for objects with more exposures at a given magnitude. The behaviour for the W3/4 bands is different, with two populations clearly evident in W3 and although a bit more mixed, also in W4. With the suggested split at SNR$>2$, and no obvious R.A./Declination dependence seen, this behaviour is explained by the fact that there are non-detectiopns in W3/4 for objects (with high W1/2 SNR) that are reported in the ALLWISE catalogue.
+Before reporting on the detection rates, we investigate this effect. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. In the two shorter bands W1/2 we see the clear and expected trend for brighter objects to have larger SNR, and also for the higher signal to noise for objects with more exposures at a given magnitude. The behaviour for the W3/4 bands is different, with two populations clearly evident in W3 and although a bit more mixed, also in W4. With the suggested split at SNR$>2$, and no obvious R.A./Declination dependence seen, this behaviour is explained by the fact that there are non-detections in W3/4 for objects (with high W1/2 SNR) that are reported in the ALLWISE catalogue.
 
-For the 278 VH$z$Q with coverage detections, the mean number of exposures for the W1/2 bands is 32.0 and 31.5, respectively, with a minimum number of exposures 17 and 12, and the maximum number or exposures being 114 (for both bands).  For the W3/4 filters, the corresponding mean, minimum and maximum exposure are 17.4 and 17.5, 5.8 and 6.8 and 69 (for both bands). These values are direclty from the {\tt w$x$cov} enteries in the WISE \href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
+For the 278 VH$z$Q with coverage detections, the mean number of exposures for the W1/2 bands is 32.0 and 31.5, respectively, with a minimum number of exposures 17 and 12, and the maximum number or exposures being 114 (for both bands).  For the W3/4 filters, the corresponding mean, minimum and maximum exposure are 17.4 and 17.5, 5.8 and 6.8 and 69 (for both bands). These values are directly from the {\tt w$x$cov} entries in the WISE \href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
 
 
 
