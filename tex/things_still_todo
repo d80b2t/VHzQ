@@ -7,7 +7,10 @@
 For NPR
 =====================================================================
 
- -- plots_to_make
+ -- plots_to_make::
+ 
+    redshift vs. unW[1/2]SNR
+    
     (incl. a NIR+MIR joint analysis plot...
     	   maybe a  Y-H vs. K-W2 kinda plot??)
        	   maybe a  J-K vs. K-W1 kinda plot??)

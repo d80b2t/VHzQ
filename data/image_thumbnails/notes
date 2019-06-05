@@ -1,0 +1,50 @@
+
+
+https://irsa.ipac.caltech.edu/applications/wise/
+
+
+Search Type (Region Intersection):				Image contains target
+Return Image Size (leave blank for full images):		120
+Return only the most centered image containing the target:	Yes	 No
+Image Set:  	     	      	    	       	   		AllWISE (multi-band)	 
+Data Product Level:						Atlas
+Return the following bands:					W1	 W2	 W3	 W4
+
+
+
+
+ SDUV J1134+0828
+================================================
+Pretty/very red in W1/2:  W1-W2 = 1.25
+
+
+
+
+UHS J0439+1634
+================================================
+69.946166	16.5710277
+w3snr = 12.4
+
+
+
+SDSS J0100+2802
+================================================
+15.0542635     28.040532
+w3snr = 5.1     
+
+SDWISE J0306+1853
+================================================
+46.677125	18.8877361
+w3snr =11.5
+
+
+SDSS J1443+3623
+================================================
+220.9611144	36.3875378
+w3snr =11.3
+
+
+SDSS J1623+4705
+================================================
+245.8136666	47.0999722
+w3snr =11.3
