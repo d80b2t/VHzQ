@@ -1,14 +1,17 @@
 '''
 WISE detections and colors of Very High redshift quasars
 '''
-import numpy as np
 
 from astropy.io import fits
 from astropy.io import ascii
 from astropy.table import Table
 
+#import matplotlib
 import matplotlib as mpl
+
 import matplotlib.pyplot as plt
+import numpy as np
+import math
 
 from matplotlib import colors as mcolors
 from matplotlib import gridspec
@@ -16,7 +19,6 @@ from matplotlib import gridspec
 from mpl_toolkits.axes_grid1.axes_divider  import make_axes_locatable
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes, zoomed_inset_axes
 from mpl_toolkits.axes_grid1.colorbar      import colorbar
-
 
 ## READ-IN THE DATA FILE(S)
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/WISE/'
@@ -37,16 +39,9 @@ w3cov = all_VHzQs['w3cov']
 w4cov = all_VHzQs['w4cov']
 
 
-print()
-print('  w1mpro min, max; {:7.3f} {:7.3f} '.format(w1mpro.min(), w1mpro.max()),  '    w1snr min, max;  {:7.3f} {:7.3f} '.format(w1snr.min(), w1snr.max()))
-print('  w2mpro min, max; {:7.3f} {:7.3f} '.format(w2mpro.min(), w2mpro.max()),  '    w2snr min, max;  {:7.3f} {:7.3f} '.format(w2snr.min(), w2snr.max()))
-print('  w3mpro min, max; {:7.3f} {:7.3f} '.format(w3mpro.min(), w3mpro.max()),  '    w3snr min, max;  {:7.3f} {:7.3f} '.format(w3snr.min(), w3snr.max()))
-print('  w4mpro min, max; {:7.3f} {:7.3f} '.format(w4mpro.min(), w4mpro.max()),  '    w4snr min, max;  {:7.3f} {:7.3f} '.format(w4snr.min(), w4snr.max()))
-print()
-
 
 ##
-##  Making the plot
+##  Making thesplot
 ##
 ##  May fave new line ;-=)
 #plt.style.use('dark_background')
@@ -72,22 +67,24 @@ hspace = 0.24   # the amount of height reserved for white space between subplots
 
 plt.subplots_adjust(left=left, bottom=bottom, right=right, top=top, wspace=wspace, hspace=hspace)
 
-ls       = 'solid'
-lw       = 1.0
-ms       = 50.
-ms_large = ms*3.
-fontsize = 14
-alpha    = 1.00
 ## define the colormap
 cmap = plt.cm.inferno_r
 
+ls = 'solid'
+lw = 1.0
+ms = 50.
+ms_large = ms*3.
+fontsize=14
+alpha=1.00
 
 ##
 ##  w1mpro  vs.  w1snr,   top left
 ## 
-xmin = 13.00; xmax =  19.00; ymin =  -2.00; ymax =  45.00
+xmin = 13.00; xmax =  19.00; ymin =  0.00; ymax =  45.00
 ax1.scatter(w1mpro, w1snr, s=ms*1.8,  alpha=1.0, color='k')
-im1 = ax1.scatter(w1mpro, w1snr, s=ms,  cmap= cmap, alpha=alpha, c=w1cov, vmin=12, vmax=110) 
+im1 = ax1.scatter(w1mpro, w1snr, s=ms,  cmap= cmap, alpha=alpha, label='424 VHzQs', c=w1cov, vmin=12, vmax=110) #, norm=mpl.colors.LogNorm())
+#im1 = ax1.scatter(w1mpro, w1snr, s=ms,  cmap= cmap, alpha=0.85, label='424 VHzQs', c=w1cov, vmin=20, vmax=115) #, norm=mpl.colors.LogNorm())
+#ax1.legend(loc='upper left', fontsize=fontsize/1.3, frameon='True')
 ax1.set_xlim((xmin, xmax))
 ax1.set_ylim((ymin, ymax))
 ax1.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True')
@@ -95,17 +92,18 @@ ax1.tick_params('y', direction='in', which='both', bottom='True', top='True', le
 ax1.set_xlabel('W1 Mag', fontsize=fontsize)
 ax1.set_ylabel('W1 SNR', fontsize=fontsize)
 
+#im1 = ax1.imshow([[1, 2], [3, 4]])
 ax1_divider = make_axes_locatable(ax1)
 cax1 = ax1_divider.append_axes("right", size="8%", pad="0%")
 cb1 = colorbar(im1, cax=cax1)
 
 ##
-##  w2mpro  vs.  w2snr,   top right
-##
-xmin = 13.00; xmax =  19.00; ymin = -2.00; ymax =  45.00    ## `W1' limits
-#xmin = 13.00;  xmax =  19.00; ymin = -5.00; ymax = 40.00   ## `W2' limits
+##  w1mpro  vs.  w1snr,   top left
+## 
+xmin = 13.00;  xmax =  19.00; ymin = -5.00; ymax = 40.00
 ax2.scatter(w2mpro, w2snr, s=ms*2.0,  alpha=1.0, color='k')
 im2 = ax2.scatter(w2mpro, w2snr, s=ms,  cmap=cmap, alpha=alpha, label='237 VHzQs', c=w2cov, vmin=12, vmax=110)
+#ax1.legend(loc='upper left', fontsize=fontsize/1.3, frameon='True')
 ax2.set_xlim((xmin, xmax))
 ax2.set_ylim((ymin, ymax))
 ax2.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True')
@@ -119,11 +117,10 @@ cb2 = colorbar(im2, cax=cax2)
 cb2.ax.set_ylabel('number of exposures', rotation='270', fontsize=fontsize, labelpad=10)
 cb2.ax.tick_params(labelsize=fontsize) 
 
-
 ##
 ##  w1mpro  vs.  w1snr,   top left
 ## 
-xmin =   9.85; xmax =  13.80; ymin =  -3.00; ymax =  13.20
+xmin =   10.25; xmax =  14.00; ymin =  -4.00; ymax =  12.00
 ax3.scatter(w3mpro, w3snr, s=ms*2.2,  alpha=1.0, color='k')
 im3 = ax3.scatter(w3mpro, w3snr, s=ms,  cmap= cmap,alpha=alpha, label='237 VHzQs', c=w3cov, vmin=6, vmax=60)
 ax3.set_xlim((xmin, xmax))
@@ -140,7 +137,7 @@ cb3 = colorbar(im3, cax=cax3)
 ##
 ##  w4mpro  vs.  w4snr,   top left
 ## 
-xmin =   7.00; xmax =  10.00; ymin =   -4.00; ymax =  9.3
+xmin =   7.50; xmax =  10.00; ymin =   -4.00; ymax =  7.30
 ax4.scatter(w4mpro, w4snr, s=ms*2.4,  alpha=1.0, color='k')
 im4 = ax4.scatter(w4mpro, w4snr, s=ms,   cmap= cmap, alpha=alpha, label='2?? VHzQs',  c=w4cov, vmin=6, vmax=60)
 ax4.set_xlim((xmin, xmax))
