@@ -454,36 +454,15 @@ Browser}.
   
 
 \subsection{MIR data}
-The MIR data for this study comes from the Wide-field Infrared Survey
-Explorer (WISE) mission, and we utlize data from the WISE cryogenic
-and the Near-Earth Object WISE \citep[NEOWISE; ][]{Mainzer2011}
-post-cryogenic and NEOWISE Reactivation Mission
-\citep[NEOWISE-R][]{Mainzer2014} survey phases.
+The MIR data for this study comes from the Wide-field Infrared Survey Explorer (WISE) mission, and we utlize data from the WISE cryogenic and the Near-Earth Object WISE \citep[NEOWISE; ][]{Mainzer2011} post-cryogenic and NEOWISE Reactivation Mission \citep[NEOWISE-R][]{Mainzer2014} survey phases.
 
-We use data from the the beginning of the WISE mission \citep[2010
-January; ][]{Wright2010} through the fifth-year of NEOWISE-R
-operations \citep[2018 December;]{Mainzer2011}.  More specifically, we
-utilise the recently released ``unWISE Catalog''
-\citet{Schlafly2019}. The unWISE
-effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the
-unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R
-stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
+We use data from the the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citet{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
 
-Previous works \citep[e.g., ][]{Krawczyk2013, Ross2015, Bilick2016}
-found that cross-matches performed with a radius of 2-3'' between the user
-catalogue and WISE was a good compromise between completeness and
-contamination \citep[see e.g. Figure 4 of ][]{Krawczyk2013}. 
-We thus use a cross-match radius of 2.75''. 
+For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the ALLWISE Data Release.  
 
-For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and 
-$\lambda_{\rm eff}$4.62$\mu$m W2 we use the deeper, unblurred unWISE coadd data. 
-For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m 
-we use the ALLWISE Data Release 
+Previous works \citep[e.g., ][]{Krawczyk2013, Ross2015, Bilick2016} found that cross-matches performed with a radius of 2-3'' between the user catalogue and WISE was a good compromise between completeness and contamination \citep[see e.g. Figure 4 of ][]{Krawczyk2013}. We thus use a cross-match radius of 2.75''. When querying the ALLWISE catalogs, ``Cone Search Radius'' in the ALLWISE table search was set to 2.75'' for the Spatial Constraints. The ``One to One Match'' was ``not'' checked; although possible, we consider it highly unlikely there would be more than one MIR source contributing to the flux of a single UV/optically bright rest-frame quasar. Investigating this in detail is very interesting but left to a future study. 
 
-When querying the ALLWISE catalogs, ``Cone Search Radius'' in the ALLWISE table search was set to 2.75'' for the Spatial Constraints. The ``One to One Match'' was ``not'' checked; although possible, we consider it highly unlikely there would be more than one MIR source contributing to the flux of a single UV/optically bright rest-frame quasar. Investigating this in detail is very interesting but left to a future study.
-
-Knowing we have secure detections in the near-infrared bands, and wanting to boost the number of WISE W3/W4 detections, we allow ourselves to be less conservative in querying the ALLWISE catalog and also query the AllWISE Reject Table. 
-However, with the exception of one object (SHELLQs   J1208-0200), the ALLWISE Reject Table does not contain any further W3/W4 detection informationn. 
+Knowing we have secure detections in the near-infrared bands, and wanting to boost the number of WISE W3/W4 detections, we allow ourselves to be less conservative in querying the ALLWISE catalog and also query the AllWISE Reject Table. However, with the exception of one object (SHELLQs   J1208-0200), the ALLWISE Reject Table does not contain any further W3/W4 detection informationn. 
 
 All fluxes in the unWISE catalog are reported there are in ``Vega
 nanoMaggies'', with the Vega magnitude of a source is given by
@@ -663,15 +642,15 @@ Before reporting on the detection rates, we investigate this effect. Figure~\ref
 For the 278 VH$z$Q with coverage detections, the mean number of exposures for the W1/2 bands is 32.0 and 31.5, respectively, with a minimum number of exposures 17 and 12, and the maximum number or exposures being 114 (for both bands).  For the W3/4 filters, the corresponding mean, minimum and maximum exposure are 17.4 and 17.5, 5.8 and 6.8 and 69 (for both bands). These values are directly from the {\tt w$x$cov} entries in the WISE \href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
 
 
-
+%% detections_vs_WISEcoverage_plots.py
 \begin{figure}
   %% trim=l b r t
   \includegraphics[width=8.6cm, clip,trim=6mm 6mm 0mm 6mm]
-  {/cos_pc19a_npr/programs/quasars/highest_z/detections/WISEmag_vs_coverage_2x2_v1.pdf}
+  {/cos_pc19a_npr/programs/quasars/highest_z/detections/WISEmag_vs_coverage_20190605.pdf}
   \centering
   \vspace{-14pt}
-  \caption[]{WISE W1/2/3/4 magnitude against signal-to-noise, 
-    colour coded by w$x$cov the mean coverage depth, in each corresponding band.
+  \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} magnitude against signal-to-noise, 
+    colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band.
   }
   \label{fig:WISEmag_vs_coverage}
 \end{figure}
@@ -724,7 +703,6 @@ mathes to ULAS J1120+0641 \citep{Mortlock2011}. Neither catalogue
 matches J1342+0928 \citep{Banados2018}. 
 
 Very High-$z$ Quasars Detected in WISE W3 and W4.
-
 
 
 \begin{figure*}
