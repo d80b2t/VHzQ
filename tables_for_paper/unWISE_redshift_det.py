@@ -29,6 +29,7 @@ VHzQs    = ascii.read(path+filename)
 len(VHzQs)
 
 ##  S N R   C U T 
+snr_cut = 3.0
 
 ##     BY    SNR
 unW1            = VHzQs[np.where( VHzQs['unW1snr'] > snr_cut)]
@@ -43,14 +44,14 @@ AllW4_not_AllW3 = VHzQs[np.where((VHzQs['w4snr']   > snr_cut)  & (VHzQs['w3snr']
 
 ## Setting up the variables just for me to use a bit easier
 ##     BY    MAGNITUDES
-unW1            = VHzQs[np.where( VHzQs['unW1mag']>-1)]
-unW1_not_unW2   = VHzQs[np.where((VHzQs['unW1mag']>-1) & (VHzQs['unW2mag']<-1))]
-unW2            = VHzQs[np.where( VHzQs['unW2mag']>-1)]
-unW2_not_unW1   = VHzQs[np.where((VHzQs['unW2mag']>-1) & (VHzQs['unW1mag']<-1))]
-AllW3           = VHzQs[np.where( VHzQs['w3mpro']>-1)]
-AllW3_not_AllW4 = VHzQs[np.where((VHzQs['w3mpro']>-1)  & (VHzQs['w4mpro']<-1))]
-AllW4           = VHzQs[np.where( VHzQs['w4mpro']>-1)]
-AllW4_not_AllW3 = VHzQs[np.where((VHzQs['w4mpro']>-1)  & (VHzQs['w3mpro']<-1))]
+#unW1            = VHzQs[np.where( VHzQs['unW1mag']>-1)]
+#unW1_not_unW2   = VHzQs[np.where((VHzQs['unW1mag']>-1) & (VHzQs['unW2mag']<-1))]
+#unW2            = VHzQs[np.where( VHzQs['unW2mag']>-1)]
+#unW2_not_unW1   = VHzQs[np.where((VHzQs['unW2mag']>-1) & (VHzQs['unW1mag']<-1))]
+#AllW3           = VHzQs[np.where( VHzQs['w3mpro']>-1)]
+#AllW3_not_AllW4 = VHzQs[np.where((VHzQs['w3mpro']>-1)  & (VHzQs['w4mpro']<-1))]
+#AllW4           = VHzQs[np.where( VHzQs['w4mpro']>-1)]
+#AllW4_not_AllW3 = VHzQs[np.where((VHzQs['w4mpro']>-1)  & (VHzQs['w3mpro']<-1))]
 
 
 
@@ -59,24 +60,22 @@ AllW4_not_AllW3 = VHzQs[np.where((VHzQs['w4mpro']>-1)  & (VHzQs['w3mpro']<-1))]
 print('\hline \hline')
 print('Detection band & No. of objects')
 print('\hline')
-print('unWISE W1                   & ', len(unW1),             ' \\\ ')
-print('unWISE W1  and !unWISE W2   & ', len(unW1_not_unW2),    '  \\\ ')
+print('unWISE W1                   & ', len(unW1),           '( {:5.2f})'.format(len(unW1)/len(VHzQs)*100.), ' \\\ ')
+print('unWISE W1  and !unWISE W2   & ', len(unW1_not_unW2),  '( {:5.2f})'.format(len(unW1_not_unW2)/len(VHzQs)*100.), '  \\\ ')
+print()   
+print('unWISE W2                   & ', len(unW2),           '( {:5.2f})'.format(len(unW2)/len(VHzQs)*100.), ' \\\ ')
+print('unWISE W2  and !unWISE W1   & ', len(unW2_not_unW1),  '( {:5.2f})'.format(len(unW2_not_unW1)/len(VHzQs)*100.), '   \\\ ')
 print()
-print('unWISE W2                   & ', len(unW2),             ' \\\ ')
-print('unWISE W2  and !unWISE W1   & ', len(unW2_not_unW1),    '   \\\ ')
+print('ALLWISE W3                  & ', len(AllW3),          '( {:5.2f})'.format(len(AllW3)/len(VHzQs)*100.), ' \\\ ')
+print('ALLWISE W3 and !ALLWISE W4  & ', len(AllW3_not_AllW4),'( {:5.2f})'.format(len(AllW3_not_AllW4)/len(VHzQs)*100.), '  \\\ ')
 print()
-print('ALLWISE W3                  & ', len(AllW3),            ' \\\ ')
-print('ALLWISE W3 and !ALLWISE W4  & ', len(AllW3_not_AllW4),  '  \\\ ')
-print()
-print('ALLWISE W4                 & ', len(AllW4),             ' \\\ ')
-print('ALLWISE W4 and !AllWISE W3 & ', len(AllW4_not_AllW3),   '  \\\ ')
+print('ALLWISE W4                 & ', len(AllW4),           '( {:5.2f})'.format(len(AllW4)/len(VHzQs)*100.), ' \\\ ')
+print('ALLWISE W4 and !AllWISE W3 & ', len(AllW4_not_AllW3), '( {:5.2f})'.format(len(AllW4_not_AllW3)/len(VHzQs)*100.), '  \\\ ')
 print('\hline \hline')
 
 
 ## By redshift
 redshift_array = np.array([5.00, 5.70, 6.00, 6.19, 6.50, 6.78, 7.00, 7.50])
-
-snr_cut = 3.0
 
 ## How many of the VHzQs are above a given redshift 
 N_zgt5pnt00 = np.count_nonzero(VHzQs['redshift'] >= redshift_array[0]) 
