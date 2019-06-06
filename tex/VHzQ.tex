@@ -206,7 +206,7 @@ spectroscopically confirmed and published as of 2018 December 31 (MJD
 58483). We then obtain optical, near-infrared and mid-infrared
 photometry for the spectral dataset. The near-infrared data comes from
 two sources: first, the WFCAM \citep[][]{Casali2007} on the UKIRT,
-primarly, but not exclusively, as part of the UKIRT Infrared Deep Sky
+primarily, but not exclusively, as part of the UKIRT Infrared Deep Sky
 Survey \citep[UKIDSS; ][]{Lawrence2007}.  And second, data from the
 VIRCAM on the VISTA \citep[][]{Emerson2006, Dalton2006}. The
 mid-infrared, $\lambda=3-30\mu$m wavelength data is from the the
@@ -458,11 +458,11 @@ The MIR data for this study comes from the Wide-field Infrared Survey Explorer (
 
 We use data from the the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citet{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
 
-For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the ALLWISE Data Release.  
+For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the ALLWISE Data Release.  Most objects in the AllWISE Source Catalog are unresolved, so the best photometric measurements to use are the deep detection profile-fit photometry measures,  {\tt w$x$mpro},  {\tt w$x$sigmpro} and  {\tt w$x$snr}. The unWISE Catalog absolute photometric calibration derives from the photometric calibration of the unWISE coadds \citep{Meisner2017a}, which is tied to the original WISE zero points through aperture fluxes in a 27.5'' radius. 
 
 Previous works \citep[e.g., ][]{Krawczyk2013, Ross2015, Bilicki2016} found that cross-matches performed with a radius of 2-3'' between the user catalogue and WISE was a good compromise between completeness and contamination \citep[see e.g. Figure 4 of ][]{Krawczyk2013}. We thus use a cross-match radius of 2.75''. When querying the ALLWISE catalogues, ``Cone Search Radius'' in the ALLWISE table search was set to 2.75'' for the Spatial Constraints. The ``One to One Match'' was ``not'' checked; although possible, we consider it highly unlikely there would be more than one MIR source contributing to the flux of a single UV/optically bright rest-frame quasar. Investigating this in detail is very interesting but left to a future study. 
 
-Knowing we have secure detections in the near-infrared bands, and wanting to boost the number of WISE W3/W4 detections, we allow ourselves to be less conservative in querying the ALLWISE catalogues and also query the AllWISE Reject Table. However, with the exception of one object (SHELLQs  J1208-0200), the ALLWISE Reject Table does not contain any further W3/W4 detection informationn. 
+Knowing we have secure detections in the near-infrared bands, and wanting to boost the number of WISE W3/W4 detections, we allow ourselves to be less conservative in querying the ALLWISE catalogues and also query the AllWISE Reject Table. However, with the exception of one object (SHELLQs  J1208-0200), the ALLWISE Reject Table does not contain any further W3/W4 detection information. 
 
 All fluxes in the unWISE catalog are reported there are in ``Vega
 nanoMaggies'', with the Vega magnitude of a source is given by
@@ -635,7 +635,7 @@ deg are too far north for UKIRT and cannot be observed.
 \subsection{Detection Rates in the MIR}
 Unlike the NIR coverage, the WISE satellite and mission performed an all-sky survey, so the location of every VH$z$Q in our dataset is covered. However, the depth of the WISE survey depends heavily on sky location, with locations near the Ecliptic Poles having the highest number of exposures.
 
-Before reporting on the detection rates, we investigate this effect using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. In the two shorter bands W1/2 we see the clear and expected trend for brighter objects to have larger SNR, and also for the higher signal to noise for objects with more exposures at a given magnitude. The behaviour for the W3/4 bands is different, with two populations clearly evident in W3 and although a bit more mixed, also in W4. With the suggested split at SNR$>2$, and no obvious R.A./Declination dependence seen, this behaviour is explained by the fact that there are non-detectiopns in W3/4 for objects (with high W1/2 SNR) that are reported in the ALLWISE catalogue.
+Before reporting on the detection rates, we investigate this effect using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. In the two shorter bands W1/2 we see the clear and expected trend for brighter objects to have larger SNR, and also for the higher signal to noise for objects with more exposures at a given magnitude. The behaviour for the W3/4 bands is different, with two populations clearly evident in W3 and although a bit more mixed, also in W4. With the suggested split at SNR$>2$, and no obvious R.A./Declination dependence seen, this behaviour is explained by the fact that there are non-detections in W3/4 for objects (with high W1/2 SNR) that are reported in the ALLWISE catalogue.
 %%AllWISE Source Catalog	
 
 For the 362 VH$z$Q with coverage detections, the mean number of exposures for the W1/2 bands is 32.0 and 31.5, respectively, with a minimum number of exposures 17 and 12, and the maximum number or exposures being 114 (for both bands).  For the W3/4 filters, the corresponding mean, minimum and maximum exposure are 17.4 and 17.5, 5.8 and 6.8 and 69 (for both bands). These values are directly from the {\tt w$x$cov} entries in the WISE \href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
@@ -697,7 +697,7 @@ out catalogue of 463 VH$z$Qs with these catalogues, produces
 42 matches with	the R90 sample and 98 matches with the C75 sample. 
 Both catalogues unsurprisingly match to the ultraluminous quasar 
 SDSS J0100+2802 \citep{Wu2015} while the C75, but not the R90 catalogue 
-mathes to ULAS J1120+0641 \citep{Mortlock2011}. Neither catalogue 
+matches to ULAS J1120+0641 \citep{Mortlock2011}. Neither catalogue 
 matches J1342+0928 \citep{Banados2018}. 
 
 %\subsubsection{Individual VH$z$Qs with Interesting MIR properties}
@@ -761,7 +761,7 @@ associated colour changes. Here we show J0100+2802 \citep{Wu2015}, J0224-4711 an
 
 At least 8 original observations across at least 30 days in either WSA or VSA per band, calibrated flux greater than zero over the whole time, and the error on the average flux is 8 times lower than this. 
 
-Thenn a requirement of SNR$>3$ per `average' epoch, where `average epoch' is then dependenet o nthe averaging timescales (whcih as we see can vary). 
+Then a requirement of SNR$>3$ per `average' epoch, where `average epoch' is then dependent on the averaging timescales (which as we see can vary). 
 
 Then calculate the clipped median and standard deviation, 
 \begin{equation}
@@ -775,7 +775,7 @@ With this definition, although some of the objects have very well sampled,
 Longer time-series, better SNR and moreover, $(1+z)$. 
 Just selecting things that would
 %%
-Doing this independtly in each band...
+Doing this independently in each band...
 %Variation
 
 %% 
@@ -823,9 +823,9 @@ CFHQSJ0216-0455
 \section{Surface Density of VH$z$Qs}
 One interesting question to ask is given the compilation of VH$z$Qs assembled here, 
 are there bright $z>5.00$ quasars that are in {\it current} photometric datasets, and if 
-so, how many are still to be discovered and confirmed spectroscopcially?
+so, how many are still to be discovered and confirmed spectroscopically?
 
-VHS, Area 1: 150$<$RA/deg$<200$ annd $-40<$Decl./deg$<-20$:
+VHS, Area 1: 150$<$RA/deg$<200$ and $-40<$Decl./deg$<-20$:
 $Y$=21.1 mag, $J$=20.6 mag, $H$=20.3 mag, $K_{s}$=19.8 mag (all AB). 
 Area 2: 10$<$RA/deg$<$60, $-60<$Dec$<-40$:
 $J$=21.2 mag, $H$=20.6 mag, $K_{s}$=20.2 mag. 
@@ -892,7 +892,7 @@ VHS                   YJHK            99.99, 21.2,  21.2,  20.6,  20.0          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion and Conclusions}
 \label{sec:conclusions}
-In this study, we have, for the first time, ompiled the list of all
+In this study, we have, for the first time, compiled the list of all
 $z>5$ spectroscopically confirmed quasars. We have assemble the NIR
 ($y/Y, J, H, K/K_{s}$) and MIR (WISE W1/2/3/4) photometry for these
 objects, given their detection rates and SEDs. We find that: 
@@ -927,7 +927,6 @@ eget tempor elementum, lectus urna feugiat nisi, eget sagittis.
 N.P.R. initiated the project, compiled the list of $z>5.00$ quasars, wrote most of the analysis code, developed the the plotting scripts, and developed and wrote the initial and subsequent drafts of the manuscript.
 %%
 N.J.G.C. supplied the critical near-infrared expertise and database for which the bulk of the project relies. N.J.G.C. also contributed directly to the writing of the manuscript.
-%%
 
 
 
