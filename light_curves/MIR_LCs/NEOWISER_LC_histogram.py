@@ -9,10 +9,8 @@ from matplotlib import pyplot as plt
 from matplotlib import colors
 from matplotlib.ticker import ScalarFormatter
 
-# Fixing random state for reproducibility
-np.random.seed(19680801)
-
-path='/cos_pc19a_npr/programs/quasars/highest_z/MIR_LCs/'
+## Reading the data file in
+path='/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/'
 file = 'NoOfEpochs_perQuasar.dat'
 
 data_in = ascii.read(path+file) 
@@ -20,11 +18,7 @@ print(type(data_in))
 data = np.array(data_in).astype(np.float)
 
 
-N_points = 100000
-# Generate a normal distribution, center at x=0 and y=5
-x = np.random.randn(N_points)
-y = .4 * x + np.random.randn(100000) + 5
-
+##  Making the figure
 fig, ax = plt.subplots(figsize=(8.5, 8.5)) # inches
 
 ## placement of figure...
@@ -37,21 +31,22 @@ hspace = 0.00   # the amount of height reserved for white space between subplots
 plt.subplots_adjust(left=left, bottom=bottom, right=right, top=top, wspace=wspace, hspace=hspace)
 
 
-## define the colormap
-cmap = plt.cm.inferno_r
-
-ls = 'solid'
-lw = 1.0
-ms = 60.
+## General plotting style defaults
+ls       = 'solid'
+lw       = 1.0
+ms       = 60.
 ms_large = ms*3.
-fontsize=24
-alpha=1.00
-nbins = 20
+fontsize = 24
+alpha    = 1.00
+## define the colormap
+cmap     = plt.cm.inferno_r
 
+
+nbins = 20
 #ax.hist(x, bins=nbins)
 ax.hist(data, bins=nbins)
 
-ax.set_xlim((0.9, 360))
+ax.set_xlim((-2., 420))
 ax.set_ylim((0.8, 300))
 
 #ax.set_xscale("log", nonposx='clip')
@@ -67,7 +62,7 @@ ax
 
 #plt.show()
 plt.savefig('NEOWISER_LC_histogram_temp.png', format='png')
-plt.savefig('NEOWISER_LC_histogram_temp.pdf', format='pdf')
+#plt.savefig('NEOWISER_LC_histogram_temp.pdf', format='pdf')
 plt.close(fig)
 
 
