@@ -1,23 +1,30 @@
 
 
 
+Data Files:  NEOWISER-R_SingleExposure_L1bs.tbl
+==================================================
 
+wc *NEOWISER-R_SingleExposure_L1bs*
+   12148  339783 4222980 NEOWISER-R_SingleExposure_L1bs_20180829.tbl
+   16410  425466 5414264 NEOWISER-R_SingleExposure_L1bs_20190429.tbl
+and also found in:
+     ~/highest_z/data/light_curves/NEOWISE-R/
 
+NEOWISER-R_SingleExposure_L1bs_20180829.tbl has data from the NEOWISE 2018 Data Release. 
+NEOWISER-R_SingleExposure_L1bs_20190429.tbl has data from the NEOWISE 2019 Data Release. 
+     
+     
 
-
-NEOWISER_LCs_singleObject.py
-NEOWISER_LC_histogram.py
-NEOWISER_LCs.py
-
-make_IPAC_table.py
-
-
+List of Python scirpts:
+==================================================
+ NEOWISER_LCs_singleObject.py
+ NEOWISER_LC_histogram.py
+ NEOWISER_LCs.py
+ make_IPAC_table.py
 
 
 NEOWISER_LCs_2cols.py
 ==================================================
-
-
 
 
 NEOWISER_LCs_2rows.py
@@ -28,14 +35,11 @@ MJD x-axis is common to both.
 
 
 
-
 NoOfEpochs_perQuasar.dat
 ==================================================
-
 The screen/Terminal output from
     NEOWISER_LCs_singleObject.py
-(I think!!) gives the
-   number, ra, dec and no. of epochs
-for each NEOWISE-R detection.
+gives the number, ra, dec and no. of epochs for each NEOWISE-R
+detection.
 
 

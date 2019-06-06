@@ -14,7 +14,8 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 import random
 
-path='/cos_pc19a_npr/data/highest_z_QSOs/'
+#path='/cos_pc19a_npr/data/highest_z_QSOs/'
+path = '/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/'
 file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
 
 data = ascii.read(path+file) 
@@ -48,10 +49,11 @@ for x in range(upto_this):
 #for x in range(10):
     x=x+1
     data_one = data[np.where(data['cntr_01'] == x)]
-    
-    if len(data_one) > 0:  
 
-        print(x, data_one['ra'][0], data_one['dec'][0], len(data_one))
+    if len(data_one) > 0:  
+    
+        #print(x, data_one['ra'][0], data_one['dec'][0], len(data_one))
+        print(len(data_one))
         totes = totes + len(data_one)
         ra = data_one['ra'][0]
         dec = data_one['dec'][0]
@@ -94,9 +96,17 @@ for x in range(upto_this):
         ax3.set_ylabel('W1 - W2', fontsize=fontsize)
         ax3.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True',  labelsize=fontsize)
         ax3.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='False', labelsize=fontsize)
+
+    ## Putting in the `else' will give you enteries for 0 in NoOfEpochs_perQuasar.dat
+    ## and will also have the NEOWISER_LCs_VHzQs_temp.pdf be 463 pages long. However,
+    ## you get duplicate plots in NEOWISER_LCs_VHzQs_temp.pdf for the `else' objects. 
+    else:
+        print('0')
         
-        ## Done with the page
-        pdf_pages.savefig(fig)
+    ## Done with the page
+    pdf_pages.savefig(fig)
+
+                               
     
 ## Write the PDF document to the disk
 pdf_pages.close()   
