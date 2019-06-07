@@ -30,6 +30,11 @@ len(VHzQs)
 
 ##  S N R   C U T 
 snr_cut = 3.0
+print()
+print()
+print(' S N R   C U T  is  >  ',  snr_cut)
+print()
+print()
 
 ##     BY    SNR
 unW1            = VHzQs[np.where( VHzQs['unW1snr'] > snr_cut)]
@@ -72,6 +77,15 @@ print()
 print('ALLWISE W4                 & ', len(AllW4),           '( {:5.2f})'.format(len(AllW4)/len(VHzQs)*100.), ' \\\ ')
 print('ALLWISE W4 and !AllWISE W3 & ', len(AllW4_not_AllW3), '( {:5.2f})'.format(len(AllW4_not_AllW3)/len(VHzQs)*100.), '  \\\ ')
 print('\hline \hline')
+
+
+## WISE W4 numbers
+AllW4_7thmag           = VHzQs[np.where((VHzQs['w4mpro']  < 8.00)     & (VHzQs['w4mpro']  > 0.00    ))]
+AllW4_8thmag           = VHzQs[np.where((VHzQs['w4mpro']  < 9.00)     & (VHzQs['w4mpro']  > 8.00    ))]
+print('WISE W4 numbers...')
+print('ALLWISE W4 with  w4snr > snr_cut    & ', len(AllW4),           '( {:5.2f})'.format(len(AllW4)/len(VHzQs)*100.), ' \\\ ')
+print('ALLWISE W4 with  w4mpro < 8.00 mag  & ', len(AllW4_7thmag),    '( {:5.2f})'.format(len(AllW4_7thmag)/len(VHzQs)*100.), ' \\\ ')
+print()
 
 
 ## By redshift
