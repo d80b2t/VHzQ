@@ -40,9 +40,9 @@ plt.rcParams.update({'font.size': 14})
 fig, ax = plt.subplots(figsize=(10, 10), num=None, dpi=80, facecolor='w', edgecolor='k')
 
 ## Blain et al. (2013), Figure 1:: 
-# xmin =  1.7; xmax =  4.7; ymin = -0.2; ymax =  2.0 
+xmin =  1.7; xmax =  4.7; ymin = -0.2; ymax =  2.0 
 ## Wright et al. (2010), Figure 
-xmin=-1.0; xmax=7.0; ymin=-0.5; ymax=4.0
+xmin = -1.0; xmax=7.0;    ymin=-0.5; ymax=4.0
 
 #cmap = plt.cm.RdBu_r
 #cmap = plt.cm.inferno
@@ -65,11 +65,12 @@ hb = ax.hexbin( (dr14q['W2MAG']- dr14q['W3MAG']), (dr14q['W1MAG'] - dr14q['W2MAG
 ## Plotting the    V H z Q    points
 ##
 cmap = plt.cm.inferno
-hb_VHzQ = ax.scatter((VHzQ['w2mag'] -  VHzQ['w3mag']),  (VHzQ['w1mag'] - VHzQ['w2mag']), c=VHzQ['redshift'], s=pointsize )
+hb_VHzQ = ax.scatter((VHzQ['unW2mag'] -  VHzQ['w3mpro']),  (VHzQ['unW1mag'] - VHzQ['unW2mag']), c=VHzQ['redshift'],
+                     s=pointsize, cmap=cmap)
 ax.scatter(0,0, color='w', s=pointsize_large)
 
 cb = fig.colorbar(hb_VHzQ, ax=ax)
-cb.set_label('redshift')
+cb.set_label('redshift', angle=180)
 
 
 ## The vertical dashed line at W 2 − W3 = 5.3 is one of the selection
