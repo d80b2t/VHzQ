@@ -58,14 +58,19 @@ pointsize_large = pointsize*1.2
 ##
 hb = ax.hexbin( (dr14q['W2MAG']- dr14q['W3MAG']), (dr14q['W1MAG'] - dr14q['W2MAG']), C=dr14q['Z'],
             gridsize=180, mincnt=25, marginals=False, cmap=cmap, vmin=0.00, vmax=3.00)
-cb = fig.colorbar(hb, ax=ax)
-cb.set_label('redshift')
+#$cb = fig.colorbar(hb, ax=ax)
+#cb.set_label('redshift')
 
 ##
 ## Plotting the    V H z Q    points
 ##
-#ax.scatter((VHzQ['w2mag'] -  VHzQ['w3mag']),  (VHzQ['w1mag'] - VHzQ['w2mag']), color='k', s=pointsize )
-#ax.scatter(0,0, color='w', s=pointsize_large)
+cmap = plt.cm.inferno
+hb_VHzQ = ax.scatter((VHzQ['w2mag'] -  VHzQ['w3mag']),  (VHzQ['w1mag'] - VHzQ['w2mag']), c=VHzQ['redshift'], s=pointsize )
+ax.scatter(0,0, color='w', s=pointsize_large)
+
+cb = fig.colorbar(hb_VHzQ, ax=ax)
+cb.set_label('redshift')
+
 
 ## The vertical dashed line at W 2 − W3 = 5.3 is one of the selection
 ## criteria for W1W2-dropouts; some are bluer than this because they
