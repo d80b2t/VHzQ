@@ -1,7 +1,5 @@
 '''
 Making the 'famous' W2-W3 vs. W1-W2 WISE color-color plot
-e.g. Figure 12 of Wright et al. (2010) and lots of other
-places too...
 '''
 
 import numpy as np
@@ -27,7 +25,7 @@ dr14q = Table(data)
 ##  V H z Q    data
 ##
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
-filename = 'VHzQs_ZYJHK_WISE.dat'
+filename ='THE_TABLE_v0pnt971.dat'
 table=path+filename
 VHzQ = ascii.read(table)
 
@@ -40,7 +38,7 @@ plt.rcParams.update({'font.size': 14})
 fig, ax = plt.subplots(figsize=(10, 10), num=None, dpi=80, facecolor='w', edgecolor='k')
 
 ## Blain et al. (2013), Figure 1:: 
-# xmin =  1.7; xmax =  4.7; ymin = -0.2; ymax =  2.0 
+#xmin =  1.7; xmax =  4.7; ymin = -0.2; ymax =  2.0 
 ## Wright et al. (2010), Figure 
 xmin=-1.0; xmax=7.0; ymin=-0.5; ymax=4.0
 
@@ -52,7 +50,6 @@ ticklength      = 18
 tickwidth       = 2.0
 pointsize       = 60
 pointsize_large = pointsize*1.2
-
 ##
 ## Plotting the   D R 1 4 Q    hexbins
 ##
@@ -77,11 +74,14 @@ ax.axis([xmin, xmax, ymin, ymax])
 
 ax.tick_params(axis='both', which='major', labelsize=ls, top='on', right='on', direction='in', length=ticklength,   width=tickwidth)
 ax.tick_params(axis='both', which='minor', labelsize=ls, top='on', right='on', direction='in', length=ticklength/2, width=tickwidth)
+#ax.tick_params(axis='x', which='minor', bottom=True)
+#ax.tick_params(axis='y', which='minor', bottom=True)
 
 majorLocator = MultipleLocator(2.0)
 minorLocator = MultipleLocator(0.5)
 ax.xaxis.set_major_locator(majorLocator)
 ax.xaxis.set_minor_locator(minorLocator)
+#ax.xaxis.set_major_formatter(majorFormatter)
 
 majorLocator = MultipleLocator(1.0)
 minorLocator = MultipleLocator(0.1)
