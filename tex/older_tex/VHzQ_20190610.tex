@@ -366,11 +366,11 @@ surveys together (``various'').
 
 \begin{figure}
 %%trim=l b r t
-  \includegraphics[width=8.0cm, clip, trim=0mm 0mm 2mm 0mm]
-  {/cos_pc19a_npr/programs/quasars/highest_z/data/WSA_VSA/CoverageMaps_VHzQ_forpaper.png}
+  \includegraphics[width=8.0cm, clip, trim=0mm 25mm 0mm 40mm]
+  {../data/WSA_VSA/CoverageMaps_VHzQ_forpaper.pdf}
   \centering
   \caption[]
-  {The coverage maps for VHS (DR6; orange), UHS (DR1; olive), VIKING (DR5; blue) and ULAS (DR11; red), the most recent public releases of the 4 main surveys. The VH$z$Qs are given by white diamonds.}
+  {The coverage maps for VHS (DR6; orange), UHS (DR1; olive), VIKING (DR5; blue) and ULAS (DR11; red), the most recent public releases of the 4 main surveys. The VH$z$Qs are given by black dots.}
   \label{fig:coverage}
 \end{figure}
 
@@ -576,7 +576,8 @@ deg are too far north for UKIRT and cannot be observed.
   Table~\ref{tab:WFCAM_vs_VISTA}.  The only filter with a significant
   offset is the $Y$-band. All of the VISTA averages are negative and all
   of the WFCAM ones are positive. The $Ks$ versus $K$ band comparison may be
-  affected the different shapes of the filters, with $K$ being significantly wider than $K_s$.
+  affected the different shapes of the filters, with $K$ being significantly 
+  wider than $K_s$, able to detect light at longer wavelengths.
   \begin{table}
     \centering
     \begin{tabular}{l r r}
@@ -599,12 +600,12 @@ deg are too far north for UKIRT and cannot be observed.
   We have also checked for quasars with large differences in magnitude
   between the WSA and VSA. Objects were selected where the average flux
   was $>0.$ and $>5$ average flux error. In order to account for large
-  errors in either the WFCAM or VISTA photometry, objects with deltaMag$
-  < 2 \times$ deltaMagErr in either WSA or VSA were removed. This
+  errors in either the WFCAM or VISTA photometry, objects with $\delta$mag$
+  < 2 \times$ $\sigma_{\delta\rm mag}$ in either WSA or VSA were removed. This
   selects two quasars with large, $\delta$mag $>0.2$mag differences
   between the WSA and VSA. These are SDSSJ0349+0034 and
   SDSSJ2220-0101. For SDSSJ0349+0034 has a WSA $K$-band magnitude of
-  19.13$\pm$-0.24, while for the VSA $K_s$-band this is 18.36$\pm$0.10
+  19.13$\pm$0.24, while for the VSA $K_s$-band this is 18.36$\pm$0.10
   mag. For SDSSJ2220-0101, in $J$-band WSA = 22.23$\pm$0.15, for the VSA
   = 19.38$\pm$0.04.
           
@@ -628,50 +629,43 @@ deg are too far north for UKIRT and cannot be observed.
   \end{tabular}
   \caption{Detection rates in the mid-infrared bands from WISE as a function of 
     redshift. A signal-to-noise cut of {\tt w$x$snr}$>3.0$ has been used for each band.}
-  \label{tab:WFCAM_vs_VISTA}
+  \label{tab:mir_detection}
 \end{table}
-
 
 \subsection{Detection Rates in the MIR}
 Unlike the NIR coverage, the WISE satellite and mission performed an all-sky survey, so the location of every VH$z$Q in our dataset is covered. However, the depth of the WISE survey depends heavily on sky location, with locations near the Ecliptic Poles having the highest number of exposures.
 
-Before reporting on the detection rates, we investigate this effect using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. In the two shorter bands W1/2 we see the clear and expected trend for brighter objects to have larger SNR, and also for the higher signal to noise for objects with more exposures at a given magnitude. The behaviour for the W3/4 bands is different, with two populations clearly evident in W3 and although a bit more mixed, also in W4. With the suggested split at SNR$>2$, and no obvious R.A./Declination dependence seen, this behaviour is explained by the fact that there are non-detections in W3/4 for objects (with high W1/2 SNR) that are reported in the ALLWISE catalogue.
-%%AllWISE Source Catalog	
-
-%% For the 362 VH$z$Q with coverage detections, the mean number of exposures for the W1/2 bands is 32.0 and 31.5, respectively, with a minimum number of exposures 17 and 12, and the maximum number or exposures being 114 (for both bands).  For the W3/4 filters, the corresponding mean, minimum and maximum exposure are 17.4 and 17.5, 5.8 and 6.8 and 69 (for both bands). These values are directly from the {\tt w$x$cov} entries in the WISE \href {http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w1cov}{ALLWISE catalogue}.
-
-%% detections_vs_WISEcoverage_plots.py
 \begin{figure}
   %% trim=l b r t
   \includegraphics[width=8.6cm, clip,trim=6mm 6mm 0mm 6mm]
   {/cos_pc19a_npr/programs/quasars/highest_z/detections/WISEmag_vs_coverage_20190605.pdf}
   \centering
   \vspace{-14pt}
-  \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} magnitude against signal-to-noise, 
-    colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band.
-  }
+  \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} magnitude against signal-to-noise,
+    colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band.}
   \label{fig:WISEmag_vs_coverage}
 \end{figure}
+Before reporting on the detection rates, we investigate this effect
+using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage}
+shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded
+by {\tt w$x$cov} the mean coverage depth, in each corresponding
+band. In the two shorter bands W1/2 we see the clear and expected
+trend for brighter objects to have larger SNR, and also for the higher
+signal to noise for objects with more exposures at a given
+magnitude. The behaviour for the W3/4 bands is different, with two
+populations clearly evident in W3 and although a bit more mixed, also
+in W4. With the suggested split at SNR$>2$, and no obvious
+R.A./Declination dependence seen, this behaviour is explained by the
+fact that there are non-detections in W3/4 for objects (with high W1/2
+SNR) that are reported in the ALLWISE catalogue.
 
 Table~\ref{tab:mir_detection} gives the detection rates for the
-VH$z$Qs in the MIR WISE W1-4 bands. 
-\begin{table}
-  \begin{tabular}{l r l}
-    \hline  \hline
-    Selection   & number detected (\%) \\
-    \hline  
-    W1 SNR $> 3.0$                                             &  362  (xxz.9) \\
-    W2 SNR $> 3.0$                                            &   255 (60.1) \\
-    W1 $\land$ W2 SNR $> 2.0$                         &  \\
-    W3 SNR $> 2.0$                                            &  99    (23.3) \\
-    W4 SNR $> 2.0$                                            &  29    (6.8) \\
-    Any W1/2/3/4 SNR $>2.0$                           & \\
-    W1/2 SNR $< 2.0$ $\land$ W3 SNR $>2.0$ & \\
-    \hline  \hline
-  \end{tabular}
-  \caption{}
-  \label{tab:mir_detection}
-\end{table}
+VH$z$Qs in the MIR WISE W1-4 bands. The unWISE depths are impressive
+with nearly 80\% of all the VH$z$Qs being detected in unWISE W1. 12
+out of 14 (86\%) in unWISE W1 (9 our of 14; 64\% in unWISE W2) of the
+$z\geq6.78$ quasars are detected and moreover {\it all of the $z\geq7$
+quasars are detected in both unWISE W1 and W2}. This bodes very well
+for future, small mirror infrared missions \citep[e.g.][]{NEOCam_WP}.
 
 \begin{figure}
   %% trim=l b r t
@@ -684,27 +678,25 @@ VH$z$Qs in the MIR WISE W1-4 bands.
   \label{fig:WISEmag_vs_coverage}
 \end{figure}
 
-\citet{Blain2013} 
-
-Recently, \citet{Assef2018} released two large catalogues of AGN 
-candidates identified across 30,000 deg$^2$ of extragalactic sky 
-from the WISE AllWISE Data Release. The ``R90'' catalogue, is 
-contains 4.5M AGN candidates at 90\% reliability (and $\approx$150 
-AGN candidates per deg$^2$) while the ``C75'' catalogue  
-consists of 20.9M AGN candidates at 75\% completeness (and 
-($\approx$700 AGN candidates per deg$^2$).  Crossmatching 
-out catalogue of 463 VH$z$Qs with these catalogues, produces 
-42 matches with	the R90 sample and 98 matches with the C75 sample. 
-Both catalogues unsurprisingly match to the ultraluminous quasar 
-SDSS J0100+2802 \citep{Wu2015} while the C75, but not the R90 catalogue 
-matches to ULAS J1120+0641 \citep{Mortlock2011}. Neither catalogue 
-matches J1342+0928 \citep{Banados2018}. 
+Recently, \citet{Assef2018} released two large catalogues of AGN
+candidates identified across 30,000 deg$^2$ of extragalactic sky from
+the WISE AllWISE Data Release. The ``R90'' catalogue, contains 4.5M
+AGN candidates at 90\% reliability (and $\approx$150 AGN candidates
+per deg$^2$) while the ``C75'' catalogue consists of 20.9M AGN
+candidates at 75\% completeness (and ($\approx$700 AGN candidates per
+deg$^2$). Crossmatching our catalogue of 463 VH$z$Qs with these
+catalogues, produces 42 matches with the R90 sample and 98 matches
+with the C75 sample. Both catalogues unsurprisingly match to the
+ultraluminous quasar SDSS J0100+2802 \citep{Wu2015} while the C75, but
+not the R90 catalogue matches to ULAS J1120+0641
+\citep{Mortlock2011}. Neither catalogue matches to J1342+0928
+\citep{Banados2018}.
 
 
 \begin{figure}
     \centering
     \includegraphics[width=8.6cm,  clip, trim=6mm 4mm 6mm 10mm]
-    {../color_color/W1W2_plots/W1W2W3_hexplots_20190610v2.png} 
+    {../color_color/W1W2_plots/W1W2W3/W1W2W3_hexplots_20190610v2.png} 
   \vspace{-14pt}
     \caption{The (W2-W3) vs. (W1-W2) colour – colour diagram showing the WISE colours 
       for the 283 VH$z$Q that have reported w3mpro values (blue to red coloured points).
@@ -714,33 +706,45 @@ matches J1342+0928 \citep{Banados2018}.
 \end{figure}
 
 \subsection{MIR Colours}
+%% The VH$z$Q with the bluest colour in (W1 - W2) is 
+DELS J1048-0109 with (W1-W2) = 0.154. 
+%(see Figure~\ref{fig:DELS_J1048}).
+%%
+%%    (W1 - W2)    vs.  (W2 - W3) 
+%%
+%%  Call W1 ~ 3-4um annd W2   4-5um and   W3 10-16um
 Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour – colour
 space diagram showing the WISE colours for the 283 VH$z$Q that have
 reported w3mpro values (blue to red coloured points).  400,000 quasars
 at redshift $z\lesssim3.0$ from the DR14Q are also shown (grey
 colour-scale). 
+%W1 samples $\approx$0.6-4$\mu$m for the $z=0-3$ quasars, 
+%W2 samples $\approx$1.25-5$\mu$m for the $z=0-3$ quasars, 
+%W3 samples $\approx$2.-16$\mu$m for the $z=0-3$ quasars, 
+
 %%
-The VH$z$Q with the bluest colour in (W1 - W2) is 
-DELS J1048-0109 with (W1-W2) = 0.154 
-(see Figure~\ref{fig:DELS_J1048}).
-
-
 %\subsubsection{Individual VH$z$Qs with Interesting MIR properties}
-Very High-$z$ Quasars Detected in WISE W3 and W4.
+The are a set of VH$z$Q detected in WISE W3 and W4. 51 objects are detected in the broad W3 filter and 10 objects are formally 
+detected in W4 ({\tt w4snr}$\geq$3.0). Four of the brightest W4 objects are presented in  \label{fig:VHzQ_W4s}.
+UHS J0439+1634 (Fig.~\ref{fig:VHzQ_W4s} (a)) with W4=7.165$\pm$0.12 was discovered by \citet{Fan2019}
+ and is a strongly lensed quasar at $z=$6.51. This high luminosity is most not intrinsic, but is 
+boosted by an intervening redshift $z\sim$0.7 galaxy. 
+SDSS J0100+2802 (redshift $z=6.33$) does not have a formal W4 detection (W4 $=8.98\pm0.45$ and {\tt w4snr}=2.4) but 
+as reported by \citet{Wu2015}, has a bright detections in the 2MASS $J$, $H$ and $K_{\rm s}$ bands and we report it here.  
 
 
 \begin{figure*}
     \centering
     \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/UHS_J0439+1634.png} 
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J0100+2802.png}
     \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J1443+3623.png}
     \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J1623+4705.png}
+    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J0100+2802.png}
     \caption{ (a) UHS J0439+1634 
-                 (b) SDSS J0100+280 
+                 (b) SDSS J0100+2802 
                (c) SDSS J1443+3623 
  (d) SDSS J1623+4705
 }
-    \label{fig:foobar}
+    \label{fig:VHzQ_W4s}
 \end{figure*}
 
 
@@ -758,7 +762,7 @@ Very High-$z$ Quasars Detected in WISE W3 and W4.
 \subsection{Variability}
 VH$z$Qs, if accreting at, or above the Eddington Limit, might well
 have have large values of changing mass accretion rate, $\ddot{m}_{\rm
-accr}$. A consequence of this would be that these quasar exhibit signs
+accr}$. A consequence of this would be that these quasars exhibit signs
 of variability, most likely showing up in their UV/optical rest-frame
 spectra. We look for evidence of this variability signature in the NIR
 and MIR light-curves of the VH$z$Qs. As a guide, \civ enters the
