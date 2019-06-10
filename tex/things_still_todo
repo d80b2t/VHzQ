@@ -16,13 +16,20 @@ For NPR
        	   maybe a  J-K vs. K-W1 kinda plot??)
        	   maybe a  J-K vs. K-W2 kinda plot??)
        	   maybe a  J-K vs. W1-W2 kinda plot??)
+
+ -- Check how W123 works with (W3) SNR
  
  -- Check for objects that are WISE bright and NIR faint.
- -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3). 
+ 
+ -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3).
+ 
  -- Concentrate on reporting NIR and W1/W2 figures and tables
+ 
  -- Check for NIR and MIR variabilty with the Wu quasar
+ 
  -- Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
-
+ 
+ -- "---" as a null rather than -1000.00+/- -1000.00 in Table 3
 
 
 
@@ -33,7 +40,7 @@ For NJGC
   -- "I make it 95 WISE z>=6 QSO in finalQsoCatalogue. I am worried that I only updated the 41 QSOs
      added later with WISE photometry. I must check this. There are 314 in total with WISE photometry."
   -- Section 3.1 and 3.1.1 to check/polish.
-
+  -- Light curve for  SDSSJ0958+3524?
 
 
 For Both
