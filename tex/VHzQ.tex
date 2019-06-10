@@ -576,7 +576,8 @@ deg are too far north for UKIRT and cannot be observed.
   Table~\ref{tab:WFCAM_vs_VISTA}.  The only filter with a significant
   offset is the $Y$-band. All of the VISTA averages are negative and all
   of the WFCAM ones are positive. The $Ks$ versus $K$ band comparison may be
-  affected the different shapes of the filters, with $K$ being significantly wider than $K_s$.
+  affected the different shapes of the filters, with $K$ being significantly 
+  wider than $K_s$, able to detect light at longer wavelengths.
   \begin{table}
     \centering
     \begin{tabular}{l r r}
@@ -599,12 +600,12 @@ deg are too far north for UKIRT and cannot be observed.
   We have also checked for quasars with large differences in magnitude
   between the WSA and VSA. Objects were selected where the average flux
   was $>0.$ and $>5$ average flux error. In order to account for large
-  errors in either the WFCAM or VISTA photometry, objects with deltaMag$
-  < 2 \times$ deltaMagErr in either WSA or VSA were removed. This
+  errors in either the WFCAM or VISTA photometry, objects with $\delta$mag$
+  < 2 \times$ $\sigma_{\delta\rm mag}$ in either WSA or VSA were removed. This
   selects two quasars with large, $\delta$mag $>0.2$mag differences
   between the WSA and VSA. These are SDSSJ0349+0034 and
   SDSSJ2220-0101. For SDSSJ0349+0034 has a WSA $K$-band magnitude of
-  19.13$\pm$-0.24, while for the VSA $K_s$-band this is 18.36$\pm$0.10
+  19.13$\pm$0.24, while for the VSA $K_s$-band this is 18.36$\pm$0.10
   mag. For SDSSJ2220-0101, in $J$-band WSA = 22.23$\pm$0.15, for the VSA
   = 19.38$\pm$0.04.
           
@@ -627,7 +628,7 @@ deg are too far north for UKIRT and cannot be observed.
     \hline \hline
   \end{tabular}
   \caption{Detection rates in the mid-infrared bands from WISE as a function of 
-    redshift. A signal-to-noise cut of {\tt w$x$snr}$>3.0$ has been used for each band.}
+    redshift. A signal-to-noise cut of {\tot w$x$snr}$>3.0$ has been used for each band.}
   \label{tab:WFCAM_vs_VISTA}
 \end{table}
 
@@ -688,17 +689,17 @@ VH$z$Qs in the MIR WISE W1-4 bands.
 
 Recently, \citet{Assef2018} released two large catalogues of AGN 
 candidates identified across 30,000 deg$^2$ of extragalactic sky 
-from the WISE AllWISE Data Release. The ``R90'' catalogue, is 
+from the WISE AllWISE Data Release. The ``R90'' catalogue, 
 contains 4.5M AGN candidates at 90\% reliability (and $\approx$150 
 AGN candidates per deg$^2$) while the ``C75'' catalogue  
 consists of 20.9M AGN candidates at 75\% completeness (and 
 ($\approx$700 AGN candidates per deg$^2$).  Crossmatching 
-out catalogue of 463 VH$z$Qs with these catalogues, produces 
+our catalogue of 463 VH$z$Qs with these catalogues, produces 
 42 matches with	the R90 sample and 98 matches with the C75 sample. 
 Both catalogues unsurprisingly match to the ultraluminous quasar 
 SDSS J0100+2802 \citep{Wu2015} while the C75, but not the R90 catalogue 
 matches to ULAS J1120+0641 \citep{Mortlock2011}. Neither catalogue 
-matches J1342+0928 \citep{Banados2018}. 
+matches to J1342+0928 \citep{Banados2018}. 
 
 The VH$z$Q with the bluest colour in (W1 - W2) is 
 DELS J1048-0109 with (W1-W2) = 0.154 
@@ -717,7 +718,7 @@ Very High-$z$ Quasars Detected in WISE W3 and W4.
     \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J1443+3623.png}
     \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J1623+4705.png}
     \caption{ (a) UHS J0439+1634 
-                 (b) SDSS J0100+280 
+                 (b) SDSS J0100+2802 
                (c) SDSS J1443+3623 
  (d) SDSS J1623+4705
 }
@@ -739,7 +740,7 @@ Very High-$z$ Quasars Detected in WISE W3 and W4.
 \subsection{Variability}
 VH$z$Qs, if accreting at, or above the Eddington Limit, might well
 have have large values of changing mass accretion rate, $\ddot{m}_{\rm
-accr}$. A consequence of this would be that these quasar exhibit signs
+accr}$. A consequence of this would be that these quasars exhibit signs
 of variability, most likely showing up in their UV/optical rest-frame
 spectra. We look for evidence of this variability signature in the NIR
 and MIR light-curves of the VH$z$Qs. As a guide, \civ enters the
