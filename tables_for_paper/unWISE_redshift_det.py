@@ -90,6 +90,7 @@ print()
 
 ## By redshift
 redshift_array = np.array([5.00, 5.70, 6.00, 6.19, 6.50, 6.78, 7.00, 7.50])
+#redshift_array = np.array([5.00, 5.70, 6.00, 6.19, 6.50, 6.70, 7.00, 7.50])
 
 ## How many of the VHzQs are above a given redshift 
 N_zgt5pnt00 = np.count_nonzero(VHzQs['redshift'] >= redshift_array[0]) 
