@@ -40,6 +40,8 @@ W4mag = VHzQ['w4mpro']
 ##
 ## Late Type stellar colours
 ##
+## spider.ipac.caltech.edu/staff/davy/ARCHIVE/index.shtml
+##
 path = '/cos_pc19a_npr/data/highest_z_QSOs/LT_dwarfs/'
 filename ='Ldwarfs_photom_v1pnt00.dat'
 table=path+filename

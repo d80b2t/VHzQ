@@ -42,11 +42,9 @@ fig, ax = plt.subplots(figsize=(10, 10), num=None, dpi=80, facecolor='w', edgeco
 ## Blain et al. (2013), Figure 1:: 
 xmin =  1.7; xmax =  4.7; ymin = -0.2; ymax =  2.0 
 ## Wright et al. (2010), Figure 
-xmin = -1.0; xmax=7.0;    ymin=-0.5; ymax=4.0
+#xmin = -1.0; xmax=7.0;    ymin=-0.5; ymax=4.0
 
-#cmap = plt.cm.RdBu_r
-#cmap = plt.cm.inferno
-cmap = plt.cm.rainbow
+## Some plotting defaults
 ls              = 24
 ticklength      = 18
 tickwidth       = 2.0
@@ -54,23 +52,28 @@ pointsize       = 60
 pointsize_large = pointsize*1.2
 
 ##
-## Plotting the   D R 1 4 Q    hexbins
+##  Plotting the   D R 1 4 Q    hexbins
 ##
-hb = ax.hexbin( (dr14q['W2MAG']- dr14q['W3MAG']), (dr14q['W1MAG'] - dr14q['W2MAG']), C=dr14q['Z'],
-            gridsize=180, mincnt=25, marginals=False, cmap=cmap, vmin=0.00, vmax=3.00)
+cmap = plt.cm.Greys
+hb = ax.hexbin( (dr14q['W2MAG'] - dr14q['W3MAG']),
+                (dr14q['W1MAG'] - dr14q['W2MAG']),
+                C=dr14q['Z'],
+                gridsize=180, mincnt=25, marginals=False, cmap=cmap, vmin=0.00, vmax=3.00)
 #$cb = fig.colorbar(hb, ax=ax)
 #cb.set_label('redshift')
 
+
 ##
-## Plotting the    V H z Q    points
+##  Plotting the   V H z Q    points
 ##
-cmap = plt.cm.inferno
+#cmap = plt.cm.inferno
+cmap = plt.cm.seismic
 hb_VHzQ = ax.scatter((VHzQ['unW2mag'] -  VHzQ['w3mpro']),  (VHzQ['unW1mag'] - VHzQ['unW2mag']), c=VHzQ['redshift'],
                      s=pointsize, cmap=cmap)
 ax.scatter(0,0, color='w', s=pointsize_large)
 
 cb = fig.colorbar(hb_VHzQ, ax=ax)
-cb.set_label('redshift', angle=180)
+cb.set_label('redshift', rotation=270, labelpad=20)
 
 
 ## The vertical dashed line at W 2 − W3 = 5.3 is one of the selection
