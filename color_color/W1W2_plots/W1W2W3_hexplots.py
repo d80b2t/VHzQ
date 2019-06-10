@@ -23,22 +23,26 @@ from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 ##
 ## DR14Q
 ##
-path = '/cos_pc19a_npr/data/SDSS/DR14Q/'
-filename ='DR14Q_v4_4.fits'
+path      = '/cos_pc19a_npr/data/SDSS/DR14Q/'
+filename  ='DR14Q_v4_4.fits'
 #filename ='DR14Q_v4_4_W4good.fits'
-infile = path+filename
-data = fits.getdata(infile, 1)
-dr14q = Table(data)
+infile    = path+filename
+data      = fits.getdata(infile, 1)
+dr14q     = Table(data)
 dr14q_W1minW2 = (dr14q['W1MAG'] - dr14q['W2MAG'])
 dr14q_W2minW3 = (dr14q['W2MAG'] - dr14q['W3MAG'])
 
 ##
 ##  V H z Q    data
 ##
-path = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
-filename = 'VHzQs_ZYJHK_WISE.dat'
-table=path+filename
-VHzQ = ascii.read(table)
+path      = '/cos_pc19a_npr/programs/quasars/highest_z/data/'
+filename  = 'VHzQs_ZYJHK_WISE.dat'
+table     = path+filename
+VHzQ_full = ascii.read(table)
+## in case you want to select on e.g. snr
+#VHzQ = VHzQ_full
+VHzQ = VHzQ_full[np.where(VHzQ_full['w3snr'] >3.0)]
+
 
 
 ##  Making the plot(s)
