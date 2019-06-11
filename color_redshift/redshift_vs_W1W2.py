@@ -28,18 +28,19 @@ filename   ='DR14Q_v4_4.fits'
 #filename  ='DR14Q_v4_4_W4good.fits'
 infile     = path+filename
 data       = fits.getdata(infile, 1)
-dr14q_full = Table(data)
-
+#dr14q_full = Table(data)
+dr14q      = Table(data)
 ## in case you want to select on e.g. SDSS survey
-#dr14q = dr14q_full
+#dr14q      = dr14q_full
 
-## From the DR12Q,  MJD.min() = 55176 and MJD.max() = 56837
+## Splitting up the DR14Q by intergral survey
+##   from the DR12Q,  MJD.min() = 55176 and MJD.max() = 56837
 ## SDSS-I/II
-#dr14q = dr14q_full[np.where( dr14q_full['MJD'] < 55176  )]
+sdss  = dr14q[np.where( dr14q['MJD'] < 55176  )]
 ## BOSS
-#dr14q = dr14q_full[np.where((dr14q_full['MJD'] > 55176) & (dr14q_full['MJD'] < 56837))  ]
+boss  = dr14q[np.where((dr14q['MJD'] > 55176) & (dr14q['MJD'] < 56837))  ]
 ## SDSS-IV
-dr14q = dr14q_full[np.where( dr14q_full['MJD'] > 56837  )]  
+eboss = dr14q[np.where( dr14q['MJD'] > 56837  )]  
 
 ## Should be:
 ##   79,487 for SDSS-I/II;
@@ -47,6 +48,13 @@ dr14q = dr14q_full[np.where( dr14q_full['MJD'] > 56837  )]
 ##  159,981 for SDSS-IV
 dr14q_W1minW2 = (dr14q['W1MAG'] - dr14q['W2MAG'])
 dr14q_W2minW3 = (dr14q['W2MAG'] - dr14q['W3MAG'])
+##
+sdss_W1minW2  = (sdss['W1MAG'] - sdss['W2MAG'])
+sdss_W2minW3  = (sdss['W2MAG'] - sdss['W3MAG'])
+boss_W1minW2  = (boss['W1MAG'] - boss['W2MAG'])
+boss_W2minW3  = (boss['W2MAG'] - boss['W3MAG'])
+eboss_W1minW2 = (eboss['W1MAG'] - eboss['W2MAG'])
+eboss_W2minW3 = (eboss['W2MAG'] - eboss['W3MAG'])
 
 
 ##
@@ -59,6 +67,7 @@ VHzQ_full = ascii.read(table)
 ## in case you want to select on e.g. snr
 VHzQ = VHzQ_full
 #VHzQ = VHzQ_full[np.where(VHzQ_full['w3snr'] >3.0)]
+
 
 
 ##  Making the plot(s)
@@ -78,6 +87,7 @@ tickwidth       = 2.0
 pointsize       = 100
 pointsize_large = pointsize*2.2
 fontsize        = 28
+
 
 vmin = 2.2
 vmax = 4.25
@@ -102,7 +112,6 @@ print()
 print('Number of DR14Q objects plotted:: ', len(w))
 print()
 
-
 ##
 ##  Plotting the   V H z Q    points
 ##
@@ -126,7 +135,6 @@ cbaxes = fig.add_axes([0.2, 0.24,  0.36, 0.025])
 cb = fig.colorbar(hb_VHzQ,  ax=ax, cax=cbaxes, orientation='horizontal',ticklocation = 'top')
 cb.set_label('W2-W3', labelpad=16)
 
-
 ## The vertical dashed line at W 2 − W3 = 5.3 is one of the selection
 ## criteria for W1W2-dropouts; some are bluer than this because they
 ## satisfied the W2 − W4 > 8.2 criterion.
@@ -134,7 +142,6 @@ lw = 2.0
 #ax.axvline(x=5.3, linewidth=lw,linestyle='dotted', color='k')
 
 ax.axis([xmin, xmax, ymin, ymax])
-
 ax.tick_params(axis='both', which='major', labelsize=ls, top='on', right='on', direction='in', length=ticklength,   width=tickwidth)
 ax.tick_params(axis='both', which='minor', labelsize=ls, top='on', right='on', direction='in', length=ticklength/2, width=tickwidth)
 
@@ -179,4 +186,31 @@ ax.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
 
 plt.savefig('redshift_vs_W1W2_temp.png', format='png')
 #plt.show()
-#plt.close()
+plt.close()
+
+
+
+
+###################################
+##
+##   S D S S
+##
+plt.rcParams.update({'font.size': 14})
+fig, ax1 = plt.subplots(figsize=(14, 8), num=None, dpi=80, facecolor='w', edgecolor='k')
+##
+cmap = plt.cm.Greys
+hb = ax1.hexbin(sdss['Z'], sdss_W1minW2,
+             C=sdss_W2minW3,
+             gridsize=220, mincnt=10, marginals=False, cmap=cmap,  vmin=vmin, vmax=vmax)
+
+## Making the colorbar
+cbaxes = fig.add_axes([0.2, 0.20,  0.36, 0.025]) 
+cb = fig.colorbar(hb, ax=ax1, cax=cbaxes, orientation='horizontal', ticklocation = 'top')
+cb.ax1.set_xticklabels([''])
+
+ax1.set_xlabel(r"$z$, redshift", fontsize=fontsize)
+ax1.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
+
+plt.savefig('redshift_vs_W1W2_sdss_temp.png', format='png')
+#plt.show()
+plt.close()

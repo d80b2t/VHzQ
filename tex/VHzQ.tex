@@ -564,29 +564,30 @@ by UKIRT. }
   \label{tab:nir_detection}
 \end{table}
 
-There are 14 objects that have no NIR detections.  3 of these
+There are 14 objects that have no NIR detections. 3 of these
 (PSOJ053.9605-15.7956, PSO J056.7168-16.4769 and DELSJ0411-0907) have
-been observed (by VHS) but are out of our queried time range 
-(for which the data is publicly available). 6 objects have not been 
-observed (or at least the data is not in the
-WSA/VSA archives yet) and 5 objects are at a declination $\delta \geq +60$
-deg are too far north for UKIRT and cannot be observed.
+been observed (by VHS) but are out of our queried time range (for
+which the data is publicly available). 6 objects are at declination
+$\delta<0$ deg and have not been observed (or at least the data is not
+in the VSA archive yet). 5 objects are at a declination $\delta \geq
++60$ deg are too far north for UKIRT and cannot be observed.
 
 
   \subsubsection{Comparing WFCAM and VISTA}
-  There are 130 overlapping QSOs between WFCAM and VISTA. We used the
-  {\tt VegaToAB} values to put these objects on the same AB system, and
-  for each object compared the two measurements. First, we calculated the
-  weighted average (calibrated flux) in each filter of both and
-  calculated the ratio and difference between each measurement and the
-  average.  Then for each filter we calculated the weighted average of
-  the differences (in mag) for each instrument to see if there were
-  significant offsets. The results are given in
-  Table~\ref{tab:WFCAM_vs_VISTA}.  The only filter with a significant
-  offset is the $Y$-band. All of the VISTA averages are negative and all
-  of the WFCAM ones are positive. The $Ks$ versus $K$ band comparison may be
-  affected the different shapes of the filters, with $K$ being significantly 
-  wider than $K_s$, able to detect light at longer wavelengths.
+  There are 130 quasars observed in the overlapping area between WFCAM
+  and VISTA. We used the {\tt VegaToAB} values to put these objects on
+  the same AB system, and for each object compared the two
+  measurements. First, we calculated the weighted average (calibrated
+  flux) in each filter of both and calculated the ratio and difference
+  between each measurement and the average.  Then for each filter we
+  calculated the weighted average of the differences (in mag) for each
+  instrument to see if there were significant offsets. The results are
+  given in Table~\ref{tab:WFCAM_vs_VISTA}.  The only filter with a
+  significant offset is the $Y$-band. All of the VISTA averages are
+  negative and all of the WFCAM ones are positive. The $Ks$ versus $K$
+  band comparison may be affected the different shapes of the filters,
+  with $K$ being significantly wider than $K_s$, able to detect light at
+  longer wavelengths.
   \begin{table}
     \centering
     \begin{tabular}{l r r}
@@ -654,11 +655,9 @@ Unlike the NIR coverage, the WISE satellite and mission performed an all-sky sur
     colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band.}
   \label{fig:WISEmag_vs_coverage}
 \end{figure}
-Before reporting on the detection rates, we investigate this effect
-using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage}
-shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded
-by {\tt w$x$cov} the mean coverage depth, in each corresponding
-band. In the two shorter bands W1/2 we see the clear and expected
+Before reporting on the detection rates, we investigate this effect using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. The {\tt w$123$cov} values are the mean pixel coverage in W1/2/3 from the W1/2/3 Atlas Tile Coverage Map within an aperture of circular area with a radius of 8.25'' centered on the position of this source. For {\tt w$4$cov} this radius is 16.5'' (the AllWISE Source Catalog \href{http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w2cov}{Column Descriptions} has further details). The {\tt w$x$cov} value takes into account e.g., individual pixels in the measurement area that may be masked or otherwise unusable (reducing the effective pixel count and thus the mean coverage value) as well as pixels that are affected by distortions across the across the focal plane in single-exposure images (where this distortion is corrected when coadding to generate the Atlas Images). 
+
+In the two shorter bands W1/2 we see the clear and expected
 trend for brighter objects to have larger SNR, and also for the higher
 signal to noise for objects with more exposures at a given
 magnitude. The behaviour for the W3/4 bands is different, with two
@@ -684,7 +683,7 @@ for future, small mirror infrared missions \citep[e.g.][]{NEOCam_WP}.
   \vspace{-14pt}
   \caption[]{WISE signal-to-noise measures for the four bands, as well
     as for (W1-W2) colour.  The points are colour coded by redshift.}
-  \label{fig:WISEmag_vs_coverage}
+  \label{fig:WISEmag_vs_snr}
 \end{figure}
 
 Recently, \citet{Assef2018} released two large catalogues of AGN
@@ -697,9 +696,9 @@ deg$^2$). Crossmatching our catalogue of 463 VH$z$Qs with these
 catalogues, produces 42 matches with the R90 sample and 98 matches
 with the C75 sample. Both catalogues unsurprisingly match to the
 ultraluminous quasar SDSS J0100+2802 \citep{Wu2015} while the C75, but
-not the R90 catalogue matches to ULAS J1120+0641
-\citep{Mortlock2011}. Neither catalogue matches to J1342+0928
-\citep{Banados2018}.
+not the R90 catalogue matches to the first redshift $z>7$ quasar ULAS J1120+0641
+\citep{Mortlock2011}. Neither catalogue matches to the current highest-redshift 
+object  J1342+0928 \citep{Banados2018}.
 
 
 \begin{figure}
@@ -727,7 +726,6 @@ colour-scale).
 % W1 samples $\approx$0.6-4$\mu$m for the $z=0-3$ quasars, 
 % W2 samples $\approx$1.25-5$\mu$m for the $z=0-3$ quasars, 
 % W3 samples $\approx$2.-16$\mu$m for the $z=0-3$ quasars, 
-
 
 
 %%
@@ -760,6 +758,12 @@ redshift $z\sim$0.7 galaxy. SDSS J0100+2802 (redshift $z=6.33$) does
 not have a formal W4 detection (W4 $=8.98\pm0.45$ and {\tt w4snr}=2.4),
 but as reported by \citet{Wu2015}, has a bright detection in the
 2MASS $J$, $H$ and $K_{\rm s}$ bands and we report it here.
+<<<<<<< HEAD
+=======
+Other high-redshift quasars that are bright W3/4 objects may well 
+also so be lensed, but high-resolution follow-up is needed to confirm. 
+
+>>>>>>> color_redshift/redshift_vs_W1W2_sdss_temp.png
 
 \begin{figure}
   \centering
@@ -947,6 +951,7 @@ tortor. Phasellus ultrices nisl non enim porttitor dictum. Curabitur
 nec nunc ac nibh ornare elementum. Nunc ultrices hendrerit
 ultricies. Aliquam dapibus semper est et gravida. Etiam cursus, massa
 eget tempor elementum, lectus urna feugiat nisi, eget sagittis.
+
 
 \subsection*{Author Contributions}   
 N.P.R. initiated the project, compiled the list of $z>5.00$ quasars, wrote most of the analysis code, developed the plotting scripts, and developed and wrote the initial and subsequent drafts of the manuscript.
