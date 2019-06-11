@@ -411,10 +411,6 @@ VHS and VIKING. UHS DR1 is 12,600 deg$^{2}$ ($J$-band); ULAS DR11
 deg$^{2}$. The overlap between UHS DR1 and VHS DR6 is 28 deg. These
 four surveys together cover 33,000 deg$^{2}$.
 
-
-
-
-
   \subsubsection{Averaging matched photometry}
   The data was processed using a matched-aperture photometry method
   where flux is measured at the spectroscopic position of the quasar,
@@ -465,7 +461,7 @@ four surveys together cover 33,000 deg$^{2}$.
 \subsection{MIR data}
 The MIR data for this study comes from the Wide-field Infrared Survey Explorer (WISE) mission, and we utlize data from the WISE cryogenic and the Near-Earth Object WISE \citep[NEOWISE; ][]{Mainzer2011} post-cryogenic and NEOWISE Reactivation Mission \citep[NEOWISE-R][]{Mainzer2014} survey phases.
 
-We use data from the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citet{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
+We use data from the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citet{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all the WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
 
 For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the ALLWISE Data Release.  Most objects in the AllWISE Source Catalog are unresolved, so the best photometric measurements to use are the deep detection profile-fit photometry measures,  {\tt w$x$mpro},  {\tt w$x$sigmpro} and  {\tt w$x$snr}. The unWISE Catalog absolute photometric calibration derives from the photometric calibration of the unWISE coadds \citep{Meisner2017a}, which is tied to the original WISE zero points through aperture fluxes in a 27.5'' radius. 
 
@@ -655,8 +651,23 @@ Unlike the NIR coverage, the WISE satellite and mission performed an all-sky sur
     colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band.}
   \label{fig:WISEmag_vs_coverage}
 \end{figure}
-Before reporting on the detection rates, we investigate this effect using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage} shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band. The {\tt w$123$cov} values are the mean pixel coverage in W1/2/3 from the W1/2/3 Atlas Tile Coverage Map within an aperture of circular area with a radius of 8.25'' centered on the position of this source. For {\tt w$4$cov} this radius is 16.5'' (the AllWISE Source Catalog \href{http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w2cov}{Column Descriptions} has further details). The {\tt w$x$cov} value takes into account e.g., individual pixels in the measurement area that may be masked or otherwise unusable (reducing the effective pixel count and thus the mean coverage value) as well as pixels that are affected by distortions across the across the focal plane in single-exposure images (where this distortion is corrected when coadding to generate the Atlas Images). 
-
+Before reporting on the detection rates, we investigate this effect
+using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage}
+shows the WISE ALLWISE magnitude versus signal-to-noise, colour coded
+by {\tt w$x$cov} the mean coverage depth, in each corresponding
+band. The {\tt w$123$cov} values are the mean pixel coverage in W1/2/3
+from the W1/2/3 Atlas Tile Coverage Map within an aperture of circular
+area with a radius of 8.25'' centered on the position of this
+source. For {\tt w$4$cov} this radius is 16.5'' (the AllWISE Source
+Catalog
+\href{http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec2_1a.html#w2cov}{Column
+Descriptions} has further details). The {\tt w$x$cov} value takes into
+account e.g., individual pixels in the measurement area that may be
+masked or otherwise unusable (reducing the effective pixel count and
+thus the mean coverage value) as well as pixels that are affected by
+distortions across the across the focal plane in single-exposure
+images (where this distortion is corrected when coadding to generate
+the Atlas Images). 
 In the two shorter bands W1/2 we see the clear and expected
 trend for brighter objects to have larger SNR, and also for the higher
 signal to noise for objects with more exposures at a given
@@ -675,7 +686,6 @@ $z\geq6.78$ quasars are detected and moreover {\it all of the $z\geq7$
 quasars are detected in both unWISE W1 and W2}. This bodes very well
 for future, small mirror infrared missions \citep[e.g.][]{NEOCam_WP}.
 
-
 Recently, \citet{Assef2018} released two large catalogues of AGN
 candidates identified across 30,000 deg$^2$ of extragalactic sky from
 the WISE AllWISE Data Release. The ``R90'' catalogue, contains 4.5M
@@ -686,9 +696,9 @@ deg$^2$). Crossmatching our catalogue of 463 VH$z$Qs with these
 catalogues, produces 42 matches with the R90 sample and 98 matches
 with the C75 sample. Both catalogues unsurprisingly match to the
 ultraluminous quasar SDSS J0100+2802 \citep{Wu2015} while the C75, but
-not the R90 catalogue matches to the first redshift $z>7$ quasar ULAS J1120+0641
-\citep{Mortlock2011}. Neither catalogue matches to the current highest-redshift 
-object  J1342+0928 \citep{Banados2018}.
+not the R90 catalogue matches to the first redshift $z>7$ quasar ULAS
+J1120+0641 \citep{Mortlock2011}. Neither catalogue matches to the
+current highest-redshift object J1342+0928 \citep{Banados2018}.
 
 
 \begin{figure}
@@ -702,15 +712,12 @@ object  J1342+0928 \citep{Banados2018}.
       (grey colour-scale). }
     \label{fig:W1W2W3}
 \end{figure}
-
 \subsection{MIR Colours}
 The VH$z$Q with the bluest colour in (W1 - W2) is 
 DELS J1048-0109 with (W1-W2) = 0.154. 
 %(see Figure~\ref{fig:DELS_J1048}).
 
-Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour – colour
-space diagram showing the WISE colours for the 283 VH$z$Q that have
-reported w3mpro values (blue to red coloured points).  400,000 quasars
+Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour – colour space diagram showing the WISE colours for the 283 VH$z$Q that have reported {\tt w3mpro} values (blue to red coloured points), though we note that only 51(18\%) of these objects have {\tt w3snr} > 3.0.  objects  400,000 quasars
 at redshift $z\lesssim3.0$ from the DR14Q are also shown (grey
 colour-scale). 
 % W1 samples $\approx$0.6-4$\mu$m for the $z=0-3$ quasars, 
@@ -758,8 +765,8 @@ also so be lensed, but high-resolution follow-up is needed to confirm.
   {/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
   \vspace{-16pt}
   \caption[]
-  {Histogram showing the number of NEOWISE-R epochs and detections there are for each 
-    VH$z$Q.} 
+  {Histogram showing the total number of exposures for each detected VH$z$Q
+    from the full combination of ALLWISE, NEOWISE and NEOWISE-R.} 
   \label{fig:MIR_LC_epochs}
 \end{figure}
 \subsection{Variability}
@@ -768,7 +775,15 @@ have have large values of changing mass accretion rate, $\ddot{m}_{\rm
 accr}$. A consequence of this would be that these quasars exhibit signs
 of variability, most likely showing up in their UV/optical rest-frame
 spectra. We look for evidence of this variability signature in the NIR
-and MIR light-curves of the VH$z$Qs. As a guide, \civ enters the
+and MIR light-curves of the VH$z$Qs. 
+
+Quasars are known to have dramatically changing Balmer lines, especially 
+H$\beta$ \citep[e.g.,][]{LaMassa2015, Ruan2016, Runnoe2016, Macleod2016,
+Gezari2017, Runco2016, Yang2017, Assef2018, Stern2018, Wang2018,
+Ross2018, MacLeod2019, Graham2019}.
+As a guide, 
+What is less well understood is the temporal behvaiour of the metal lines, in particular \civ and \mgii. 
+\civ enters the
 $Y$-band at redshift $z$=5.32 and exits at $z$=5.99, and enters the
 $J$-band at redshift $z=6.55$ and exits at $z$=7.57. \mgii enters the
 $H$-band at redshift $z=4.33$ and exits at $z=5.37$ and enters the
