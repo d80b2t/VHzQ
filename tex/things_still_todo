@@ -31,6 +31,21 @@ For NPR
  -- "---" as a null rather than -1000.00+/- -1000.00 in Table 3
 
 
+ -- Section 3.2
+    	    Figure 5 should be Figure 4 (mag vs SNR) in the text...
+	    Complete last paragraph of Sec 3.2
+	    Complete Table 7..
+
+ -- Section 3.3:
+    	    What is the point of the opening sentence, “DELS J1048-0109”.
+	    It seems a partial sentence. It is the one with bluest (W1-W2) colours,
+	    but also quite high-z: z=6.63.
+	    Figure 6 should have error bars?
+ 	    Possible variable QSOs (barely variable) - how does this compare to the CIV entering bandpasses
+	    Mag vs rms [highlight spectral lines with different colours] for N(Obs)>5 SNR…
+	    Discrepency between Table 3 and Figure 6. Table 3 has 51 QSOs with W3 detection, and Figure 6 has 283. Is it the lower SNR? Para 2 of 3.3 answers this.  
+
+
 
 
 For NJGC
@@ -38,9 +53,13 @@ For NJGC
 
   -- "I make it 95 WISE z>=6 QSO in finalQsoCatalogue. I am worried that I only updated the 41 QSOs
      added later with WISE photometry. I must check this. There are 314 in total with WISE photometry."
+     
   -- Section 3.1 and 3.1.1 to check/polish.
-  -- Light curve for  SDSSJ0958+3524?
-  -- QSO 94 at RA = 60 deg; Decl. 28.45. Covered by GCS/GPS. 
+  
+  -- Light curve for  SDSSJ0958+3524
+  
+  -- QSO 94 at RA = 60 deg; Decl. 28.45. Covered by GCS/GPS.
+  
 
 
 For Both
