@@ -1,5 +1,6 @@
 
 TEXFILE=VHzQ
+TEXFILE_TWO=PhotometricBands_Conversions
 default: all
 
 # just run it
@@ -35,7 +36,6 @@ tect :
 	open ${TEXFILE}.pdf
 
 
-
 clean:
 	rm -f \
 	${TEXFILE}.dvi \
@@ -46,5 +46,21 @@ clean:
 	${TEXFILE}.blg \
 	${TEXFILE}.toc \
 	${TEXFILE}.log 
-#	${TEXFILE}.pdf 
+#	${TEXFILE}.pdf
 
+
+PhotometricBands :
+	pdflatex  ${TEXFILE_TWO}
+	pdflatex  ${TEXFILE_TWO}
+	bibtex ${TEXFILE_TWO}
+	bibtex ${TEXFILE_TWO}
+	pdflatex  ${TEXFILE_TWO}
+	pdflatex  ${TEXFILE_TWO}
+	rm -f  ${TEXFILE_TWO}.aux
+	rm -f  ${TEXFILE_TWO}.bbl
+	rm -f  ${TEXFILE_TWO}.blg
+	rm -f  ${TEXFILE_TWO}.dvi
+	rm -f  ${TEXFILE_TWO}.log
+	rm -f  ${TEXFILE_TWO}.out
+	rm -f  ${TEXFILE_TWO}.toc
+	open ${TEXFILE_TWO}.pdf
