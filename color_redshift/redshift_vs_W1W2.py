@@ -23,14 +23,31 @@ from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 ##
 ## DR14Q
 ##
-path      = '/cos_pc19a_npr/data/SDSS/DR14Q/'
-filename  ='DR14Q_v4_4.fits'
-#filename ='DR14Q_v4_4_W4good.fits'
-infile    = path+filename
-data      = fits.getdata(infile, 1)
-dr14q     = Table(data)
+path       = '/cos_pc19a_npr/data/SDSS/DR14Q/'
+filename   ='DR14Q_v4_4.fits'
+#filename  ='DR14Q_v4_4_W4good.fits'
+infile     = path+filename
+data       = fits.getdata(infile, 1)
+dr14q_full = Table(data)
+
+## in case you want to select on e.g. SDSS survey
+#dr14q = dr14q_full
+
+## From the DR12Q,  MJD.min() = 55176 and MJD.max() = 56837
+## SDSS-I/II
+#dr14q = dr14q_full[np.where( dr14q_full['MJD'] < 55176  )]
+## BOSS
+#dr14q = dr14q_full[np.where((dr14q_full['MJD'] > 55176) & (dr14q_full['MJD'] < 56837))  ]
+## SDSS-IV
+dr14q = dr14q_full[np.where( dr14q_full['MJD'] > 56837  )]  
+
+## Should be:
+##   79,487 for SDSS-I/II;
+##  286,686 for BOSS;
+##  159,981 for SDSS-IV
 dr14q_W1minW2 = (dr14q['W1MAG'] - dr14q['W2MAG'])
 dr14q_W2minW3 = (dr14q['W2MAG'] - dr14q['W3MAG'])
+
 
 ##
 ##  V H z Q    data
@@ -40,8 +57,8 @@ filename = 'VHzQs_ZYJHK_WISE.dat'
 table=path+filename
 VHzQ_full = ascii.read(table)
 ## in case you want to select on e.g. snr
-#VHzQ = VHzQ_full
-VHzQ = VHzQ_full[np.where(VHzQ_full['w3snr'] >3.0)]
+VHzQ = VHzQ_full
+#VHzQ = VHzQ_full[np.where(VHzQ_full['w3snr'] >3.0)]
 
 
 ##  Making the plot(s)

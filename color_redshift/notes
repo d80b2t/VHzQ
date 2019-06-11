@@ -1,0 +1,28 @@
+
+
+Full DR14Q:: 
+	    526,356 objects
+
+
+ 79487	 from the DR14Q with
+	 dr14q_full['MJD'] < 55176
+	 i.e. SDSS-I/II objects
+	 of which 77,398 (97.37%)
+	 are in the W1W2 vs. redshift with W2-W3 plot.
+
+286686	 from the DR14Q with
+	 dr14q = dr14q_full[np.where((dr14q_full['MJD'] > 55176) & (dr14q_full['MJD'] < 56837))  ]
+	 i.e. SDSS-III BOSS objects
+	 of which 203,102 (70.84 \%)
+ 	 are in the W1W2 vs. redshift with W2-W3 plot.
+
+159981	 from the DR14Q with
+	 dr14q = dr14q_full[np.where( dr14q_full['MJD'] > 56837  )]  
+	 i.e. SDSS-IV objects
+	 of which 120,784 (75.50 \%)
+ 	 are in the W1W2 vs. redshift with W2-W3 plot.
+
+
+
+
+
