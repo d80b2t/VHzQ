@@ -20,6 +20,9 @@ For NPR
  -- Check for objects that are WISE bright and NIR faint.
  
  -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3).
+
+ -- What is the reddest W2-W3 VHzQ...
+
  
  -- Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
  
