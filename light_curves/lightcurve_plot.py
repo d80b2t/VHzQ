@@ -96,7 +96,8 @@ H_VIRCAM_30d  = VSA_data_30d[(VSA_data_30d['filterID'] == 4) & (VSA_data_30d['ap
 Ks_VIRCAM_30d = VSA_data_30d[(VSA_data_30d['filterID'] == 5) & (VSA_data_30d['aperMag3Ab']>0)]
 
 ## For WISE, we adopt 2.699 and 3.339 as the conversions to AB from W1 and W2 Vega magnitudes,
-if choice != '7' & choice !='5':
+#if choice != '7' & choice !='5':
+if choice !='5':
     WISE_W1_AB = NEOWISER['w1mpro'] + 2.699
     WISE_W2_AB = NEOWISER['w2mpro'] + 3.339
 
@@ -164,13 +165,15 @@ ax.scatter(Ks_VIRCAM_all['mjdObs'], Ks_VIRCAM_all['aperMag3AverAB'], label='', s
 
 ms = 7.
 ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
-markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Z',  color='olive', ms=ms*1.4)
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Z',  color='olive',     ms=ms*1.4)
 ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
-markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Y',  color='orange', ms=ms*1.4)
-ax.errorbar(J_VIRCAM_30d['mjd'],  J_VIRCAM_30d['aperMag3Ab'],  yerr=J_VIRCAM_30d['aperMag3Err'], markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM J',  color='goldenrod',         ms=ms*1.4)
-ax.errorbar(H_VIRCAM_30d['mjd'],  H_VIRCAM_30d['aperMag3Ab'],  yerr=H_VIRCAM_30d['aperMag3Err'],markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM H',  color='y', ms=ms*1.4)
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Y',  color='orange',    ms=ms*1.4)
+ax.errorbar(J_VIRCAM_30d['mjd'],  J_VIRCAM_30d['aperMag3Ab'],  yerr=J_VIRCAM_30d['aperMag3Err'],
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM J',  color='goldenrod', ms=ms*1.4)
+ax.errorbar(H_VIRCAM_30d['mjd'],  H_VIRCAM_30d['aperMag3Ab'],  yerr=H_VIRCAM_30d['aperMag3Err'],
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM H',  color='y',         ms=ms*1.4)
 ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_30d['aperMag3Err'],
-markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',ms=ms*1.4)
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',    ms=ms*1.4)
 
 print('Creating plot, ...WISE labels...')
 if choice != '5' :
