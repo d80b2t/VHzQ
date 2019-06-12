@@ -41,11 +41,20 @@ sdss  = dr14q[np.where( dr14q['MJD'] < 55176  )]
 boss  = dr14q[np.where((dr14q['MJD'] > 55176) & (dr14q['MJD'] < 56837))  ]
 ## SDSS-IV
 eboss = dr14q[np.where( dr14q['MJD'] > 56837  )]  
-
 ## Should be:
-##   79,487 for SDSS-I/II;
-##  286,686 for BOSS;
-##  159,981 for SDSS-IV
+##    79,487 for SDSS-I/II;
+##   286,686 for BOSS;
+##   159,981 for SDSS-IV
+
+
+boss_uband = boss['PSFMAG'][0:,0]
+boss_gband = boss['PSFMAG'][0:,1]
+boss_rband = boss['PSFMAG'][0:,2]
+boss_iband = boss['PSFMAG'][0:,3]
+boss_zband = boss['PSFMAG'][0:,4]
+
+boss_g_minus_i = boss_gband - boss_iband
+
 dr14q_W1minW2 = (dr14q['W1MAG'] - dr14q['W2MAG'])
 dr14q_W2minW3 = (dr14q['W2MAG'] - dr14q['W3MAG'])
 ##
@@ -55,7 +64,6 @@ boss_W1minW2  = (boss['W1MAG'] - boss['W2MAG'])
 boss_W2minW3  = (boss['W2MAG'] - boss['W3MAG'])
 eboss_W1minW2 = (eboss['W1MAG'] - eboss['W2MAG'])
 eboss_W2minW3 = (eboss['W2MAG'] - eboss['W3MAG'])
-
 
 ##
 ##  V H z Q    data
@@ -67,6 +75,7 @@ VHzQ_full = ascii.read(table)
 ## in case you want to select on e.g. snr
 VHzQ = VHzQ_full
 #VHzQ = VHzQ_full[np.where(VHzQ_full['w3snr'] >3.0)]
+
 
 
 
@@ -88,9 +97,7 @@ pointsize       = 100
 pointsize_large = pointsize*2.2
 fontsize        = 28
 
-
-vmin = 2.2
-vmax = 4.25
+vmin = 2.2; vmax = 4.25 ## for W2-W3
 ##
 ##   Plotting the   D R 1 4 Q    hexbins
 ##
@@ -117,10 +124,11 @@ print()
 ##
 #cmap = plt.cm.inferno
 cmap = plt.cm.seismic
-hb_VHzQ = ax.scatter(  VHzQ['redshift'], 
-                      (VHzQ['unW1mag'] - VHzQ['unW2mag']),
+hb_VHzQ = ax.scatter(VHzQ['redshift'],
+                    (VHzQ['unW1mag'] - VHzQ['unW2mag']),
                      s=pointsize_large, c='k')
 
+vmin = 2.2; vmax = 4.25 ## for W2-W3
 hb_VHzQ = ax.scatter(VHzQ['redshift'], 
                     (VHzQ['unW1mag'] - VHzQ['unW2mag']),
                   c=(VHzQ['unW2mag'] - VHzQ['w3mpro']),
@@ -145,15 +153,15 @@ ax.axis([xmin, xmax, ymin, ymax])
 ax.tick_params(axis='both', which='major', labelsize=ls, top='on', right='on', direction='in', length=ticklength,   width=tickwidth)
 ax.tick_params(axis='both', which='minor', labelsize=ls, top='on', right='on', direction='in', length=ticklength/2, width=tickwidth)
 
-majorLocator = MultipleLocator(2.0)
-minorLocator = MultipleLocator(0.5)
-ax.xaxis.set_major_locator(majorLocator)
-ax.xaxis.set_minor_locator(minorLocator)
+majorLocator_x = MultipleLocator(2.0)
+minorLocator_x = MultipleLocator(0.5)
+majorLocator_y = MultipleLocator(1.0)
+minorLocator_y = MultipleLocator(0.1)
 
-majorLocator = MultipleLocator(1.0)
-minorLocator = MultipleLocator(0.1)
-ax.yaxis.set_major_locator(majorLocator)
-ax.yaxis.set_minor_locator(minorLocator)
+ax.xaxis.set_major_locator(majorLocator_x)
+ax.xaxis.set_minor_locator(minorLocator_x)
+ax.yaxis.set_major_locator(majorLocator_y)
+ax.yaxis.set_minor_locator(minorLocator_y)
 
 ## Grid lines to compare with Wright et al. (2010) Fig. 12
 ## Vertical lines
@@ -169,7 +177,6 @@ ax.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
 plt.savefig('redshift_vs_W1W2_temp.png', format='png')
 #plt.show()
 plt.close()
-
 
 
 
@@ -191,9 +198,104 @@ cbaxes = fig.add_axes([0.2, 0.20,  0.36, 0.025])
 cb = fig.colorbar(hb, ax=ax, cax=cbaxes, orientation='horizontal', ticklocation = 'top')
 cb.ax.set_xticklabels([''])
 
+ax1.axis([xmin, xmax, ymin, ymax])
+ax1.tick_params(axis='both', which='major', labelsize=ls, top='on', right='on', direction='in', length=ticklength,   width=tickwidth)
+ax1.tick_params(axis='both', which='minor', labelsize=ls, top='on', right='on', direction='in', length=ticklength/2, width=tickwidth)
+
+ax1.xaxis.set_major_locator(majorLocator_x); ax1.xaxis.set_minor_locator(minorLocator_x)
+ax1.yaxis.set_major_locator(majorLocator_y); ax1.yaxis.set_minor_locator(minorLocator_y)
 ax1.set_xlabel(r"$z$, redshift", fontsize=fontsize)
 ax1.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
 
+## Vertical lines
+for x in range(8): 
+    ax1.axvline(x=(x-1.0), ymin=0, ymax=1, ls=':', color='grey')
+## Horizontal lines
+for y in range(9):
+    ax1.axhline(y=((y*.5)-1.0), xmin=0, xmax=1, ls=':', color='grey')
+
+
 plt.savefig('redshift_vs_W1W2_sdss_temp.png', format='png')
+plt.close()
+
+
+
+###################################
+##
+##   B O S S  
+##
+plt.rcParams.update({'font.size': 14})
+fig, ax2 = plt.subplots(figsize=(14, 8), num=None, dpi=80, facecolor='w', edgecolor='k')
+##
+
+#cmap = plt.cm.Greys
+cmap = plt.cm.plasma
+#vmin = 2.2; vmax = 4.25 ## for W2-W3
+vmin = -0.2; vmax = 1.25 ## for (g-i)
+hb = ax2.hexbin(boss['Z'], boss_W1minW2,
+             #C=boss_W2minW3,
+             C=boss_g_minus_i, 
+             gridsize=220, mincnt=10, marginals=False, cmap=cmap,  vmin=vmin, vmax=vmax)
+
+## Making the colorbar
+cbaxes = fig.add_axes([0.2, 0.20,  0.36, 0.025]) 
+cb = fig.colorbar(hb, ax=ax, cax=cbaxes, orientation='horizontal', ticklocation = 'top')
+cb.ax.set_xticklabels([''])
+
+ax2.axis([xmin, xmax, ymin, ymax])
+ax2.tick_params(axis='both', which='major', labelsize=ls, top='on', right='on', direction='in', length=ticklength,   width=tickwidth)
+ax2.tick_params(axis='both', which='minor', labelsize=ls, top='on', right='on', direction='in', length=ticklength/2, width=tickwidth)
+
+ax2.xaxis.set_major_locator(majorLocator_x); ax2.xaxis.set_minor_locator(minorLocator_x)
+ax2.yaxis.set_major_locator(majorLocator_y); ax2.yaxis.set_minor_locator(minorLocator_y)
+ax2.set_xlabel(r"$z$, redshift", fontsize=fontsize)
+ax2.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
+
+## Vertical lines
+for x in range(8): 
+    ax2.axvline(x=(x-1.0), ymin=0, ymax=1, ls=':', color='grey')
+## Horizontal lines
+for y in range(9):
+    ax2.axhline(y=((y*.5)-1.0), xmin=0, xmax=1, ls=':', color='grey')
+
+plt.savefig('redshift_vs_W1W2_boss_temp.png', format='png')
 #plt.show()
+plt.close()
+
+
+
+###################################
+##
+##   e B O S S  
+##
+plt.rcParams.update({'font.size': 14})
+fig, ax3 = plt.subplots(figsize=(14, 8), num=None, dpi=80, facecolor='w', edgecolor='k')
+##
+cmap = plt.cm.Greys
+hb = ax3.hexbin(eboss['Z'], eboss_W1minW2,
+             C=eboss_W2minW3,
+             gridsize=220, mincnt=10, marginals=False, cmap=cmap,  vmin=vmin, vmax=vmax)
+
+## Making the colorbar
+cbaxes = fig.add_axes([0.2, 0.20,  0.36, 0.025]) 
+cb = fig.colorbar(hb, ax=ax, cax=cbaxes, orientation='horizontal', ticklocation = 'top')
+cb.ax.set_xticklabels([''])
+
+ax3.axis([xmin, xmax, ymin, ymax])
+ax3.tick_params(axis='both', which='major', labelsize=ls, top='on', right='on', direction='in', length=ticklength,   width=tickwidth)
+ax3.tick_params(axis='both', which='minor', labelsize=ls, top='on', right='on', direction='in', length=ticklength/2, width=tickwidth)
+
+ax3.xaxis.set_major_locator(majorLocator_x); ax3.xaxis.set_minor_locator(minorLocator_x)
+ax3.yaxis.set_major_locator(majorLocator_y); ax3.yaxis.set_minor_locator(minorLocator_y)
+ax3.set_xlabel(r"$z$, redshift", fontsize=fontsize)
+ax3.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
+
+## Vertical lines
+for x in range(8): 
+    ax3.axvline(x=(x-1.0), ymin=0, ymax=1, ls=':', color='grey')
+## Horizontal lines
+for y in range(9):
+    ax3.axhline(y=((y*.5)-1.0), xmin=0, xmax=1, ls=':', color='grey')
+
+plt.savefig('redshift_vs_W1W2_eboss_temp.png', format='png')
 plt.close()
