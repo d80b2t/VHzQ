@@ -772,7 +772,7 @@ but high-resolution follow-up is needed to confirm.
   \label{fig:MIR_LC_epochs}
 \end{figure}
 \subsection{Variability}
-VH$z$Qs, if accreting at, or above the Eddington Limit, might well have have large values of changing mass accretion rate, $\ddot{m}_{\rm accr}$. A consequence of this would be that these quasars exhibit signs of variability, most likely showing up in their UV/optical rest-frame spectra. We look for evidence of this variability signature in the NIR and MIR light-curves of the VH$z$Qs. 
+VH$z$Qs, if accreting at, or above the Eddington limit, might well have changing mass accretion rates, $\dot{m}_{\rm accr}$. A consequence of this would be that these quasars exhibit signs of variability, most likely showing up in their UV/optical rest-frame emission. We look for evidence of this variability signature in the NIR and MIR light-curves of the VH$z$Qs. 
 
 Quasars are known to have dramatically changing Balmer lines, especially H$\beta$ \citep[e.g.,][]{LaMassa2015, Ruan2016, Runnoe2016, Macleod2016, Gezari2017, Runco2016, YangQ2018, Assef2018, Stern2018, Ross2018, MacLeod2019, Graham2019}. As a guide, we note that H$\alpha$ is redshifted to 3.94$\mu$m (i.e. W1) at $z=5.00$ and 5.57$\mu$m, which is between the W2 and W3-bands at $z=7.50$. 
 H$\beta$ is redshifted to 2.92$\mu$m, which is the blue edge of W1, at $z=5.00$ and 
@@ -803,24 +803,24 @@ lightcurves and associated colour changes. Here we show J0100+2802
 \citep{Wu2015}, J0224-4711 and J1626+2751.
 
 Using the extended datasets described in Section~\ref{sec:NIR_data}, 
-we select objects with at least 8
-measurements observed with durations over 30 days, in at least one
-filter and with the average calibrated flux is greater than 0 and at
-least $8\times$ the error on the average calibrated flux. 
-%At least 8 original observations across at least 30 days in either WSA or VSA per 
-% band, calibrated flux greater than zero over the whole time, and the
-% error on the average flux is 8 times lower than this. 
+we select objects with at least 8 measurements observed with intervals of 
+at least 30 days, in at least one filter. 
+The signal-to-noise on the average calibrated flux is required to be $\geq8$. 
+%(i.e. {\tt aperJky3}$>0$. 
+%%(i.e. the average calibrated flux over all epochs must be >0) 
+%and 
+%{\tt aperJky3/aperJky3Err}$>=$8)
+%%
 A requirement of SNR$>3$ per `average' epoch, where `average epoch' is
-then dependent on the averaging timescales (which as we see can vary).
+dependent on the averaging timescales is also required.
 The clipped median and standard deviation is then calculated 
 \begin{equation}
-     1.48 \times \sigma_{median} / \bar{\epsilon}
+      var = 1.48 \times  {\rm m.a.d.} / \bar{\epsilon}
 \end{equation}
-where $\bar{\epsilon}$ is the mean of the error in each point in the
+where $var$ is the index of variation, 
+m.a.d. is the median absolute deivation, 
+and $\bar{\epsilon}$ is the mean of the error in each point in the
 light curve, divided by the total number of points.
-%%
-With this definition, although some of the objects have very well sampled 
-with an ``average'' light curve sampling over e.g. a month, or two weeks. 
 %%
 With these criteria, there are 21 WFCAM and 12 VISTA objects 
 with 1 object (VIK J1148+0056 ) in common to both, and this sample of 32 is our starting point for variability investigations. 
