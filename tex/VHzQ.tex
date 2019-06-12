@@ -809,14 +809,13 @@ Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR
 lightcurves and associated colour changes. Here we show J0100+2802
 \citep{Wu2015}, J0224-4711 and J1626+2751.
 
-Using the extended datasets described in Section~\ref{sec:NIR_data}, 
-we select objects with at least 8 measurements observed with intervals of 
-at least 30 days, in at least one filter. 
-The the average calibrated flux over all epochs must be $>0$ 
-(i.e. {\tt aperJky3}$>0$) 
-with the signal-to-noise is required to be $\geq8$. 
-(i.e. {\tt aperJky3/aperJky3Err}$>=$8).
-The clipped median and standard deviation is then calculated 
+Using the extended datasets described in Section~\ref{sec:NIR_data},
+we select objects with at least 8 measurements observed with intervals
+of at least 30 days, in at least one filter. The the average
+calibrated flux over all epochs must be $>0$ (i.e. {\tt aperJky3}$>0$)
+with the signal-to-noise is required to be $\geq8$. (i.e. {\tt
+aperJky3/aperJky3Err}$\geq$8). The clipped median and standard
+deviation is then calculated
 \begin{equation}
       var = 1.48 \times  {\rm m.a.d.} / \bar{\epsilon}
 \end{equation}
@@ -829,23 +828,25 @@ point for variability investigations.
 
 We present four objects that are particularly well-sampled in the NIR. 
 These are: 
-MMTJ0215-0529 (Figure~\ref{fig:MMTJ0215-0529}), 
-CFHQSJ0216-0455 (Figure~\ref{fig:CFHQSJ0216-0455}), 
-SHELLQsJ0220-0432 (Figure~\ref{fig:SHELLQsJ0220-0432}) and 
-SDSS J0959+0227 (Figure~\ref{fig:SDSSJ0959+0227}). 
+MMT J0215-0529       ($z=5.13$; Figure~\ref{fig:MMTJ0215-0529}), 
+CFHQS J0216-0455    ($z=6.01$; Figure~\ref{fig:CFHQSJ0216-0455}), 
+SHELLQs J0220-0432 ($z=5.90$; Figure~\ref{fig:SHELLQsJ0220-0432}) 
+and 
+SDSS J0959+0227 ($z=5.07$; Figure~\ref{fig:SDSSJ0959+0227}). 
 We incorporate the MIR NEOWISE-R light curve data where available. 
 
 \begin{figure}
   \begin{subfigure}{}
     \centering
     \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190214.png}
-    \caption{The infrared light curve for MMT J0215-0529 (}
+    \caption{The infrared light curve for MMT J0215-0529 with data from 
+      WFCAM (smaller solid cirlces), VIRCAM (hexagons) and NEOWISE-R (larger solid cirlces).}
     \label{fig:MMTJ0215-0529}
   \end{subfigure} 
   \begin{subfigure}{}
     \centering
     \includegraphics[width=8.5cm]{../light_curves/CFHQSJ0216-0455LC_20190214.png}
-    \caption{CFHQS J0216-0455}
+    \caption{The same as Fig.~\ref{fig:MMTJ0215-0529} except for CFHQS J0216-0455.}
     \label{fig:CFHQSJ0216-0455}
   \end{subfigure}
 \end{figure}
@@ -854,39 +855,41 @@ We incorporate the MIR NEOWISE-R light curve data where available.
   \begin{subfigure}{}\quad
     \centering
     \includegraphics[width=8.5cm]{../light_curves/SHELLQsJ0220-0432LC_20190214.png}
-    \caption{SHELLQs J0220-0432}
+    \caption{The same as Fig.~\ref{fig:MMTJ0215-0529} except for SHELLQs J0220-0432.}
     \label{fig:SHELLQsJ0220-0432}
   \end{subfigure}
   \begin{subfigure}{}\quad
     \centering
     \includegraphics[width=8.5cm]{../light_curves/SDSSJ0959+0227LC_20190612.png}
-    \caption{SDSS J0959+0227}
+    \caption{The near infrared light curve for SDSS J0959+0227. Note, 
+      SDSS J0959+0227 is too faint in the MIR to be detected by ALLWISE or unnWISE.}
     \label{fig:SDSSJ0959+0227}
   \end{subfigure}
   \medskip
 \end{figure}
 
-Even with well sampled data across the 3000-4000 day observed time-scales that the WFCAM and VISTA surveys span, the $(1+z)$ time-dilation dramatically affects the sampled rest-frame timescales sampled. 
+Even with well sampled data across the 3000-4000 day observed
+time-scales that the WFCAM and VISTA surveys span, the $(1+z)$
+time-dilation dramatically affects the sampled rest-frame timescales
+sampled. Indeed, when sharp changes in a accretion rate are expected
+on the system's dynamical timescale of several kiloyears
+\citep[e.g.,][]{Regan2019}, then seeing any variability signature is
+not expected. However, noting how in lower redshift quasars, which
+also have massive $>10^{8}$ M$_{\odot}$ black holes, dramatic changes
+in both continuum and line emission {\it is seen} on much shorter
+timescales, continued monitoring of these objects is warrented.
 
-
-SDSS J0959+0227 is in the VH$z$Q sample from \citet{Wang2016} 
-%% Wang et al. 2016, ApJ, 819, 24, and their Table1. 
-but is first reported in \citet{Civano2011} as CID-2220 (CXOCJ095908.1+022707), 
-%2011, ApJ, 741, 91 
-a high-redshift, $z>3$ AGN in the Chandra-COSMOS field. 
-%%
-The spectrum from this object is presented in \citet{Ikeda2012} 
-% et al., 2012, ApJ, 756, 160, 
-and is called object ``No. 11'' in that papers' Table 1. 
-and it is a beauty!! Figure 2 with the spectrum is attached. 
-\citet{Ikeda2012} show SDSS J0959+0227 having a narrow Ly$\alpha$ line, 
-and would likely be a Lyman-$\alpha$ emitting galaxy had it not been an X-ray source, 
-The X-ray luminosity is $\approx3x10^44$ erg s$-1$ in the 2–10 keV rest-frame, 
-so it is an AGN. This object is clearly not a regular broadline ``Type 1'' AGN, but  
-if there is even the slightest of variability, this could potentially be a high-$z$ 
-AGN transitioning from a narrow-line ``Type 2'' object to a broadline Type 1 quasar. 
-
-Doing this independently in each band...
+We finally focus on SDSS J0959+0227 which is in the VH$z$Q sample from
+\citet{WangF2016} but is first reported in \citet{Civano2011} as
+CID-2220 and a high-redshift, $z>3$ AGN, in the Chandra-COSMOS
+field. The spectrum from this object is presented in \citet{Ikeda2012}
+and shows SDSS J0959+0227 having a narrow Ly$\alpha$ line, and would
+likely be a Lyman-$\alpha$ emitting galaxy had it not been an X-ray
+source, The X-ray luminosity is $\approx3x10^44$ erg s$-1$ in the 2–10
+keV rest-frame, so it is an AGN. This object is clearly not a regular
+broadline ``Type 1'' AGN, but if with the slightest hint of
+variability, this could potentially be a high-$z$ AGN transitioning
+from a narrow-line ``Type 2'' object to a broadline Type 1 quasar.
 
 
 

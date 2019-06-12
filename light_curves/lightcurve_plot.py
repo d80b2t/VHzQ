@@ -14,7 +14,7 @@ from matplotlib.font_manager import FontProperties
 
 ## Setting up the path for the input data
 
-path = os.path.join(os.path.dirname(os.getcwd()),'data/light_curves/individual_objects')
+path = os.path.join(os.path.dirname(os.getcwd()),'data/light_curves/individual_objects/')
 
 choice = '1'
 ## Ordered by qsoID number. 
@@ -62,8 +62,8 @@ VSA_data_all = ascii.read(os.path.join(path,inputQuasar,'VSA_lc_all.dat'))
 VSA_data_30d = ascii.read(os.path.join(path,inputQuasar,'VSA_lc_30d.dat'))
 
 ## NEOWISE-R
-#if choice != '7':
-NEOWISER =  ascii.read(os.path.join(path,inputQuasar,'NEOWISER-R_SingleExp_L1b.dat'))
+if (choice != '7' and choice !='5'):
+    NEOWISER =  ascii.read(os.path.join(path,inputQuasar,'NEOWISER-R_SingleExp_L1b.dat'))
 #WISE_W1 = ascii.read(path+'WISE_W1_LC.dat')
 #WISE_W2 = ascii.read(path+'WISE_W2_LC.dat')
 #WISE_L1bs = ascii.read(path+'J110057_l1b.tbl')
@@ -96,8 +96,9 @@ H_VIRCAM_30d  = VSA_data_30d[(VSA_data_30d['filterID'] == 4) & (VSA_data_30d['ap
 Ks_VIRCAM_30d = VSA_data_30d[(VSA_data_30d['filterID'] == 5) & (VSA_data_30d['aperMag3Ab']>0)]
 
 ## For WISE, we adopt 2.699 and 3.339 as the conversions to AB from W1 and W2 Vega magnitudes,
-WISE_W1_AB = NEOWISER['w1mpro'] + 2.699
-WISE_W2_AB = NEOWISER['w2mpro'] + 3.339
+if choice != '7' & choice !='5':
+    WISE_W1_AB = NEOWISER['w1mpro'] + 2.699
+    WISE_W2_AB = NEOWISER['w2mpro'] + 3.339
 
 
 
@@ -172,7 +173,7 @@ ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_3
 markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',ms=ms*1.4)
 
 print('Creating plot, ...WISE labels...')
-if choice!='5':
+if choice != '5' :
     ## WISE W1/W2
     ms = 6.
     ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W1',
