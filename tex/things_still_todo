@@ -17,7 +17,7 @@ For NPR
        	   maybe a  J-K vs. K-W2 kinda plot??)
        	   maybe a  J-K vs. W1-W2 kinda plot??)
 
-  -- Check for objects that are WISE bright and NIR faint.
+ -- Check for objects that are WISE bright and NIR faint.
  
  -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3).
  
@@ -27,19 +27,16 @@ For NPR
 
  -- Hviding et al. (2018); and other WISE AGN references...
 
+ -- cross check with Secret catalog
+
  -- Section 3.2
     	    Figure 5 should be Figure 4 (mag vs SNR) in the text...
-	    Complete last paragraph of Sec 3.2
-	    Complete Table 7..
+	    Table 7.
 
  -- Section 3.3:
-    	    What is the point of the opening sentence, “DELS J1048-0109”.
-	    It seems a partial sentence. It is the one with bluest (W1-W2) colours,
-	    but also quite high-z: z=6.63.
-	    Figure 6 should have error bars?
- 	    Possible variable QSOs (barely variable) - how does this compare to the CIV entering bandpasses
-	    Mag vs rms [highlight spectral lines with different colours] for N(Obs)>5 SNR…
-	    Discrepency between Table 3 and Figure 6. Table 3 has 51 QSOs with W3 detection, and Figure 6 has 283. Is it the lower SNR? Para 2 of 3.3 answers this.  
+	    Discrepency between Table 3 and Figure 6.
+	    Table 3 has 51 QSOs with W3 detection, and Figure 6 has 283.
+	    (Is it the lower SNR? Para 2 of 3.3 answers this.)
 
 
 
