@@ -12,7 +12,9 @@ from matplotlib.font_manager import FontProperties
 
 
 ## Setting up the path for the input data
-path = '/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/'
+#path = '/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/'
+path = '/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/individual_objects/'
+
 
 choice = '1'
 ## Ordered by qsoID number. 
