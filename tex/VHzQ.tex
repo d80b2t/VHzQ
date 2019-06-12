@@ -772,18 +772,26 @@ but high-resolution follow-up is needed to confirm.
   \label{fig:MIR_LC_epochs}
 \end{figure}
 \subsection{Variability}
-VH$z$Qs, if accreting at, or above the Eddington limit, might well have changing mass accretion rates, $\dot{m}_{\rm accr}$. A consequence of this would be that these quasars exhibit signs of variability, most likely showing up in their UV/optical rest-frame emission. We look for evidence of this variability signature in the NIR and MIR light-curves of the VH$z$Qs. 
+VH$z$Qs, if accreting at, or above the Eddington limit, might well
+have changing mass accretion rates, i.e., $\ddot{m}_{\rm accr}$. A
+consequence of this would be that these quasars exhibit signs of
+variability, most likely showing up in their UV/optical rest-frame
+emission. We look for evidence of this variability signature in the
+NIR and MIR light-curves of the VH$z$Qs.
 
-Quasars are known to have dramatically changing Balmer lines, especially H$\beta$ \citep[e.g.,][]{LaMassa2015, Ruan2016, Runnoe2016, Macleod2016, Gezari2017, Runco2016, YangQ2018, Assef2018, Stern2018, Ross2018, MacLeod2019, Graham2019}. As a guide, we note that H$\alpha$ is redshifted to 3.94$\mu$m (i.e. W1) at $z=5.00$ and 5.57$\mu$m, which is between the W2 and W3-bands at $z=7.50$. 
-H$\beta$ is redshifted to 2.92$\mu$m, which is the blue edge of W1, at $z=5.00$ and 
-4.13$\mu$m at $z=7.50$. 
-%%
-Less well understood is the temporal behaviour of the metal lines, in particular \civ and \mgii. 
-\civ enters the
-$Y$-band at redshift $z$=5.32 and exits at $z$=5.99, and enters the
-$J$-band at redshift $z=6.55$ and exits at $z$=7.57. \mgii enters the
-$H$-band at redshift $z=4.33$ and exits at $z=5.37$ and enters the
-$K$-band at redshift $z=6.25$ and exits at $7.50$.
+Quasars are known to have dramatically changing Balmer lines,
+especially H$\beta$ \citep[e.g.,][]{LaMassa2015, Ruan2016, Runnoe2016,
+Macleod2016, Gezari2017, Runco2016, YangQ2018, Assef2018, Stern2018,
+Ross2018, MacLeod2019, Graham2019}. As a guide, we note that H$\alpha$
+is redshifted to 3.94$\mu$m (i.e. W1) at $z=5.00$ and 5.57$\mu$m,
+which is between the W2 and W3-bands at $z=7.50$.  H$\beta$ is
+redshifted to 2.92$\mu$m, which is the blue edge of W1, at $z=5.00$
+and 4.13$\mu$m at $z=7.50$. Less well understood is the temporal
+behaviour of the metal lines, in particular \civ and \mgii.  \civ
+enters the $Y$-band at redshift $z$=5.32 and exits at $z$=5.99, and
+enters the $J$-band at redshift $z=6.55$ and exits at $z$=7.57. \mgii
+enters the $H$-band at redshift $z=4.33$ and exits at $z=5.37$ and
+enters the $K$-band at redshift $z=6.25$ and exits at $7.50$.
 
 
 \begin{figure}
@@ -795,7 +803,6 @@ $K$-band at redshift $z=6.25$ and exits at $7.50$.
     Red points are the W1 band; cyan points the W2 band.} 
   \label{fig:MIR_LC_3egs}
 \end{figure}
-
 Figure~\ref{fig:MIR_LC_epochs} gives the number of NEOWISE-R epochs
 and detections there are for each VH$z$Q, while
 Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR
@@ -805,38 +812,34 @@ lightcurves and associated colour changes. Here we show J0100+2802
 Using the extended datasets described in Section~\ref{sec:NIR_data}, 
 we select objects with at least 8 measurements observed with intervals of 
 at least 30 days, in at least one filter. 
-The signal-to-noise on the average calibrated flux is required to be $\geq8$. 
-%(i.e. {\tt aperJky3}$>0$. 
-%%(i.e. the average calibrated flux over all epochs must be >0) 
-%and 
-%{\tt aperJky3/aperJky3Err}$>=$8)
-%%
-A requirement of SNR$>3$ per `average' epoch, where `average epoch' is
-dependent on the averaging timescales is also required.
+The the average calibrated flux over all epochs must be $>0$ 
+(i.e. {\tt aperJky3}$>0$) 
+with the signal-to-noise is required to be $\geq8$. 
+(i.e. {\tt aperJky3/aperJky3Err}$>=$8).
 The clipped median and standard deviation is then calculated 
 \begin{equation}
       var = 1.48 \times  {\rm m.a.d.} / \bar{\epsilon}
 \end{equation}
-where $var$ is the index of variation, 
-m.a.d. is the median absolute deivation, 
-and $\bar{\epsilon}$ is the mean of the error in each point in the
-light curve, divided by the total number of points.
-%%
-With these criteria, there are 21 WFCAM and 12 VISTA objects 
-with 1 object (VIK J1148+0056 ) in common to both, and this sample of 32 is our starting point for variability investigations. 
+where $var$ is the index of variation, m.a.d. is the median absolute
+deivation, and $\bar{\epsilon}$ is the mean of the error in each point
+in the light curve, divided by the total number of points.  With these
+criteria, there are 21 WFCAM and 12 VISTA objects with 1 object (VIK
+J1148+0056) in common to both, and this sample of 32 is our starting
+point for variability investigations.
 
-We present four objects that are particularly well-sampled in the NIR; these are
+We present four objects that are particularly well-sampled in the NIR. 
+These are: 
 MMTJ0215-0529 (Figure~\ref{fig:MMTJ0215-0529}), 
 CFHQSJ0216-0455 (Figure~\ref{fig:CFHQSJ0216-0455}), 
 SHELLQsJ0220-0432 (Figure~\ref{fig:SHELLQsJ0220-0432}) and 
-SDSS J0959+0227 (Figure~\ref{fig:SDSS J0959+0227}). 
-We also incorporate the MIR NEOWISE-R light data where available. 
+SDSS J0959+0227 (Figure~\ref{fig:SDSSJ0959+0227}). 
+We incorporate the MIR NEOWISE-R light curve data where available. 
 
 \begin{figure}
   \begin{subfigure}{}
     \centering
     \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190214.png}
-    \caption{MMT J0215-0529}
+    \caption{The infrared light curve for MMT J0215-0529 (}
     \label{fig:MMTJ0215-0529}
   \end{subfigure} 
   \begin{subfigure}{}
@@ -863,7 +866,26 @@ We also incorporate the MIR NEOWISE-R light data where available.
   \medskip
 \end{figure}
 
-Longer time-series, better SNR and moreover, $(1+z)$. 
+Even with well sampled data across the 3000-4000 day observed time-scales that the WFCAM and VISTA surveys span, the $(1+z)$ time-dilation dramatically affects the sampled rest-frame timescales sampled. 
+
+
+SDSS J0959+0227 is in the VH$z$Q sample from \citet{Wang2016} 
+%% Wang et al. 2016, ApJ, 819, 24, and their Table1. 
+but is first reported in \citet{Civano2011} as CID-2220 (CXOCJ095908.1+022707), 
+%2011, ApJ, 741, 91 
+a high-redshift, $z>3$ AGN in the Chandra-COSMOS field. 
+%%
+The spectrum from this object is presented in \citet{Ikeda2012} 
+% et al., 2012, ApJ, 756, 160, 
+and is called object ``No. 11'' in that papers' Table 1. 
+and it is a beauty!! Figure 2 with the spectrum is attached. 
+\citet{Ikeda2012} show SDSS J0959+0227 having a narrow Ly$\alpha$ line, 
+and would likely be a Lyman-$\alpha$ emitting galaxy had it not been an X-ray source, 
+The X-ray luminosity is $\approx3x10^44$ erg s$-1$ in the 2–10 keV rest-frame, 
+so it is an AGN. This object is clearly not a regular broadline ``Type 1'' AGN, but  
+if there is even the slightest of variability, this could potentially be a high-$z$ 
+AGN transitioning from a narrow-line ``Type 2'' object to a broadline Type 1 quasar. 
+
 Doing this independently in each band...
 
 
