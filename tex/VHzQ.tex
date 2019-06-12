@@ -805,7 +805,7 @@ deviation is then calculated
       var = 1.48 \times  {\rm m.a.d.} / \bar{\epsilon}
 \end{equation}
 where $var$ is the index of variation, m.a.d. is the median absolute
-deivation, and $\bar{\epsilon}$ is the mean of the error in each point
+deviation, and $\bar{\epsilon}$ is the mean of the error in each point
 in the light curve, divided by the total number of points.  With these
 criteria, there are 21 WFCAM and 12 VISTA objects with 1 object (VIK
 J1148+0056) in common to both, and this sample of 32 is our starting
@@ -825,7 +825,7 @@ We incorporate the MIR NEOWISE-R light curve data where available.
     \centering
     \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190214.png}
     \caption{The infrared light curve for MMT J0215-0529 with data from 
-      WFCAM (smaller solid cirlces), VIRCAM (hexagons) and NEOWISE-R (larger solid cirlces).}
+      WFCAM (smaller solid circles), VIRCAM (hexagons) and NEOWISE-R (larger solid circles).}
     \label{fig:MMTJ0215-0529}
   \end{subfigure} 
   \begin{subfigure}{}
@@ -863,13 +863,13 @@ any (over) interpretation.
 Even with well sampled data across the 3000-4000 day observed
 time-scales that the WFCAM and VISTA surveys span, the $(1+z)$
 time-dilation dramatically affects the sampled rest-frame timescales
-sampled. Indeed, when sharp changes in a accretion rate are expected
+sampled, which are $\sim300-700$ days. Indeed, when sharp changes in a accretion rate are expected
 on the system's dynamical timescale of several kiloyears
 \citep[e.g.,][]{Regan2019}, then seeing any variability signature is
 not expected. However, noting how in lower redshift quasars, which
 also have massive $>10^{8}$ M$_{\odot}$ black holes, dramatic changes
 in both continuum and line emission {\it is seen} on much shorter
-timescales, continued monitoring of these objects is warrented.
+timescales, continued monitoring of these objects is warranted.
 
 We finally focus on SDSS J0959+0227 which is presented in
 \citet{WangF2016} but is first reported in \citet{Civano2011} as
@@ -913,7 +913,7 @@ from a narrow-line ``Type 2'' object to a broadline Type 1 quasar.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}\label{sec:conclusions}
 In this study, we have, for the first time, compiled the list of all
-$z>5$ spectroscopically confirmed quasars. We have assemble the NIR
+$z>5$ spectroscopically confirmed quasars. We have assembled the NIR
 ($y/Y, J, H, K/K_{s}$) and MIR (WISE W1/2/3/4) photometry for these
 objects, given their detection rates and SEDs. We find that: 
 
@@ -922,9 +922,10 @@ objects, given their detection rates and SEDs. We find that:
     \item There remains a quasar ``redshift desert'' at $z\approx5.3-5.7$, though 
       efforts are being made to address this \citep[e.g.,][]{YangJ2018a};
     \item 97.0\% of the VH$z$Q sample is detected in one or more NIR ($ZYJHK/K_{s}$) band; 
-    \item The 14 objects that are not detected in the NIR is due to lack of coverage rather than lack of depth; 
+    \item The 14 objects that are not detected in the NIR are due to lack of coverage rather than lack of depth; 
    \item 362 ( 78.2\%) VH$z$Qs are detected by WISE, e.g. in the deeper unWISE W1 catalog. 
  \item All of the $z\geq7$ quasars are detected in both unWISE W1 and W2. 
+ \item 32 of the QSOs had enough NIR measurements and a good enough signal-to-noise ratio to look for variability. Weak variability was detected in multiple bands of SDSS J0959+0227, and very marginally in the Y-band of MMT J0215-0529. 2 other QSOs, SDSS J0349+0034 and SDSS J2220-0101 had significant differences between their WFCAM and VISTA magnitudes in one band, also indicating variability. 
 \end{itemize}
 
 The science reach of $z>5$ quasars will continue to be important well
@@ -964,7 +965,10 @@ This paper heavily used \href{http://www.star.bris.ac.uk/~mbt/topcat/}{TOPCAT} (
 %%
 This research made use of \href{http://www.astropy.org}{\tt Astropy}, 
 a community-developed core Python package for Astronomy 
-\citep{AstropyCollaboration2013, AstropyCollaboration2018}. 
+\citep{AstropyCollaboration2013, AstropyCollaboration2018}.
+
+The VISTA Data Flow System pipeline processing and science archive were used for the WFCAM and VISTA 
+near infrared data are described in Irwin et al (2004), Hambly et al (2008) and Cross et al. (2012). 
 
 The Pan-STARRS1 Surveys (PS1) and the PS1 public science archive have
 been made possible through contributions by the Institute for
@@ -1011,13 +1015,13 @@ The SVO Filter Profile Service\footnote{Rodrigo, C., Solano, E., Bayo, A. http:/
 describes the Spanish VO Filter Profile Service. 
 The Filter Profile Service Access Protocol. Rodrigo, C., Solano, E. http://ivoa.net/documents/Notes/SVOFPSDAL/index.html
 
-%% N.P.R. may have listented to Kris Kross during the preparation of this manuscript. 
+%% N.P.R. may have listened to Kris Kross during the preparation of this manuscript. 
 
 
 \appendix
 
 \section{Near-Infrared WFCAM Science Archive SQL queries}\label{sec:SQL}
-Here we give the receipe and SQL that returned the near-infrared photometry 
+Here we give the recipe and SQL that returned the near-infrared photometry 
 for the VH$z$Qs from the  WFCAM Science Archive. 
 
 The data are on the WFCAM Science Archive: \href{wsa.roe.ac.uk}{\tt wsa.roe.ac.uk}. 
@@ -1030,7 +1034,7 @@ with these credentials::
 \end{itemize}
 Then going to the
 \href{http://wsa.roe.ac.uk:8080/wsa/SQL_form.jsp}{{\tt Free Form SQL
-Query}} page the Database release {\tt WSERV1000v20180716} can be
+Query}} page the Database release {\tt WSERV1000v20190507} can be
 accessed which contains all the data we use here.
 
 We {\it nota bene} a few things. First, the quantity {\tt aperJky3}
@@ -1043,12 +1047,13 @@ aperJky3Aver} and likewise for the error quantity. Aliases will be
 necessary in some cases anyway, because some queries can be done
 sensibly on multiple instances of the same table. Other times, one may
 join tables on quantities such as {\tt catalogueID} or {\tt
-apertureID}, where you are meaning the same thing, but aliases would
-again be sensible.
+apertureID}, where you are meaning the same thing, but aliases are then necessary 
+for SQLServer to correctly comprehend the query. 
 
 Second, the {\tt RA} and {\tt DEC} values returned by the WSA are in radians, if
 used directly. To return values in degrees, use a selection with an alias, e.g. 
-{\tt RA as RADeg} and {\tt DEC as DECDeg}.
+{\tt RA as RADeg} and {\tt DEC as DECDeg}. Other relevant query examples can be found in the
+GitHub repository, under WSA_VSA/SAMPLE_SQL_QUERIES, or the SQLCookbook in the WSA or VSA.
 
 \onecolumn
 \input{SQL_examples_WSA}
@@ -1066,7 +1071,7 @@ with these credentials::
     \item password: {\tt highzqso} 
     \item community: {\tt proprietary}
 \end{itemize}
-Then head to the \href{http://horus.roe.ac.uk:8080/vdfs/VSQL_form.jsp}{Freeform SQL Query} page where the database release to use is {\tt VSERV1000v20180716}. 
+Then head to the \href{http://horus.roe.ac.uk:8080/vdfs/VSQL_form.jsp}{Freeform SQL Query} page where the database release to use is {\tt VSERV1000v20190508}. The queries are the same as those used in the WSA, see Appendix~\ref{sec:SQL}, but the names of the tables starting with {\tt wserv1000} should be replaced with {\tt vserv1000}.
 
 %\onecolumn
 %\input{SQL_examples_VSA}
