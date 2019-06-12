@@ -158,28 +158,11 @@ ax.yaxis.set_minor_locator(minorLocator)
 
 ## Grid lines to compare with Wright et al. (2010) Fig. 12
 ## Vertical lines
-ax.axvline(x=-1.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 0.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 1.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 2.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 3.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 4.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 5.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 6.0, ymin=0, ymax=1, ls=':', color='grey')
-ax.axvline(x= 7.0, ymin=0, ymax=1, ls=':', color='grey')
-
+for x in range(8): 
+    ax.axvline(x=(x-1.0), ymin=0, ymax=1, ls=':', color='grey')
 ## Horizontal lines
-ax.axhline(y=-1.0, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y=-0.5, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 0.0, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 0.5, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 1.0, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 1.5, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 2.0, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 2.5, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 3.0, xmin=0, xmax=1, ls=':', color='grey')
-ax.axhline(y= 3.5, xmin=0, xmax=1, ls=':', color='grey')
-
+for y in range(9):
+    ax.axhline(y=((y*.5)-1.0), xmin=0, xmax=1, ls=':', color='grey')
 
 ax.set_xlabel(r"$z$, redshift", fontsize=fontsize)
 ax.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
@@ -205,8 +188,8 @@ hb = ax1.hexbin(sdss['Z'], sdss_W1minW2,
 
 ## Making the colorbar
 cbaxes = fig.add_axes([0.2, 0.20,  0.36, 0.025]) 
-cb = fig.colorbar(hb, ax=ax1, cax=cbaxes, orientation='horizontal', ticklocation = 'top')
-cb.ax1.set_xticklabels([''])
+cb = fig.colorbar(hb, ax=ax, cax=cbaxes, orientation='horizontal', ticklocation = 'top')
+cb.ax.set_xticklabels([''])
 
 ax1.set_xlabel(r"$z$, redshift", fontsize=fontsize)
 ax1.set_ylabel(r" W1 - W2 ", fontsize=fontsize)
