@@ -853,7 +853,12 @@ We incorporate the MIR NEOWISE-R light curve data where available.
   \medskip
 \end{figure}
 
-%We note there are sources in the OB epochs with negative flux and they tend to outnumber the ones with positive flux. This is apparent for the average $H$  and $K_{s}$ flux for CFHQS J0216-0455 at MJD=56900, which is slightly negative, and so a default magnitude is reported. Interestingly it does this in both $H$ and $K_{s}$ filters, so perhaps something real is going on, but again, it is a QSO not much brighter than the detection limit, so one should be very careful with over interpretation. 
+We note that sometimes the average flux is negative and so a default
+magnitude is reported.  This is apparent for the average $H$ and
+$K_{s}$ flux for CFHQS J0216-0455 at MJD=56900.  Interestingly this is
+evident in both the $H$ and $K_{s}$ filters, but with this quasar not
+much brighter than the detection limit, one must be very careful with
+any (over) interpretation.
 
 Even with well sampled data across the 3000-4000 day observed
 time-scales that the WFCAM and VISTA surveys span, the $(1+z)$
@@ -884,48 +889,6 @@ from a narrow-line ``Type 2'' object to a broadline Type 1 quasar.
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 
-%%     S E C T I O N    4         S E C T I O N    4           S E C T I O N    4       S E C T I O N   4
-%%     S E C T I O N    4         S E C T I O N    4           S E C T I O N    4       S E C T I O N   4
-%%     S E C T I O N    4         S E C T I O N    4           S E C T I O N    4       S E C T I O N   4
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Surface Density of VH$z$Qs}
-One interesting question to ask is given the compilation of VH$z$Qs assembled here, 
-are there bright $z>5.00$ quasars that are in {\it current} photometric datasets, and if 
-so, how many are still to be discovered and confirmed spectroscopically?
-
-In the North, we assume the UHS J-band depth of 19.6 \citep[Vega;
-][]{Dye2018}.  In the South, one can use the report {\tt ABmagLimits}
-for each survey in the database, we can calculate the depths of the
-various NIR VISTA surveys.  Fig.~\ref{fig:VHS_J_abMagLim} shows this
-calculated average {\tt AB MAGLIM} in the VHS.  As one can see, the
-VHS is not completely uniform. The area wrapping round
-310$\lesssim$RA/deg$\lesssim$90 and -70$\lesssim$ Decl./ deg
-$\lesssim$ -40 has a $J$-band depth of 21.2 AB mag, whereas the rest
-of the VHS area, the $J$-band depth is closer to 20.6 AB mag.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=8.5cm]{../data/WSA_VSA/VHS_J_abMagLim.png}
-  \caption{The calculated average {\tt AB MAGLIM} in the VHS.
-    As one can see, VHS is not completely uniform. The are 3 areas with different filter sets, 
-    and the depths changed in 2 of these areas, particularly in $J$ and $K_{s}$. 
-    Y and H are almost uniform, but the coverage is much less.}
-  \label{fig:VHS_J_abMagLim}
-\end{figure}
-
-Following \citet{Fan2001b} and \citet{McGreer2013}, we use use an
-exponential decline to describe the space density of VH$z$Qs at high
-redshifts, e.g.
-\begin{equation}
-\rho(z, {\rm M}_{1450}) \propto 10^{k (z)}
-\end{equation}
-where $z$ is the sample redshift. 
-%Fan, X., Strauss, M. A., Schneider, D. P., et al. 2001b, AJ, 121, 54
 
 
 
@@ -940,38 +903,27 @@ where $z$ is the sample redshift.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion and Conclusions}
-\label{sec:conclusions}
+\section{Conclusions}\label{sec:conclusions}
 In this study, we have, for the first time, compiled the list of all
 $z>5$ spectroscopically confirmed quasars. We have assemble the NIR
 ($y/Y, J, H, K/K_{s}$) and MIR (WISE W1/2/3/4) photometry for these
 objects, given their detection rates and SEDs. We find that: 
 
-%%
-We can gain a good appreciation for what these missions will discover
-by collating the datasets we currently have. 
-
 \begin{itemize}
-    \item Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit. Aliquam porta sodales est, vel cursus risus porta non. Vivamus
-      vel pretium velit. Sed fringilla suscipit felis, nec iaculis lacus
-      convallis ac. 
-    \item Fusce pellentesque condimentum dolor, quis vehicula
-      tortor hendrerit sed. Class aptent taciti sociosqu ad litora torquent
-      per conubia nostra, per inceptos himenaeos. Etiam interdum tristique
-      diam eu blandit. Donec in lacinia libero.
-    \item Sed elit massa, eleifend non sodales a, commodo ut felis. Sed id
-      pretium felis. Vestibulum et turpis vitae quam aliquam convallis. Sed
-      id ligula eu nulla ultrices tempus. Phasellus mattis erat quis metus
-      dignissim malesuada. Nulla tincidunt quam volutpat nibh facilisis
-      euismod. Cras vel auctor neque. Nam quis diam risus.
+    \item SDSS and Pan-STARRS1 together identified over half of the VH$z$Q sample;  
+    \item There remains a quasar ``redshift desert'' at $z\approx5.3-5.7$, though 
+      efforts are being made to address this \citep[e.g.,][]{YangJ2018a};
+    \item 97.0\% of the VH$z$Q sample is detected in one or more NIR ($ZYJHK/K_{s}$) band; 
+    \item The 14 objects that are not detected in the NIR is due to lack of coverage rather than lack of depth; 
+   \item 362 ( 78.2\%) VH$z$Qs are detected by WISE, e.g. in the deeper unWISE W1 catalog. 
+ \item All of the $z\geq7$ quasars are detected in both unWISE W1 and W2. 
 \end{itemize}
-Nunc lacus nibh, convallis ac lobortis ut, tempus ac lectus. Maecenas
-eu elit massa. Nulla vel lacus lorem. Proin et lobortis
-tortor. Phasellus ultrices nisl non enim porttitor dictum. Curabitur
-nec nunc ac nibh ornare elementum. Nunc ultrices hendrerit
-ultricies. Aliquam dapibus semper est et gravida. Etiam cursus, massa
-eget tempor elementum, lectus urna feugiat nisi, eget sagittis.
+
+The science reach of $z>5$ quasars will continue to be important well into the next decade
+\citep{Fan2019_DecadalWP, Wang2019_DecadalWP}
+and will provide key insights into direct collapse black holes, hydrogen reionization and
+the physics of accretion in the first $\lesssim$700 million years of the Universe. 
+
 
 
 \subsection*{Author Contributions}   
