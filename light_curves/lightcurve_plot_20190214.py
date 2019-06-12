@@ -5,7 +5,6 @@ http://space.mit.edu/home/turnerm/python.html
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 
 from astropy.io import ascii
 from matplotlib import colors as mcolors
@@ -13,8 +12,7 @@ from matplotlib.font_manager import FontProperties
 
 
 ## Setting up the path for the input data
-
-path = os.path.join(os.path.dirname(os.getcwd()),'data/light_curves/individual_objects')
+path = '/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/'
 
 choice = '1'
 ## Ordered by qsoID number. 
@@ -31,7 +29,6 @@ print('  9)   SDSSJ2216+0013     (qsoID 337)')
 print()
 choice = input('Which object? ')
 
-inputQuasar = None
 if choice == '1' : inputQuasar = 'MMTJ0215-0529'
 if choice == '2' : inputQuasar = 'CFHQSJ0216-0455'
 if choice == '3' : inputQuasar = 'SHELLQsJ0220-0432'
@@ -54,16 +51,16 @@ print
 ## 30d: photometry averaged over a 30 MJD period
 
 ##  WSA  - WFCAM Science Archive
-WSA_data_all = ascii.read(os.path.join(path,inputQuasar,'WSA_lc_all.dat'))
-WSA_data_30d = ascii.read(os.path.join(path,inputQuasar,'WSA_lc_30d.dat'))
+WSA_data_all = ascii.read(path+inputQuasar+'/WSA_lc_all.dat')
+WSA_data_30d = ascii.read(path+inputQuasar+'/WSA_lc_30d.dat')
 
 ## VSA - VISTA Science Archive
-VSA_data_all = ascii.read(os.path.join(path,inputQuasar,'VSA_lc_all.dat'))
-VSA_data_30d = ascii.read(os.path.join(path,inputQuasar,'VSA_lc_30d.dat'))
+VSA_data_all = ascii.read(path+inputQuasar+'/VSA_lc_all.dat')
+VSA_data_30d = ascii.read(path+inputQuasar+'/VSA_lc_30d.dat')
 
 ## NEOWISE-R
 #if choice != '7':
-NEOWISER =  ascii.read(os.path.join(path,inputQuasar,'NEOWISER-R_SingleExp_L1b.dat'))
+NEOWISER =  ascii.read(path+inputQuasar+'/NEOWISER-R_SingleExp_L1b.dat')
 #WISE_W1 = ascii.read(path+'WISE_W1_LC.dat')
 #WISE_W2 = ascii.read(path+'WISE_W2_LC.dat')
 #WISE_L1bs = ascii.read(path+'J110057_l1b.tbl')
@@ -94,6 +91,7 @@ Y_VIRCAM_30d  = VSA_data_30d[(VSA_data_30d['filterID'] == 2) & (VSA_data_30d['ap
 J_VIRCAM_30d  = VSA_data_30d[(VSA_data_30d['filterID'] == 3) & (VSA_data_30d['aperMag3Ab']>0)]
 H_VIRCAM_30d  = VSA_data_30d[(VSA_data_30d['filterID'] == 4) & (VSA_data_30d['aperMag3Ab']>0)]
 Ks_VIRCAM_30d = VSA_data_30d[(VSA_data_30d['filterID'] == 5) & (VSA_data_30d['aperMag3Ab']>0)]
+
 
 ## For WISE, we adopt 2.699 and 3.339 as the conversions to AB from W1 and W2 Vega magnitudes,
 WISE_W1_AB = NEOWISER['w1mpro'] + 2.699
@@ -130,7 +128,6 @@ majorticklength = 12
 minorticklength = 6
 markeredgewidth = 1.5
 
-print('Creating plot ...WSA labels...')
 ## WSA
 ms = 3.
 ax.scatter(Z_WFCAM_all['mjdObs'], Z_WFCAM_all['aperMag3AverAB'], label='', s=ms, color='olive'             )
@@ -151,8 +148,6 @@ ax.errorbar(H_WFCAM_30d['mjd'], H_WFCAM_30d['aperMag3Ab'],  yerr=H_WFCAM_30d['ap
 ax.errorbar(K_WFCAM_30d['mjd'], K_WFCAM_30d['aperMag3Ab'],  yerr=K_WFCAM_30d['aperMag3Err'],
             label='WFCAM K', fmt='o', markeredgecolor ='black', markeredgewidth = markeredgewidth, color='yellow',       ms=ms)
 
-print('Creating plot, ...VSA labels...')
-
 ## VSA
 ms = 3.
 ax.scatter( Z_VIRCAM_all['mjdObs'],  Z_VIRCAM_all['aperMag3AverAB'], label='', s=ms, color='olive')
@@ -162,31 +157,31 @@ ax.scatter( H_VIRCAM_all['mjdObs'],  H_VIRCAM_all['aperMag3AverAB'], label='', s
 ax.scatter(Ks_VIRCAM_all['mjdObs'], Ks_VIRCAM_all['aperMag3AverAB'], label='', s=ms, color='yellow')
 
 ms = 7.
-ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
-markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Z',  color='olive', ms=ms*1.4)
-ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
-markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Y',  color='orange', ms=ms*1.4)
-ax.errorbar(J_VIRCAM_30d['mjd'],  J_VIRCAM_30d['aperMag3Ab'],  yerr=J_VIRCAM_30d['aperMag3Err'], markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM J',  color='goldenrod',         ms=ms*1.4)
-ax.errorbar(H_VIRCAM_30d['mjd'],  H_VIRCAM_30d['aperMag3Ab'],  yerr=H_VIRCAM_30d['aperMag3Err'],markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM H',  color='y', ms=ms*1.4)
-ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_30d['aperMag3Err'],
-markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',ms=ms*1.4)
+#ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Z',  color='olive', ms=ms*1.4)
+#ax.errorbar(Y_VIRCAM_30d['mjd'],  Y_VIRCAM_30d['aperMag3Ab'],  yerr=Y_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Y',  color='orange', ms=ms*1.4)
+#ax.errorbar(J_VIRCAM_30d['mjd'],  J_VIRCAM_30d['aperMag3Ab'],  yerr=J_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM J',  color='goldenrod',         ms=ms*1.4)
+#ax.errorbar(H_VIRCAM_30d['mjd'],  H_VIRCAM_30d['aperMag3Ab'],  yerr=H_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM H',  color='y', ms=ms*1.4)
+#ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_30d['aperMag3Err'],
+#            markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',ms=ms*1.4)
 
-print('Creating plot, ...WISE labels...')
-if choice!='5':
-    ## WISE W1/W2
-    ms = 6.
-    ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W1',
+## WISE W1/W2
+ms=6.
+ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W1',
             markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
-    ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W2', 
+ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W2', 
            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered') #linestyle=ls, linewidth=lw*2.5,
-    ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
+ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
             markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
-    ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='', 
+ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='', 
            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered') #linestyle=ls, linewidth=lw*2.5,
-    ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
+ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
             markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
            
-print('Tidying up figure...')
+
 
  ## Tidy up the figure
 mjd_offset = 50.
@@ -199,8 +194,6 @@ ymax = min(max(WSA_data_all['aperMag3AverAB']), min(VSA_data_all['aperMag3AverAB
 #ymin = 27.4
 ymax = 16.8
 
-print('Set axes limits...')
-
 ax.set_xlim((xmin, xmax))
 ax.set_ylim((ymin, ymax))
 ax.tick_params('x', direction='in', labelsize=ticklabelsize )
@@ -211,7 +204,6 @@ ax.tick_params('y', direction='in', labelsize=ticklabelsize)
 #ax.get_yaxis().set_tick_params(which='both', direction='out')
 #ax.grid(True)
 
-print('Adding legends...')
 ## https://matplotlib.org/api/legend_api.html
 plt.legend(loc="upper left", ncol=2, fontsize=labelsize/1.4, frameon=True)
 
@@ -222,7 +214,6 @@ plt.ylabel('magnitude (AB)',   fontsize=fontsize)
 ##plt.show()
 #fig.savefig("plot.pdf",)
 #fig.savefig("plot.eps",format='eps')
-print('Saving figure to ',inputQuasar+'LC_temp.png')
 plt.savefig(inputQuasar+'LC_temp.png', format='png')
 #plt.savefig(inputQuasar+'LC_temp.pdf', format='pdf')
 #plt.savefig('bias_with_redshift_temp.png',format='png')
@@ -230,4 +221,3 @@ plt.show()
 
 plt.close(fig)
 
-print('Complete.')
