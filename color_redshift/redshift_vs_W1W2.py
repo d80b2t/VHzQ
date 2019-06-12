@@ -155,7 +155,6 @@ minorLocator = MultipleLocator(0.1)
 ax.yaxis.set_major_locator(majorLocator)
 ax.yaxis.set_minor_locator(minorLocator)
 
-
 ## Grid lines to compare with Wright et al. (2010) Fig. 12
 ## Vertical lines
 for x in range(8): 
