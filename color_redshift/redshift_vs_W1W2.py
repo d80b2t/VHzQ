@@ -4,11 +4,11 @@ e.g. Figure 12 of Wright et al. (2010) and lots of other
 places too...
 
 Good links::
- http://www.sc.eso.org/~bdias/pycoffee/codes/20160407/gridspec_demo.html
- https://stackoverflow.com/questions/33737427/top-label-for-matplotlib-colorbars/33740567
- https://pythonmatplotlibtips.blogspot.com/2018/10/combine-two-contourf-and-two-colorbar-in-one-figure-matplotlib.html
- https://jakevdp.github.io/PythonDataScienceHandbook/04.07-customizing-colorbars.html
- https://jdhao.github.io/2017/06/11/mpl_multiplot_one_colorbar/
+ www.sc.eso.org/~bdias/pycoffee/codes/20160407/gridspec_demo.html
+ stackoverflow.com/questions/33737427/top-label-for-matplotlib-colorbars/33740567
+ pythonmatplotlibtips.blogspot.com/2018/10/combine-two-contourf-and-two-colorbar-in-one-figure-matplotlib.html
+ jakevdp.github.io/PythonDataScienceHandbook/04.07-customizing-colorbars.html
+ jdhao.github.io/2017/06/11/mpl_multiplot_one_colorbar/
 '''
 
 import numpy as np
