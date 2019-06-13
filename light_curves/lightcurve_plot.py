@@ -2,6 +2,7 @@
 Why doesn't matplotlib look as good as SM??!!!
 http://space.mit.edu/home/turnerm/python.html
 '''
+
 import os
 import math
 import numpy as np
@@ -40,7 +41,6 @@ if choice == '7' : inputQuasar = 'SHELLQsJ1146+0124'
 if choice == '8' : inputQuasar = 'VIKJ1148+0056'
 if choice == '9' : inputQuasar = 'SDSSJ2216+0013'
     
-
 print
 print(" Plotting W/VSA light curve for ", inputQuasar)
 print
