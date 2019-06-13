@@ -1,0 +1,90 @@
+\fixlen = T
+\RowsRetrieved = 1
+\ORIGIN = 'IPAC Infrared Science Archive (IRSA), Caltech/JPL'
+\DATETIME = '2019-06-13 14:30:52'
+\DataTag = 'ADS/IRSA.Gator#2019/0613/143052_7764'
+\DATABASE = 'AllWISE Source Catalog (allwise_p3as_psd)'
+\EQUINOX = 'J2000'
+\SKYAREA = 'within 2.75 arcsec of  ra=35.12288 dec=-4.53483 Eq J2000 '
+\StatusFile = '/workspace/TMP_hmsouL_17866/Gator/irsa/7764/log.7764.html'
+\SQL = 'WHERE (no constraints)
+\SQL = 'SELECT (35 column names follow in next row.)'
+\ 
+\ 
+\ ra (deg)
+\ ___ right ascension (J2000)
+\ dec (deg)
+\ ___ declination (J2000)
+\ w1mpro (mag)
+\ ___ instrumental profile-fit photometry magnitude, band 1
+\ w1sigmpro (mag)
+\ ___ instrumental profile-fit photometry flux uncertainty in mag units, band 1
+\ w1snr
+\ ___ instrumental profile-fit photometry S/N ratio, band 1
+\ w2mpro (mag)
+\ ___ instrumental profile-fit photometry magnitude, band 2
+\ w2sigmpro (mag)
+\ ___ instrumental profile-fit photometry flux uncertainty in mag units, band 2
+\ w2snr
+\ ___ instrumental profile-fit photometry S/N ratio, band 2
+\ w3mpro (mag)
+\ ___ instrumental profile-fit photometry magnitude, band 3
+\ w3sigmpro (mag)
+\ ___ instrumental profile-fit photometry flux uncertainty in mag units, band 3
+\ w3snr
+\ ___ instrumental profile-fit photometry S/N ratio, band 3
+\ w4mpro (mag)
+\ ___ instrumental profile-fit photometry magnitude, band 4
+\ w4sigmpro (mag)
+\ ___ instrumental profile-fit photometry flux uncertainty in mag units, band 4
+\ w4snr
+\ ___ instrumental profile-fit photometry S/N ratio, band 4
+\ cc_flags
+\ ___ prioritized artifacts affecting the source in each band
+\ ph_qual
+\ ___ photometric quality of each band (A=highest, U=upper limit)
+\ det_bit
+\ ___ bit-encoded integer indicating detection for each band
+\ w1cov
+\ ___ mean coverage depth, band 1
+\ w2cov
+\ ___ mean coverage depth, band 2
+\ w3cov
+\ ___ mean coverage depth, band 3
+\ w4cov
+\ ___ mean coverage depth, band 4
+\ w1mjdmin
+\ ___ minimum modified Julian Date of frame extractions, band 1
+\ w1mjdmax
+\ ___ maximum modified Julian Date of frame extractions, band 1
+\ w1mjdmean
+\ ___ mean modified Julian Date of frame extractions, band 1
+\ w2mjdmin
+\ ___ minimum modified Julian Date of frame extractions, band 2
+\ w2mjdmax
+\ ___ maximum modified Julian Date of frame extractions, band 2
+\ w2mjdmean
+\ ___ mean modified Julian Date of frame extractions, band 2
+\ w3mjdmin
+\ ___ minimum modified Julian Date of frame extractions, band 3
+\ w3mjdmax
+\ ___ maximum modified Julian Date of frame extractions, band 3
+\ w3mjdmean
+\ ___ mean modified Julian Date of frame extractions, band 3
+\ w4mjdmin
+\ ___ minimum modified Julian Date of frame extractions, band 4
+\ w4mjdmax
+\ ___ maximum modified Julian Date of frame extractions, band 4
+\ w4mjdmean
+\ ___ mean modified Julian Date of frame extractions, band 4
+\ dist (arcsec)
+\ ___ Distance between the target position and each source in arcsec.
+\ angle (deg)
+\ ___ Position Angle in degree.
+\ 
+\
+|ra        |dec       |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |w3mpro|w3sigmpro|w3snr |w4mpro|w4sigmpro|w4snr |cc_flags|ph_qual|det_bit|w1cov |w2cov |w3cov |w4cov |w1mjdmin      |w1mjdmax      |w1mjdmean     |w2mjdmin      |w2mjdmax      |w2mjdmean     |w3mjdmin      |w3mjdmax      |w3mjdmean     |w4mjdmin      |w4mjdmax      |w4mjdmean     |dist    |angle     |
+|double    |double    |double|double   |double|double|double   |double|double|double   |double|double|double   |double|char    |char   |int    |double|double|double|double|double        |double        |double        |double        |double        |double        |double        |double        |double        |double        |double        |double        |double  |double    |
+|deg       |deg       |mag   |mag      |      |mag   |mag      |      |mag   |mag      |      |mag   |mag      |      |        |       |       |      |      |      |      |              |              |              |              |              |              |              |              |              |              |              |              |arcsec  |deg       |
+|null      |null      |null  |null     |null  |null  |null     |null  |null  |null     |null  |null  |null     |null  |null    |null   |null   |null  |null  |null  |null  |null          |null          |null          |null          |null          |null          |null          |null          |null          |null          |null          |null          |null    |null      |
+ 35.1228763 -4.5348283 15.991     0.051   21.2 15.575     0.102   10.6 12.799      null    0.4  9.155      null   -0.7 0000     AAUU          3 37.726 38.303 24.928 24.655 55212.97712250 55579.23218867 55397.91089486 55212.97712250 55579.23218867 55397.91089486 55212.97712250 55401.43041990 55314.99543371 55212.97712250 55401.43041990 55314.99543371 0.014740 294.745086 

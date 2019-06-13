@@ -1,14 +1,14 @@
 \fixlen = T
-\RowsRetrieved = 6
+\RowsRetrieved = 16
 \ORIGIN = 'IPAC Infrared Science Archive (IRSA), Caltech/JPL'
-\DATETIME = '2019-02-14 14:14:47'
-\DataTag = 'ADS/IRSA.Gator#2019/0214/141447_11690'
+\DATETIME = '2019-06-13 13:33:21'
+\DataTag = 'ADS/IRSA.Gator#2019/0613/133321_496'
 \DATABASE = 'NEOWISE-R Single Exposure (L1b) Source Table (neowiser_p1bs_psd)'
 \EQUINOX = 'J2000'
-\SKYAREA = 'within 2.5 arcsec of  ra=35.12383 dec=-4.53444 Eq J2000 '
-\StatusFile = '/workspace/TMP_2cWt6P_27902/Gator/irsa/11690/log.11690.html'
+\SKYAREA = 'within 2.75 arcsec of  ra=35.12383 dec=-4.53444 Eq J2000 '
+\StatusFile = '/workspace/TMP_hmsouL_17866/Gator/irsa/496/log.496.html'
 \SQL = 'WHERE (no constraints)
-\SQL = 'SELECT (21 column names follow in next row.)'
+\SQL = 'SELECT (24 column names follow in next row.)'
 \ 
 \ 
 \ ra (deg)
@@ -29,10 +29,16 @@
 \ ___ instrumental profile-fit photometry S/N ratio, band 2
 \ cc_flags
 \ ___ prioritized artifacts affecting the source in each band
+\ det_bit
+\ ___ bit-encoded number(10) indicating detection for each band
 \ ph_qual
 \ ___ photometric quality of each band (A=highest, U=upper limit)
 \ qual_frame
 \ ___ quality score value for frame
+\ mjd (mjdate)
+\ ___ modified Julian date of the mid-point of the observation of the frame
+\ allwise_cntr
+\ ___ closest associated ALLWISE Catalog source cntr
 \ w1mpro_allwise (mag)
 \ ___ W1mpro magnitude  of the associated ALLWISE source
 \ w1sigmpro_allwise (mag)
@@ -55,13 +61,23 @@
 \ ___ Position Angle in degree.
 \ 
 \
-|ra        |dec       |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |cc_flags|ph_qual|qual_frame|w1mpro_allwise|w1sigmpro_allwise|w2mpro_allwise|w2sigmpro_allwise|w3mpro_allwise|w3sigmpro_allwise|w4mpro_allwise|w4sigmpro_allwise|dist    |angle     |
-|double    |double    |double|double   |double|double|double   |double|char    |char   |int       |double        |double           |double        |double           |double        |double           |double        |double           |double  |double    |
-|deg       |deg       |mag   |mag      |      |mag   |mag      |      |        |       |          |mag           |mag              |mag           |mag              |mag           |mag              |mag           |mag              |arcsec  |deg       |
-|null      |null      |null  |null     |null  |null  |null     |null  |null    |null   |null      |null          |null             |null          |null             |null          |null             |null          |null             |null    |null      |
- 35.1243175 -4.5343535 15.862     0.277    3.9 15.111      null    0.1 0000     BU              10           null              null           null              null           null              null           null              null 1.777005  79.907468 
- 35.1232827 -4.5346678 16.123     0.261    4.2 15.428     0.472    2.3 0000     BC              10         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.128444 247.337878 
- 35.1233429 -4.5347859 16.001     0.289    3.8 15.009      null    0.7 0000     BU              10         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.146247 234.535773 
- 35.1232550 -4.5346080 15.800     0.253    4.3 14.816      null    1.9 0000     BU              10         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.150326 253.664574 
- 35.1232344 -4.5345528 15.868     0.244    4.5 14.957      null    1.1 0000     BU              10         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.175681 259.242921 
- 35.1231447 -4.5345025 15.880     0.188    5.8 14.703     0.306    3.6 0000     BB              10         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.469629 264.772689 
+|ra        |dec       |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |cc_flags|det_bit|ph_qual|qual_frame|mjd           |allwise_cntr      |w1mpro_allwise|w1sigmpro_allwise|w2mpro_allwise|w2sigmpro_allwise|w3mpro_allwise|w3sigmpro_allwise|w4mpro_allwise|w4sigmpro_allwise|dist    |angle     |
+|double    |double    |double|double   |double|double|double   |double|char    |int    |char   |int       |double        |long              |double        |double           |double        |double           |double        |double           |double        |double           |double  |double    |
+|deg       |deg       |mag   |mag      |      |mag   |mag      |      |        |       |       |          |mjdate        |                  |mag           |mag              |mag           |mag              |mag           |mag              |mag           |mag              |arcsec  |deg       |
+|null      |null      |null  |null     |null  |null  |null     |null  |null    |null   |null   |null      |null          |null              |null          |null             |null          |null             |null          |null             |null          |null             |null    |null      |
+ 35.1234069 -4.5346491 16.161     0.320    3.4 15.080      null    0.0 0000           1 BU              10 58122.20873284 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 1.694744 243.629553 
+ 35.1243175 -4.5343535 15.862     0.277    3.9 15.111      null    0.1 0000           1 BU              10 57227.52788603               null           null              null           null              null           null              null           null              null 1.777005  79.907468 
+ 35.1232827 -4.5346678 16.123     0.261    4.2 15.428     0.472    2.3 0000           3 BC              10 57039.48041096 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.128444 247.337878 
+ 35.1233429 -4.5347859 16.001     0.289    3.8 15.009      null    0.7 0000           1 BU              10 57958.25830664 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.146247 234.535773 
+ 35.1232550 -4.5346080 15.800     0.253    4.3 14.816      null    1.9 0000           1 BU              10 57958.78204668 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.150326 253.664574 
+ 35.1232344 -4.5345528 15.868     0.244    4.5 14.957      null    1.1 0000           1 BU              10 57039.02059262 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.175681 259.242921 
+ 35.1232379 -4.5346453 15.780     0.202    5.4 14.921      null    0.7 0000           1 BU              10 58322.70307895 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.249753 250.821244 
+ 35.1231447 -4.5345025 15.880     0.188    5.8 14.703     0.306    3.6 0000           3 BB              10 57399.97896052 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.469629 264.772689 
+ 35.1232139 -4.5348056 15.698     0.179    6.1 14.925      null    1.6 0000           1 BU              10 58122.92882615 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.573107 239.235757 
+ 35.1231645 -4.5347064 16.131     0.351    3.1 14.973      null    1.3 0000           1 BU              10 58122.66689165 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.573663 248.121677 
+ 35.1231084 -4.5343496 15.947     0.369    2.9 15.027     0.349    3.1 0000           3 CB              10 57400.10999181 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.609999 277.162811 
+ 35.1231694 -4.5347436 15.756     0.192    5.6 15.189     0.412    2.6 0000           3 BC              10 56676.52152649 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.610527 245.249076 
+ 35.1232738 -4.5349359 16.355     0.323    3.4 14.898     0.542    2.0 0000           3 BC              10 57761.97656204 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.677929 228.190990 
+ 35.1231981 -4.5348461 16.010     0.250    4.3 14.835      null    1.2 0000           1 BU              10 57228.11835089 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.698125 237.190786 
+ 35.1231065 -4.5346448 15.703     0.239    4.6 14.894      null    1.4 0000           1 BU              10 58122.60156719 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.699096 254.147692 
+ 35.1233364 -4.5350239 15.826     0.199    5.4 15.268      null   -0.7 0000           1 BU               5 57227.79032898 349004601351027490         15.991             0.051         15.575             0.102         12.799              null          9.155              null 2.748894 220.120952 

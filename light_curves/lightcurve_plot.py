@@ -59,12 +59,13 @@ WSA_data_30d = ascii.read(os.path.join(path,inputQuasar,'WSA_lc_30d.dat'))
 VSA_data_all = ascii.read(os.path.join(path,inputQuasar,'VSA_lc_all.dat'))
 VSA_data_30d = ascii.read(os.path.join(path,inputQuasar,'VSA_lc_30d.dat'))
 
+## ALLWISE
+if (choice == '3'):
+    ALLWISE =  ascii.read(os.path.join(path,inputQuasar,'ALLWISE_catalog.dat'))
+
 ## NEOWISE-R
 if (choice != '7' and choice !='5'):
     NEOWISER =  ascii.read(os.path.join(path,inputQuasar,'NEOWISER-R_SingleExp_L1b.dat'))
-#WISE_W1 = ascii.read(path+'WISE_W1_LC.dat')
-#WISE_W2 = ascii.read(path+'WISE_W2_LC.dat')
-#WISE_L1bs = ascii.read(path+'J110057_l1b.tbl')
 
 
 ##  Assigned in WSA: 1=Z,2=Y,3=J,4=H,5=K,6=H2,7=Br,8=blank)
@@ -95,7 +96,10 @@ Ks_VIRCAM_30d = VSA_data_30d[(VSA_data_30d['filterID'] == 5) & (VSA_data_30d['ap
 
 ## For WISE, we adopt 2.699 and 3.339 as the conversions to AB from W1 and W2 Vega magnitudes,
 #if choice != '7' & choice !='5':
-if choice !='5':
+if choice == '3':
+    ALLWISE_W1_AB = ALLWISE['w1mpro'] + 2.699
+    ALLWISE_W2_AB = ALLWISE['w2mpro'] + 3.339
+if choice !='5':    
     NEOWISER_W1_AB = NEOWISER['w1mpro'] + 2.699
     NEOWISER_W2_AB = NEOWISER['w2mpro'] + 3.339
 
@@ -174,8 +178,16 @@ ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_3
             markeredgecolor ='black', markeredgewidth = markeredgewidth, fmt='h', label='VIRCAM Ks', color='yellow',    ms=ms*1.4)
 
 print('Creating plot, ...WISE labels...')
-if choice != '5' :
+
+if choice == '3':
+    ## ALLWISE  W1/W2
+    ms = 12.
+    ax.errorbar(ALLWISE['w1mjdmean'], ALLWISE_W1_AB, yerr=ALLWISE['w1sigmpro'], fmt='s', ms=ms, label='ALLWISE W1',
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
+    ax.errorbar(ALLWISE['w2mjdmean'], ALLWISE_W2_AB, yerr=ALLWISE['w2sigmpro'], fmt='s', ms=ms, label='ALLWISE W2', 
+            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered')
     
+if choice != '5' :
     ## NEOWISE-R  W1/W2
     ms = 12.
     ax.errorbar(NEOWISER['mjd'], NEOWISER_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W1',
@@ -195,11 +207,12 @@ print('Tidying up figure...')
 mjd_offset = 50.
 xmin = min(min(WSA_data_all['mjdObs']), min(VSA_data_all['mjdObs'])) - mjd_offset
 xmax = max(min(WSA_data_all['mjdObs']), max(VSA_data_all['mjdObs'])) + mjd_offset
+if choice == '3': xmin = 53500
 xmax = 58484 ## 2019-Jan-01
 mag_offset = 0.5
 ymin = max(max(WSA_data_all['aperMag3AverAB']), max(VSA_data_all['aperMag3AverAB'])) + (mag_offset*1.00)
 ymax = min(max(WSA_data_all['aperMag3AverAB']), min(VSA_data_all['aperMag3AverAB'])) - (mag_offset*2.25)
-#ymin = 27.4   ## for CFHQSJ0216-045   
+ymin = 27.4   ## for CFHQSJ0216-045; SHELLQsJ0220-0432   
 ymax = 16.8
 
 print('Set axes limits...')
@@ -217,6 +230,7 @@ ax.tick_params('y', direction='in', labelsize=ticklabelsize)
 print('Adding legends...')
 ## https://matplotlib.org/api/legend_api.html
 plt.legend(loc="upper left", ncol=2, fontsize=labelsize/1.4, frameon=True)
+if choice == '3':   plt.legend(loc="upper left", ncol=1, fontsize=labelsize/1.4, frameon=True)
 
 plt.title(inputQuasar,         fontsize=fontsize)
 plt.xlabel('MJD',              fontsize=fontsize)
