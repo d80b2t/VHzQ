@@ -798,18 +798,26 @@ Using the extended datasets described in Section~\ref{sec:NIR_data},
 we select objects with at least 8 measurements observed with intervals
 of at least 30 days, in at least one filter. The the average
 calibrated flux over all epochs must be $>0$ (i.e. {\tt aperJky3}$>0$)
-with the signal-to-noise is required to be $\geq8$. (i.e. {\tt
-aperJky3/aperJky3Err}$\geq$8). The clipped median and median absolute
-deviation is then calculated
+with the signal-to-noise is required to be $\geq8$ (i.e. {\tt
+aperJky3/aperJky3Err}$\geq$8). With these criteria, there are 21 WFCAM 
+and 12 VISTA objects with 1 object (VIK J1148+0056) in common to both, 
+and this sample of 32 is our starting
+point for variability investigations.
+
+The clipped median and median absolute deviation is then calculated
 \begin{equation}
       var = 1.48 \times  {\rm m.a.d.} / \bar{\epsilon}
 \end{equation}
 where $var$ is the index of variation, m.a.d. is the median absolute
 deviation, and $\bar{\epsilon}$ is the mean of the error in each point
-in the light curve, divided by the total number of points.  With these
-criteria, there are 21 WFCAM and 12 VISTA objects with 1 object (VIK
-J1148+0056) in common to both, and this sample of 32 is our starting
-point for variability investigations.
+in the light curve, divided by the total number of points. We apply the criteria 
+$var>=3.$ to light-curves from the original measurements and also to light-curves 
+where measurements have been averaged over different time-scales to improve 
+the signal-to-noise. We found that two quasars showed signs of variability:
+MMT J0215-0529 in the Y-band with an average time-scale of 30 days and amplitude of 0.3 mag, and 
+SDSS J0959+0227 in the Y and H bands, with timescales of 1 year or 6 months 
+for Y only. The H-band amplitude was 0.9 mag and the Y-band amplitude was 1.2 mag if averaged over 6 months,
+or 0.9 mag if averaged over 1 year.
 
 We present four objects that are particularly well-sampled in the NIR. 
 These are: 
