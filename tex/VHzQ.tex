@@ -23,15 +23,12 @@ Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh, 
 
 \maketitle
 \begin{abstract}
-We assemble a catalogue of 463 spectroscopically confirmed very high
-($z\geq5.00$) redshift quasars and report their near ($zZyYJHK_{s}$
-and $K$) infrared and mid-infrared (WISE) properties.  Using archival
-WFCAM/UKIRT and VIRCAM/VISTA data we check for photometric variability
-in the near-infrared that might be expected from super-Eddington
-accretion and find {\it blah}.  Extrapolating the known quasar
-luminosity function we suggest that $x$\% of the possibly detected
-$z\geq5$ quasars in the current datasets have been discovered.  All
-the data, analysis codes and plots used and generated here can be
+We assemble a catalogue of 463 spectroscopically confirmed very high ($z\geq5.00$) redshift quasars and report their near ($zZyYJHK_{s}$ and $K$) infrared and mid-infrared (WISE) properties. We find that SDSS and Pan-STARRS1 together identified over half of the VH$z$Q sample and that 97.0\% of the VH$z$Q sample is detected in one or more NIR ($ZYJHK/K_{s}$) band, with lack of coverage rather than lack of depth for the objects that are not detected in the NIR. 362 (78.2\%) VH$z$Qs are detected at 3.4$\mu$m in the W1 band from the unWISE catalog and all of the $z\geq7$ quasars are detected in both unWISE W1 and W2. Using archival WFCAM/UKIRT and VIRCAM/VISTA data we check for photometric variability in the near-infrared that might be expected from super-Eddington accretion. We find 32 of the quasars have sufficient NIR measurements and signal-to-noise to look for variability. Weak variability was detected in multiple bands of SDSS J0959+0227, and very marginally in the $Y$-band of MMT J0215-0529. Two other quasars, SDSS J0349+0034 and SDSS J2220-0101 had significant differences between their WFCAM and VISTA magnitudes in one band. 
+%% 
+%% Extrapolating the known quasar luminosity function we suggest that
+%% $x$\% of the possibly detected $z\geq5$ quasars in the current
+%% datasets have been discovered.
+All the data, analysis codes and plots used and generated here can be
 found at: \href{https://github.com/d80b2t/VHzQ}{\tt
 github.com/d80b2t/VHzQ}.
 \end{abstract}
@@ -933,7 +930,7 @@ objects, given their detection rates and SEDs. We find that:
     \item The 14 objects that are not detected in the NIR are due to lack of coverage rather than lack of depth; 
    \item 362 ( 78.2\%) VH$z$Qs are detected by WISE, e.g. in the deeper unWISE W1 catalog. 
  \item All of the $z\geq7$ quasars are detected in both unWISE W1 and W2. 
- \item 32 of the QSOs had enough NIR measurements and a good enough signal-to-noise ratio to look for variability. Weak variability was detected in multiple bands of SDSS J0959+0227, and very marginally in the Y-band of MMT J0215-0529. 2 other QSOs, SDSS J0349+0034 and SDSS J2220-0101 had significant differences between their WFCAM and VISTA magnitudes in one band, also indicating variability. 
+ \item 32 of the quasars had enough NIR measurements and sufficient NIR measurements and signal-to-noise to look for variability. Weak variability was detected in multiple bands of SDSS J0959+0227, and very marginally in the Y-band of MMT J0215-0529. 2 other quasars, SDSS J0349+0034 and SDSS J2220-0101 had significant differences between their WFCAM and VISTA magnitudes in one band, also indicating variability. 
 \end{itemize}
 
 The science reach of $z>5$ quasars will continue to be important well
@@ -1061,7 +1058,7 @@ for SQLServer to correctly comprehend the query.
 Second, the {\tt RA} and {\tt DEC} values returned by the WSA are in radians, if
 used directly. To return values in degrees, use a selection with an alias, e.g. 
 {\tt RA as RADeg} and {\tt DEC as DECDeg}. Other relevant query examples can be found in the
-GitHub repository, under WSA_VSA/SAMPLE_SQL_QUERIES, or the SQLCookbook in the WSA or VSA.
+GitHub repository, under WSA\_VSA/SAMPLE\_SQL\_QUERIES, or the SQLCookbook in the WSA or VSA.
 
 \onecolumn
 \input{SQL_examples_WSA}
