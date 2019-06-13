@@ -199,7 +199,7 @@ xmax = 58484 ## 2019-Jan-01
 mag_offset = 0.5
 ymin = max(max(WSA_data_all['aperMag3AverAB']), max(VSA_data_all['aperMag3AverAB'])) + (mag_offset*1.00)
 ymax = min(max(WSA_data_all['aperMag3AverAB']), min(VSA_data_all['aperMag3AverAB'])) - (mag_offset*2.25)
-ymin = 27.4   ## for e.g. CFHQSJ0216-045   
+#ymin = 27.4   ## for CFHQSJ0216-045   
 ymax = 16.8
 
 print('Set axes limits...')
