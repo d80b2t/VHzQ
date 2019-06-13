@@ -2,14 +2,15 @@
 http://blog.marmakoide.org/?p=94
 '''
 
+import os
+import numpy as np
+
 from astropy.io import ascii
 from matplotlib import pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
-import numpy as np
-import random
-
-path='/cos_pc19a_npr/data/highest_z_QSOs/'
+path = '/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/NEOWISE-R/'
+#path = os.path.join(os.path.dirname(os.getcwd()),'/MIR_LCs/')
 file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
 
 data = ascii.read(path+file) 

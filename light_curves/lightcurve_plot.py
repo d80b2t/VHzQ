@@ -2,18 +2,16 @@
 Why doesn't matplotlib look as good as SM??!!!
 http://space.mit.edu/home/turnerm/python.html
 '''
+import os
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 
 from astropy.io import ascii
 from matplotlib import colors as mcolors
 from matplotlib.font_manager import FontProperties
 
-
 ## Setting up the path for the input data
-
 path = os.path.join(os.path.dirname(os.getcwd()),'data/light_curves/individual_objects/')
 
 choice = '1'
