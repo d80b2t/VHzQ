@@ -96,8 +96,8 @@ Ks_VIRCAM_30d = VSA_data_30d[(VSA_data_30d['filterID'] == 5) & (VSA_data_30d['ap
 ## For WISE, we adopt 2.699 and 3.339 as the conversions to AB from W1 and W2 Vega magnitudes,
 #if choice != '7' & choice !='5':
 if choice !='5':
-    WISE_W1_AB = NEOWISER['w1mpro'] + 2.699
-    WISE_W2_AB = NEOWISER['w2mpro'] + 3.339
+    NEOWISER_W1_AB = NEOWISER['w1mpro'] + 2.699
+    NEOWISER_W2_AB = NEOWISER['w2mpro'] + 3.339
 
 
 
@@ -175,17 +175,18 @@ ax.errorbar(Ks_VIRCAM_30d['mjd'], Ks_VIRCAM_30d['aperMag3Ab'],  yerr=Ks_VIRCAM_3
 
 print('Creating plot, ...WISE labels...')
 if choice != '5' :
-    ## WISE W1/W2
-    ms = 6.
-    ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W1',
+    
+    ## NEOWISE-R  W1/W2
+    ms = 12.
+    ax.errorbar(NEOWISER['mjd'], NEOWISER_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W1',
             markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
-    ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W2', 
+    ax.errorbar(NEOWISER['mjd'], NEOWISER_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='NEOWISE-R W2', 
            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered') #linestyle=ls, linewidth=lw*2.5,
-    ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
+    ax.errorbar(NEOWISER['mjd'], NEOWISER_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
             markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
-    ax.errorbar(NEOWISER['mjd'], WISE_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='', 
+    ax.errorbar(NEOWISER['mjd'], NEOWISER_W2_AB, yerr=NEOWISER['w2sigmpro'], fmt='o', ms=ms, label='', 
            markeredgecolor ='black', markeredgewidth = markeredgewidth, color='orangered') #linestyle=ls, linewidth=lw*2.5,
-    ax.errorbar(NEOWISER['mjd'], WISE_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
+    ax.errorbar(NEOWISER['mjd'], NEOWISER_W1_AB, yerr=NEOWISER['w1sigmpro'], fmt='o', ms=ms, label='',
             markeredgecolor ='black', markeredgewidth = markeredgewidth, color='peru') #linestyle=ls, linewidth=lw*2.5, 
            
 print('Tidying up figure...')
@@ -198,7 +199,7 @@ xmax = 58484 ## 2019-Jan-01
 mag_offset = 0.5
 ymin = max(max(WSA_data_all['aperMag3AverAB']), max(VSA_data_all['aperMag3AverAB'])) + (mag_offset*1.00)
 ymax = min(max(WSA_data_all['aperMag3AverAB']), min(VSA_data_all['aperMag3AverAB'])) - (mag_offset*2.25)
-#ymin = 27.4
+ymin = 27.4   ## for e.g. CFHQSJ0216-045   
 ymax = 16.8
 
 print('Set axes limits...')
@@ -221,15 +222,8 @@ plt.title(inputQuasar,         fontsize=fontsize)
 plt.xlabel('MJD',              fontsize=fontsize)
 plt.ylabel('magnitude (AB)',   fontsize=fontsize)
 
-##plt.show()
-#fig.savefig("plot.pdf",)
-#fig.savefig("plot.eps",format='eps')
 print('Saving figure to ',inputQuasar+'LC_temp.png')
 plt.savefig(inputQuasar+'LC_temp.png', format='png')
-#plt.savefig(inputQuasar+'LC_temp.pdf', format='pdf')
-#plt.savefig('bias_with_redshift_temp.png',format='png')
-plt.show()
-
 plt.close(fig)
 
 print('Complete.')

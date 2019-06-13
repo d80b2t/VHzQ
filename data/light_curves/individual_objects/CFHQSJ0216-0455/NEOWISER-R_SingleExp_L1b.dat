@@ -1,14 +1,14 @@
 \fixlen = T
 \RowsRetrieved = 1
 \ORIGIN = 'IPAC Infrared Science Archive (IRSA), Caltech/JPL'
-\DATETIME = '2019-02-14 10:01:21'
-\DataTag = 'ADS/IRSA.Gator#2019/0214/100121_25813'
+\DATETIME = '2019-06-13 10:25:31'
+\DataTag = 'ADS/IRSA.Gator#2019/0613/102531_3882'
 \DATABASE = 'NEOWISE-R Single Exposure (L1b) Source Table (neowiser_p1bs_psd)'
 \EQUINOX = 'J2000'
-\SKYAREA = 'within 5. arcsec of  ra=34.11588 dec=-4.92614 Eq J2000 '
-\StatusFile = '/workspace/TMP_2cWt6P_27902/Gator/irsa/25813/log.25813.html'
+\SKYAREA = 'within 2.00 arcsec of  ra=34.11588 dec=-4.92614 Eq J2000 '
+\StatusFile = '/workspace/TMP_hmsouL_17866/Gator/irsa/3882/log.3882.html'
 \SQL = 'WHERE (no constraints)
-\SQL = 'SELECT (14 column names follow in next row.)'
+\SQL = 'SELECT (24 column names follow in next row.)'
 \ 
 \ 
 \ ra (deg)
@@ -35,14 +35,34 @@
 \ ___ quality score value for frame
 \ mjd (mjdate)
 \ ___ modified Julian date of the mid-point of the observation of the frame
+\ allwise_cntr
+\ ___ closest associated ALLWISE Catalog source cntr
+\ w1mpro_allwise (mag)
+\ ___ W1mpro magnitude  of the associated ALLWISE source
+\ w1sigmpro_allwise (mag)
+\ ___ W1 photometric uncertainty of the associated ALLWISE  source
+\ w2mpro_allwise (mag)
+\ ___ W2mpro magnitude  of the associated ALLWISE  source
+\ w2sigmpro_allwise (mag)
+\ ___ W2 photometric uncertainty of the associated ALLWISE  source
+\ w3mpro_allwise (mag)
+\ ___ W3mpro magnitude  of the associated ALLWISE  source
+\ w3sigmpro_allwise (mag)
+\ ___ W3 photometric uncertainty of the associated ALLWISE source
+\ w4mpro_allwise (mag)
+\ ___ W4mpro magnitude  of the associated ALLWISE  source
+\ w4sigmpro_allwise (mag)
+\ ___ W4 photometric uncertainty of the associated ALLWISE  source
+\ tmass_key
+\ ___ closest associated 2MASS All-Sky Release PSC key
 \ dist (arcsec)
 \ ___ Distance between the target position and each source in arcsec.
 \ angle (deg)
 \ ___ Position Angle in degree.
 \ 
 \
-|ra        |dec       |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |cc_flags|ph_qual|qual_frame|mjd           |dist    |angle    |
-|double    |double    |double|double   |double|double|double   |double|char    |char   |int       |double        |double  |double   |
-|deg       |deg       |mag   |mag      |      |mag   |mag      |      |        |       |          |mjdate        |arcsec  |deg      |
-|null      |null      |null  |null     |null  |null  |null     |null  |null    |null   |null      |null          |null    |null     |
- 34.1169695 -4.9256542 14.706     0.098   11.1 14.549      null    1.5 0000     AU              10 56675.07216417 4.281216 65.889355 
+|ra        |dec       |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |cc_flags|ph_qual|qual_frame|mjd           |allwise_cntr|w1mpro_allwise|w1sigmpro_allwise|w2mpro_allwise|w2sigmpro_allwise|w3mpro_allwise|w3sigmpro_allwise|w4mpro_allwise|w4sigmpro_allwise|tmass_key|dist    |angle    |
+|double    |double    |double|double   |double|double|double   |double|char    |char   |int       |double        |long        |double        |double           |double        |double           |double        |double           |double        |double           |int      |double  |double   |
+|deg       |deg       |mag   |mag      |      |mag   |mag      |      |        |       |          |mjdate        |            |mag           |mag              |mag           |mag              |mag           |mag              |mag           |mag              |         |arcsec  |deg      |
+|null      |null      |null  |null     |null  |null  |null     |null  |null    |null   |null      |null          |null        |null          |null             |null          |null             |null          |null             |null          |null             |null     |null    |null     |
+ 34.1163977 -4.9261149 15.273     0.276    3.9 14.916      null    1.1 0000     BU              10 58321.98336581         null           null              null           null              null           null              null           null              null      null 1.859034 87.214011 
