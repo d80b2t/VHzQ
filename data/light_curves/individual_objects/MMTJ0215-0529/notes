@@ -14,3 +14,17 @@ unW1mag   unW1err   unW1snr    unW2mag   unW2err   unW2snr	w3mpro   w3sig   w3sn
 17.8436   0.1012    10.2318     16.8759   0.1636    6.1474    	-9.99    -9.99   -9.9    -9.99    -9.99   -9.9   
 
 
+
+
+
+from:: /data/light_curves/NEOWISE-R/NEOWISER-R_SingleExposure_L1bs.tbl  
+
+145 1.379747 -162.512752 3.3846958300e+01 -5.4960555500e+00  1.7843600000e+01  33.8468426  -5.4964211 16.851      null   -0.1 14.529     0.346    3.1 0000     UB              10 58321.39442856           null              null           null              null           null              null           null              null 
+145 1.593805  -86.419322 3.3846958300e+01 -5.4960555500e+00  1.7843600000e+01  33.8465144  -5.4960279 16.450     0.367    3.0 14.004      null    1.4 0000     CU              10 56674.80857432           null              null           null              null           null              null           null              null 
+
+
+|ra        |dec       |w1mpro|w1sigmpro|w1snr |w2mpro|w2sigmpro|w2snr |cc_flags|ph_qual|qual_frame|mjd           |w1mpro_allwise|w1sigmpro_allwise|w2mpro_allwise|w2sigmpro_allwise|w3mpro_allwise|w3sigmpro_allwise|w4mpro_allwise|w4sigmpro_allwise|tmass_key|dist    |angle     |
+|double    |double    |double|double   |double|double|double   |double|char    |char   |int       |double        |double        |double           |double        |double           |double        |double           |double        |double           |int      |double  |double    |
+|deg       |deg       |mag   |mag      |      |mag   |mag      |      |        |       |          |mjdate        |mag           |mag              |mag           |mag              |mag           |mag              |mag           |mag              |         |arcsec  |deg       |
+ 33.8468426 -5.4964211 16.851 null      -0.1   14.529 0.346     3.1    0000     UB      10         58321.39442856 null           null              null           null              null           null              null           null              null      1.366339 197.932766 
+ 33.8465144 -5.4960279 16.450 0.367     3.0    14.004 null      1.4    0000     CU      10         56674.80857432 null           null              null           null              null           null              null           null              null      1.600960 274.139281 
