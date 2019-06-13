@@ -4,8 +4,10 @@
 
 
 
+
 For NPR
 =====================================================================
+
 
  -- a NIR+MIR joint analysis plot...  (Y-H vs. K-W2)  or     (J-K)  vs.  (K-W1)/(K-W2)/(W1-W2)
 
@@ -30,6 +32,11 @@ For NPR
 	    (Is it the lower SNR? Para 2 of 3.3 answers this.)
 
 
+  -- P10, say that low redshift quasars have emission on shorter timescales - what timescales. Give references.
+
+  -- Table reference in Appendix A is not working.
+  -- Both Appendix A and B have the same label sec:SQL.
+
 
 
 For NJGC
@@ -37,11 +44,6 @@ For NJGC
 
 	-- Page 2, para 1: I make it 95 WISE z>=6 QSO in finalQsoCatalogue. I am worried that I only updated the 41 QSOs added later with WISE photometry. I must check this. There are 314 in total with WISE photometry.
 
-	--  SDSSJ0958+3524
- 
 
 
-For Both
-=====================================================================
-  -- Variability Section (currently Section 3.4)
 
