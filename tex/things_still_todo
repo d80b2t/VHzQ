@@ -7,28 +7,16 @@
 For NPR
 =====================================================================
 
- -- plots_to_make::
- 
-    redshift vs. unW[1/2]SNR
-    
-    (incl. a NIR+MIR joint analysis plot...
-    	   maybe a  Y-H vs. K-W2 kinda plot??)
-       	   maybe a  J-K vs. K-W1 kinda plot??)
-       	   maybe a  J-K vs. K-W2 kinda plot??)
-       	   maybe a  J-K vs. W1-W2 kinda plot??)
+ -- a NIR+MIR joint analysis plot...  (Y-H vs. K-W2)  or     (J-K)  vs.  (K-W1)/(K-W2)/(W1-W2)
 
  -- Check for objects that are WISE bright and NIR faint.
  
- -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3).
-
  -- What is the reddest W2-W3 VHzQ...
-
+ -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3).
  
  -- Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
  
- -- "---" as a null rather than -1000.00+/- -1000.00 in Table 3
-
- -- Hviding et al. (2018); and other WISE AGN references...
+  -- Hviding et al. (2018); and other WISE AGN references...
 
  -- cross check with Secret catalog
 

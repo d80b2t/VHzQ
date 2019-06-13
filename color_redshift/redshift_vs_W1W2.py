@@ -12,6 +12,9 @@ Good links::
 '''
 
 import numpy as np
+import fitsio
+
+from fitsio import FITS,FITSHDR
 from astropy.io    import fits
 from astropy.io    import ascii
 from astropy.table import Table
@@ -19,6 +22,11 @@ from astropy.table import Table
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
+
+import time
+start_time = time.time()
+
+print("--- %s seconds ---" % (time.time() - start_time), ' to do the imports')
 
 ##
 ## DR14Q
@@ -28,10 +36,14 @@ filename   ='DR14Q_v4_4.fits'
 #filename  ='DR14Q_v4_4_W4good.fits'
 infile     = path+filename
 data       = fits.getdata(infile, 1)
+#data     = fitsio.read(infile,ext=1)  
 #dr14q_full = Table(data)
 dr14q      = Table(data)
 ## in case you want to select on e.g. SDSS survey
 #dr14q      = dr14q_full
+
+print("--- %s seconds ---" % (time.time() - start_time), ' to read-in data')
+
 
 ## Splitting up the DR14Q by intergral survey
 ##   from the DR12Q,  MJD.min() = 55176 and MJD.max() = 56837
@@ -45,6 +57,8 @@ eboss = dr14q[np.where( dr14q['MJD'] > 56837  )]
 ##    79,487 for SDSS-I/II;
 ##   286,686 for BOSS;
 ##   159,981 for SDSS-IV
+
+print("--- %s seconds ---" % (time.time() - start_time), ' to read-in data')
 
 
 boss_uband = boss['PSFMAG'][0:,0]
@@ -75,7 +89,6 @@ VHzQ_full = ascii.read(table)
 ## in case you want to select on e.g. snr
 VHzQ = VHzQ_full
 #VHzQ = VHzQ_full[np.where(VHzQ_full['w3snr'] >3.0)]
-
 
 
 
@@ -178,6 +191,7 @@ plt.savefig('redshift_vs_W1W2_temp.png', format='png')
 #plt.show()
 plt.close()
 
+print("--- %s seconds ---" % (time.time() - start_time), ' to do full plot')
 
 
 
@@ -218,6 +232,7 @@ for y in range(9):
 plt.savefig('redshift_vs_W1W2_sdss_temp.png', format='png')
 plt.close()
 
+print("--- %s seconds ---" % (time.time() - start_time), ' to do SDSS plot')
 
 
 ###################################
@@ -262,6 +277,8 @@ plt.savefig('redshift_vs_W1W2_boss_temp.png', format='png')
 #plt.show()
 plt.close()
 
+print("--- %s seconds ---" % (time.time() - start_time), ' to do BOSS plot')
+
 
 
 ###################################
@@ -299,3 +316,5 @@ for y in range(9):
 
 plt.savefig('redshift_vs_W1W2_eboss_temp.png', format='png')
 plt.close()
+
+print("--- %s seconds ---" % (time.time() - start_time), ' to do eBOSS plot')
