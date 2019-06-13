@@ -9,6 +9,7 @@ from astropy.io import ascii
 from matplotlib import pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
+## Reading-in the NEOWISE-R L1b single exposure numbers
 path = '/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/NEOWISE-R/'
 #path = os.path.join(os.path.dirname(os.getcwd()),'/MIR_LCs/')
 file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
@@ -20,11 +21,25 @@ upto_this = data['cntr_01'].max()
 out_pdf = 'NEOWISER_LCs_VHzQs_temp.pdf'
 pdf_pages = PdfPages(out_pdf)
 
-
 ALLWISE_MJD_min = 55210.     #  2010-January-14 
 ALLWISE_MJD_max = 55593.
 ALLWISE_MJD_mid = ((ALLWISE_MJD_max + ALLWISE_MJD_min))/2.
 mjd_range_ALLWISE=[ALLWISE_MJD_min,ALLWISE_MJD_max]
+
+## MJDs in NEOWISE-R data:
+##    NEOWISE 2015    December 13, 2013 and December 13, 2014 UTC
+##    NEOWISE 2016    December 13, 2014 and December 13, 2015 UTC
+##    NEOWISE 2017    December 13, 2015 and December 13, 2016 UTC
+##    NEOWISE 2018    December 13, 2016 and December 13, 2017 UTC
+##    NEOWISE 2019    December 13, 2017 and December 13, 2018 UTC
+## from NEOWISER-R_SingleExposure_L1bs.tbl:
+##    data['mjd'].min()   56639.790   which is 2013-Dec-13
+##    data['mjd'].max()   58465.286   which is 2018-Dec-13
+
+## https://neowise.ipac.caltech.edu/
+##  NEOWISE survey observations are continuing in 2019.
+##  As of mid-May 2019, NEOWISE is 94% of the way through its
+##  11th coverage of the sky since the start of the Reactivation mission. 
 
 
 ## define the colormap
