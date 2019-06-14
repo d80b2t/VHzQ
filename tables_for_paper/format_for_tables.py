@@ -1,10 +1,7 @@
 ''' 
-# coding: utf-8
-
-# A simple little bit of code to convert the 
-# [W/V]SA_wWISE.dat files into nicely formatted .tex tables. 
-# v0.01    Thu May  9 12:57:29 BST 2019
-# 
+ A simple little bit of code to convert the 
+ [W/V]SA_wWISE.dat files into nicely formatted .tex tables. 
+ v0.01    Thu May  9 12:57:29 BST 2019
 '''
 
 import numpy as np
@@ -13,31 +10,29 @@ from astropy.io    import fits
 from astropy.io    import ascii
 from astropy.table import Table
 
-
 ##
 ##  V H z Q    data
 ##
-path     = '/cos_pc19a_npr/programs/quasars/highest_z/tables_for_paper/'
-filename = 'WSA_wWISE.dat'
-table    = path+filename
-
+path      = '/cos_pc19a_npr/programs/quasars/highest_z/tables_for_paper/'
+filename  = 'WSA_wWISE.dat'
+table     = path+filename
 VHzQ_list = ascii.read(table)
 
-
+print()
 print(type(VHzQ_list['ra']))
+print()
 
-## Just the top 10 for demo purposes in the .tex manuscript
-VHzQ_Top10 = VHzQ_list[0:46]
+## Just the top 10 or 5\% for demo purposes in the .tex manuscript
+VHzQ_Top10 = VHzQ_list[0:23]
 
 
 ## Set-up the table header
-header = """\\begin{table*}
+header = """\\begin{table}
 \\begin{tabular}{llrrc ccccc cccc}
-  \hline
-  \hline
-  survey   & qsoName &  ra  & dec & redshift  &  
-  Z        & Y       &  J   &  H  &  K & 
-  W1       & W2      & W3   & W4 \\\ 
+ \hline
+ \hline
+  \multirow{2}{*}{Survey} &  \multirow{2}{*}{QsoName} &   R.A. / deg  &   Decl. / deg  &  \multirow{2}{*}{redshift} & \multirow{2}{*}{Z}  &  \multirow{2}{*}{Y}  &  \multirow{2}{*}{J}   &  \multirow{2}{*}{H}  &  \multirow{2}{*}{K}     &  \multicolumn{2}{c}{unWISE}  &  \multicolumn{2}{c}{AllWISE} \\\ 
+                                     &                                            &   (J2000)       &  (J2000)         &                                        &                              &                               &                                &                                &                                  &                    W1       & W2        & W3   & W4 \\\ 
   \hline
   \hline
   \\\\\n"""
@@ -45,8 +40,13 @@ header = """\\begin{table*}
 print(header)
 
 ## Set-up the table footer...
-footer = """  \hline \hline \\end{tabular}
-\\end{table*}\n"""
+footer = """    \hline
+    \hline
+    \\end{tabular}
+    \caption{The first 23 (i.e. 5\%) of 463 very high-$z$ quasars with near and mid-infrared photometry.}
+     \label{tab:output_table}
+     \\end{table}
+     \n"""
 print(footer)
 
 
