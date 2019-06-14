@@ -14,21 +14,31 @@
 \begin{document}
 
 \title[Infrared properties Very high-$z$ Quasars]
-  {Near and Mid-infrared properties of known redshift $z\geq5$ Quasars}
+  {The Near and Mid-infrared photometric properties of known redshift $z\geq5$ Quasars}
 \author[Ross \& Cross]
-%\author[N. Ross, N. Cross \& C. Ross]
 {Nicholas P. Ross\thanks{E-mail: npross@roe.ac.uk} and Nicholas J. G. Cross \\ 
-%{Nicholas P. Ross\thanks{E-mail: npross@roe.ac.uk}, Nicholas J. G. Cross and Christine B. Ross \\ 
 Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh, EH9 3HJ, United Kingdom\\ }
 
 \maketitle
 \begin{abstract}
-We assemble a catalogue of 463 spectroscopically confirmed very high ($z\geq5.00$) redshift quasars and report their near ($ZYJHK_{s}$ and $K$) infrared and mid-infrared (WISE) properties. We find that SDSS and Pan-STARRS1 together identified over half of the VH$z$Q sample and that 97.0\% of the VH$z$Q sample is detected in one or more NIR ($ZYJHK/K_{s}$) band, with lack of coverage rather than lack of depth for the objects that are not detected in the NIR. 362 (78.2\%) VH$z$Qs are detected at 3.4$\mu$m in the W1 band from the unWISE catalog and all of the $z\geq7$ quasars are detected in both unWISE W1 and W2. Using archival WFCAM/UKIRT and VIRCAM/VISTA data we check for photometric variability in the near-infrared that might be expected from super-Eddington accretion. We find 32 of the quasars have sufficient NIR measurements and signal-to-noise to look for variability. Weak variability was detected in multiple bands of SDSS J0959+0227, and very marginally in the $Y$-band of MMT J0215-0529. Two other quasars, SDSS J0349+0034 and SDSS J2220-0101 had significant differences between their WFCAM and VISTA magnitudes in one band. 
-%% 
-%% Extrapolating the known quasar luminosity function we suggest that
-%% $x$\% of the possibly detected $z\geq5$ quasars in the current
-%% datasets have been discovered.
-All the data, analysis codes and plots used and generated here can be
+We assemble a catalogue of 463 spectroscopically confirmed very high
+($z\geq5.00$) redshift quasars and report their near- ($ZYJHK_{s}$ and
+$K$) and mid- (WISE) infrared properties. We find that SDSS and
+Pan-STARRS1 together identified over half of the VH$z$Q sample and
+that 97.0\% of the VH$z$Q sample is detected in one or more NIR
+($ZYJHK/K_{s}$) band, with lack of coverage rather than lack of depth
+for the objects that are not detected in the NIR. 362 (78.2\%) VH$z$Qs
+are detected at 3.4$\mu$m in the W1 band from the unWISE catalog and
+all of the $z\geq7$ quasars are detected in both unWISE W1 and
+W2. Using archival WFCAM/UKIRT and VIRCAM/VISTA data we check for
+photometric variability in the near-infrared that might be expected
+from super-Eddington accretion. We find 32 of the quasars have
+sufficient NIR measurements and signal-to-noise to look for
+variability. Weak variability was detected in multiple bands of SDSS
+J0959+0227, and very marginally in the $Y$-band of MMT J0215-0529. Two
+other quasars, SDSS J0349+0034 and SDSS J2220-0101 had significant
+differences between their WFCAM and VISTA magnitudes in one band. All
+the data, analysis codes and plots used and generated here can be
 found at: \href{https://github.com/d80b2t/VHzQ}{\tt
 github.com/d80b2t/VHzQ}.
 \end{abstract}
@@ -122,12 +132,36 @@ System 1 \citep[Pan-STARRS1, PS1;][]{Kaiser2002, Kaiser2010}, but with
 no further investigation into the reddest WISE waveband for the
 VH$z$Qs.
 
-Critically, we now have available to us new W1 and W2 photometry from the `unWISE Source Catalog' \citep[][]{Schlafly2019}, a WISE-selected catalogue that is based on significantly deeper imaging and has a more extensive modeling of crowded regions than the AllWISE release. For the first time in a catalogue, unWISE takes advantage of the ongoing mid-IR Near-Earth Object Wide-Field Infrared Survey Explorer Reactivation mission \citep[NEOWISE-R; ][]{Mainzer2014}, and achieves depths $\sim$0.7 mag deeper than AllWISE (in W1/2).  This additional depth is a significant advantage in the detection and study of VH$z$Qs in the 3-5 micron regime.
+Critically, we now have available to us new W1 and W2 photometry from
+the `unWISE Source Catalog' \citep[][]{Schlafly2019}, a WISE-selected
+catalogue that is based on significantly deeper imaging and has a more
+extensive modeling of crowded regions than the AllWISE release. For
+the first time in a catalogue, unWISE takes advantage of the ongoing
+mid-IR Near-Earth Object Wide-Field Infrared Survey Explorer
+Reactivation mission \citep[NEOWISE-R; ][]{Mainzer2014}, and achieves
+depths $\sim$0.7 mag deeper than AllWISE (in W1/2).  This additional
+depth is a significant advantage in the detection and study of VH$z$Qs
+in the 3-5 micron regime.
 
-Here we present for the first time the combined near-infrared properties (from UKIRT and VIRCAM) and the new mid-infrared unWISE for
-all the spectroscopically known $z\geq5.00$ quasars. Our motivations are numerous and include: {\it (i)} establishing the first complete
-catalogue of $z>5.00$ quasars since the pioneering work from SDSS; {\it (ii)} utilizing all the WFCAM and VISTA near-infrared photometry
-available for the quasars; {\it (iii)} making the first study of near- and mid-IR variability of the VHzQ population and {\it (iv)} establishing the photometric properties for upcoming surveys and telescopes including the Large Synoptic Survey Telescope (LSST)\footnote{\href{https://www.lsst.org}{lsst.org};}, ESA {\it Euclid}\footnote{\href{https://sci.esa.int/euclid/}{sci.esa.int/euclid};} and the {\it James Webb Space Telescope} (JWST)\footnote{\href{https://www.jwst.nasa.gov/}{jwst.nasa.gov};}$^,$\footnote{\href{https://sci.esa.int/jwst/}{sci.esa.int/jwst};}$^,$\footnote{\href{https://www.asc-csa.gc.ca/eng/satellites/jwst/}{www.asc-csa.gc.ca/eng/satellites/jwst};}$^,$\footnote{\href{https://jwst.stsci.edu/}{jwst.stsci.edu}.}. We chose redshift $z=5.00$ as our lower redshift limit due to a combination of garnishing a large sample, adequately spanning physical properties (e.g. luminosity, age of the Universe) and to highlight the parts of $L-z$ parameter space where $z>5$ quasars still wait to be discovered.
+Here we present for the first time the combined near-infrared
+properties (from UKIRT and VIRCAM) and the new mid-infrared unWISE for
+all the spectroscopically known $z\geq5.00$ quasars. Our motivations
+are numerous and include: {\it (i)} establishing the first complete
+catalogue of $z>5.00$ quasars since the pioneering work from SDSS;
+{\it (ii)} utilizing all the WFCAM and VISTA near-infrared photometry
+available for the quasars; {\it (iii)} making the first study of near-
+and mid-IR variability of the VHzQ population and {\it (iv)}
+establishing the photometric properties for upcoming surveys and
+telescopes including the Large Synoptic Survey Telescope
+(LSST)\footnote{\href{https://www.lsst.org}{lsst.org};}, ESA {\it
+Euclid}\footnote{\href{https://sci.esa.int/euclid/}{sci.esa.int/euclid};}
+and the {\it James Webb Space Telescope}
+(JWST)\footnote{\href{https://www.jwst.nasa.gov/}{jwst.nasa.gov};}$^,$\footnote{\href{https://sci.esa.int/jwst/}{sci.esa.int/jwst};}$^,$\footnote{\href{https://www.asc-csa.gc.ca/eng/satellites/jwst/}{www.asc-csa.gc.ca/eng/satellites/jwst};}$^,$\footnote{\href{https://jwst.stsci.edu/}{jwst.stsci.edu}.}. We
+chose redshift $z=5.00$ as our lower redshift limit due to a
+combination of garnishing a large sample, adequately spanning physical
+properties (e.g. luminosity, age of the Universe) and to highlight the
+parts of $L-z$ parameter space where $z>5$ quasars still wait to be
+discovered.
 
 This paper is organized as follows. In Section 2, we present the
 assembled list of the 463 $z\geq5.00$ VH$z$Qs that we have
@@ -147,6 +181,7 @@ $\Lambda$CDM cosmology with $H_{\rm 0} = 67.7$ km s$^{-1}$ Mpc$^{-1}$,
 $\Omega_{\rm M} = 0.307$, and $\Omega_{\Lambda} = 0.693$
 \citet{Planck2016} to be consistent with \citet{Banados2016} and all
 logarithms are to the base 10.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -301,7 +336,7 @@ Survey              & \# VH$z$Qs & (\%) & Survey reference  \\
 \begin{figure}
 %%trim=l b r t
   \includegraphics[width=8.0cm, clip, trim=10mm 0mm 0mm 0mm]
-  {../Nofz/Nofz_0pnt075bins_20181211.png}
+  {../Nofz/Nofz_0pnt075bins_20190614.pdf}
   \centering
   \vspace{-12pt}
   \caption[]
@@ -447,7 +482,7 @@ The MIR data for this study comes from the Wide-field Infrared Survey Explorer (
 
 We use data from the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citet{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all the WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
 
-For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the AllWISE Data Release.  Most objects in the AllWISE Source Catalog are unresolved, so the best photometric measurements to use are the deep detection profile-fit photometry measures,  {\tt w$x$mpro},  {\tt w$x$sigmpro} and  {\tt w$x$snr}. The unWISE Catalog absolute photometric calibration derives from the photometric calibration of the unWISE coadds \citep{Meisner2017a}, which is tied to the original WISE zero points through aperture fluxes in a 27.5'' radius. Critically, we also note that 
+For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the AllWISE Data Release.  Most objects in the AllWISE Source Catalog are unresolved, so the best photometric measurements to use are the deep detection profile-fit photometry measures,  {\tt w$x$mpro},  {\tt w$x$sigmpro} and  {\tt w$x$snr}. The unWISE Catalog absolute photometric calibration derives from the photometric calibration of the unWISE coadds \citep{Meisner2017a}, which is tied to the original WISE zero points through aperture fluxes in a 27.5'' radius.
 
 Previous works \citep[e.g., ][]{Krawczyk2013, Ross2015, Bilicki2016} found that cross-matches performed with a radius of 2-3'' between the user catalogue and WISE was a good compromise between completeness and contamination \citep[see e.g. Figure 4 of ][]{Krawczyk2013}. We thus use a cross-match radius of 2.75''. When querying the AllWISE catalogues, ``Cone Search Radius'' in the AllWISE table search was set to 2.75'' for the Spatial Constraints. The ``One to One Match'' was ``not'' checked; although possible, we consider it highly unlikely there would be more than one MIR source contributing to the flux of a single UV/optically bright rest-frame quasar. Investigating this in detail is very interesting but left to a future study. 
 
@@ -470,31 +505,13 @@ Thus to convert unWISE Vega magnitudes onto the AB system, we have:
         {\rm W1}_{\rm AB, unWISE}  & = &   22.5 - 2.5 \log(f_{\rm W1}) - 0.004 + 2.699 \\
         {\rm W2}_{\rm AB, unWISE}  &  = &  22.5 - 2.5 \log(f_{\rm W2}) - 0.032 + 3.339. 
 \end{eqnarray*}
-For the our MIR variability investigations, we do not use the unWISE
-coadds, but instead use the
-\href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE}
-catalogue and the NEOWISE
-\href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{2019 Data
-Release}. NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2)
-single-exposure images and extracted source information that was
-acquired up until 2018 December 13 (MJD 58465) including the fifth
-year of survey operations of NEOWISE. These fifth year NEOWISE data
-products are concatenated with those from the first four years into a
-single archive from 2013 December 13 (MJD 56639).
 
-The WISE scan pattern leads to coverage of the full-sky approximately
-once every six months (a``sky pass''), but the satellite was placed in
-hibernation in 2011 February and then reactivated in 2013
-October. Hence, our light curves have a cadence of 6 months with a 32
-month sampling gap.
+For the our MIR variability investigations, we use the \href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{NEOWISE-R 2019 Data Release}. NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2) single-exposure images and extracted source information that was
+acquired up until 2018 December 13 (MJD 58465) including the fifth year of survey operations of NEOWISE. These fifth year NEOWISE data
+products are concatenated with those from the first four years into a single archive from 2013 December 13 (MJD 56639).
 
-Table~\ref{tab:output_table} represents the culmination of this
-effort, and we now exam the assembly of its contents in more detail.
-
-\begin{landscape}
-      \input{../tables_for_paper/output_table_top5pc}
-\end{landscape}
-
+The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in
+hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -506,15 +523,24 @@ effort, and we now exam the assembly of its contents in more detail.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{landscape}
+      \input{../tables_for_paper/output_table_top5pc}
+\end{landscape}
+
 \section{Results}
 Having collated the sample of 463 VH$z$Qs, and obtained their near-
 and mid-infrared photometry we report here the various photometric
 properties of the quasars.
+%%
+Table~\ref{tab:output_table} represents the culmination of this
+effort, {\it is the main
+\href{https://github.com/d80b2t/VHzQ/blob/master/data/VHzQs_ZYJHK_WISE.dat}{data
+product} of this paper} and we now exam the assembly of its contents
+in more detail. 
 
 First, we will concentrate on detection rate in the infrared, go on to
-report on the colour-redshift and colour-colour properties of our sample
-and then report on how the current sample populates the
-luminosity-redshift $Lz$-plane.
+report on the colour-redshift and colour-colour properties of our sample. 
+We also investigate the photometric variability. 
 
 \subsection{Detection Rates in the NIR}
 Table~\ref{tab:nir_detection} gives the detection rates for the 
@@ -557,9 +583,9 @@ We note that although we are often working close to the magnitude
 limits of the surveys, Eddington bias is not a significant effect on
 our measurements, since we are not discovering new sources, but
 measuring properties of already known quasars. Indeed in the NIR
-WFCAM/VISTA data, using forced photometry reducing the Eddington bias
+WFCAM/VISTA data, using forced photometry reduces the Eddington bias
 to negligible levels since a flux will be measured regardless of
-whether the source is just bright enough or too faint to be detected
+whether the source is just bright enough (or too faint) to be detected
 above the background noise.
 
 
@@ -707,22 +733,22 @@ current highest-redshift object J1342+0928 \citep{Banados2018}.
   \vspace{-14pt}
     \caption{The (W2-W3) vs. (W1-W2) colour – colour diagram showing the WISE colours 
       for the 283 VH$z$Q that have reported w3mpro values (blue to red coloured points).
-      400,000 quasars at redshift $z\lesssim3.0$ from the DR14Q are also shown
+      400,000 quasars at redshift $z\lesssim3.0$ from the SDSS DR14 quasar catalogue 
+      \citep{Paris2019} are also shown
       (grey colour-scale). }
     \label{fig:W1W2W3}
 \end{figure}
 \subsection{MIR Colours}
 Due to the depth all-sky coverage of the WISE (and NEOWISE-(R)) mission, 
 several investigations have looked at how WISE detects AGN 
-\citet[e.g][]{Stern2012, Assef2012, Secrest2015, LaMassa2017, Assef2018, Glikman2018, LaMassa2019} 
+\citep[e.g][]{Stern2012, Assef2012, Secrest2015, LaMassa2017, Assef2018, Glikman2018, LaMassa2019} 
 
 The VH$z$Q with the bluest colour in (W1 - W2) is 
 DELS J1048-0109 with (W1-W2) = 0.154. 
 %(see Figure~\ref{fig:DELS_J1048}).
 
-Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour – colour space diagram showing the WISE colours for the 283 VH$z$Q that have reported {\tt w3mpro} values (blue to red coloured points), though we note that only 51(18\%) of these objects have {\tt w3snr} > 3.0.  objects  400,000 quasars
-at redshift $z\lesssim3.0$ from the DR14Q are also shown (grey
-colour-scale). 
+Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour-colour diagram for the 283 VH$z$Qs that have reported {\tt w3mpro} values (blue to red coloured points), though we note that only 51 (18\%) of these objects have {\tt w3snr} $>$3.0. Approximately 400,000 quasars at redshift $z\lesssim3.0$ from the SDSS Quasar Catalog using the Fourteenth data release 
+\citep[DR14Q; ][]{Paris2018} are also shown (grey colour-scale). 
 % W1 samples $\approx$0.6-4$\mu$m for the $z=0-3$ quasars, 
 % W2 samples $\approx$1.25-5$\mu$m for the $z=0-3$ quasars, 
 % W3 samples $\approx$2.-16$\mu$m for the $z=0-3$ quasars, 
@@ -1052,6 +1078,7 @@ describes the Spanish VO Filter Profile Service.
 The Filter Profile Service Access Protocol. Rodrigo, C., Solano, E. http://ivoa.net/documents/Notes/SVOFPSDAL/index.html
 
 %% N.P.R. may have listened to Kris Kross during the preparation of this manuscript. 
+%% N.P.R also thanks C. B. Ross. \\ 
 
 
 \appendix

@@ -57,7 +57,7 @@ colors = [ cmap(0/clrlevs),  cmap(1/clrlevs),  cmap(2/clrlevs), cmap(3/clrlevs),
            cmap(6/clrlevs),  cmap(7/clrlevs),  cmap(8/clrlevs), cmap(9/clrlevs)]
     
 ## Setting up the plot
-fig, ax = plt.subplots(figsize=(5, 3), dpi=80, facecolor='w', edgecolor='k')
+fig, ax = plt.subplots(figsize=(5, 3), dpi=280, facecolor='w', edgecolor='k')
 
 ## Adjusting the Whitespace for the plots
 left   = 0.18   # the left side of the subplots of the figure
@@ -128,6 +128,7 @@ ax.tick_params(axis='both', which='major', labelsize=labelsize, top=True, right=
 ax.tick_params(axis='both', which='minor', labelsize=labelsize, top=True, right=True, direction='in', length=ticklength/2, width=tickwidth)
 
 
-plt.savefig('Nofz_temp.png', format='png')
+#plt.savefig('Nofz_temp.png', format='png')
+plt.savefig('Nofz_temp.pdf', format='pdf')
 plt.close(fig)
 

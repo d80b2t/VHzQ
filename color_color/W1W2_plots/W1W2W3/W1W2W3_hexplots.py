@@ -43,6 +43,8 @@ VHzQ_full = ascii.read(table)
 #VHzQ = VHzQ_full
 VHzQ = VHzQ_full[np.where(VHzQ_full['w3snr'] >3.0)]
 
+## Selec
+he = VHzQ_full[np.where((VHzQ_full['unW1mag'] >0.0) &  (VHzQ_full['unW2mag'] >0.0)) ]
 
 
 ##  Making the plot(s)
