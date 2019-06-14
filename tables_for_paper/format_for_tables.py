@@ -32,12 +32,14 @@ VHzQ_Top10 = VHzQ_list[0:46]
 
 ## Set-up the table header
 header = """\\begin{table*}
-\\begin{tabular}{ccccc ccccc cccc}
-  \hline \hline
+\\begin{tabular}{llrrc ccccc cccc}
+  \hline
+  \hline
   survey   & qsoName &  ra  & dec & redshift  &  
   Z        & Y       &  J   &  H  &  K & 
-  W1       & W2      & W3   & W4 
-  \hline \hline
+  W1       & W2      & W3   & W4 \\\ 
+  \hline
+  \hline
   \\\\\n"""
 
 print(header)
