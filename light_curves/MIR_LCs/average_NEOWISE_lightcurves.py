@@ -41,12 +41,26 @@ def getMjdRanges(mjdData):
             print("mjd does not fall in group, nor start new group: ",mjd,startMjd)
     return mjdGroupList
     
+def getAveragePhot(data,mjdRangeMask,band):
+    """ Uses weighted mean to average photometry
+    """
+    default_value = -999.999
 
+    mpro=data['w%smpro' % band][mjdRangeMask]
+    sigma_mpro=data['w%ssigmpro' % band][mjdRangeMask]
+    weights = numpy.where(sigma_mpro>0.,1./(sigma_mpro*sigma_mpro),0.)
+    sumweight = numpy.sum(weights)
+    if sumweight>0.:
+        mpro_err = math.sqrt(1./sumweight)
+        mpro_weight = numpy.sum(mpro*weights)/sumweight   
+    else:
+        mpro_err=default_value
+        mpro_weight = default_value
+    return mpro_weight,mpro_err
 
 inputTable = sys.argv[1]
 
 data= Table.read(inputTable, format='ipac')
-default_value = -999.999
 # Useful columns: cntr_01,ra,dec,w1mpro,w1sigmpro,w1snr,w2mpro,w2sigmpro,w2snr,cc_flags,mjd
 
 
@@ -63,33 +77,13 @@ for srcID in sourceIDs:
         if nMeas>=2:
             mjdRangeMask=numpy.nonzero(numpy.logical_and(
                 data['mjd'][srcDataMask]>=mjdMin,data['mjd'][srcDataMask]<=mjdMax))
-            w1mpro=data['w1mpro'][mjdRangeMask]
-            w1sigma_mpro=data['w1sigmpro'][mjdRangeMask]
-            weights = numpy.where(w1sigma_mpro>0.,1./(w1sigma_mpro*w1sigma_mpro),0.)
-            w1mpro_weight = numpy.sum(w1mpro*weights)/numpy.sum(weights)
-            sumweight = numpy.sum(weights)
-            if sumweight>0.:
-                w1mpro_err = math.sqrt(1./sumweight)
-            else:
-                w1mpro_err=default_value
-                w1mpro_weight = default_value
-            #print(mjdMean,w1mpro_weight,w1mpro_err,nMeas)
-            w2mpro=data['w2mpro'][mjdRangeMask]
-            w2sigma_mpro=data['w2sigmpro'][mjdRangeMask]
-            weights = numpy.where(w2sigma_mpro>0.,1./(w2sigma_mpro*w2sigma_mpro),0)
-            w2mpro_weight = numpy.sum(w2mpro*weights)/numpy.sum(weights)
-            sumweight = numpy.sum(weights)
-            if sumweight>0.:
-                w2mpro_err = math.sqrt(1./sumweight)
-            else:
-                w2mpro_err= default_value
-                w2mpro_weight = default_value
-            #print(mjdMean,w2mpro_weight,w2mpro_err,nMeas)
+            w1mpro_weight,w1mpro_err=getAveragePhot(data,mjdRangeMask,1)
+            w2mpro_weight,w2mpro_err=getAveragePhot(data,mjdRangeMask,2)
             outputDataList+=[(srcID,ra,dec,mjdMean,w1mpro_weight,w1mpro_err,w2mpro_weight,w2mpro_err,nMeas)]
 
+# Output data to table.
 
 out_table = Table(rows=outputDataList, names=('cntr_01', 'ra_01', 'dec_01','mean_mjd','w1mpro_wgt','w1mpro_err',
-    'w2mpro_wgt','w2mpro_err','nMeas'), meta={'name': 'MIR_average_light_curves'}, 
-                                      dtype=('i4', 'f8', 'f8','f8','f8','f8','f8','f8','i4'))
+    'w2mpro_wgt','w2mpro_err','nMeas'), dtype=('i4', 'f8', 'f8','f8','f8','f8','f8','f8','i4'))
 
 out_table.write(inputTable.replace('.tbl','_averaged.tbl'),format='ipac',overwrite=True)
