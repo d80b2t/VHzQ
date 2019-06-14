@@ -55,9 +55,9 @@ cmap = plt.cm.inferno_r
 
 ls       = 'solid'
 lw       = 2.0
-ms       = 30.
-ms_large = ms*5.
-ms_full  = ms*5.
+ms       = 20.
+ms_large = ms*6.
+ms_full  = ms*6.
 fontsize = 24
 alpha    = 1.00
 plot_num = 321
@@ -86,7 +86,7 @@ for x in range(upto_this):
             #ax1 = plt.subplot(131, figsize=(12.0, 8.5) )
             #ax2 = plt.subplot(132, figsize=(5.0, 8.5))
             #ax3 = plt.subplot(133, figsize=(5.0, 8.5), sharey=ax2)
-    
+        
             left   = 0.06   # the left side of the subplots of the figure
             right  = 0.98   # the right side of the subplots of the figure
             bottom = 0.10   # the bottom of the subplots of the figure
@@ -101,13 +101,13 @@ for x in range(upto_this):
             ax1.scatter(ALLWISE_MJD_mid,  data_one['w1mpro_allwise'][0], color='r', alpha=alpha, s=ms_large)
             ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='k', alpha=alpha, s=ms_large*1.8)
             ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='c', alpha=alpha, s=ms_large)
-    
+        
             ## NEOWISE-R data; single-epich L1bs
             ax1.scatter(data_one['mjd'], data_one['w1mpro'], color='k', alpha=alpha, s=ms*1.8)
             ax1.scatter(data_one['mjd'], data_one['w1mpro'], color='r', alpha=alpha, s=ms)
             ax1.scatter(data_one['mjd'], data_one['w2mpro'], color='k', alpha=alpha, s=ms*1.8)
             ax1.scatter(data_one['mjd'], data_one['w2mpro'], color='c', alpha=alpha, s=ms)
-
+    
             ## plotting the NEOWISE-R L1b averages...
             ax1.scatter(data_two['mean_mjd'], data_two['w1mpro_wgt'], color='k', alpha=alpha, s=ms_full*1.8)
             ax1.scatter(data_two['mean_mjd'], data_two['w1mpro_wgt'], color='r', alpha=alpha, s=ms_full)
@@ -124,29 +124,36 @@ for x in range(upto_this):
             ax1.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
             ax1.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
     
-            ## W1 vs. color to look for color-changes...
-            ax2.scatter(data_one['w1mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
-            ax2.scatter(data_one['w1mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='r', alpha=alpha, s=ms)
+            ##  W1 vs. color to look for color-changes...
+            ax2.scatter(data_one['w1mpro'],     (data_one['w1mpro']     - data_one['w2mpro']),     color='k', alpha=alpha, s=ms*1.8)
+            ax2.scatter(data_one['w1mpro'],     (data_one['w1mpro']     - data_one['w2mpro']),     color='r', alpha=alpha, s=ms)
+            ax2.scatter(data_two['w1mpro_wgt'], (data_two['w1mpro_wgt'] - data_two['w2mpro_wgt']), color='k', alpha=alpha, s=ms_full*1.8)
+            ax2.scatter(data_two['w1mpro_wgt'], (data_two['w1mpro_wgt'] - data_two['w2mpro_wgt']), color='r', alpha=alpha, s=ms_full)
+                        
             ax2.set_xlabel('W1 magnitude',                   fontsize=fontsize)
             ax2.set_ylabel('W1 - W2', fontsize=fontsize)
             ax2.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
             ax2.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='True', labelsize=fontsize)
             ax2.set_title('(R.A., Decl.) = {} {} {}'.format(ra,',',dec), fontsize=fontsize)
-    
-            ## W2 vs. color to look for color-changes...
-            ax3.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='k', alpha=alpha, s=ms*1.8)
-            ax3.scatter(data_one['w2mpro'], (data_one['w1mpro']-data_one['w2mpro']),color='c', alpha=alpha, s=ms)
+        
+            ##  W2 vs. color to look for color-changes...
+            
+            ax3.scatter(data_one['w2mpro'],     (data_one['w1mpro']     - data_one['w2mpro']),     color='k', alpha=alpha, s=ms*1.8)
+            ax3.scatter(data_one['w2mpro'],     (data_one['w1mpro']     - data_one['w2mpro']),     color='c', alpha=alpha, s=ms)
+            ax3.scatter(data_two['w2mpro_wgt'], (data_two['w1mpro_wgt'] - data_two['w2mpro_wgt']), color='k', alpha=alpha, s=ms_full*1.8)
+            ax3.scatter(data_two['w2mpro_wgt'], (data_two['w1mpro_wgt'] - data_two['w2mpro_wgt']), color='c', alpha=alpha, s=ms_full)
+
             ax3.set_xlabel('W2 magnitude',                   fontsize=fontsize)
             #ax3.set_ylabel('W1 - W2', fontsize=fontsize)
             ax3.tick_params('x', direction='in', which='both', bottom='True', top='True', left='True', right='True',  labelsize=fontsize)
             ax3.tick_params('y', direction='in', which='both', bottom='True', top='True', left='True', right='False', labelsize=fontsize)
-    
+        
             ax2.get_shared_x_axes().join(ax2, ax3)
             ax3.set_yticklabels([])
             #plt.subplots_adjust(wspace=.0)
             
-            ## Done with the page
-            pdf_pages.savefig(fig)
+        ## Done with the page
+        pdf_pages.savefig(fig)
 ##
 ## Come out both if loops..
 ##            
