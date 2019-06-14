@@ -9,33 +9,14 @@ For NPR
 =====================================================================
 
 
- -- a NIR+MIR joint analysis plot...  (Y-H vs. K-W2)  or     (J-K)  vs.  (K-W1)/(K-W2)/(W1-W2)
-
- -- Check for objects that are WISE bright and NIR faint.
- 
- -- What is the reddest W2-W3 VHzQ...
  -- Close the loop on SHELLQs   J1208-0200     (unW1  vs. no unW2  vs. reject W3).
  
- -- Depth/area QLF calculation to see whether the NIR surveys have been fully mined...
- 
-  -- Hviding et al. (2018); and other WISE AGN references...
+ -- Hviding et al. (2018); 
 
- -- cross check with Secret catalog
+ -- Table reference in Appendix A is not working.
+ -- Both Appendix A and B have the same label sec:SQL.
 
- -- Section 3.2
-    	    Figure 5 should be Figure 4 (mag vs SNR) in the text...
-	    Table 7.
-
- -- Section 3.3:
-	    Discrepency between Table 3 and Figure 6.
-	    Table 3 has 51 QSOs with W3 detection, and Figure 6 has 283.
-	    (Is it the lower SNR? Para 2 of 3.3 answers this.)
-
-
-  -- P10, say that low redshift quasars have emission on shorter timescales - what timescales. Give references.
-
-  -- Table reference in Appendix A is not working.
-  -- Both Appendix A and B have the same label sec:SQL.
+ -- Check SDSS J0100+2802 (15.0542635 28.040532)  doesn't have a K-band mag...
 
 
 

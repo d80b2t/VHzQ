@@ -37,8 +37,10 @@ sufficient NIR measurements and signal-to-noise to look for
 variability. Weak variability was detected in multiple bands of SDSS
 J0959+0227, and very marginally in the $Y$-band of MMT J0215-0529. Two
 other quasars, SDSS J0349+0034 and SDSS J2220-0101 had significant
-differences between their WFCAM and VISTA magnitudes in one band. All
-the data, analysis codes and plots used and generated here can be
+differences between their WFCAM and VISTA magnitudes in one band. 
+With supermassive black hole accretion likely to be redshift invariant 
+up to very high-redshift, further monitoring of these sources is warranted. 
+All the data, analysis codes and plots used and generated here can be
 found at: \href{https://github.com/d80b2t/VHzQ}{\tt
 github.com/d80b2t/VHzQ}.
 \end{abstract}
@@ -736,7 +738,6 @@ J1120+0641 \citep{Mortlock2011}. Neither catalogue matches to the
 current highest-redshift object J1342+0928 \citep{Banados2018}.
 
 
-
 \begin{figure}
     \centering
     \includegraphics[width=8.6cm,  clip, trim=6mm 4mm 6mm 10mm]
@@ -750,16 +751,21 @@ current highest-redshift object J1342+0928 \citep{Banados2018}.
     \label{fig:W1W2W3}
 \end{figure}
 \subsection{MIR Colours}
-Due to the depth all-sky coverage of the WISE (and NEOWISE-(R)) mission, 
-several investigations have looked at how WISE detects AGN 
-\citep[e.g][]{Stern2012, Assef2012, Secrest2015, LaMassa2017, Assef2018, Glikman2018, LaMassa2019} 
+Due to the depth all-sky coverage of the WISE (and NEOWISE-(R))
+mission, several investigations have looked at how WISE detects AGN
+\citep[e.g][]{Stern2012, Assef2012, Secrest2015, LaMassa2017,
+Assef2018, Glikman2018, Hviding2018, LaMassa2019}
 
-Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour-colour diagram for the 283 VH$z$Qs that have reported {\tt w3mpro} values (blue to red coloured points), though we note that only 51 (18\%) of these objects have {\tt w3snr} $>$3.0. Approximately 400,000 quasars at redshift $z\lesssim3.0$ from the SDSS Quasar Catalog using the Fourteenth data release 
-\citep[DR14Q; ][]{Paris2018} are also shown (grey colour-scale). 
+Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour-colour
+diagram for the 283 VH$z$Qs that have reported {\tt w3mpro} values
+(blue to red coloured points), though we note that only 51 (18\%) of
+these objects have {\tt w3snr} $>$3.0. Approximately 400,000 quasars
+at redshift $z\lesssim3.0$ from the SDSS Quasar Catalog using the
+Fourteenth data release \citep[DR14Q; ][]{Paris2018} are also shown
+(grey colour-scale).
 % W1 samples $\approx$0.6-4$\mu$m for the $z=0-3$ quasars, 
 % W2 samples $\approx$1.25-5$\mu$m for the $z=0-3$ quasars, 
 % W3 samples $\approx$2.-16$\mu$m for the $z=0-3$ quasars, 
-
 
 \begin{figure*}
     \centering
@@ -777,25 +783,32 @@ Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour-colour diagram for 
       {\it (d)} SDSS J1623+4705 has {\tt w3mpro, w4mpro } = ($11.425\pm0.1$, $8.954\pm0.28$).}
     \label{fig:VHzQ_W4s}
 \end{figure*}
-The VH$z$Q with the bluest colour in (W1 - W2) is 
-DELS J1048-0109 with (W1-W2) = 0.154. 
-%(see Figure~\ref{fig:DELS_J1048}).
+The VH$z$Q with the bluest colour in (W1-W2) is DELS J1048-0109 with (W1-W2) = 0.154. 
+and the reddest object in (W1-W2) is SHELLQs J2223+0326  with (W1-W2) =  1.33. 
 
 The set of VH$z$Q detected in WISE W3 and W4 contains 51 objects that are
 detected in the broad W3 filter and 10 objects that are formally detected
-in W4 ({\tt w4snr}$\geq$3.0). Four of the brightest W4 objects are
-presented in \label{fig:VHzQ_W4s}. UHS J0439+1634
-(Fig.~\ref{fig:VHzQ_W4s} (a)) with W4=7.165$\pm$0.12 was discovered by
+in W4 ({\tt w4snr}$\geq$3.0). 
+%%
+Four of the W3/4 objects are presented in \label{fig:VHzQ_W4s}. 
+UHS J0439+1634 (Fig.~\ref{fig:VHzQ_W4s} (a)) with W4=7.165$\pm$0.12 was discovered by
 \citet{Fan2019} and is a strongly lensed quasar at $z=$6.51. This high
 luminosity is mostly not intrinsic, but is boosted by an intervening
-redshift $z\sim$0.7 galaxy. SDSS J0100+2802 (redshift $z=6.33$) does
-not have a formal W4 detection (W4 $=8.98\pm0.45$ and {\tt w4snr}=2.4),
-but as reported by \citet{Wu2015}, has a bright detection in the
-2MASS $J$, $H$ and $K_{\rm s}$ bands and we report it here.
-%%
+redshift $z\sim$0.7 galaxy. 
 Other high-redshift quasars that are bright W3/4 objects may well 
 also so be lensed \citep[e.g.,][]{Glikman2018lens, Fan2019}, 
 but high-resolution follow-up is needed to confirm. 
+%%
+SDSS J0100+2802 (redshift $z=6.33$) does
+not have a formal W4 detection (W4 $=8.98\pm0.45$ and {\tt w4snr}=2.4),
+but as reported by \citet{Wu2015}, has a bright detection in the
+2MASS $J$, $H$ and $K_{\rm s}$ bands and is also the bluest object 
+in both (W1-W3) and (W2-W3) with values of 2.73 and 1.93, respectively, 
+so we report it here.
+%%
+PSO J075.9356-07.5061 is the reddest W3 detected object with (W1-W3) =
+5.31 and (W2-W3)= 4.65.
+
 
 \begin{figure}
   \centering
@@ -935,13 +948,15 @@ any (over) interpretation.
 Even with well sampled data across the 3000-4000 day observed
 time-scales that the WFCAM and VISTA surveys span, the $(1+z)$
 time-dilation dramatically affects the sampled rest-frame timescales
-sampled, which are $\sim300-700$ days. Indeed, when sharp changes in a accretion rate are expected
-on the system's dynamical timescale of several kiloyears
-\citep[e.g.,][]{Regan2019}, then seeing any variability signature is
-not expected. However, noting how in lower redshift quasars, which
-also have massive $>10^{8}$ M$_{\odot}$ black holes, dramatic changes
-in both continuum and line emission {\it is seen} on much shorter
-timescales, continued monitoring of these objects is warranted.
+sampled, which are $\sim$300-700 days. Indeed, when sharp changes in a
+accretion rate are expected on the system's dynamical timescale of
+several kiloyears \citep[e.g.,][]{Regan2019}, then seeing any
+variability signature is not expected. However, noting that {\it (i)} accretion onto 
+supermassive black holes should be generally time invariant, and {\it (ii)} 
+that in lower redshift quasars, which also have massive $>$$10^{8}$ M$_{\odot}$ black
+holes, dramatic changes in both continuum and line emission {\it is
+seen} on much shorter timescales, continued monitoring of these
+objects is definitely warranted.
 
 We finally focus on SDSS J0959+0227 which is presented in
 \citet{WangF2016} but is first reported in \citet{Civano2011} as
