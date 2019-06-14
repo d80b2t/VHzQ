@@ -27,7 +27,7 @@ VHzQ_list = ascii.read(table)
 print(type(VHzQ_list['ra']))
 
 ## Just the top 10 for demo purposes in the .tex manuscript
-VHzQ_Top10 = VHzQ_list[0:10]
+VHzQ_Top10 = VHzQ_list[0:46]
 
 
 ## Set-up the table header
