@@ -76,9 +76,22 @@ w3snr =11.3
 
 
 
-
-
 SDSS J0100+2802	        (.png available)
 ================================================
 15.0542635     28.040532
 w3snr = 5.1     
+
+
+
+Number of objects with good (>3.0) W3 SNR :  51
+    of which  SDSS J0100+2802     is the bluest with (W1-W3) =   2.7296000000000014
+    of which  PSO J075.9356-07.5061  is the reddest with (W1-W3) =   5.319699999999999
+    of which  SDSS J0100+2802     is the bluest with (W2-W3) =   1.9286000000000012
+    of which  PSO J075.9356-07.5061  is the reddest with (W2-W3) =   4.6516
+
+
+PSO J075.9356-07.5061
+================================================
+PSO J075.9356-07.5061
+75.93566 -7.50613
+5.88 

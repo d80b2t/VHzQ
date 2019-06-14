@@ -32,13 +32,16 @@ print()
 ### GOOD 
 bluest_W1andW3  = W3_goodSNR[np.where((W3_goodSNR['unW1mag']-W3_goodSNR['w3mpro'])  ==
                                       (W3_goodSNR['unW1mag']-W3_goodSNR['w3mpro']).min())]
-reddest_W1andW3 = W3_goodSNR[np.where((W3_goodSNR['unW1mag']-W3_goodSNR['w3mpro'])  ==
-                                      (W3_goodSNR['unW1mag']-W3_goodSNR['w3mpro']).max())]
-
 
 bluest_W2andW3 = W3_goodSNR[np.where((W3_goodSNR['unW2mag']-W3_goodSNR['w3mpro'])  ==
                                      (W3_goodSNR['unW2mag']-W3_goodSNR['w3mpro']).min())]
 
+###  Argh!!!!!
+###  TAKE GREAT CARE!!
+###    PSO J075.9356-07.5061
+### 
+reddest_W1andW3 = W3_goodSNR[np.where((W3_goodSNR['unW1mag']-W3_goodSNR['w3mpro'])  ==
+                                      (W3_goodSNR['unW1mag']-W3_goodSNR['w3mpro']).max())]
 reddest_W2andW3 = W3_goodSNR[np.where((W3_goodSNR['unW2mag']-W3_goodSNR['w3mpro'])  ==
                                       (W3_goodSNR['unW2mag']-W3_goodSNR['w3mpro']).max())]
 
@@ -52,4 +55,4 @@ print('    of which ', reddest_W2andW3['na'][0], reddest_W2andW3['desig'][0], ' 
 print()
 
 ## bluest (W1-W3) and (W2-W3)::    SDSS J0100+2802 15.0542635 28.040532     6.33
-## reddes (W1-W3) and (W2-W3):: PSO J075.9356-07.5061 
+## reddest (W1-W3) and (W2-W3):: PSO J075.9356-07.5061 

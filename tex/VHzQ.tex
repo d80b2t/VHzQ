@@ -19,30 +19,29 @@
 {Nicholas P. Ross\thanks{E-mail: npross@roe.ac.uk} and Nicholas J. G. Cross \\ 
 Institute for Astronomy, University of Edinburgh, Royal Observatory, Edinburgh, EH9 3HJ, United Kingdom\\ }
 
+
 \maketitle
 \begin{abstract}
 We assemble a catalogue of 463 spectroscopically confirmed very high
-($z\geq5.00$) redshift quasars and report their near- ($ZYJHK_{s}$ and
-$K$) and mid- (WISE) infrared properties. We find that SDSS and
-Pan-STARRS1 together identified over half of the VH$z$Q sample and
-that 97.0\% of the VH$z$Q sample is detected in one or more NIR
-($ZYJHK/K_{s}$) band, with lack of coverage rather than lack of depth
-for the objects that are not detected in the NIR. 362 (78.2\%) VH$z$Qs
-are detected at 3.4$\mu$m in the W1 band from the unWISE catalog and
-all of the $z\geq7$ quasars are detected in both unWISE W1 and
-W2. Using archival WFCAM/UKIRT and VIRCAM/VISTA data we check for
-photometric variability in the near-infrared that might be expected
-from super-Eddington accretion. We find 32 of the quasars have
-sufficient NIR measurements and signal-to-noise to look for
-variability. Weak variability was detected in multiple bands of SDSS
-J0959+0227, and very marginally in the $Y$-band of MMT J0215-0529. Two
-other quasars, SDSS J0349+0034 and SDSS J2220-0101 had significant
-differences between their WFCAM and VISTA magnitudes in one band. 
-With supermassive black hole accretion likely to be redshift invariant 
-up to very high-redshift, further monitoring of these sources is warranted. 
-All the data, analysis codes and plots used and generated here can be
-found at: \href{https://github.com/d80b2t/VHzQ}{\tt
-github.com/d80b2t/VHzQ}.
+($z\geq5.00$) redshift quasars and report their near- ($ZYJHK_{s}/K$)
+and mid- (WISE W1234) infrared properties. 97\% of the VH$z$Q sample
+is detected in one or more NIR ($ZYJHK/K_{s}$) band, with lack of
+coverage rather than lack of depth being the reason for the
+non-detections. 362 (78\%) of the very high redshift quasars are
+detected at 3.4$\mu$m in the W1 band from the unWISE catalog and all
+of the $z\geq7$ quasars are detected in both unWISE W1 and W2. Using
+archival WFCAM/UKIRT and VIRCAM/VISTA data we check for photometric
+variability that might be expected from super-Eddington accretion. We
+find 32 of the quasars have sufficient NIR measurements and
+signal-to-noise to look for variability. Weak variability was detected
+in multiple bands of SDSS J0959+0227, and very marginally in the
+$Y$-band of MMT J0215-0529. Two other quasars, SDSS J0349+0034 and
+SDSS J2220-0101 had significant differences between their WFCAM and
+VISTA magnitudes in one band.  With supermassive black hole accretion
+likely to be redshift invariant up to very high-redshift, further
+monitoring of these sources is warranted.  All the data, analysis
+codes and plots used and generated here can be found at:
+\href{https://github.com/d80b2t/VHzQ}{\tt github.com/d80b2t/VHzQ}.
 \end{abstract}
 
 
@@ -709,6 +708,19 @@ $z\geq6.78$ quasars are detected and moreover {\it all of the $z\geq7$
 quasars are detected in both unWISE W1 and W2}. This bodes very well
 for future, small mirror infrared missions \citep[e.g.][]{NEOCam_WP}.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=8.6cm,  clip, trim=6mm 4mm 6mm 10mm]
+    {../color_color/W1W2_plots/W1W2W3/W1W2W3_hexplots_20190610v2.png} 
+  \vspace{-14pt}
+    \caption{The (W2-W3) vs. (W1-W2) colour – colour diagram showing the WISE colours 
+      for the 283 VH$z$Q that have reported w3mpro values (blue to red coloured points).
+      400,000 quasars at redshift $z\lesssim3.0$ from the SDSS DR14 quasar catalogue 
+      \citep{Paris2018} are also shown
+      (grey colour-scale). }
+    \label{fig:W1W2W3}
+\end{figure}
+
 \citet{Secrest2015} present an all-sky sample of $\approx$1.35 million
 AGN meeting a two-color, (W1-W2) vs. (W2-W3), photometric selection as
 applied to sources from AllWISE. This colour-selection is motivated by
@@ -728,28 +740,34 @@ candidates identified across 30,000 deg$^2$ of extragalactic sky from
 the WISE AllWISE Data Release. The ``R90'' catalogue, contains 4.5M
 AGN candidates at 90\% reliability (and $\approx$150 AGN candidates
 per deg$^2$) while the ``C75'' catalogue consists of 20.9M AGN
-candidates at 75\% completeness (and ($\approx$700 AGN candidates per
+candidates at 75\% completeness (and $\approx$700 AGN candidates per
 deg$^2$). Crossmatching our catalogue of 463 VH$z$Qs with these
 catalogues, produces 42 matches with the R90 sample and 98 matches
 with the C75 sample. Both catalogues unsurprisingly match to the
 ultraluminous quasar SDSS J0100+2802 \citep{Wu2015} while the C75, but
 not the R90 catalogue matches to the first redshift $z>7$ quasar ULAS
-J1120+0641 \citep{Mortlock2011}. Neither catalogue matches to the
+J1120+0641 \citep{Mortlock2011}. Neither the R90 or C75 catalogue matches to the
 current highest-redshift object J1342+0928 \citep{Banados2018}.
 
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[width=8.6cm,  clip, trim=6mm 4mm 6mm 10mm]
-    {../color_color/W1W2_plots/W1W2W3/W1W2W3_hexplots_20190610v2.png} 
-  \vspace{-14pt}
-    \caption{The (W2-W3) vs. (W1-W2) colour – colour diagram showing the WISE colours 
-      for the 283 VH$z$Q that have reported w3mpro values (blue to red coloured points).
-      400,000 quasars at redshift $z\lesssim3.0$ from the SDSS DR14 quasar catalogue 
-      \citep{Paris2018} are also shown
-      (grey colour-scale). }
-    \label{fig:W1W2W3}
-\end{figure}
+    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/DELS_J1048-0109.png} 
+    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/UHS_J0439+1634.png} 
+    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDWISE_J0306+1853.png}
+    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J0100+2802.png}
+    \caption{VH$z$Qs with interesting MIR properties. 
+      The thumbnails are the RGB colour outputs using the AllWISE W1W2W3 bands from the 
+      IRSA WISE Image Service, with a scale of 120'' on the side. 
+      {\it (a)} DELS J1048-0109 is the bluest in (W1-W2) colour quasar. 
+      {\it (b)} UHS J0439+1634 was discovered by \citet{Fan2019} and is a strongly lensed quasar at $z=6.51$. 
+      {\it (c)} SDWISE J0306+1853 has {\tt w3mpro} = $10.51\pm0.1$ and {\tt w4mpro } = $7.586\pm0.16$. 
+      {\it (d)} SDSS J0100+2802 is the \citet{Wu2015} object.  
+%      {\it (d)} SDSS J1443+3623 has {\tt w3mpro, w4mpro } = ($11.189\pm0.1$, $8.699\pm0.26$) and 
+  %    {\it (d)} SDSS J1623+4705 has {\tt w3mpro, w4mpro } = ($11.425\pm0.1$, $8.954\pm0.28$).
+}
+    \label{fig:VHzQ_W4s}
+\end{figure*}
 \subsection{MIR Colours}
 Due to the depth all-sky coverage of the WISE (and NEOWISE-(R))
 mission, several investigations have looked at how WISE detects AGN
@@ -767,47 +785,9 @@ Fourteenth data release \citep[DR14Q; ][]{Paris2018} are also shown
 % W2 samples $\approx$1.25-5$\mu$m for the $z=0-3$ quasars, 
 % W3 samples $\approx$2.-16$\mu$m for the $z=0-3$ quasars, 
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/UHS_J0439+1634.png} 
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J1443+3623.png}
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J1623+4705.png}
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J0100+2802.png}
-    \caption{Four of the brightest MIR VH$z$Qs. 
-      The thumbnails are the RGB colour outputs using the AllWISE W1W2W3 bands from the 
-      IRSA WISE Image Service, with a scale of 120'' on the side. 
-      {\it (a)} UHS J0439+1634 was discovered by
-      \citet{Fan2019} and is a strongly lensed quasar at $z=$6.51. 
-      {\it (b)} SDSS J0100+2802 is the \citet{Wu2015} object. 
-      {\it (c)} SDSS J1443+3623 has {\tt w3mpro, w4mpro } = ($11.189\pm0.1$, $8.699\pm0.26$) and 
-      {\it (d)} SDSS J1623+4705 has {\tt w3mpro, w4mpro } = ($11.425\pm0.1$, $8.954\pm0.28$).}
-    \label{fig:VHzQ_W4s}
-\end{figure*}
-The VH$z$Q with the bluest colour in (W1-W2) is DELS J1048-0109 with (W1-W2) = 0.154. 
-and the reddest object in (W1-W2) is SHELLQs J2223+0326  with (W1-W2) =  1.33. 
+The VH$z$Q with the bluest colour in (W1-W2) is DELS~J1048-0109, with (W1-W2) = 0.154, and the WISE W1W2W3 color image is shown in Fig.~\ref{fig:VHzQ_W4s} {\it(a)}. The reddest object in (W1-W2) is SHELLQs~J2223+0326 with (W1-W2) = 1.33. 
 
-The set of VH$z$Q detected in WISE W3 and W4 contains 51 objects that are
-detected in the broad W3 filter and 10 objects that are formally detected
-in W4 ({\tt w4snr}$\geq$3.0). 
-%%
-Four of the W3/4 objects are presented in \label{fig:VHzQ_W4s}. 
-UHS J0439+1634 (Fig.~\ref{fig:VHzQ_W4s} (a)) with W4=7.165$\pm$0.12 was discovered by
-\citet{Fan2019} and is a strongly lensed quasar at $z=$6.51. This high
-luminosity is mostly not intrinsic, but is boosted by an intervening
-redshift $z\sim$0.7 galaxy. 
-Other high-redshift quasars that are bright W3/4 objects may well 
-also so be lensed \citep[e.g.,][]{Glikman2018lens, Fan2019}, 
-but high-resolution follow-up is needed to confirm. 
-%%
-SDSS J0100+2802 (redshift $z=6.33$) does
-not have a formal W4 detection (W4 $=8.98\pm0.45$ and {\tt w4snr}=2.4),
-but as reported by \citet{Wu2015}, has a bright detection in the
-2MASS $J$, $H$ and $K_{\rm s}$ bands and is also the bluest object 
-in both (W1-W3) and (W2-W3) with values of 2.73 and 1.93, respectively, 
-so we report it here.
-%%
-PSO J075.9356-07.5061 is the reddest W3 detected object with (W1-W3) =
-5.31 and (W2-W3)= 4.65.
+The set of VH$z$Q detected in WISE W3 and W4 contains 51 objects that are detected in the broad W3 filter and 10 objects that are formally detected in W4 ({\tt w4snr}$\geq$3.0). Three of the W3/4 objects are presented in Figure~\ref{fig:VHzQ_W4s}. UHS~J0439+1634 (Fig.~\ref{fig:VHzQ_W4s} {\it (b)}) with W4=7.165$\pm$0.12 was discovered by \citet{Fan2019} and is a strongly lensed quasar at $z=$6.51. This high luminosity is mostly not intrinsic, but is boosted by an intervening redshift $z\sim$0.7 galaxy. Other high-redshift quasars that are bright W3/4 objects e.g. SDWISE~J0306+1853 (Fig.~\ref{fig:VHzQ_W4s} {\it(c)}) may well also so be lensed \citep[e.g.,][]{Glikman2018lens, Fan2019}, but high-resolution follow-up is needed to confirm. SDSS~J0100+2802 (redshift $z=6.33$) does not have a formal W4 detection (W4 $=8.98\pm0.45$ and {\tt w4snr}=2.4), but as reported by \citet{Wu2015}, has a detection in the 2MASS $J$, $H$ and $K_{\rm s}$ bands and is also the bluest object in both (W1-W3) and (W2-W3) with values of 2.73 and 1.93, respectively, and is shown in Fig.~\ref{fig:VHzQ_W4s} {\it(d)}.
 
 
 \begin{figure}
@@ -852,16 +832,15 @@ enters the $K$-band at redshift $z=6.25$ and exits at $7.50$.
     Red points are the W1 band; cyan points the W2 band.} 
   \label{fig:MIR_LC_3egs}
 \end{figure}
-One key point to note when looking at the WISE variability is 
-that AllWISE (and 2MASS) source information included in the NEOWISE Source Database 
-\href{http://wise2.ipac.caltech.edu/docs/release/neowise/expsup/sec2_1f.html}{are associations not identifications}. 
-The NEOWISE-AllWISE match radius is 3''. 
+One key point to note when looking at the WISE variability is that
+AllWISE (and 2MASS) source information included in the NEOWISE Source
+Database
+\href{http://wise2.ipac.caltech.edu/docs/release/neowise/expsup/sec2_1f.html}{are
+associations not identifications}. The NEOWISE-AllWISE match radius is
+3''.
 
-Figure~\ref{fig:MIR_LC_epochs} gives the number of NEOWISE-R epochs
-and detections there are for each VH$z$Q, while
-Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR
-lightcurves and associated colour changes. Here we show J0100+2802
-\citep{Wu2015}, J0224-4711 and J1626+2751.
+Figure~\ref{fig:MIR_LC_epochs} gives the number of NEOWISE-R epochs and detections there are for each VH$z$Q, while Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR lightcurves and associated colour changes. 
+Here we show J0100+2802 \citep{Wu2015}, J0224-4711 and J1626+2751.
 
 Using the extended datasets described in Section~\ref{sec:NIR_data},
 we select objects with at least 8 measurements observed with intervals
