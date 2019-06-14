@@ -707,10 +707,21 @@ $z\geq6.78$ quasars are detected and moreover {\it all of the $z\geq7$
 quasars are detected in both unWISE W1 and W2}. This bodes very well
 for future, small mirror infrared missions \citep[e.g.][]{NEOCam_WP}.
 
-\citet{Secrest2015} present an all-sky sample of $\approx$1.35 million active galactic nuclei (AGNs) 
-meeting a two-color, (W1-W2) vs. (W2-W3) infrared photometric selection criteria for AGNs as applied to sources from the Wide-field Infrared Survey Explorer final catalog release (AllWISE). 
+\citet{Secrest2015} present an all-sky sample of $\approx$1.35 million
+AGN meeting a two-color, (W1-W2) vs. (W2-W3), photometric selection as
+applied to sources from AllWISE. This colour-selection is motivated by
+\citet{Mateos2012}. We investigate if this catalogue, which is tuned
+for, and noted to be highly complete at, lower, $z\lesssim2$
+redshifts, contain the VH$z$Qs. We find only 5 VH$z$Qs from our sample
+match the Secrest catalogue, but given a W3 detection is required,
+this is not surprising. Further, in addition to the relative lack of
+sensitivity in W3, the mid-IR colors are moving out of the
+\citet{Mateos2012} color criterion at high redshift. This was shown
+using an AGN SED where AGNs above a redshift of about $\sim$2 fall out
+of the colour criterion, see e.g. Figure 5 of \citet[][]{Mateos2012}
+and Figure 9 of \citet{Secrest2015}.
 %%
-Recently, \citet{Assef2018} released two large catalogues of AGN
+\citet{Assef2018} released two large catalogues of AGN
 candidates identified across 30,000 deg$^2$ of extragalactic sky from
 the WISE AllWISE Data Release. The ``R90'' catalogue, contains 4.5M
 AGN candidates at 90\% reliability (and $\approx$150 AGN candidates
@@ -734,7 +745,7 @@ current highest-redshift object J1342+0928 \citep{Banados2018}.
     \caption{The (W2-W3) vs. (W1-W2) colour – colour diagram showing the WISE colours 
       for the 283 VH$z$Q that have reported w3mpro values (blue to red coloured points).
       400,000 quasars at redshift $z\lesssim3.0$ from the SDSS DR14 quasar catalogue 
-      \citep{Paris2019} are also shown
+      \citep{Paris2018} are also shown
       (grey colour-scale). }
     \label{fig:W1W2W3}
 \end{figure}
@@ -742,10 +753,6 @@ current highest-redshift object J1342+0928 \citep{Banados2018}.
 Due to the depth all-sky coverage of the WISE (and NEOWISE-(R)) mission, 
 several investigations have looked at how WISE detects AGN 
 \citep[e.g][]{Stern2012, Assef2012, Secrest2015, LaMassa2017, Assef2018, Glikman2018, LaMassa2019} 
-
-The VH$z$Q with the bluest colour in (W1 - W2) is 
-DELS J1048-0109 with (W1-W2) = 0.154. 
-%(see Figure~\ref{fig:DELS_J1048}).
 
 Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour-colour diagram for the 283 VH$z$Qs that have reported {\tt w3mpro} values (blue to red coloured points), though we note that only 51 (18\%) of these objects have {\tt w3snr} $>$3.0. Approximately 400,000 quasars at redshift $z\lesssim3.0$ from the SDSS Quasar Catalog using the Fourteenth data release 
 \citep[DR14Q; ][]{Paris2018} are also shown (grey colour-scale). 
@@ -770,6 +777,10 @@ Figure~\ref{fig:W1W2W3} shows the (W1-W2) vs. (W2-W3) colour-colour diagram for 
       {\it (d)} SDSS J1623+4705 has {\tt w3mpro, w4mpro } = ($11.425\pm0.1$, $8.954\pm0.28$).}
     \label{fig:VHzQ_W4s}
 \end{figure*}
+The VH$z$Q with the bluest colour in (W1 - W2) is 
+DELS J1048-0109 with (W1-W2) = 0.154. 
+%(see Figure~\ref{fig:DELS_J1048}).
+
 The set of VH$z$Q detected in WISE W3 and W4 contains 51 objects that are
 detected in the broad W3 filter and 10 objects that are formally detected
 in W4 ({\tt w4snr}$\geq$3.0). Four of the brightest W4 objects are
@@ -952,19 +963,6 @@ from a narrow-line ``Type 2'' object to a broadline Type 1 quasar.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 
-%%     S E C T I O N    4         S E C T I O N    4           S E C T I O N    4       S E C T I O N   4
-%%     S E C T I O N    4         S E C T I O N    4           S E C T I O N    4       S E C T I O N   4
-%%     S E C T I O N    4         S E C T I O N    4           S E C T I O N    4       S E C T I O N   4
-%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\input{SurfaceDensity}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%  S E C T I O  N   7         S E C T I O  N   7           S E C T I O  N   7       S E C T I O  N   7
 %%  S E C T I O  N   7         S E C T I O  N   7           S E C T I O  N   7       S E C T I O  N   7
@@ -1014,11 +1012,12 @@ NPR acknowledges support from the STFC and the Ernest Rutherford Fellowship sche
 
 We thank:
 \begin{list}{$\circ$}{}  
-\item Mike Read at the ROE WFAU for help with the WFCAM Science Archive (WSA) and the VISTA Science Archive (VSA). 
- \item Tim Brooke at the \href{https://irsasupport.ipac.caltech.edu/index.php}{IRSA Help Desk}; 
-\item Bernie Shiao at STScI for help with the Pan-STARRS1 DR1 CasJobs interface. 
-\item Aaron Meisner and Eddie Schlafly for facilitating early access to the unWISE Catalog. 
-\item Michael Cushing for supplying the Late Type stellar spectra and Beth Biller for useful discussion. 
+  \item Mike Read at the ROE WFAU for help with the WFCAM Science Archive (WSA) and the VISTA Science Archive (VSA). 
+  \item Aaron Meisner and Eddie Schlafly for facilitating early access to the unWISE Catalog. 
+  \item Tim Brooke at the \href{https://irsasupport.ipac.caltech.edu/index.php}{IRSA Help Desk}; 
+  \item Bernie Shiao at STScI for help with the Pan-STARRS1 DR1 CasJobs interface. 
+  \item Michael Cushing for supplying the Late Type stellar spectra and Beth Biller for useful discussion. 
+  \item Nathan Secrest for useful discussions on the mid-IR AGN catalogues. 
 \end{list}
 
 
