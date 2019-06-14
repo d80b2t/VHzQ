@@ -45,7 +45,10 @@ print(header)
 footer = """    \hline
     \hline
     \\end{tabular}
-    \caption{The first 23 (i.e. 5\%) of 463 very high-$z$ quasars with near and mid-infrared photometry.}
+    \caption{The first 23 (i.e. 5\%) of 463 very high-$z$ quasars in Right Ascension order with near and mid-infrared photometry. 
+                  The full table can be found \href{https://github.com/d80b2t/VHzQ/tree/master/data}{here}. 
+                  Since none of the first 23 objects have $Z$-band detections, we don't report that column here (but
+                  is reported in the main table).} 
      \label{tab:output_table}
      \\end{table}
      \n"""
