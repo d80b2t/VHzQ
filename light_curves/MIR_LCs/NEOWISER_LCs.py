@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
 ## Reading-in the NEOWISE-R L1b single exposure numbers
-path = '/cos_pc19a_npr/programs/quasars/highest_z/data/light_curves/NEOWISE-R/'
+path = '../../data/light_curves/NEOWISE-R/'
 #path = os.path.join(os.path.dirname(os.getcwd()),'/MIR_LCs/')
 file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
 
@@ -18,10 +18,19 @@ data = ascii.read(path+file)
 type(data)
 upto_this = data['cntr_01'].max()
 
+
+## Reading-in the *averaged*
+##   Generated using::    average_NEOWISE_lightcurves.py 
+path  = '../../data/light_curves/NEOWISE-R/'
+file  = 'NEOWISER-R_SingleExposure_L1bs_20190429_averaged.tbl'
+avers = ascii.read(path+file) 
+
+
+
 out_pdf = 'NEOWISER_LCs_VHzQs_temp.pdf'
 pdf_pages = PdfPages(out_pdf)
-
-ALLWISE_MJD_min = 55210.     #  2010-January-14 
+## http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec1_2.html#phases
+ALLWISE_MJD_min = 55203.     #  2010-January-07 
 ALLWISE_MJD_max = 55593.
 ALLWISE_MJD_mid = ((ALLWISE_MJD_max + ALLWISE_MJD_min))/2.
 mjd_range_ALLWISE=[ALLWISE_MJD_min,ALLWISE_MJD_max]
@@ -49,22 +58,23 @@ ls       = 'solid'
 lw       = 2.0
 ms       = 60.
 ms_large = ms*5.
+ms_full  = ms*10
 fontsize = 24
 alpha    = 1.00
 plot_num = 321
 totes    = 0
 
-#for x in range(upto_this):
-for x in range(10):
+for x in range(upto_this):
+#for x in range(10):
     x=x+1
     data_one = data[np.where(data['cntr_01'] == x)]
 
     if len(data_one) < 1:
-          print('0')
+          #print(x, 'No of epochs: 0')
           
     if len(data_one) > 0:  
 #        print(x, data_one['ra'][0], data_one['dec'][0], len(data_one))
-        print(len(data_one))
+        #print(x, 'No of epochs:', len(data_one))
         totes = totes + len(data_one)
         ra = data_one['ra'][0]
         dec = data_one['dec'][0]
@@ -83,14 +93,7 @@ for x in range(10):
         hspace = 0.06   # the amount of height reserved for white space between subplots
         plt.subplots_adjust(left=left, bottom=bottom, right=right, top=top, wspace=wspace, hspace=hspace)
 
-
         ## W1/2 Light-curves, y-axis reverse
-        ##
-        ## NEOWISE-R data
-        ax1.scatter(data_one['mjd'], data_one['w1mpro'], color='k', alpha=alpha, s=ms*1.8)
-        ax1.scatter(data_one['mjd'], data_one['w1mpro'], color='r', alpha=alpha, s=ms)
-        ax1.scatter(data_one['mjd'], data_one['w2mpro'], color='k', alpha=alpha, s=ms*1.8)
-        ax1.scatter(data_one['mjd'], data_one['w2mpro'], color='c', alpha=alpha, s=ms)
 
         ## ALLWISE SINGLE MJD POINT
         ax1.scatter(ALLWISE_MJD_mid,  data_one['w1mpro_allwise'][0], color='k', alpha=alpha, s=ms_large*1.8)
@@ -98,7 +101,22 @@ for x in range(10):
         ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='k', alpha=alpha, s=ms_large*1.8)
         ax1.scatter(ALLWISE_MJD_mid,  data_one['w2mpro_allwise'][0], color='c', alpha=alpha, s=ms_large)
 
-        ## Going back to ALLWISE...
+        ## NEOWISE-R data; single-epich L1bs
+        ax1.scatter(data_one['mjd'], data_one['w1mpro'], color='k', alpha=alpha, s=ms*1.8)
+        ax1.scatter(data_one['mjd'], data_one['w1mpro'], color='r', alpha=alpha, s=ms)
+        ax1.scatter(data_one['mjd'], data_one['w2mpro'], color='k', alpha=alpha, s=ms*1.8)
+        ax1.scatter(data_one['mjd'], data_one['w2mpro'], color='c', alpha=alpha, s=ms)
+
+        for y in avers['cntr_01']:
+            print('x, y, avers['cntr_01'][y]',   x,   y,   avers['cntr_01'] )
+#        if (avers['cntr_01'] == x):
+#            ax1.scatter(avers['mean_mjd'], avers['w1mpro_wgt'], yerr=avers['w1mpro_err'], color='k', alpha=alpha, s=ms_full*1.8)
+#            ax1.scatter(avers['mean_mjd'], avers['w1mpro_wgt'], yerr=avers['w1mpro_err'], color='r', alpha=alpha, s=ms_full)
+ #           ax1.scatter(avers['mean_mjd'], avers['w2mpro_wgt'], yerr=avers['w2mpro_err'], color='k',alpha=alpha,  s=ms_full*1.8)
+  #          ax1.scatter(avers['mean_mjd'], avers['w2mpro_wgt'], yerr=avers['w2mpro_err'], color='c', alpha=alpha, s=ms_full)
+
+
+        ## AllWISE 4-Band Cryo Survey Phase started MJD 55203
         ax1.set_xlim((55000,58140))
         ## Just NEOWISE-R
         #ax1.set_xlim((56500,58140))
