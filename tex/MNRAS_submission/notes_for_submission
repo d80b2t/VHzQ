@@ -2,23 +2,36 @@
 Step 1
 Main Journal
 
-* Title  
+The Near and Mid-infrared photometric properties of known redshift $z\geq5$ Quasars
  
-* Running Head  
-
-0 OUT OF 50 CHARACTERS
-Running head is missing.
-
-* Abstract  
-Write or Paste Abstract
+Infrared properties of Very high-$z$ Quasars
 
 
-Abstract text is required.
-* Number of words in abstract (Main Journal 250 words max; Letters 200 words max.)	
 
+We assemble a catalogue of 463 spectroscopically confirmed very high
+($z\geq5.00$) redshift quasars and report their near- ($ZYJHK_{s}/K$)
+and mid- (WISE W1234) infrared properties. 97\% of the VH$z$Q sample
+is detected in one or more NIR ($ZYJHK/K_{s}$) band, with lack of
+coverage rather than lack of depth being the reason for the
+non-detections. 362 (78\%) of the very high redshift quasars are
+detected at 3.4$\mu$m in the W1 band from the unWISE catalog and all
+of the $z\geq7$ quasars are detected in both unWISE W1 and W2. Using
+archival WFCAM/UKIRT and VIRCAM/VISTA data we check for photometric
+variability that might be expected from super-Eddington accretion. We
+find 32 of the quasars have sufficient NIR measurements and
+signal-to-noise to look for variability. Weak variability was detected
+in multiple bands of SDSS J0959+0227, and very marginally in the
+$Y$-band of MMT J0215-0529. Two other quasars, SDSS J0349+0034 and
+SDSS J2220-0101 had significant differences between their WFCAM and
+VISTA magnitudes in one band.  With supermassive black hole accretion
+likely to be redshift invariant up to very high-redshift, further
+monitoring of these sources is warranted.  All the data, analysis
+codes and plots used and generated here can be found at:
+\href{https://github.com/d80b2t/VHzQ}{\tt github.com/d80b2t/VHzQ}.
+
+
+229
  
-If this is a Letter, please state your reasons for seeking publication in the form of a Letter:	
-
 
 
 
