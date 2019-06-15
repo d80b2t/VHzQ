@@ -1,5 +1,5 @@
 '''
-
+The number of NEOWISE-R epochs for the VHzQs
 '''
 
 from astropy.io import ascii
@@ -16,6 +16,18 @@ file = 'NoOfEpochs_perQuasar.dat'
 data_in = ascii.read(path+file) 
 print(type(data_in))
 data = np.array(data_in).astype(np.float)
+
+gt100 = data[np.where(data >100)]
+gt200 = data[np.where(data >200)]
+gt300 = data[np.where(data >300)]
+gt400 = data[np.where(data >400)]
+
+print()
+print('No of VHzQs with > 100 epochs is', len(gt100))
+print('No of VHzQs with > 200 epochs is', len(gt200))
+print('No of VHzQs with > 300 epochs is', len(gt300))
+print('No of VHzQs with > 400 epochs is', len(gt400))
+print()
 
 
 ##  Making the figure
