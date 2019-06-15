@@ -11,6 +11,15 @@ filename  = 'VHzQs_ZYJHK_WISE.dat'
 table     = path+filename
 VHzQ_full = ascii.read(table)
 
+
+## Vega to AB conversion
+#VHzQ_full['unW1mag'] = VHzQ_full['unW1mag'] - 0.004 + 2.673
+#VHzQ_full['unW2mag'] = VHzQ_full['unW2mag'] - 0.032 + 3.313
+#VHzQ_full['w3mpro']  = VHzQ_full['w3mpro'] + 5.148
+#VHzQ_full['w4mpro']  = VHzQ_full['w4mpro'] + 6.66
+
+
+
 ## Selections...
 W3_goodSNR   = VHzQ_full[np.where( VHzQ_full['w3snr']   > 3.0)]
 W1andW2      = VHzQ_full[np.where((VHzQ_full['unW1mag'] > 0.0)  &  (VHzQ_full['unW2mag'] >0.0)) ]

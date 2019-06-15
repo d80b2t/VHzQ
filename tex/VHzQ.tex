@@ -174,10 +174,13 @@ VH$z$Qs, looking for evidence of super-critical accretion. In Section
 current datasets. We conclude in Section 5 and present all the
 necessary details to obtain our dataset in the Appendices.
 
-We present all our photometry and magnitudes on the AB zero-point
-system \citep{Oke_Gunn1983, Fukugita1996}.  This includes the
-near-infrared, as well as the mid-infrared magnitudes. These
-magnitudes are {\it not} Galactic extinction corrected. We use a flat
+We present all our photometry and magnitudes on the AB system. For NIR, we use the \citet{Oke_Gunn1983} and \citet{Fukugita1996} system which has a zeropoint of $-48.60$. 
+For WISE, the AB-Vega offsets \href{http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec4_4h.html#conv2ab}{are calculated} using the \citet{TokunagaVacca2005} AB system, which has a zeropoint of -48.574. So to remain on the -48.60 system, and assuming a flux density F$_{\nu} \propto \nu^{0}$, one needs to subtract 0.026 mag from the zeropoints: 
+($\Delta$W1, $\Delta$W2, $\Delta$W3) = (2.673, 3.313, 5.148). 
+For W4, we use the calibration of \citet{Brown2014b}, $\Delta$W4= 6.66. 
+These magnitudes are {\it not} Galactic extinction corrected. 
+
+We use a flat
 $\Lambda$CDM cosmology with $H_{\rm 0} = 67.7$ km s$^{-1}$ Mpc$^{-1}$,
 $\Omega_{\rm M} = 0.307$, and $\Omega_{\Lambda} = 0.693$
 \citet{Planck2016} to be consistent with \citet{Banados2016} and all
@@ -481,7 +484,7 @@ observe in the $Z$-band.
 \subsection{MIR data}
 The MIR data for this study comes from the Wide-field Infrared Survey Explorer (WISE) mission, and we utlize data from the WISE cryogenic and the Near-Earth Object WISE \citep[NEOWISE; ][]{Mainzer2011} post-cryogenic and NEOWISE Reactivation Mission \citep[NEOWISE-R][]{Mainzer2014} survey phases.
 
-We use data from the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citet{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all the WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
+We use data from the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citep{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all the WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
 
 For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the AllWISE Data Release.  Most objects in the AllWISE Source Catalog are unresolved, so the best photometric measurements to use are the deep detection profile-fit photometry measures,  {\tt w$x$mpro},  {\tt w$x$sigmpro} and  {\tt w$x$snr}. The unWISE Catalog absolute photometric calibration derives from the photometric calibration of the unWISE coadds \citep{Meisner2017a}, which is tied to the original WISE zero points through aperture fluxes in a 27.5'' radius.
 
@@ -503,16 +506,16 @@ improves the agreement between unWISE and AllWISE fluxes.
 
 Thus to convert unWISE Vega magnitudes onto the AB system, we have:     
 \begin{eqnarray*}
-        {\rm W1}_{\rm AB, unWISE}  & = &   22.5 - 2.5 \log(f_{\rm W1}) - 0.004 + 2.699 \\
-        {\rm W2}_{\rm AB, unWISE}  &  = &  22.5 - 2.5 \log(f_{\rm W2}) - 0.032 + 3.339. 
+        {\rm W1}_{\rm AB, unWISE}  & = &   22.5 - 2.5 \log(f_{\rm W1}) - 0.004 + 2.673  \\
+       {\rm W2}_{\rm AB, unWISE}  &  = &  22.5 - 2.5 \log(f_{\rm W2}) - 0.032 +  3.313 \\
 \end{eqnarray*}
+using the \citet{TokunagaVacca2005} AB system, 
+and is slightly different to the transformations presented in 
+\citet{Schlafly2019}. 
 
-For the our MIR variability investigations, we use the \href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{NEOWISE-R 2019 Data Release}. NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2) single-exposure images and extracted source information that was
-acquired up until 2018 December 13 (MJD 58465) including the fifth year of survey operations of NEOWISE. These fifth year NEOWISE data
-products are concatenated with those from the first four years into a single archive from 2013 December 13 (MJD 56639).
-
-The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in
-hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
+For the our MIR variability investigations, we use the \href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{NEOWISE-R 2019 Data Release}. NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2) single-exposure images and extracted source information that was acquired up until 2018 December 13 (MJD 58465) including the fifth year of survey operations of NEOWISE. These fifth year NEOWISE data products are concatenated with those from the first four years into a single archive from 2013 December 13 (MJD 56639).
+%%
+The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -669,12 +672,12 @@ Unlike the NIR coverage, the WISE satellite and mission performed an all-sky sur
   {../detections/WISEmag_vs_coverage_20190605.pdf}
   \centering
   \vspace{-14pt}
-  \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} magnitude against signal-to-noise,
+  \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} Vega magnitude against signal-to-noise,
     colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band.}
   \label{fig:WISEmag_vs_coverage}
 \end{figure}
 Before reporting on the detection rates, we investigate this effect
-using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage}
+using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage} 
 shows the WISE AllWISE magnitude versus signal-to-noise, colour coded
 by {\tt w$x$cov} the mean coverage depth, in each corresponding
 band. The {\tt w$123$cov} values are the mean pixel coverage in W1/2/3
@@ -690,6 +693,7 @@ thus the mean coverage value) as well as pixels that are affected by
 distortions across the across the focal plane in single-exposure
 images (where this distortion is corrected when coadding to generate
 the Atlas Images). 
+
 In the two shorter bands W1/2 we see the clear and expected
 trend for brighter objects to have larger SNR, and also for the higher
 signal to noise for objects with more exposures at a given
@@ -711,7 +715,7 @@ for future, small mirror infrared missions \citep[e.g.][]{NEOCam_WP}.
 \begin{figure}
     \centering
     \includegraphics[width=8.6cm,  clip, trim=6mm 4mm 6mm 10mm]
-    {../color_color/W1W2_plots/W1W2W3/W1W2W3_hexplots_20190610v2.png} 
+    {../color_color/W1W2_plots/W1W2W3/W1W2W3_hexplots_20190615_AB.png} 
   \vspace{-14pt}
     \caption{The (W2-W3) vs. (W1-W2) colour – colour diagram showing the WISE colours 
       for the 283 VH$z$Q that have reported w3mpro values (blue to red coloured points).
@@ -738,9 +742,9 @@ and Figure 9 of \citet{Secrest2015}.
 \citet{Assef2018} released two large catalogues of AGN
 candidates identified across 30,000 deg$^2$ of extragalactic sky from
 the WISE AllWISE Data Release. The ``R90'' catalogue, contains 4.5M
-AGN candidates at 90\% reliability (and $\approx$150 AGN candidates
+AGN candidates at 90\% reliability ($\approx$150 AGN candidates
 per deg$^2$) while the ``C75'' catalogue consists of 20.9M AGN
-candidates at 75\% completeness (and $\approx$700 AGN candidates per
+candidates at 75\% completeness ($\approx$700 AGN candidates per
 deg$^2$). Crossmatching our catalogue of 463 VH$z$Qs with these
 catalogues, produces 42 matches with the R90 sample and 98 matches
 with the C75 sample. Both catalogues unsurprisingly match to the
@@ -761,7 +765,7 @@ current highest-redshift object J1342+0928 \citep{Banados2018}.
       IRSA WISE Image Service, with a scale of 120'' on the side. 
       {\it (a)} DELS J1048-0109 is the bluest in (W1-W2) colour quasar. 
       {\it (b)} UHS J0439+1634 was discovered by \citet{Fan2019} and is a strongly lensed quasar at $z=6.51$. 
-      {\it (c)} SDWISE J0306+1853 has {\tt w3mpro} = $10.51\pm0.1$ and {\tt w4mpro } = $7.586\pm0.16$. 
+      {\it (c)} SDWISE J0306+1853 has {\tt w3mpro} = $15.66\pm0.1$ (AB) and {\tt w4mpro } = $14.25\pm0.16$ (AB). 
       {\it (d)} SDSS J0100+2802 is the \citet{Wu2015} object.  
 %      {\it (d)} SDSS J1443+3623 has {\tt w3mpro, w4mpro } = ($11.189\pm0.1$, $8.699\pm0.26$) and 
   %    {\it (d)} SDSS J1623+4705 has {\tt w3mpro, w4mpro } = ($11.425\pm0.1$, $8.954\pm0.28$).
@@ -785,15 +789,16 @@ Fourteenth data release \citep[DR14Q; ][]{Paris2018} are also shown
 % W2 samples $\approx$1.25-5$\mu$m for the $z=0-3$ quasars, 
 % W3 samples $\approx$2.-16$\mu$m for the $z=0-3$ quasars, 
 
-The VH$z$Q with the bluest colour in (W1-W2) is DELS~J1048-0109, with (W1-W2) = 0.154, and the WISE W1W2W3 color image is shown in Fig.~\ref{fig:VHzQ_W4s} {\it(a)}. The reddest object in (W1-W2) is SHELLQs~J2223+0326 with (W1-W2) = 1.33. 
+The VH$z$Q with the bluest colour in (W1-W2) is DELS~J1048-0109, with 
+(W1-W2) =  -0.458  (i.e. 0.154 in Vega), and the WISE W1W2W3 color image is shown in Fig.~\ref{fig:VHzQ_W4s} {\it(a)}. The reddest object in (W1-W2) is SHELLQs~J2223+0326 with (W1-W2) = 0.719 (1.33 Vega). 
 
-The set of VH$z$Q detected in WISE W3 and W4 contains 51 objects that are detected in the broad W3 filter and 10 objects that are formally detected in W4 ({\tt w4snr}$\geq$3.0). Three of the W3/4 objects are presented in Figure~\ref{fig:VHzQ_W4s}. UHS~J0439+1634 (Fig.~\ref{fig:VHzQ_W4s} {\it (b)}) with W4=7.165$\pm$0.12 was discovered by \citet{Fan2019} and is a strongly lensed quasar at $z=$6.51. This high luminosity is mostly not intrinsic, but is boosted by an intervening redshift $z\sim$0.7 galaxy. Other high-redshift quasars that are bright W3/4 objects e.g. SDWISE~J0306+1853 (Fig.~\ref{fig:VHzQ_W4s} {\it(c)}) may well also so be lensed \citep[e.g.,][]{Glikman2018lens, Fan2019}, but high-resolution follow-up is needed to confirm. SDSS~J0100+2802 (redshift $z=6.33$) does not have a formal W4 detection (W4 $=8.98\pm0.45$ and {\tt w4snr}=2.4), but as reported by \citet{Wu2015}, has a detection in the 2MASS $J$, $H$ and $K_{\rm s}$ bands and is also the bluest object in both (W1-W3) and (W2-W3) with values of 2.73 and 1.93, respectively, and is shown in Fig.~\ref{fig:VHzQ_W4s} {\it(d)}.
+The set of VH$z$Q detected in WISE W3 and W4 contains 51 objects that are detected in the broad W3 filter and 10 objects that are formally detected in W4 ({\tt w4snr}$\geq$3.0). Three of the W3/4 objects are presented in Figure~\ref{fig:VHzQ_W4s}. UHS~J0439+1634 (Fig.~\ref{fig:VHzQ_W4s} {\it (b)}) with W4=7.165$\pm$0.12 was discovered by \citet{Fan2019} and is a strongly lensed quasar at $z=$6.51. This high luminosity is mostly not intrinsic, but is boosted by an intervening redshift $z\sim$0.7 galaxy. Other high-redshift quasars that are bright W3/4 objects e.g. SDWISE~J0306+1853 (Fig.~\ref{fig:VHzQ_W4s} {\it(c)}) may well also so be lensed \citep[e.g.,][]{Glikman2018lens, Fan2019, Pacucci2019}, but high-resolution follow-up is needed to confirm. SDSS~J0100+2802 (redshift $z=6.33$; Fig.~\ref{fig:VHzQ_W4s} {\it(d)}) does not have a formal W4 detection ({\tt w4snr}=2.4), but as reported by \citet{Wu2015}, has a detection in the 2MASS $J$, $H$ and $K_{\rm s}$ bands and is also the bluest object in both (W1-W3) and (W2-W3). %% with values of 2.73 (Vega) and 1.93 (Vega), respectively. 
 
 
 \begin{figure}
   \centering
   \includegraphics[width=8.5cm]
-  {../light_curves/MIR_LCs/NEOWISER_LC_histogramlog_20180827.png}
+  {../light_curves/MIR_LCs/NEOWISER_LC_histogram_20190606.png}
   \vspace{-16pt}
   \caption[]
   {Histogram showing the total number of exposures for each detected VH$z$Q
@@ -839,7 +844,9 @@ Database
 associations not identifications}. The NEOWISE-AllWISE match radius is
 3''.
 
-Figure~\ref{fig:MIR_LC_epochs} gives the number of NEOWISE-R epochs and detections there are for each VH$z$Q, while Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR lightcurves and associated colour changes. 
+Figure~\ref{fig:MIR_LC_epochs} gives the number of NEOWISE-R epochs and detections there are for each VH$z$Q. 
+
+while Figure~\ref{fig:MIR_LC_3egs} presents three examples of the MIR lightcurves and associated colour changes. 
 Here we show J0100+2802 \citep{Wu2015}, J0224-4711 and J1626+2751.
 
 Using the extended datasets described in Section~\ref{sec:NIR_data},

@@ -25,9 +25,10 @@ path  = '../../data/light_curves/NEOWISE-R/'
 file  = 'NEOWISER-R_SingleExposure_L1bs_20190429_averaged.tbl'
 avers = ascii.read(path+file) 
 
-
 out_pdf = 'NEOWISER_LCs_VHzQs_temp.pdf'
 pdf_pages = PdfPages(out_pdf)
+
+
 ## http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec1_2.html#phases
 ALLWISE_MJD_min = 55203.     #  2010-January-07 
 ALLWISE_MJD_max = 55593.
@@ -70,11 +71,14 @@ for x in range(upto_this):
     data_two = avers[np.where(avers['cntr_01'] == x)]
     
     if len(data_one) < 1:
-        print(x, 'No of epochs: 0')
+        ## for NoOfEpochs_perQuasar.dat 
+        print('0.01')
+        #print(x, 'No of epochs: 0')
 
     if len(data_one) > 0:
         # print(x, data_one['ra'][0], data_one['dec'][0], len(data_one))
-        print(x, 'No of epochs:', len(data_one))
+        print(len(data_one))
+        #print(x, 'No of epochs:', len(data_one))
         
         if len(data_two) > 0:
             totes = totes + len(data_one)

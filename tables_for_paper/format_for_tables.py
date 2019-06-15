@@ -19,6 +19,13 @@ filename   = 'VHzQs_ZYJHK_WISE.dat'
 table     = path+filename
 VHzQ_list = ascii.read(table)
 
+## Vega to AB conversion
+VHzQ_list['unW1mag'] = VHzQ_list['unW1mag'] - 0.004 + 2.673
+VHzQ_list['unW2mag'] = VHzQ_list['unW2mag'] - 0.032 + 3.313
+VHzQ_list['w3mpro']  = VHzQ_list['w3mpro'] + 5.148
+VHzQ_list['w4mpro']  = VHzQ_list['w4mpro'] + 6.66
+
+
 print()
 print(type(VHzQ_list['ra']))
 print()
@@ -45,10 +52,12 @@ print(header)
 footer = """    \hline
     \hline
     \\end{tabular}
-    \caption{The first 23 (i.e. 5\%) of 463 very high-$z$ quasars in Right Ascension order with near and mid-infrared photometry. 
-                  The full table can be found \href{https://github.com/d80b2t/VHzQ/tree/master/data}{here}. 
-                  Since none of the first 23 objects have $Z$-band detections, we don't report that column here (but
-                  is reported in the main table).} 
+    \caption{The first 23 (i.e. 5\%) of 463 very high-$z$ quasars in Right Ascension order with near and mid-infrared photometry.
+                  The full table can be found \href{https://github.com/d80b2t/VHzQ/tree/master/data}{here}.
+                  The AB magnitude system is used with the WISE Vega to AB offsets being ($\Delta$W1, $\Delta$W2, $\Delta$W3 $\Delta$W4)=(2.669, 3.281, 5.148, 6.66)
+                  Since none of the first 23 objects have $Z$-band detections, we don't report that column here (but is reported in the main table).
+                  WISE AllWISE W3 and W4 values without formal errors are low-SNR detections. 
+                  } 
      \label{tab:output_table}
      \\end{table}
      \n"""
