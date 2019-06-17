@@ -3,11 +3,11 @@ README
 
 https://github.com/d80b2t/VHzQ
 
-
+![](data/WISE/image_thumbnails/SDUV_J1134+0828.png)
 
  Purpose
 ===
-A directory for investigating the highest (z>5) redshift quasars.
+A repo that hosts investigating the highest (z>5) redshift quasars.
 
 
  Referencing
