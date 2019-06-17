@@ -1,0 +1,50 @@
+\lstset{upquote=true}
+
+\noindent
+Then the following SQL will return the values in
+Table~\ref{tab:THE_TABLE}.
+
+\begin{lstlisting}[
+           language=SQL,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numbers=left,
+           numberstyle=\tiny,
+           commentstyle=\color{gray}
+        ]
+SELECT 
+qso.qsoName,  qso.ra as raJ2000, qso.dec as decJ2000, 
+aver.apertureID,  aver.aperJky3 as aperJky3Aver, 
+aver.aperJky3Err as aperJky3AverErr, aver.sumWeight, 
+aver.ppErrBits as ppErrBitsAver, m.mjdObs, 
+m.filterID, remeas.aperJky3, 
+remeas.aperJky3Err, 
+w.weight, remeas.ppErrBits, 
+m.project
+
+FROM 
+finalQsoCatalogue as qso,  
+MapApertureIDshighzQsoMap as ma,  
+wserv1000MapRemeasAver as aver,  
+wserv1000MapRemeasurement as remeas,  
+MapProvenance as v,  
+wserv1000MapAverageWeights as w, 
+MapFrameStatus as mfs, 
+Multiframe as m  
+
+WHERE 
+qso.qsoID=ma.objectID and 
+ma.apertureID=aver.apertureID and 
+aver.apertureID=remeas.apertureID and 
+aver.catalogueID=v.combicatID and 
+v.avSetupID=1 and 
+v.catalogueID=remeas.catalogueID and 
+w.combicatID=v.combicatID and 
+w.catalogueID=v.catalogueID and 
+w.apertureID=aver.apertureID and 
+mfs.catalogueID=remeas.catalogueID and 
+m.multiframeID=mfs.multiframeID and 
+mfs.programmeID=10999 and 
+mfs.mapID=1 
+order by v.combicatID, m.mjdObs
+\end{lstlisting}

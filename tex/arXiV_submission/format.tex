@@ -1,0 +1,161 @@
+\usepackage{amsmath,, amssymb}
+\usepackage{bm}% bold math
+\usepackage{blindtext}
+\usepackage{cancel, caption, color}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{epsfig, epsf}
+\usepackage{fancyhdr}
+\usepackage[bottom,flushmargin,hang,multiple,para]{footmisc}
+\usepackage{graphicx}
+\usepackage{lscape, longtable, listings}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pdflscape}
+%\usepackage{subcaption}
+\usepackage{subfigure}
+\usepackage{textcomp}
+\usepackage{hyperref, ifthen}
+\usepackage{verbatim}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+%% This helps stop the friggin crazy erropr::
+%% ! pdfTeX error (ext4): \pdfendlink ended up in different nesting level than \pd
+%% fstartlink.
+%% \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{%
+   \errmessage{\noexpand\@combinedblfloats could not be patched}%
+}%
+ \makeatother
+
+
+%% http://en.wikibooks.org/wiki/LaTeX/Colors
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       define Journal abbreviations      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\nat{Nat} \def\apjl{ApJ~Lett.} \def\apj{ApJ}
+\def\apjs{ApJS} \def\aj{AJ} \def\mnras{MNRAS}
+\def\prd{Phys.~Rev.~D} \def\prl{Phys.~Rev.~Lett.}
+\def\plb{Phys.~Lett.~B} \def\jhep{JHEP} \def\nar{NewAR}
+\def\npbps{NUC.~Phys.~B~Proc.~Suppl.} \def\prep{Phys.~Rep.}
+\def\pasp{PASP} \def\aap{Astron.~\&~Astrophys.} \def\araa{ARA\&A}
+\def\pasa{PASA}
+\def\jcap{\ref@jnl{J. Cosmology Astropart. Phys.}}%
+\def\physrep{Phys.~Rep.}
+
+
+\newcommand{\preep}[1]{{\tt #1} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              define symbols                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \Mpc {~{\rm Mpc} }
+\def \Om {\Omega_0}
+\def \Omb {\Omega_{\rm b}}
+\def \Omcdm {\Omega_{\rm CDM}}
+\def \Omlam {\Omega_{\Lambda}}
+\def \Omm {\Omega_{\rm m}}
+\def \ho {H_0}
+\def \qo {q_0}
+\def \lo {\lambda_0}
+\def \kms {{\rm ~km~s}^{-1}}
+\def \kmsmpc {{\rm ~km~s}^{-1}~{\rm Mpc}^{-1}}
+\def \hmpc{~\;h^{-1}~{\rm Mpc}} 
+\def \hkpc{\;h^{-1}{\rm kpc}} 
+\def \hmpcb{h^{-1}{\rm Mpc}}
+\def \dif {{\rm d}}
+\def \mlim {m_{\rm l}}
+\def \bj {b_{\rm J}}
+\def \mb {M_{\rm b_{\rm J}}}
+\def \mg {M_{\rm g}}
+\def \qso {_{\rm QSO}}
+\def \lrg {_{\rm LRG}}
+\def \gal {_{\rm gal}}
+\def \xibar {\bar{\xi}}
+\def \xis{\xi(s)}
+\def \xisp{\xi(\sigma, \pi)}
+\def \Xisig{\Xi(\sigma)}
+\def \xir{\xi(r)}
+\def \max {_{\rm max}}
+\def \gsim { \lower .75ex \hbox{$\sim$} \llap{\raise .27ex \hbox{$>$}} }
+\def \lsim { \lower .75ex \hbox{$\sim$} \llap{\raise .27ex \hbox{$<$}} }
+\def \deg {^{\circ}}
+%\def \sqdeg {\rm deg^{-2}}
+\def \deltac {\delta_{\rm c}}
+\def \mmin {M_{\rm min}}
+\def \mbh  {M_{\rm BH}}
+\def \mdh  {M_{\rm DH}}
+\def \msun {M_{\odot}}
+\def \z {_{\rm z}}
+\def \edd {_{\rm Edd}}
+\def \lin {_{\rm lin}}
+\def \nonlin {_{\rm non-lin}}
+\def \wrms {\langle w_{\rm z}^2\rangle^{1/2}}
+\def \dc {\delta_{\rm c}}
+\def \wp {w_{p}(\sigma)}
+\def \PwrSp {\mathcal{P}(k)}
+\def \DelSq {$\Delta^{2}(k)$}
+\def \WMAP {{\it WMAP \,}}
+\def \cobe {{\it COBE }}
+\def \COBE {{\it COBE \;}}
+\def \HST  {{\it HST \,\,}}
+\def \Spitzer  {{\it Spitzer \,}}
+\def \ATLAS {VST-AA$\Omega$ {\it ATLAS} }
+\def \BEST   {{\tt best} }
+\def \TARGET {{\tt target} }
+\def \TQSO   {{\tt TARGET\_QSO}}
+\def \HIZ    {{\tt TARGET\_HIZ}}
+\def \FIRST  {{\tt TARGET\_FIRST}}
+\def \zc {z_{\rm c}}
+\def \zcz {z_{\rm c,0}}
+
+\newcommand{\ltsim}{\raisebox{-0.6ex}{$\,\stackrel
+        {\raisebox{-.2ex}{$\textstyle <$}}{\sim}\,$}}
+\newcommand{\gtsim}{\raisebox{-0.6ex}{$\,\stackrel
+        {\raisebox{-.2ex}{$\textstyle >$}}{\sim}\,$}}
+\newcommand{\simlt}{\raisebox{-0.6ex}{$\,\stackrel
+        {\raisebox{-.2ex}{$\textstyle <$}}{\sim}\,$}}
+\newcommand{\simgt}{\raisebox{-0.6ex}{$\,\stackrel
+        {\raisebox{-.2ex}{$\textstyle >$}}{\sim}\,$}}
+
+\newcommand{\Msun}{M_\odot}
+\newcommand{\Lsun}{L_\odot}
+\newcommand{\lsun}{L_\odot}
+\newcommand{\Mdot}{\dot M}
+
+\newcommand{\sqdeg}{deg$^{-2}$}
+\newcommand{\hi}{H\,{\sc i}\ }
+\newcommand{\lya}{Ly$\alpha$\ }
+%\newcommand{\lya}{Ly\,$\alpha$\ }
+\newcommand{\lyaf}{Ly\,$\alpha$\ forest}
+%\newcommand{\eg}{e.g.~}
+%\newcommand{\etal}{et~al.~}
+\newcommand{\lyb}{Ly$\beta$\ }
+\newcommand{\cii}{C\,{\sc ii}\ }
+\newcommand{\ciii}{C\,{\sc iii}]\ }
+\newcommand{\civ}{C\,{\sc iv}\ }
+\newcommand{\SiII}{Si\,{\sc ii}\ }
+\newcommand{\SiIV}{Si\,{\sc iv}\ }
+\newcommand{\mgii}{Mg\,{\sc ii}\ }
+\newcommand{\feii}{Fe\,{\sc ii}\ }
+\newcommand{\feiii}{Fe\,{\sc iii}\ }
+\newcommand{\caii}{Ca\,{\sc ii}\ }
+\newcommand{\halpha}{H\,$\alpha$\ }
+\newcommand{\hbeta}{H\,$\beta$\ }
+\newcommand{\hgamma}{H\,$\gamma$\ }
+\newcommand{\hdelta}{H\,$\delta$\ }
+\newcommand{\oi}{[O\,{\sc i}]\ }
+\newcommand{\oii}{[O\,{\sc ii}]\ }
+\newcommand{\oiii}{[O\,{\sc iii}]\ }
+\newcommand{\heii}{He\,{\sc ii}\ }
+%\newcommand{\heii}{[He\,{\sc ii}]\ }
+\newcommand{\nv}{N\,{\sc v}\ }
+\newcommand{\nev}{Ne\,{\sc v}\ }
+\newcommand{\neiii}{[Ne\,{\sc iii}]\ }
+\newcommand{\alii}{Al\,{\sc ii}\ }
+\newcommand{\aliii}{Al\,{\sc iii}\ }
+\newcommand{\siiii}{Si\,{\sc iii}]\ }
