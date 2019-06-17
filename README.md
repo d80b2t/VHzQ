@@ -1,7 +1,3 @@
-README
-===
-
-
 ![](VHzQs_allsky)
 
  Purpose
