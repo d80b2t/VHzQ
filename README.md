@@ -23,7 +23,7 @@ The
 
 	/light_curves/
 
-directory has the light curve plots for the best sampled objects, with the light curve data beinng lcoated in:  
+directory has the light curve plots for the best sampled objects, with the light curve data being located in:  
 
     /data/WSA_VSA/
     /data/NEOWISE-R/
