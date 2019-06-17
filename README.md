@@ -2,7 +2,7 @@ README
 ===
 
 
-![](SEDs/filters_vs_QSOstars_z6pnt7.pdf)
+![](VHzQs_allsky)
 
  Purpose
 ===
