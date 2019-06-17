@@ -1,49 +1,52 @@
 README
 ===
 
-https://github.com/d80b2t/VHzQ
 
-![](data/WISE/image_thumbnails/SDUV_J1134+0828.png)
+![](SEDs/filters_vs_QSOstars_z6pnt7.pdf)
 
  Purpose
 ===
-A repo that hosts investigating the highest (z>5) redshift quasars.
+A repo, 
+[github.com/d80b2t/VHzQ](github.com/d80b2t/VHzQ) that hosts the data, code, plots and paper for the  investigations into the highest (z>5) redshift quasars. In particular the near and mid-infrared photometric properties. 
 
 
- Referencing
+
+
+  Directory Structure, Plots and code
+==============================
+
+Hopefully the directory structure of the repo is fairly straight forward. 
+The (NIR and MIR) data are based on data here::
+
+    /data/
+and the key table is: 
+
+	/data/VHzQs_ZYJHK_WISE.tbl
+	
+The 
+
+	/light_curves/
+
+directory has the light curve plots for the best sampled objects, with the light curve data beinng lcoated in:  
+
+    /data/WSA_VSA/
+    /data/NEOWISE-R/
+    /data/light_curves/	
+
+ 
+
+
+ Contact 
 ===
-If you are referencing this repo, plus use::
-
-Ross \& Cross, 2018, MNRAS, _in advanced prep_. 
-
-
-
- Plots and code
-===
-
-The plots and codes here are primarily based on data here::
-
-    ~/data/highest_z_QSOs
-    
-and related directories are here and here::
-
-    ~/Mbh_redshift/highz_growth
-
-and here::
-
-    ~/WW4C/VHzQs
-    ~/WW4C/plots/VHzQs
-
-
- Also check-out::
-===
-     ~/programs/WW4C/plots
-and 
-
-     ~/programs/WW4C/plots/VHzQs
+Please feel free to email Nic Ross (<npross@roe.ac.uk>) and/or Nick Cross (<njc@roe.ac.uk>), or indeed both, regarding any part of this work. 
 
         
+Referencing
+===
+If you are using the data please use the reference::
 
+Ross \& Cross, 2019, MNRAS, _submitted_  
+Ross \& Cross, arXiv:1906.wxyzv1
 
 
 
