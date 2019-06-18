@@ -42,7 +42,7 @@ Referencing
 If you are using the data please use the reference::
 
 Ross \& Cross, 2019, MNRAS, _submitted_  
-Ross \& Cross, arXiv:1906.wxyzv1
+Ross \& Cross, [arXiv:1906.06974v1](https://arxiv.org/abs/1906.06974v1)
 
 
 
