@@ -38,8 +38,9 @@ avers['w2mpro_wgt'] = avers['w2mpro_wgt']  - 0.032 + 3.313
 out_pdf = 'NEOWISER_LCs_VHzQs_temp.pdf'
 pdf_pages = PdfPages(out_pdf)
 
-
+##
 ## http://wise2.ipac.caltech.edu/docs/release/allwise/expsup/sec1_2.html#phases
+##
 ALLWISE_MJD_min = 55203.     #  2010-January-07 
 ALLWISE_MJD_max = 55593.
 ALLWISE_MJD_mid = ((ALLWISE_MJD_max + ALLWISE_MJD_min))/2.
