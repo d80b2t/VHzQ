@@ -39,15 +39,21 @@ def getMjdRanges(mjdData):
             mjdGroup=[mjd]
         else:
             print("mjd does not fall in group, nor start new group: ",mjd,startMjd)
+    minMjd=min(mjdGroup)
+    maxMjd=max(mjdGroup)
+    meanMjd=numpy.mean(mjdGroup)
+    mjdGroupList.append((minMjd,meanMjd,maxMjd,len(mjdGroup)))
     return mjdGroupList
     
-def getAveragePhot(data,mjdRangeMask,band):
+def getAveragePhot(data,mjdRangeMask,band,isVerbose=False):
     """ Uses weighted mean to average photometry
     """
     default_value = -999.999
 
     mpro=data['w%smpro' % band][mjdRangeMask]
     sigma_mpro=data['w%ssigmpro' % band][mjdRangeMask]
+    if isVerbose:
+        print("MPRO: ",band,[(mpro,sigma_mpro[ii]) for ii,mpro in enumerate(mpro)])
     if mpro.size>=2:
         weights = numpy.where(sigma_mpro>0.,1./(sigma_mpro*sigma_mpro),0.)
         sumweight = numpy.sum(weights)
@@ -60,6 +66,8 @@ def getAveragePhot(data,mjdRangeMask,band):
     else:
         mpro_weight=mpro[0]
         mpro_err=sigma_mpro[0]
+    if isVerbose:
+        print("WGT: ",band,mpro_weight,mpro_err,mpro.size)
     return mpro_weight,mpro_err
 
 #--------------------------------------------------------------------------------------------
@@ -68,6 +76,11 @@ def getAveragePhot(data,mjdRangeMask,band):
 
 
 inputTable = sys.argv[1]
+isVerbose=False
+checkSources=None
+if len(sys.argv)>2:
+    checkSources=[int(sid) for sid in sys.argv[2].split(',')]
+    isVerbose=True
 
 # Data is astropy Table in IPAC format....
 
@@ -76,6 +89,8 @@ data= Table.read(inputTable, format='ipac')
 
 # Select unique sourceIDs 
 sourceIDs=sorted(list(set(data['cntr_01'])))
+if checkSources:
+    sourceIDs=sorted(checkSources)
 outputDataList=[]
 for srcID in sourceIDs:
     # For each source select data
@@ -84,14 +99,22 @@ for srcID in sourceIDs:
     # Get mjd data for source.
     mjdData= sorted(data['mjd'][srcDataMask])
     # Group mjd values into 6 monthly ranges
+    if isVerbose:
+        print("MJD: ",mjdData)
+        print("MASK: ",srcDataMask)
     mjdRanges = getMjdRanges(mjdData) # min,mean,max
+    
     # Now select data for each range and average:
     for mjdMin,mjdMean,mjdMax,nMeas in mjdRanges:
-        mjdRangeMask=numpy.nonzero(numpy.logical_and(
-            data['mjd'][srcDataMask]>=mjdMin,data['mjd'][srcDataMask]<=mjdMax))
-        
-        w1mpro_weight,w1mpro_err=getAveragePhot(data,mjdRangeMask,1)
-        w2mpro_weight,w2mpro_err=getAveragePhot(data,mjdRangeMask,2)
+        if isVerbose:
+            print("MJD RANGE: ",mjdMin,mjdMean,mjdMax,nMeas)
+        # NO! 
+        mjdRangeMask=numpy.nonzero(numpy.logical_and(data['cntr_01']==srcID, numpy.logical_and(
+            data['mjd']>=mjdMin,data['mjd']<=mjdMax)))
+        if isVerbose:
+            print("MJD MASK: ",mjdRangeMask)
+        w1mpro_weight,w1mpro_err=getAveragePhot(data,mjdRangeMask,1,isVerbose)
+        w2mpro_weight,w2mpro_err=getAveragePhot(data,mjdRangeMask,2,isVerbose)
             
         outputDataList+=[(srcID,ra,dec,mjdMean,w1mpro_weight,w1mpro_err,w2mpro_weight,w2mpro_err,nMeas)]
 # Output data to table.
