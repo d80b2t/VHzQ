@@ -48,7 +48,7 @@ def getMjdRanges(mjdData):
 def getAveragePhot(data,mjdRangeMask,band,isVerbose=False):
     """ Uses weighted mean to average photometry
     """
-    default_value = -999.999
+    default_value = numpy.NaN
 
     mpro=data['w%smpro' % band][mjdRangeMask]
     sigma_mpro=data['w%ssigmpro' % band][mjdRangeMask]
