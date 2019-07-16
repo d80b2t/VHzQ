@@ -1,0 +1,28 @@
+======================================================================================
+==
+== 
+==   A catalogue of active galactic nuclei from the first 1.5 Gyr of the Universe
+==   Perger, Krisztina; Frey, Sándor; Gabányi, Krisztina É.; Tóth, L. Viktor
+==  
+==   https://ui.adsabs.harvard.edu/abs/2017FrASS...4....9P/abstract
+==  
+======================================================================================
+
+
+
+
+http://astro.elte.hu/~perger/catalog.html
+====================================================================
+from here, downloaded
+     catalog20190627.csv 
+
+> cksum catalog20190627.csv 
+ 1889343883 615667 catalog20190627.csv
+ > md5sum catalog20190627.csv 
+ d0508e2dfbaa2f0caaf52df93d2c9fe7  catalog20190627.csv
+
+
+
+
+
+
