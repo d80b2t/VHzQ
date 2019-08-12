@@ -1,0 +1,99 @@
+
+
+p. 1: You may want to end the first sentence of the right column of the Intro
+with a statement that at z>5, relativistic time dilation also stretches the
+photometric variability of the accretion disk as observed.
+
+To Do by NPR
+
+
+p. 2, Fig. 1: Is it useful here to plot both filter sets if they are sufficiently
+different? Please provide larger tick-marks for better readability in any case.
+
+Hmmm. I’m not sure what to do here; it’s going to ruin the clarity of the figure
+having both ZYJHK filter sets, but, they are different.
+I think adding an explicit link to:
+       d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png
+and
+       d80b2t/VHzQ/SEDs/filters_vs_QSOstars_VISTA.png
+is the way forward here.
+
+
+p. 3, Fig. 3, caption or text: You should briefly comment on why the quasar
+distribution has this gap in N(z) at z~5.5?. Is this because of the relativity
+sensitivity across the filter curves, and/or the onset of complete GP-troughs at
+z>5.7?
+
+This is Figure 2, not 3.
+And I think this is where some of the missing objects come in??
+We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.
+
+
+p. 4, Fig. 3: Can you plot the small dots somewhat bigger for better visibility
+without loss of information?
+
+This is the coverage map figure
+       => To Do by NJGC.
+
+
+THROUGHOUT: Several occurrences of ??, i.e., where table or Appendix references
+are not properly done in latex.
+
+NPR to double check…
+
+
+p. 5: [My only (minor) scientific comment]: Re: ``although possible, we consider
+it highly unlikely there would be more than one MIR source contributing to the
+flux of a single UV/optically bright rest-frame quasar. Investigating this in
+detail is very interesting but left to a future study. ''
+
+I think it would be better to address now the number of expected contaminating
+8--25 micron sources in the apertures used, as it can be done straightforwardly.
+E.g., Driver et al. (2016, ApJ, 827, 107; astro-ph/1605.01523) --- the figures
+you need for this estimate are actually best given as Fig. A4, A5 on the astro-ph
+version. The redshift distribution of the sampled 8--25 micron foreground objects
+is narrow enough and their K-corrections advantageous enough, that the objects
+counts sharply turnover for AB(W3, W4) > 20--18 mag (left panels), and as a
+consequence the normalized differential counts (right panels) --- especially in
+W4 --- have most of their EBL energy emerging at AB~18--20 mag. As a consequence,
+the relative number or probability of contaminating objects at AB>20 mag inside
+your apertures should be rather small. A point worth mentioning, as it helps your
+case.
+
+NPR to add this to the text.
+
+
+
+p. 6 Table 3: Should mention that the number of significant digits listed here
+for the YJHK W1--W4 mags is not always warranted, but needed to verify the small
+VIRCAM-WFCAM offsets in Table 5, This table is a very useful check of your global
+photometric zeropoints.
+
+NPR to change.
+
+
+p. 7, very end of 3.1.1: Quote the (effective) VSA and SDSS quasar IR observing
+epochs here, in case these clearly discrepant magnitudes are due to variability.
+
+This is for SDSS J0349+0034 and J2220-0101; NJGC to check.
+
+
+p. 8 Fig 5: Make the z=0--3 quasar cloud a little lighter grey, so that the
+z=5--6.5 quasar cloud is better visible.
+
+NPR to update.
+
+p. 9 top left: = -0.458 : All minus signs in latex should be coded up as --
+(double hyphen), also in the tables, to appear as minus sign.
+
+NPR to update.
+
+
+p. 10 Fig 8: Enlarge all axes label for better readability.
+
+NPR to update.
+
+
+THROUGHOUT: signal-to-noise should always be listed as a ratio: signal-to-noise
+ratio or SNR.
+NPR to update.
