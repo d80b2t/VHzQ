@@ -13,13 +13,14 @@
 
 http://astro.elte.hu/~perger/catalog.html
 ====================================================================
-from here, downloaded
-     catalog20190627.csv 
+from here, downloaded:: 
+     catalog20190724.csv
 
-> cksum catalog20190627.csv 
- 1889343883 615667 catalog20190627.csv
- > md5sum catalog20190627.csv 
- d0508e2dfbaa2f0caaf52df93d2c9fe7  catalog20190627.csv
+> cksum catalog20190724.csv
+2312865022 647969 catalog20190724.csv
+> md5sum
+38b66af10f72712ca3122b83982ed38b  catalog20190724.csv
+
 
 
 
