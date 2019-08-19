@@ -4,19 +4,19 @@ p. 1: You may want to end the first sentence of the right column of the Intro
 with a statement that at z>5, relativistic time dilation also stretches the
 photometric variability of the accretion disk as observed.
 
-To Do by NPR
+	    To Do by NPR
 
 
 p. 2, Fig. 1: Is it useful here to plot both filter sets if they are sufficiently
 different? Please provide larger tick-marks for better readability in any case.
 
-Hmmm. I’m not sure what to do here; it’s going to ruin the clarity of the figure
-having both ZYJHK filter sets, but, they are different.
-I think adding an explicit link to:
-       d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png
-and
-       d80b2t/VHzQ/SEDs/filters_vs_QSOstars_VISTA.png
-is the way forward here.
+	   Hmmm. I’m not sure what to do here; it’s going to ruin the clarity of the figure
+	   having both ZYJHK filter sets, but, they are different.
+	   I think adding an explicit link to:
+	          d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png
+	  and
+	         d80b2t/VHzQ/SEDs/filters_vs_QSOstars_VISTA.png
+	 is the way forward here.
 
 
 p. 3, Fig. 3, caption or text: You should briefly comment on why the quasar
@@ -24,22 +24,23 @@ distribution has this gap in N(z) at z~5.5?. Is this because of the relativity
 sensitivity across the filter curves, and/or the onset of complete GP-troughs at
 z>5.7?
 
-This is Figure 2, not 3.
-And I think this is where some of the missing objects come in??
-We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.
+
+	This is Figure 2, not 3.
+	And I think this is where some of the missing objects come in??
+	We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.
 
 
 p. 4, Fig. 3: Can you plot the small dots somewhat bigger for better visibility
 without loss of information?
 
-This is the coverage map figure
-       => To Do by NJGC.
+	This is the coverage map figure
+	       => To Do by NJGC.
 
 
 THROUGHOUT: Several occurrences of ??, i.e., where table or Appendix references
 are not properly done in latex.
 
-NPR to double check…
+    NPR to double check…
 
 
 p. 5: [My only (minor) scientific comment]: Re: ``although possible, we consider
@@ -60,7 +61,7 @@ the relative number or probability of contaminating objects at AB>20 mag inside
 your apertures should be rather small. A point worth mentioning, as it helps your
 case.
 
-NPR to add this to the text.
+		NPR to add this to the text.
 
 
 
@@ -69,31 +70,35 @@ for the YJHK W1--W4 mags is not always warranted, but needed to verify the small
 VIRCAM-WFCAM offsets in Table 5, This table is a very useful check of your global
 photometric zeropoints.
 
-NPR to change.
+		NPR to change.
 
 
 p. 7, very end of 3.1.1: Quote the (effective) VSA and SDSS quasar IR observing
 epochs here, in case these clearly discrepant magnitudes are due to variability.
 
-This is for SDSS J0349+0034 and J2220-0101; NJGC to check.
+              This is for SDSS J0349+0034 and J2220-0101; NJGC to check.
 
 
 p. 8 Fig 5: Make the z=0--3 quasar cloud a little lighter grey, so that the
 z=5--6.5 quasar cloud is better visible.
 
-NPR to update.
+	 	 NPR to update.
 
 p. 9 top left: = -0.458 : All minus signs in latex should be coded up as --
 (double hyphen), also in the tables, to appear as minus sign.
 
-NPR to update.
+		 NPR to update.
 
 
 p. 10 Fig 8: Enlarge all axes label for better readability.
 
-NPR to update.
-
+      	        NPR to update.
+      
 
 THROUGHOUT: signal-to-noise should always be listed as a ratio: signal-to-noise
 ratio or SNR.
-NPR to update.
+
+		NPR to update.
+
+
+
