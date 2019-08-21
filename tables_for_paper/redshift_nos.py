@@ -42,7 +42,7 @@ print(redshift_array, '\n')
 ##  V H z Q    data
 ##
 path     = '../data/'
-filename = 'LIST_OF_VHzQs.dat'
+filename = 'LIST_OF_VHzQs_v2.dat'
 table    = path+filename
 
 VHzQs = ascii.read(table)

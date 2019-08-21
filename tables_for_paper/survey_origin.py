@@ -16,7 +16,7 @@ from astropy.table import Table
 ##  V H z Q    data
 ##
 path     = '../data/'
-filename = 'LIST_OF_VHzQs.dat'
+filename = 'LIST_OF_VHzQs_v2.dat'
 table    = path+filename
 
 VHzQ_list = ascii.read(table)
@@ -41,7 +41,7 @@ percent_count = 0.00
 print()
 for x in range(len(survey)):
     print('{:7}  &  {:4d}  &  ({:5.2f})'.format(survey[x], counts[x], (counts[x]/463.*100) )) 
-    percent_count = percent_count + (counts[x]/463.*100)
+    percent_count = percent_count + (counts[x]/len(VHzQ_list)*100)
     
 print()
 print('...for a total of ', len(VHzQ_list), ' VHzQs (at ', percent_count,'%)')
