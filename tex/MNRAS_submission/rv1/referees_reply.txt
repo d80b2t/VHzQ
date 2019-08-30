@@ -1,5 +1,33 @@
 
 
+
+	We thank the Referee for reading our manuscript carefully and for their review and comments.
+	We address each of these in turn below (indented text).
+
+	We have also made further, key improvements to our dataset and pipeline.
+	
+	We note that after the submission of the original manuscript it was brought to our attention
+	(K. Perger; priv. comm) that we were missing a handful of confirmed z>5 quasars.
+	As such, our database has increased by 25 objects for a total of 488 VHzQs.
+
+	We also fully re-ran the WFCAM Science Archive (WSA) and VISTA Science Archive (VSA) from scratch
+	with the set of updated objects. This uncovered a small matching bug for three objects in the WSA
+        (no issues were found in the VSA rerun). One of these objects, however, is SDSSJ2220-0101, which
+	we thought had large photometric changes but now acknowledge this was due to an incorrect
+	apertureID measurement. The updated photometry for SDSSJ2220-0101 has the VSA J-band
+	magnitude 19.38+/-0.04 and a WSA magnitude 19.24+/-0.09.
+
+	Consequently, we have changed the Abstract:
+	"Two other quasars, SDSS J0349+0034 and SDSS J2220-0101 had
+	significant differences between their WFCAM and VISTA
+	magnitudes in one band."
+	to
+	"Only one quasar, SDSS J0349+0034, shows significant
+	differences between WFCAM and VISTA magnitudes in one band."
+
+
+	
+
 p. 1: You may want to end the first sentence of the right column of the Intro
 with a statement that at z>5, relativistic time dilation also stretches the
 photometric variability of the accretion disk as observed.
