@@ -221,7 +221,7 @@ spectroscopic confirmation. Here, we reverse this method obtaining
 first a list of spectroscopic quasars and then obtain photometric
 information.
 
-We have compiled a list of 463 quasars with redshifts $z\geq5.00$. We
+We have compiled a list of {\bf 488} quasars with redshifts $z\geq5.00$. We
 use all the $z\geq5.00$ quasars that have been discovered,
 spectroscopically confirmed and published as of 2018 December 31 (MJD
 58483). We then obtain optical, near-infrared and mid-infrared
@@ -277,6 +277,10 @@ surveys and papers.  Specifically, we use data from:
 \citet{YangJ2018a, YangJ2018b}  
 and 
 \citet{Zeimann2011}. 
+
+{\bf We updated our list of objects between the submitted paper and accepted due
+to feedback from other scientists. We discuss these changes in detail in
+Appendix~\ref{app:qso_sample}.}
 
 Most of these objects are easily identified by their broad Ly$\alpha$
 emission line, \nv emission and characteristic shape blueward of
@@ -1044,6 +1048,8 @@ We thank:
   \item Bernie Shiao at STScI for help with the Pan-STARRS1 DR1 CasJobs interface. 
   \item Michael Cushing for supplying the Late Type stellar spectra and Beth Biller for useful discussion. 
   \item Nathan Secrest for useful discussions on the mid-IR AGN catalogues. 
+  \item Krisztina Perger at \href{http://astro.elte.hu} for discussions about
+  the input catalogue. 
 \end{list}
 
 
@@ -1108,6 +1114,177 @@ The Filter Profile Service Access Protocol. Rodrigo, C., Solano, E. http://ivoa.
 
 \appendix
 
+\section{Qso Sample}
+\label{app:qso_sample}
+{\bf In the submitted version of this paper, we had 463 QSOs selected from the
+literature which had $z\geq5$, which we thought was the complete sample except a
+few that were published in 2019. 
+
+When we posted the submitted paper onto arXiv\footnote{http://www.arxiv.org}, we
+had two responses, one from Jinyi Yang, who pointed out that we missed QSOs in
+\cite{YangJ2018a} and Krisztina Perger, who also mentioned that we had
+missed $sim40$ QSOs and pointed us to her catalogue of
+QSOs\footnote{http://astro.elte.hu/~perger/catalog.html}. We downloaded Tables
+2,3 \& 4 from \cite{YangJ2018a} using
+Vizier\footnote{http://vizier.u-strasbg.fr/} and found all matches with 
+$2\arcsec$ and added the remaining objects that had $z\geq5$, one object  from
+Table 3, SUHAWJ1016+2541, and 15 from Table 4, see Table~\ref{tab:new_qsos}. We
+also downloaded the 20190514 version of the Perger catalogue and X-matched that,
+finding all of the matches with $2\arcsec$ and looked for non-matches.
+
+However, we spotted some inconsistences between the names of some of the QSOs
+in the Perger catalogue and decimal equatorial coordinates and pointed these
+out, and very rapidly Perger responded having fixed their catalogue. After
+further checks we found 10 objects (see Table~\ref{tab:disagree_objs}) that were
+in both catalogues that there was disagreement on the coordinates. In some cases it
+was clear from the names that either we (Ross \& Cross) had made a typo, or
+Perger had. In most other cases a search of the literature gave a clear answer. 
+Two particular odd examples were SDSSJ0835+3227 and VA-13492, found in the
+Perger catalogue. In both cases the coordinates looked similar to SDSSJ0835+3217 
+and SDSSJ1040-1155 respectively and the redshifts were identical to these QSOs,
+which alerted us to a potential problem. These QSOs could be traced back in the literature: in
+the first case both QSOs are in \cite{Banados2016} and in the second case is 
+VA-13492  is in \cite{Flesch2015} which refers back to \cite{Douglas2007}
+although the latter only seems to only contain SDSSJ1040-1155.
+In the case of SDSSJ0835+3227, we checked the SDSS-z band images\footnote{https://dr15.sdss.org}, and found a bright source at
+the position of SDSSJ0835+3217 and no source at the position of SDSSJ0835+3227, see
+Figure~\ref{fig:check_obj}. In the case of VA-13492, the I-band magnitude was
+equivalent to SDSSJ1040-1155 (I=25.9 mag), so we have decided that both of these objects
+have been transcribed incorrectly sometime in the past.
+
+The objects from the submitted version of Ross \& Cross that have changed
+position are flagged in Table~\ref{tab:disagree_objs} and the difference in position is
+shown. Some of these are rounding errors using coordinates that were to the
+nearest arcsec or $4\arcsec$ if it was rounded to the nearest hour, minute,
+second in RA, some were typos from reentering coordinates and these demonstrate
+that it is always better to download electronic catalogues and use decimal coordinates.
+Perger has also updated their catalogue and the 20190724 version matches our
+catalogue. A final test of matching to with $1\arcsec$ found another difference:
+we had downloaded the OGLEJ015531-75 coordinates from the published paper and
+Perger had done so from the submitted arXiv paper, and it seems that
+\cite{Kozlowski2019} made a minor update to their values in between.
+
+We also excluded DES0141-54, that was included in the Perger catalogue, since
+this came from a conference proceedings \cite{Belladitta2018}, which did not
+have arcsecond precision in its coordinates, so our matched-aperture photometry
+may have been in an incorrect position. 
+
+Altogether we found that our final catalogue has 488 $z\geq$ QSOs. The new QSOs
+are all shown in Table~\ref{tab:new_qsos}.} 
+
+%% Table New QSOs --> name, ra, dec, redshift, reference, source
+%% Table QSOs in disagreement --> name, correct pos, difference, literature,
+% ErrorInCR, TypeOfError
+
+\begin{table*}   
+\begin{tabular}{l r r r r r}
+\hline  \hline
+QSO & ra & dec & redshift & reference & source  \\
+\hline  
+SUHAWJ1016+2541 & +154.1571250 & +25.6921944 & +5.64 &Yang2018 & Yang2018 \\
+PS1J0052+4556 & +13.1810417	& +45.9422306 & +5.31 & Yang2018   & Yang2018 \\
+PS1J0332+1811 & +53.1540833	& +18.1998000 & +5.12 & Yang2018   & Yang2018 \\
+PS1J0511-0754 & +77.9780417	& -7.9123056 & +5.13 & Yang2018 & Yang2018 \\
+PS1J0616-1338 & +94.1015833	& -13.6351111	& +5.58 & Yang2018 & Yang2018 \\
+PS1J0757-0002 & +119.4412500 & -0.0336361 & +5.54 &	Yang2018 & Yang2018 \\
+PS1J0817-1633 & +124.2527500 & -16.5581361 & +5.06 & Yang2018 & Yang2018 \\
+PS1J1034-1233 & +158.6535833 & -12.5618028 & +5.51 & Yang2018 & Yang2018 \\
+PS1J1057-1758 & +164.3650000 & -17.9754722 & +5.34 & Yang2018 & Yang2018 \\
+PS1J1121-0718 & +170.4318750 & -7.3110250 & +5.71 & Yang2018 & Yang2018 \\
+PS1J1137-1049 & +174.3973750 & -10.8262611 & +5.50 & Yang2018 & Yang2018 \\
+PS1J1310-0639 & +197.5546250 & -6.6643222 & +5.06 & Yang2018  & Yang2018 \\
+PS1J1313-2617 & +198.3585833 &-26.2893972 & +5.54 & Yang2018 & Yang2018 \\
+PS1J1427-0503 & +216.8398333 & -5.0647333 & +5.08 & Yang2018 & Yang2018 \\
+PS1J1533-1810 & +233.4990000 &-18.1742250 & +5.03 & Yang2018 & Yang2018 \\
+PS1J2033+1218 & +308.2936250 & +12.3143028 & +5.11 & Yang2018 & Yang2018 \\
+OGLEJ015531-752807 & +28.8792083 & -75.4686111 & +5.09 & Kozlowski2019 & Perger
+\\
+TNJ0924-2201 & +141.0830000	& -22.0281940 & +5.19 & vanBreugel1999 & Perger \\
+XMMJ125329+30 & +193.3725460 & +30.9276197 & +5.08 & Khorunzhev2017 & Perger \\
+SDSSJ141912.03+53 & +214.8001310 &+53.6775646 & +5.38 & Paris2017 & Perger \\
+TGSSJ1530+1049 & +232.7079167 & +10.8253060	& +5.72 & Saxena2018 & Perger \\
+PSOJ352.4034-15.337 & +352.4034850 & -15.3373500 & +5.84 & Banados2018 & Perger
+\\
+PSOJ0046-2837 & +11.5985420	& -28.6298170 & +5.99 & Venemans2018 & Perger \\
+VIKJ2318-3029 & +349.6379420 & -30.4926030 & +6.1458 & Venemans2018 & Perger \\
+HSC1732+6531 & +263.1796583	& +65.5204139 & +6.60 & Songaila2018 & Other \\
+\hline  \hline
+\end{tabular}
+\caption{{\bf New QSOs added to the paper since the submitted version. }
+}
+\label{tab:new_qsos}
+\end{table*}
+
+\begin{table*}
+\begin{tabular}{l r r r r r}
+\hline  \hline
+QSO & ra & dec & difference & isCRDiff & Issue \\
+ & deg & deg & arcsec & &  \\
+\hline
+OGLEJ015531-752807 & +28.8792083 & -75.4686111 & 1.1 & No & 1 \\
+%% Same name diff pos/redshift from v1
+PSOJ009.7355-10.4316 & +9.7355079 & -10.4316386	& 0. & Yes & 3 \\
+ATLASJ025.6821-33.4627 & +25.6821972 & -33.4626300 & 0. & Yes & 3 \\ 
+SDWISEJ0155+0415 & +28.8886666 & +4.2518725	& 0. & Yes & 3 \\
+PSOJ065.4085-26.9543 & +65.4085370 & -26.9543351 & 0. & Yes & 3 \\ 
+VDESJ0454-4448 & +73.5074500 & -44.8086400 & 0.	& Yes & 3 \\ 
+DELSJ1048-0109 & +162.0795417 & -1.1611694 & +12.1 & Yes & 2,3,4 \\
+SDSSJ1306+0356 & +196.5344701 & +3.9406556 & 0.	& Yes & 3 \\
+PSOJ217.0891-16.0453 & +217.0891328	& -16.0453608 & 0. & Yes & 3 \\
+SHELLQsJ1429-0002 & +217.3342500 & -0.0353889 & +150.0 & Yes & 2 \\
+DELSJ1559+2212 & +239.7878750 & +22.2040083	& +3.0 & Yes & 2 \\ 
+ATLASJ332.8017-32.1036 & +332.8017500 &	-32.1035556	& +3.2 & Yes & 2,3 \\
+PSOJ340.2041-18.6621 & +340.2041700	& -18.6621700 & 0. & Yes & 3 \\ 
+VIKJ2318-3113 & +349.5764625 &-31.2295417 & 239.9 & Yes & 2,3 \\
+PSOJ359.1352-06.3831 & +359.1352149	& -6.3831264 & 0. & Yes & 3 \\
+%%Krisztina wrong\ldots
+SDSSJ1621+5155 & +245.2538300 & +51.9302200	& 0. & No & 5 \\
+DELSJ1135+5011 & +173.7872080 & +50.1924999	& 0. & No & 5 \\
+DELSJ0839+3900 & +129.9453330 & +39.0031944	& 0. & No & 5 \\
+%% More complex 
+SDSSJ0835+3227 & --- & --- & --- & No & 6 \\
+VA-13492 & --- & --- & --- & No & 6 \\
+\hline  
+\hline  \hline
+\end{tabular}
+\caption{{\bf QSOs in disagreement between RC and Perger or which have been
+updated since the submitted paper.
+This table shows all of the QSOs where there has been a disagreement or a
+change. All of those marked 'Yes' were in the submitted paper and have been
+changed since, and the final column lists the reason(s) for inclusion in the
+table. The numbers refer to the following issues:
+\begin{itemize}
+	\item 1) Coordinate update in original reference, from submitted to accepted; 
+	\item 2) Coordinate different in RC submitted
+	\item 3) Redshift different in RC submitted, typically very small changes. 
+	\item 4) Our coords incorrect, but KP had 2 entries, one also incorrect
+	\item 5) Coordinates incorrect in KP.
+	\item 6) Two objects with similar looking coordinates and identical redshifts.
+	These appear to be incorrect entries further back in the literature. 
+\end{itemize}  
+}}
+\label{tab:disagree_objs}
+\end{table*}
+
+
+\begin{figure}
+  %% trim=l b r t
+  % \includegraphics[width=18.6cm, clip,trim=14mm 4mm 10mm 10mm]
+  \includegraphics[width=8.6cm]{checkQsoPlots/sdssJ083525+3217.jpg}
+  \includegraphics[width=8.6cm]{checkQsoPlots/sdssJ083526+3227.jpg}
+  \centering
+  %\vspace{-12pt} 
+  \caption[]
+  {{\bf Cutouts from SDSS z-band images retrieved from SDSS-SkyServer for the
+  coordinates of SDSSJ083535+3217 and SDSSJ083526+3227. Both of these objects
+  appear in \cite{Banados2016} and subsequently in the Perger catalogue, but
+  only SDSSJ083535+3217 is matched to an SDSS source. Since SDSSJ083526+3227
+  has an SDSS name, and is apparently a $z=5.89$ QSO, it should have a z-band
+  detection.}}
+  \label{fig:check_obj}
+\end{figure}
+
+ 
 \section{Near-Infrared WFCAM Science Archive SQL queries}\label{sec:SQL_WSA}
 Here we give the recipe and SQL that returned the near-infrared photometry 
 for the VH$z$Qs from the  WFCAM Science Archive. 
@@ -1115,7 +1292,7 @@ for the VH$z$Qs from the  WFCAM Science Archive.
 The data are on the WFCAM Science Archive: \href{wsa.roe.ac.uk}{\tt wsa.roe.ac.uk}. 
 Access the User Login form \href{WFCAM Science Archive}{\tt wsa.roe.ac.uk/login.html} 
 with these credentials::
-\begin{itemize}
+\begin{itemize} 
     \item Username: {\tt WSERV1000} 
     \item password: {\tt highzqso} 
     \item community: {\tt nonsurvey}
@@ -1163,9 +1340,9 @@ Then the \href{http://horus.roe.ac.uk:8080/vdfs/VSQL_form.jsp}{Freeform SQL
 Query} page is where the database release to use is {\tt
 VSERV1000v20190508}. The queries are the same as those used in the
 WSA, see Appendix~\ref{sec:SQL}, but the names of the tables starting
-with {\tt wserv1000} should be replaced with {\tt vserv1000}.
+with {\tt wserv1000} should be replaced with {\tt vserv1000}.  
 
-
+ 
 
 
 
@@ -1176,6 +1353,6 @@ with {\tt wserv1000} should be replaced with {\tt vserv1000}.
 %\bibliographystyle{apj}
 %\bibliographystyle{mn2e}
 \bibliographystyle{mnras}
-\bibliography{/cos_pc19a_npr/programs/quasars/highest_z/tex/tester_mnras}
+\bibliography{./tester_mnras} 
 
 \end{document}
