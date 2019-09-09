@@ -1189,36 +1189,38 @@ one object from Table 3 (SUHAW J1016+2541) and 15 from Table 4, see
 Table~\ref{tab:new_qsos}.
 
 We initially downloaded the 20190514 version of the Perger
-catalogue\footnote{http://astro.elte.hu/~perger/catalog.html} again
-matching on a $2\arcsec$ radius.  We found 10 objects (see
-Table~\ref{tab:disagree_objs}) that were in both catalogues but had
-disagreement on the coordinates.  Two particular odd examples were
-SDSSJ0835+3227 and VA-13492.  In both cases the coordinates looked
-similar to SDSSJ0835+3217 and SDSSJ1040-1155, respectively, and the
-redshifts were identical to these quasars.
+catalogue\footnote{http://astro.elte.hu/$\sim$perger/catalog.html} again
+matching on a $2\arcsec$ radius. We found several objects that were in both
+catalogues but had disagreement on the coordinates. Most of these were
+fixed by checking the literature for the original catalogue.
 
-In the case of SDSSJ0835+3227, we checked the SDSS $z$-band
+There were two QSOs in the Perger catalogue which could not be immediately fixed
+by looking up the original coordinates in the literature: SDSSJ0835+3227 and VA-13492.
+In both cases the coordinates looked similar to SDSSJ0835+3217 and
+SDSSJ1040-1155, respectively, and the stated redshifts were identical to these
+quasars. In the case of SDSSJ0835+3227, we checked the SDSS $z$-band
 images\footnote{https://dr15.sdss.org}, and found a bright source at
 the position of SDSSJ0835+3217 and no source at the position of
 SDSSJ0835+3227, see Figure~\ref{fig:check_obj}. In the case of
 VA-13492, the $i$-band magnitude was equivalent to SDSS J1040-1155
 ($i=25.9$ mag), so we have decided that both of these objects have
-been transcribed incorrectly sometime in the past.
+been transcribed incorrectly sometime in the past. The SDSSJ1040-1155 
+transcription error seems to have occurred after \cite{Douglas2007} and is in
+\cite{Flesch2015}, so it probably occurred in the \cite{Flesch2015}.
 
-The objects from the submitted version of Ross \& Cross that have
-changed position are flagged in Table~\ref{tab:disagree_objs}. The
+The five objects from the submitted version of Ross \& Cross that have
+changed position are in Table~\ref{tab:disagree_objs}. The
 Perger catalogue has been updated to the 20190724 version (which
-matches our catalogue). A final test of matching to with $1\arcsec$
-found another difference: we had downloaded the OGLEJ015531-75
-coordinates from the published paper and Perger had done so from the
-submitted arXiv paper - and \cite{Kozlowski2019} made a minor update
-to the positional values in between.
+matches our catalogue). %%A final test of matching to with $1\arcsec$
+%%found another difference: we had downloaded the OGLEJ015531-75
+%%coordinates from the published paper and Perger had done so from the
+%%submitted arXiv paper - and \cite{Kozlowski2019} made a minor update
+%%to the positional values in between.
 
 We exclude DES0141-54 that is in the Perger catalogue from our final
 sample. This object came from a conference proceedings
 \cite{Belladitta2018}, which did not have arcsecond precision in its
 coordinates so we could not perform our matched-aperture photometry.
-
 Our final catalogue has 488 $z\geq$ QSOs, see Table~\ref{tab:new_qsos}.} 
 
 %% Table New QSOs --> name, ra, dec, redshift, reference, source
@@ -1264,55 +1266,26 @@ HSC1732+6531 & +263.1796583	& +65.5204139 & +6.60 & Songaila2018 & Other \\
 \label{tab:new_qsos}
 \end{table*}
 
-\iffalse
+%\iffalse
 \begin{table*}
 \begin{tabular}{l r r r r r}
 \hline  \hline
-QSO & ra & dec & difference & isCRDiff & Issue \\
- & deg & deg & arcsec & &  \\
+QSO & ra & dec & redshift & difference \\
+ & deg & deg & & arcsec  \\
 \hline
-OGLEJ015531-752807 & +28.8792083 & -75.4686111 & 1.1 & No & 1 \\
-%% Same name diff pos/redshift from v1
-PSOJ009.7355-10.4316 & +9.7355079 & -10.4316386	& 0. & Yes & 3 \\
-ATLASJ025.6821-33.4627 & +25.6821972 & -33.4626300 & 0. & Yes & 3 \\ 
-SDWISEJ0155+0415 & +28.8886666 & +4.2518725	& 0. & Yes & 3 \\
-PSOJ065.4085-26.9543 & +65.4085370 & -26.9543351 & 0. & Yes & 3 \\ 
-VDESJ0454-4448 & +73.5074500 & -44.8086400 & 0.	& Yes & 3 \\ 
-DELSJ1048-0109 & +162.0795417 & -1.1611694 & +12.1 & Yes & 2,3,4 \\
-SDSSJ1306+0356 & +196.5344701 & +3.9406556 & 0.	& Yes & 3 \\
-PSOJ217.0891-16.0453 & +217.0891328	& -16.0453608 & 0. & Yes & 3 \\
-SHELLQsJ1429-0002 & +217.3342500 & -0.0353889 & +150.0 & Yes & 2 \\
-DELSJ1559+2212 & +239.7878750 & +22.2040083	& +3.0 & Yes & 2 \\ 
-ATLASJ332.8017-32.1036 & +332.8017500 &	-32.1035556	& +3.2 & Yes & 2,3 \\
-PSOJ340.2041-18.6621 & +340.2041700	& -18.6621700 & 0. & Yes & 3 \\ 
-VIKJ2318-3113 & +349.5764625 &-31.2295417 & 239.9 & Yes & 2,3 \\
-PSOJ359.1352-06.3831 & +359.1352149	& -6.3831264 & 0. & Yes & 3 \\
-%%Krisztina wrong\ldots
-SDSSJ1621+5155 & +245.2538300 & +51.9302200	& 0. & No & 5 \\
-DELSJ1135+5011 & +173.7872080 & +50.1924999	& 0. & No & 5 \\
-DELSJ0839+3900 & +129.9453330 & +39.0031944	& 0. & No & 5 \\
-%% More complex 
-SDSSJ0835+3227 & --- & --- & --- & No & 6 \\
-VA-13492 & --- & --- & --- & No & 6 \\
+%% QSOs where pos changed (same name)
+DELSJ1048-0109 & +162.0795417 & -1.1611694 & 6.678 & 12.1 \\
+SHELLQsJ1429-0002 & +217.3342500 & -0.0353889 & 6.04 & 150.0 \\
+DELSJ1559+2212 & +239.7878750 & +22.2040083	& 6.07 & 3.0 \\
+ATLASJ332.8017-32.1036 & +332.8017500 & -32.1035556	& 6.3394 &	3.2 \\
+VIKJ2318-3113 & +349.5764625 & -31.2295417 & 6.4435 & 239.9 \\
 \hline  \hline
 \end{tabular}
-\caption{{\bf QSOs in disagreement between RC and Perger or which have been
-updated since the submitted paper.
-This table shows all of the QSOs where there has been a disagreement or a
-change. All of those marked 'Yes' were in the submitted paper and have been
-changed since, and the final column lists the reason(s) for inclusion in the
-table. The numbers refer to the following issues:
-1) Coordinate update in original reference, from submitted to accepted; 
-2) Coordinate different in RC submitted;
-3) Redshift different in RC submitted, typically very small changes;
-4) Our coords incorrect, but KP had 2 entries, one also incorrect;
-5) Coordinates incorrect in KP;
-6) Two objects with similar looking coordinates and identical redshifts. These
-appear to be incorrect entries further back in the literature;}
-}
+\caption{{\bf QSOs where the coordinates are in  disagreement between
+the submitted (arXiv v1) and accepted version of the paper.}}
 \label{tab:disagree_objs}
 \end{table*}
-\fi
+%\fi
 
 
 \begin{figure}
