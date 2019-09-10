@@ -1177,112 +1177,43 @@ with {\tt wserv1000} should be replaced with {\tt vserv1000}.
 
 \section{Updated VH$z$Q Sample}
 \label{app:qso_sample}
-{\bf In the journal submitted version of this paper, as well as the
-arXiv v1, we had 463 VH$z$Qs selected from the literature which we
-thought was the complete sample.  However, there were 25 (twenty-five)
-objects which should have been in our sample but were not (priv. comm
-from Jinyi Yang and Krisztina Perger).
+{\bf Between the journal submitted version of this paper (which was
+also the arXiv v1) we updated the sample of VH$z$Qs from a total of
+463 objects to 488 objects.  16 of these objects were from
+\cite{YangJ2018a} and 9 objects were added after discussions with
+Krisztina Perger, with the relevant catalog found
+\href{http://astro.elte.hu/$\sim$perger/catalog.html}{astro.elte.hu/$\sim$perger/catalog.html}.
+We do not include the object DES0141-54 \citep{Belladitta2018}, since we were unable to 
+obtain arcsecond level coordinates to perform our matched-aperture photometry.
+We also update the positions of five objects, see Table~\ref{tab:disagree_objs}. 
 
-We downloaded Tables 2, 3 \& 4 from \cite{YangJ2018a} and found all
-matches with $2\arcsec$ and added the 16 objects that had $z\geq5$;
-one object from Table 3 (SUHAW J1016+2541) and 15 from Table 4, see
-Table~\ref{tab:new_qsos}.
-
-We initially downloaded the 20190514 version of the Perger
-catalogue\footnote{http://astro.elte.hu/$\sim$perger/catalog.html} again
-matching on a $2\arcsec$ radius. We found several objects that were in both
-catalogues but had disagreement on the coordinates. Most of these were
-fixed by checking the literature for the original catalogue.
-
-There was one QSO in the Perger catalogue which could not be immediately fixed
-by looking up the original coordinates in the literature: VA-13492.
+One object in the Perger catalogue, VA-13492 we could not immediately cross-match. 
 In this case the coordinates looked similar to SDSSJ1040-1155, and
-the stated redshift was identical, $z=5.44$. Additionally, in this case,
-the $i$-band magnitude was equivalent to SDSS J1040-1155
-($i=25.9$ mag), so we have decided that both of these objects are the same and 
-have been transcribed incorrectly sometime in the past. The SDSSJ1040-1155 
-transcription error seems to have occurred after \cite{Douglas2007} and is in
-\cite{Flesch2015}, so it probably occurred in \cite{Flesch2015}.
- 
-
-The five objects from the submitted version of Ross \& Cross that have
-changed position are in Table~\ref{tab:disagree_objs}. The
-Perger catalogue has been updated to the 20190724 version (which
-matches our catalogue). %%A final test of matching to with $1\arcsec$
-%%found another difference: we had downloaded the OGLEJ015531-75
-%%coordinates from the published paper and Perger had done so from the
-%%submitted arXiv paper - and \cite{Kozlowski2019} made a minor update
-%%to the positional values in between.
-
-We exclude DES0141-54 that is in the Perger catalogue from our final
-sample. This object came from a conference proceedings
-\cite{Belladitta2018}, which did not have arcsecond precision in its
-coordinates so we could not perform our matched-aperture photometry.
-Our final catalogue has 488 $z\geq$ QSOs, see Table~\ref{tab:new_qsos}.} 
-
-%% Table New QSOs --> name, ra, dec, redshift, reference, source
-%% Table QSOs in disagreement --> name, correct pos, difference, literature,
-% ErrorInCR, TypeOfError
-
-\begin{table*}   
-\begin{tabular}{l r r r r r}
-\hline  \hline
-QSO & ra & dec & redshift & reference & source  \\
-\hline  
-SUHAWJ1016+2541 & +154.1571250 & +25.6921944 & +5.64 &Yang2018 & Yang2018 \\
-PS1J0052+4556 & +13.1810417	& +45.9422306 & +5.31 & Yang2018   & Yang2018 \\
-PS1J0332+1811 & +53.1540833	& +18.1998000 & +5.12 & Yang2018   & Yang2018 \\
-PS1J0511-0754 & +77.9780417	& -7.9123056 & +5.13 & Yang2018 & Yang2018 \\
-PS1J0616-1338 & +94.1015833	& -13.6351111	& +5.58 & Yang2018 & Yang2018 \\
-PS1J0757-0002 & +119.4412500 & -0.0336361 & +5.54 &	Yang2018 & Yang2018 \\
-PS1J0817-1633 & +124.2527500 & -16.5581361 & +5.06 & Yang2018 & Yang2018 \\
-PS1J1034-1233 & +158.6535833 & -12.5618028 & +5.51 & Yang2018 & Yang2018 \\
-PS1J1057-1758 & +164.3650000 & -17.9754722 & +5.34 & Yang2018 & Yang2018 \\
-PS1J1121-0718 & +170.4318750 & -7.3110250 & +5.71 & Yang2018 & Yang2018 \\
-PS1J1137-1049 & +174.3973750 & -10.8262611 & +5.50 & Yang2018 & Yang2018 \\
-PS1J1310-0639 & +197.5546250 & -6.6643222 & +5.06 & Yang2018  & Yang2018 \\
-PS1J1313-2617 & +198.3585833 &-26.2893972 & +5.54 & Yang2018 & Yang2018 \\
-PS1J1427-0503 & +216.8398333 & -5.0647333 & +5.08 & Yang2018 & Yang2018 \\
-PS1J1533-1810 & +233.4990000 &-18.1742250 & +5.03 & Yang2018 & Yang2018 \\
-PS1J2033+1218 & +308.2936250 & +12.3143028 & +5.11 & Yang2018 & Yang2018 \\
-OGLEJ015531-752807 & +28.8792083 & -75.4686111 & +5.09 & Kozlowski2019 & Perger
-\\
-TNJ0924-2201 & +141.0830000	& -22.0281940 & +5.19 & vanBreugel1999 & Perger \\
-XMMJ125329+30 & +193.3725460 & +30.9276197 & +5.08 & Khorunzhev2017 & Perger \\
-SDSSJ141912.03+53 & +214.8001310 &+53.6775646 & +5.38 & Paris2017 & Perger \\
-TGSSJ1530+1049 & +232.7079167 & +10.8253060	& +5.72 & Saxena2018 & Perger \\
-PSOJ352.4034-15.337 & +352.4034850 & -15.3373500 & +5.84 & Banados2018 & Perger
-\\
-PSOJ0046-2837 & +11.5985420	& -28.6298170 & +5.99 & Venemans2018 & Perger \\
-VIKJ2318-3029 & +349.6379420 & -30.4926030 & +6.1458 & Venemans2018 & Perger \\
-HSC1732+6531 & +263.1796583	& +65.5204139 & +6.60 & Songaila2018 & Other \\
-\hline  \hline
-\end{tabular}
-\caption{{\bf New QSOs added to the paper since the submitted version. }
+the stated redshift was identical, $z=5.44$. Additionally the $i$-band magnitude 
+was equivalent to SDSS J1040-1155
+($i=25.9$ mag). SDSS J1040-1155 is first reported in \citet{Douglas2007} 
+and a transcription error seems to have occurred in \citet{Flesch2015}.
 }
-\label{tab:new_qsos}
-\end{table*}
 
-%\iffalse
 \begin{table*}
 \begin{tabular}{l r r r r r}
 \hline  \hline
-QSO & ra & dec & redshift & difference \\
- & deg & deg & & arcsec  \\
+Object Name                      & R.A.               & Decl.  &  redshift  & difference \\
+                                          & / deg             & / deg  &                & arcsec  \\
 \hline
 %% QSOs where pos changed (same name)
-DELSJ1048-0109 & +162.0795417 & -1.1611694 & 6.678 & 12.1 \\
-SHELLQsJ1429-0002 & +217.3342500 & -0.0353889 & 6.04 & 150.0 \\
-DELSJ1559+2212 & +239.7878750 & +22.2040083	& 6.07 & 3.0 \\
-ATLASJ332.8017-32.1036 & +332.8017500 & -32.1035556	& 6.3394 &	3.2 \\
-VIKJ2318-3113 & +349.5764625 & -31.2295417 & 6.4435 & 239.9 \\
+DELS J1048-0109               & +162.0795417 & -1.1611694        & 6.678   &     12.1 \\
+SHELLQs J1429-0002          & +217.3342500 & -0.0353889        & 6.04    &  150.0 \\
+DELS J1559+2212               & +239.7878750 & +22.2040083      & 6.07     &     3.0 \\
+ATLAS J332.8017-32.1036 & +332.8017500 & -32.1035556      & 6.3394  &    3.2 \\
+VIK J2318-3113                  & +349.5764625 & -31.2295417      & 6.4435  &  239.9 \\
 \hline  \hline
 \end{tabular}
-\caption{{\bf QSOs where the coordinates are in  disagreement between
-the submitted (arXiv v1) and accepted version of the paper.}}
+\caption{
+{\bf Five quasars with updated coordinates.}
+}
 \label{tab:disagree_objs}
 \end{table*}
-%\fi
 
 
 
