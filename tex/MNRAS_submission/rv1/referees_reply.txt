@@ -15,10 +15,10 @@
 	Science Archive (VSA) from scratch with the set of updated
 	objects. This uncovered a small matching bug for three objects
 	in the WSA (no issues were found in the VSA rerun). One of
-	these objects, however, is SDSSJ2220-0101, which we thought
+	these objects, however, is SDSS J2220-0101, which we thought
 	had large photometric changes but now acknowledge this was due
 	to an incorrect apertureID measurement. The updated photometry
-	for SDSSJ2220-0101 has the VSA J-band magnitude 19.38+/-0.04
+	for SDSS J2220-0101 has the VSA J-band magnitude 19.38+/-0.04
 	and a WSA magnitude 19.24+/-0.09.
 
 	Consequently, we have changed the Abstract:
