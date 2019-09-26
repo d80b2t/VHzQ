@@ -453,18 +453,23 @@ observe in the $Z$-band.
   paper (Cross et al., 2019, in prep).
   
   We query the WSA and VSA performing matched-aperture photometry at
-  the positions of our {\bf 488} VH$z$Qs. This database is world-readable and
-  we give the full recipe and relevant SQL queries for accessing both
-  databases in Appendix~\ref{sec:SQL} as well as online. 
+  the positions of our {\bf 488} VH$z$Qs. This database is
+  world-readable and we give the full recipe and relevant SQL queries
+  for accessing both databases in Appendices~\ref{sec:SQL_WSA}
+  and~\ref{sec:SQL_VSA} as well as online.
   
   The photometry in a single epoch image often has low
   signal-to-noise.  The advantage of matched aperture photometry on
   quasars is that co-adding is relatively simple if each epoch is taken
   in the same aperture and the aperture photometry has been corrected to
   total. Indeed, the standard aperture corrections work well for point
-  sources. Coadding using the matched-aperture photometry can give better results for the photometry, 
-  where the individual epochs are taken from multiple projects with different field-centres and orientations and point-spread functions since the individual epoch scattered light, pixel distortion and aperture corrections can be applied with the correct weighting.
-   
+  sources. Coadding using the matched-aperture photometry can give
+  better results for the photometry, where the individual epochs are
+  taken from multiple projects with different field-centres and
+  orientations and point-spread functions since the individual epoch
+  scattered light, pixel distortion and aperture corrections can be
+  applied with the correct weighting.
+  
   We average the aperture corrected calibrated fluxes (e.g. {\bf
   aperJky3}), and then convert to magnitudes. 
 
@@ -873,7 +878,7 @@ For the light curves, we show weighted means for every 6 month NEOWISE-R scan.
 Due to the WISE scanning pattern, objects close to the North Ecliptic Pole 
 are well sampled, and indeed this is the area for further investigation 
 time-domain investigation with upcoming large infrared space telescopes
-\citep{Jansen2018, White2019AAS}. 
+\citep{Jansen2018, WhiteC2019AAS}. 
 
 Using the extended datasets described in Section~\ref{sec:NIR_data},
 we select objects with at least 8 measurements observed with intervals
@@ -1167,7 +1172,7 @@ with these credentials::
 Then the \href{http://horus.roe.ac.uk:8080/vdfs/VSQL_form.jsp}{Freeform SQL
 Query} page is where the database release to use is {\tt
 VSERV1000v20190508}. The queries are the same as those used in the
-WSA, see Appendix~\ref{sec:SQL}, but the names of the tables starting
+WSA, see Appendix~\ref{sec:SQL_WSA}, but the names of the tables starting
 with {\tt wserv1000} should be replaced with {\tt vserv1000}.  
 
  
