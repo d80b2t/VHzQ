@@ -35,12 +35,12 @@ variability that might be expected from super-Eddington accretion. We
 find 32 of the quasars have sufficient NIR measurements and
 signal-to-noise to look for variability. Weak variability was detected
 in multiple bands of SDSS J0959+0227, and very marginally in the
-$Y$-band of MMT J0215-0529. Two other quasars, SDSS J0349+0034 and
-SDSS J2220-0101 had significant differences between their WFCAM and
-VISTA magnitudes in one band.  With supermassive black hole accretion
-likely to be redshift invariant up to very high-redshift, further
-monitoring of these sources is warranted.  All the data, analysis
-codes and plots used and generated here can be found at:
+$Y$-band of MMT J0215-0529. Only one quasar, SDSS J0349+0034, shows
+significantdifferences between WFCAM and VISTA magnitudes in one band.
+With supermassive black hole accretion likely to be redshift invariant
+up to very high-redshift, further monitoring of these sources is
+warranted.  All the data, analysis codes and plots used and generated
+here can be found at:
 \href{https://github.com/d80b2t/VHzQ}{\tt github.com/d80b2t/VHzQ}.
 \end{abstract}
 
@@ -82,11 +82,13 @@ one could expect VH$z$Qs to potentially vary in luminosity as they go
 through phases of super-critical accretion. These signatures of
 photometric variability should be looked for, noting the rest-frame
 optical emission is redshifted into the observed near-infrared (NIR)
-at redshifts $z>5$. Fortunately, data are now in place from deep,
-wide-field NIR instruments and surveys such as the Wide Field Camera
-(WFCAM) instrument on the United Kingdom Infra-Red Telescope (UKIRT)
-in the Northern Hemisphere and the VISTA InfraRed CAMera (VIRCAM) on
-the Visible and Infrared Survey Telescope for Astronomy (VISTA) in the
+at redshifts $z>5$, and relativistic time dilation also stretches the
+photometric variability of the accretion disk as observed.
+Fortunately, data are now in place from deep, wide-field NIR
+instruments and surveys such as the Wide Field Camera (WFCAM)
+instrument on the United Kingdom Infra-Red Telescope (UKIRT) in the
+Northern Hemisphere and the VISTA InfraRed CAMera (VIRCAM) on the
+Visible and Infrared Survey Telescope for Astronomy (VISTA) in the
 Southern Hemisphere, that are necessary for identifying VH$z$Qs.
 
 Quasars are known to be prodigious emitters of infrared emission,
@@ -201,7 +203,8 @@ logarithms are to the base 10.
   %% trim=l b r t
   % \includegraphics[width=18.6cm, clip,trim=14mm 4mm 10mm 10mm]
   \includegraphics[width=8.6cm, clip,trim=32mm 4mm 32mm 10mm]
-  {../SEDs/filters_vs_QSOstars_z6pnt7.pdf}
+%  {../SEDs/filters_vs_QSOstars_z6pnt7.pdf}
+  {figures/filters_vs_QSOstars_z6pnt7.pdf}
   \centering
   \vspace{-12pt}
   \caption[]
@@ -345,7 +348,8 @@ Survey              & \# VH$z$Qs & (\%) & Survey reference  \\
 \begin{figure}
 %%trim=l b r t
   \includegraphics[width=8.0cm, clip, trim=10mm 0mm 0mm 0mm]
-  {../Nofz/Nofz_0pnt075bins_20190614.pdf}
+  % {../Nofz/Nofz_0pnt075bins_20190614.pdf}
+   {figures/Nofz_0pnt075bins_20190614.pdf}
   \centering
   \vspace{-12pt}
   \caption[]
@@ -393,10 +397,13 @@ surveys together (``various'').
 \begin{figure}
 %%trim=l b r t
   \includegraphics[width=8.0cm, clip, trim=0mm 25mm 0mm 40mm]
-  {../data/WSA_VSA/CoverageMaps_VHzQ_forpaper.pdf}
+  % {../data/WSA_VSA/CoverageMaps_VHzQ_forpaper.pdf}
+ {figures/CoverageMaps_VHzQ_forpaper.pdf}
   \centering
   \caption[]
-  {The coverage maps for VHS (DR6; orange), UHS (DR1; olive), VIKING (DR5; blue) and ULAS (DR11; red), the most recent public releases of the 4 main surveys. The VH$z$Qs are given by black dots.}
+  {The coverage maps for VHS (DR6; orange), UHS (DR1; olive), VIKING
+(DR5; blue) and ULAS (DR11; red), the most recent public releases of
+the 4 main surveys. The VH$z$Qs are given by black dots.}
   \label{fig:coverage}
 \end{figure}
 
@@ -533,7 +540,8 @@ The WISE scan pattern leads to coverage of the full-sky approximately once every
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{landscape}
-      \input{../tables_for_paper/output_table_top5pc}
+  %\input{../tables_for_paper/output_table_top5pc}
+ \input{output_table_top5pc}
 \end{landscape}
 
 \section{Results}
@@ -635,15 +643,12 @@ above the background noise.
   We have also checked for quasars with large differences in magnitude
   between the WSA and VSA. Objects were selected where the average flux
   was $>0.$ and $>5$ average flux error. In order to account for large
-  errors in either the WFCAM or VISTA photometry, objects with $\delta$mag$
-  < 2 \times$ $\sigma_{\delta\rm mag}$ in either WSA or VSA were removed. This
-  selects two quasars with large, $\delta$mag $>0.2$mag differences
-  between the WSA and VSA. These are SDSSJ0349+0034 and
-  SDSSJ2220-0101. For SDSSJ0349+0034 has a WSA $K$-band magnitude of
-  19.13$\pm$0.24, while for the VSA $K_s$-band this is 18.36$\pm$0.10
-  mag. For SDSSJ2220-0101, in $J$-band WSA = 22.23$\pm$0.15, for the VSA
-  = 19.38$\pm$0.04.
-
+  errors in either the WFCAM or VISTA photometry, objects with
+  $\delta$mag$ < 2 \times$ $\sigma_{\delta\rm mag}$ in either WSA or VSA
+  were removed. This selects one quasar with large, $\delta$mag
+  $>0.2$mag differences between the WSA and VSA. This is SDSSJ0349+0034
+  which has a WSA $K$-band magnitude of 19.13$\pm$0.24, while for the
+  VSA $K_s$-band this is 18.36$\pm$0.10 mag. 
 
 
 \begin{table}
@@ -674,7 +679,8 @@ Unlike the NIR coverage, the WISE satellite and mission performed an all-sky sur
 \begin{figure}
   %% trim=l b r t
   \includegraphics[width=8.6cm, clip,trim=6mm 6mm 0mm 6mm]
-  {../detections/WISEmag_vs_coverage_20190605.pdf}
+  % {../detections/WISEmag_vs_coverage_20190605.pdf}
+ {figures/WISEmag_vs_coverage_20190605.pdf}
   \centering
   \vspace{-14pt}
   \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} Vega magnitude against signal-to-noise,
@@ -720,7 +726,8 @@ for future, small mirror infrared missions \citep[e.g.][]{NEOCam_WP}.
 \begin{figure}
     \centering
     \includegraphics[width=8.6cm,  clip, trim=6mm 4mm 6mm 10mm]
-    {../color_color/W1W2_plots/W1W2W3/W1W2W3_hexplots_20190615_AB.png} 
+    %{../color_color/W1W2_plots/W1W2W3/W1W2W3_hexplots_20190615_AB.png}
+    {figures/W1W2W3_hexplots_20190615_AB.png}
   \vspace{-14pt}
     \caption{The (W2-W3) vs. (W1-W2) colour – colour diagram showing the WISE colours 
       for the 283 VH$z$Q that have reported w3mpro values (blue to red coloured points).
@@ -761,10 +768,14 @@ current highest-redshift object J1342+0928 \citep{Banados2018}.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/DELS_J1048-0109.png} 
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/UHS_J0439+1634.png} 
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDWISE_J0306+1853.png}
-    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J0100+2802.png}
+%    \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/DELS_J1048-0109.png} 
+ %   \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/UHS_J0439+1634.png} 
+  %  \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDWISE_J0306+1853.png}
+  %  \includegraphics[width=0.24\textwidth]{../data/WISE/image_thumbnails/SDSS_J0100+2802.png}
+     \includegraphics[width=0.24\textwidth]{figures/DELS_J1048-0109.png} 
+   \includegraphics[width=0.24\textwidth]{figures/UHS_J0439+1634.png} 
+    \includegraphics[width=0.24\textwidth]{figures/SDWISE_J0306+1853.png}
+   \includegraphics[width=0.24\textwidth]{figures/SDSS_J0100+2802.png}
     \caption{VH$z$Qs with interesting MIR properties. 
       The thumbnails are the RGB colour outputs using the AllWISE W1W2W3 bands from the 
       IRSA WISE Image Service, with a scale of 120'' on the side. 
@@ -814,7 +825,8 @@ bands and is also the bluest object in both (W1-W3) and (W2-W3).
 \begin{figure}
   \centering
   \includegraphics[width=8.5cm]
-  {../light_curves/MIR_LCs/NEOWISER_LC_histogram_20190606.png}
+  % {../light_curves/MIR_LCs/NEOWISER_LC_histogram_20190606.png}
+   {figures/NEOWISER_LC_histogram_20190606.png}
   \vspace{-16pt}
   \caption[]
   {Histogram showing the total number of exposures for each detected VH$z$Q
@@ -845,9 +857,12 @@ enters the $K$-band at redshift $z=6.25$ and exits at $7.50$.
 
 \begin{figure}
   \centering
-  \includegraphics[width=8.5cm]{../light_curves/MIR_LCs/NEOWISER_LCs_VHzQs_SDSS_J0100.png}
-  \includegraphics[width=8.5cm]{../light_curves/MIR_LCs/NEOWISER_LCs_VHzQs_SDWISE_J1752.png}
-  \includegraphics[width=8.5cm]{../light_curves/MIR_LCs/NEOWISER_LCs_VHzQs_SDSS_J1621.png}
+%  \includegraphics[width=8.5cm]{../light_curves/MIR_LCs/NEOWISER_LCs_VHzQs_SDSS_J0100.png}
+ % \includegraphics[width=8.5cm]{../light_curves/MIR_LCs/NEOWISER_LCs_VHzQs_SDWISE_J1752.png}
+ % \includegraphics[width=8.5cm]{../light_curves/MIR_LCs/NEOWISER_LCs_VHzQs_SDSS_J1621.png}
+  \includegraphics[width=8.5cm]{figures/NEOWISER_LCs_VHzQs_SDSS_J0100.png}
+ \includegraphics[width=8.5cm]{figures/NEOWISER_LCs_VHzQs_SDWISE_J1752.png}
+ \includegraphics[width=8.5cm]{figures/NEOWISER_LCs_VHzQs_SDSS_J1621.png}
   \caption[]
   {Here we show the MIR NEOWISE-R for SDSS J0100+2802 (top), SDWISE   J1752+5036 (middle), and  
     SDSS J1621+5155 (bottom). Red points are the W1 band; cyan points the W2 band.
@@ -910,7 +925,8 @@ We incorporate the MIR NEOWISE-R light curve data where available.
 \begin{figure}
   \begin{subfigure}{}
     \centering
-    \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190613.png}
+    % \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190613.png}
+    \includegraphics[width=8.5cm]{figures/MMTJ0215-0529LC_20190613.png}
     \caption{The infrared light curve for MMT J0215-0529 with data from 
       WFCAM (smaller solid circles), VIRCAM (hexagons) and NEOWISE-R (larger solid circles).
 MMT  J0215-0529 was identified by \citet{McGreer2018}, 
@@ -925,7 +941,8 @@ MMT  J0215-0529 was identified by \citet{McGreer2018},
   \end{subfigure} 
   \begin{subfigure}{}
     \centering
-    \includegraphics[width=8.5cm]{../light_curves/CFHQSJ0216-0455LC_20190613.png}
+%    \includegraphics[width=8.5cm]{../light_curves/CFHQSJ0216-0455LC_20190613.png}
+    \includegraphics[width=8.5cm]{figures/CFHQSJ0216-0455LC_20190613.png}
     \caption{The same as Fig.~\ref{fig:MMTJ0215-0529} except for CFHQS J0216-0455.}
     \label{fig:CFHQSJ0216-0455}
   \end{subfigure}
@@ -934,14 +951,16 @@ MMT  J0215-0529 was identified by \citet{McGreer2018},
 \begin{figure}
   \begin{subfigure}{}\quad
     \centering
-    \includegraphics[width=8.5cm]{../light_curves/SHELLQsJ0220-0432LC_20190613.png}
+  %  \includegraphics[width=8.5cm]{../light_curves/SHELLQsJ0220-0432LC_20190613.png}
+    \includegraphics[width=8.5cm]{figures/SHELLQsJ0220-0432LC_20190613.png}
     \caption{The same as Fig.~\ref{fig:MMTJ0215-0529} except for SHELLQs J0220-0432.}
     \label{fig:SHELLQsJ0220-0432}
   \end{subfigure}
   \begin{subfigure}{}\quad
     \centering
-    \includegraphics[width=8.5cm]{../light_curves/SDSSJ0959+0227LC_20190612.png}
-    \caption{The near infrared light curve for SDSS J0959+0227. Note, 
+    %\includegraphics[width=8.5cm]{../light_curves/SDSSJ0959+0227LC_20190612.png}
+    \includegraphics[width=8.5cm]{figures/SDSSJ0959+0227LC_20190612.png}
+        \caption{The near infrared light curve for SDSS J0959+0227. Note, 
       SDSS J0959+0227 is too faint in the MIR to be detected by AllWISE or unWISE.}
     \label{fig:SDSSJ0959+0227}
   \end{subfigure}
@@ -999,18 +1018,27 @@ from a narrow-line ``Type 2'' object to a broadline Type 1 quasar.
 In this study, we have, for the first time, compiled the list of all
 $z>5$ spectroscopically confirmed quasars. We have assembled the NIR
 ($Z, Y, J, H, K/K_{s}$) and MIR (WISE W1/2/3/4) photometry for these
-objects and given their detection rates. We find that: 
+objects and given their detection rates. We find that:
 
 \begin{itemize}
-    \item SDSS and Pan-STARRS1 together identified over half of the VH$z$Q sample;  
-    \item There remains a quasar ``redshift desert'' at $z\approx5.3-5.7$, though 
-      efforts are being made to address this \citep[e.g.,][]{YangJ2018a};
-    \item 97.0\% of the VH$z$Q sample is detected in one or more NIR ($ZYJHK/K_{s}$) band; 
-    \item The 14 objects that are not detected in the NIR are due to lack of coverage rather than lack of depth; 
-   \item 362 (78.2\%) VH$z$Qs are detected by WISE, e.g. in the deeper unWISE W1 catalog. 
- \item All of the $z\geq7$ quasars are detected in both unWISE W1 and W2. 
- \item 32 of the quasars had enough NIR measurements and sufficient NIR measurements and signal-to-noise to look for variability. Weak variability was detected in multiple bands of SDSS J0959+0227, and very marginally in the Y-band of MMT J0215-0529. 2 other quasars, SDSS J0349+0034 and SDSS J2220-0101 had significant differences between their WFCAM and VISTA magnitudes in one band, also indicating variability. 
-\end{itemize}
+  \item SDSS and Pan-STARRS1 together identified over half of the VH$z$Q sample;
+  \item There remains a quasar ``redshift desert'' at $z\approx5.3-5.7$, though efforts are being made to address this
+    \citep[e.g.,][]{YangJ2018a};
+  \item 97.0\% of the VH$z$Q sample is detected in one or more NIR
+    ($ZYJHK/K_{s}$) band;
+  \item The 14 objects that are not detected in the NIR are due to
+    lack of coverage rather than lack of depth;
+  \item 362 (78.2\%) VH$z$Qs are detected by WISE, e.g. in the deeper
+    unWISE W1 catalog.
+  \item All of the $z\geq7$ quasars are detected in both unWISE W1 and
+    W2.
+  \item 32 of the quasars had enough NIR measurements and sufficient
+    NIR measurements and signal-to-noise to look for variability. Weak
+    variability was detected in multiple bands of SDSS J0959+0227, and
+    very marginally in the Y-band of MMT J0215-0529. Only one quasar, SDSS
+    J0349+0034 had significant differences between their WFCAM and VISTA
+    magnitudes in one band, indicating variability.
+ \end{itemize}
 
 The science reach of $z>5$ quasars will continue to be important well
 into the next decade \citep{Becker2019_DecadalWP, Fan2019_DecadalWP,
@@ -1021,9 +1049,14 @@ first $\lesssim$700 million years of the Universe.
 
 
 \subsection*{Author Contributions}   
-N.P.R. initiated the project, compiled the list of $z>5.00$ quasars, wrote most of the analysis code, developed the plotting scripts, and developed and wrote the initial and subsequent drafts of the manuscript.
+N.P.R. initiated the project, compiled the list of $z>5.00$ quasars,
+wrote most of the analysis code, developed the plotting scripts, and
+developed and wrote the initial and subsequent drafts of the
+manuscript.
 
-N.J.G.C. supplied the critical near-infrared expertise and database for which the bulk of the project relies. N.J.G.C. also contributed directly to the writing of the manuscript.
+N.J.G.C. supplied the critical near-infrared expertise and database
+for which the bulk of the project relies. N.J.G.C. also contributed
+directly to the writing of the manuscript.
 
 
 
@@ -1175,6 +1208,6 @@ with {\tt wserv1000} should be replaced with {\tt vserv1000}.
 %\bibliographystyle{apj}
 %\bibliographystyle{mn2e}
 \bibliographystyle{mnras}
-\bibliography{/cos_pc19a_npr/programs/quasars/highest_z/tex/tester_mnras}
+\bibliography{tester_mnras}
 
 \end{document}

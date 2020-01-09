@@ -1,15 +1,19 @@
 
 
 
-	We thank the Referee for reading our manuscript carefully and for their review and comments.
-	We address each of these in turn below (indented text).
+	We thank the Referee for reading our manuscript carefully and
+	for their review and comments.  We address each and every one
+	of these in turn below (indented text).
 
-	We have also made further, key improvements to our dataset and pipeline.
+	We have also made further, key improvements to our dataset and
+	pipeline.
 	
 	We note that after the submission of the original manuscript
 	it was brought to our attention (K. Perger; priv. comm) that
-	we were missing a 25 confirmed z>5 quasars.  As such, our
+	we were missing 25 confirmed z>5 quasars.  As such, our
 	database has increased by 25 objects for a total of 488 VHzQs.
+
+	As such, Tables 1, 2, 3, 4, 5, 6 
 
 	We also fully re-ran the WFCAM Science Archive (WSA) and VISTA
 	Science Archive (VSA) from scratch with the set of updated
@@ -21,13 +25,8 @@
 	for SDSS J2220-0101 has the VSA J-band magnitude 19.38+/-0.04
 	and a WSA magnitude 19.24+/-0.09.
 
-	Consequently, we have changed the Abstract:
-		"Two other quasars, SDSS J0349+0034 and SDSS J2220-0101 had
-		significant differences between their WFCAM and VISTA
-		magnitudes in one band."
-	to
-		"Only one quasar, SDSS J0349+0034, shows significant
-		differences between WFCAM and VISTA magnitudes in one band."
+	Consequently, we have changed the approriate text (in the Abstract,
+	Section 3.1.1 Comparing WFCAM and VISTA and Conclusions).
 
 	We have also added an Appendix to note the update to the overall catalog. 
 
@@ -37,14 +36,17 @@ p. 1: You may want to end the first sentence of the right column of the Intro
 with a statement that at z>5, relativistic time dilation also stretches the
 photometric variability of the accretion disk as observed.
 
-	    To Do by NPR
+	    Now added. 
 
 
 p. 2, Fig. 1: Is it useful here to plot both filter sets if they are sufficiently
 different? Please provide larger tick-marks for better readability in any case.
 
-	   Hmmm. I’m not sure what to do here; it’s going to ruin the clarity of the figure
-	   having both ZYJHK filter sets, but, they are different.
+	   We have enbiggened the  tick-marks.
+	   
+	   The ZYJHK filters for UKIRT and VISTA *are* different, but
+	   plotting both doesn't result in a clear figure. 
+	   
 	   I think adding an explicit link to:
 	          d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png
 	  and
