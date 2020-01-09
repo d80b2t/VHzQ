@@ -13,7 +13,9 @@
 	we were missing 25 confirmed z>5 quasars.  As such, our
 	database has increased by 25 objects for a total of 488 VHzQs.
 
-	As such, Tables 1, 2, 3, 4, 5, 6 
+	As such all six Tables have been updated accordingly, as have
+	Figures 2 and 3.
+
 
 	We also fully re-ran the WFCAM Science Archive (WSA) and VISTA
 	Science Archive (VSA) from scratch with the set of updated
@@ -46,21 +48,21 @@ different? Please provide larger tick-marks for better readability in any case.
 	   
 	   The ZYJHK filters for UKIRT and VISTA *are* different, but
 	   plotting both doesn't result in a clear figure. 
-	   
-	   I think adding an explicit link to:
+
+	   ....
+		I think adding an explicit link to:
 	          d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png
 	  and
 	         d80b2t/VHzQ/SEDs/filters_vs_QSOstars_VISTA.png
 	 is the way forward here.
 
 
-p. 3, Fig. 3, caption or text: You should briefly comment on why the quasar
+p. 3, Fig. 2, caption or text: You should briefly comment on why the quasar
 distribution has this gap in N(z) at z~5.5?. Is this because of the relativity
 sensitivity across the filter curves, and/or the onset of complete GP-troughs at
 z>5.7?
 
 
-	This is Figure 2, not 3.
 	And I think this is where some of the missing objects come in??
 	We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.
 
@@ -75,7 +77,7 @@ without loss of information?
 THROUGHOUT: Several occurrences of ??, i.e., where table or Appendix references
 are not properly done in latex.
 
-    NPR to double check…
+    NPR to Triple Check
 
 
 p. 5: [My only (minor) scientific comment]: Re: ``although possible, we consider
