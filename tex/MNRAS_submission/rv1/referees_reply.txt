@@ -49,6 +49,7 @@ different? Please provide larger tick-marks for better readability in any case.
 	   The ZYJHK filters for UKIRT and VISTA *are* different, but
 	   plotting both doesn't result in a clear figure. 
 
+
 	   ....
 		I think adding an explicit link to:
 	          d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png
@@ -63,8 +64,8 @@ sensitivity across the filter curves, and/or the onset of complete GP-troughs at
 z>5.7?
 
 
-	And I think this is where some of the missing objects come in??
-	We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.
+	[And I think this is where some of the missing objects come in??
+	We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.]
 
 
 p. 4, Fig. 3: Can you plot the small dots somewhat bigger for better visibility
@@ -98,16 +99,13 @@ the relative number or probability of contaminating objects at AB>20 mag inside
 your apertures should be rather small. A point worth mentioning, as it helps your
 case.
 
-		NPR has added approriated words in the text to address
-		this good point. 
+		We have added approriated words in the text to address this good point. 
 
 
 p. 6 Table 3: Should mention that the number of significant digits listed here
 for the YJHK W1--W4 mags is not always warranted, but needed to verify the small
 VIRCAM-WFCAM offsets in Table 5, This table is a very useful check of your global
 photometric zeropoints.
-
-		NPR to change.
 
 
 p. 7, very end of 3.1.1: Quote the (effective) VSA and SDSS quasar IR observing
@@ -119,23 +117,17 @@ epochs here, in case these clearly discrepant magnitudes are due to variability.
 p. 8 Fig 5: Make the z=0--3 quasar cloud a little lighter grey, so that the
 z=5--6.5 quasar cloud is better visible.
 
-	 	 NPR to update.
 
 p. 9 top left: = -0.458 : All minus signs in latex should be coded up as --
 (double hyphen), also in the tables, to appear as minus sign.
 
-		 NPR to update.
-
 
 p. 10 Fig 8: Enlarge all axes label for better readability.
 
-      	        NPR to update.
-      
-
+     
 THROUGHOUT: signal-to-noise should always be listed as a ratio: signal-to-noise
 ratio or SNR.
 
-		NPR to update.
 
 
 
