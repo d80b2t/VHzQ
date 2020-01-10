@@ -77,7 +77,7 @@ without loss of information?
 THROUGHOUT: Several occurrences of ??, i.e., where table or Appendix references
 are not properly done in latex.
 
-    NPR to Triple Check
+    	Checked and updated. 
 
 
 p. 5: [My only (minor) scientific comment]: Re: ``although possible, we consider
@@ -98,8 +98,8 @@ the relative number or probability of contaminating objects at AB>20 mag inside
 your apertures should be rather small. A point worth mentioning, as it helps your
 case.
 
-		NPR to add this to the text.
-
+		NPR has added approriated words in the text to address
+		this good point. 
 
 
 p. 6 Table 3: Should mention that the number of significant digits listed here
