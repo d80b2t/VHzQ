@@ -71,8 +71,7 @@ z>5.7?
 p. 4, Fig. 3: Can you plot the small dots somewhat bigger for better visibility
 without loss of information?
 
-	This is the coverage map figure
-	       => To Do by NJGC.
+	We have updated the plot to make the dots bigger and the revised catalogue. 
 
 
 THROUGHOUT: Several occurrences of ??, i.e., where table or Appendix references
@@ -111,8 +110,8 @@ photometric zeropoints.
 p. 7, very end of 3.1.1: Quote the (effective) VSA and SDSS quasar IR observing
 epochs here, in case these clearly discrepant magnitudes are due to variability.
 
-              This is for SDSS J0349+0034 and J2220-0101; NJGC to check.
-
+SDSS J0349+0034 was observed on MJD=54062.4 by WFCAM and MJD=55540.6 (average of 
+3 epochs from 55537 to 55542) by VISTA. We have updated the text with these values.
 
 p. 8 Fig 5: Make the z=0--3 quasar cloud a little lighter grey, so that the
 z=5--6.5 quasar cloud is better visible.
