@@ -63,6 +63,7 @@ distribution has this gap in N(z) at z~5.5?. Is this because of the relativity
 sensitivity across the filter curves, and/or the onset of complete GP-troughs at
 z>5.7?
 
+	Updated table 1,2 and figure 2. 
 
 	[And I think this is where some of the missing objects come in??
 	We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.]
@@ -71,7 +72,7 @@ z>5.7?
 p. 4, Fig. 3: Can you plot the small dots somewhat bigger for better visibility
 without loss of information?
 
-	We have updated the plot to make the dots bigger and the revised catalogue. 
+	We have updated the plot to make the dots bigger and to use the revised catalogue. 
 
 
 THROUGHOUT: Several occurrences of ??, i.e., where table or Appendix references
@@ -106,6 +107,7 @@ for the YJHK W1--W4 mags is not always warranted, but needed to verify the small
 VIRCAM-WFCAM offsets in Table 5, This table is a very useful check of your global
 photometric zeropoints.
 
+Table 5 has been updated. 
 
 p. 7, very end of 3.1.1: Quote the (effective) VSA and SDSS quasar IR observing
 epochs here, in case these clearly discrepant magnitudes are due to variability.
