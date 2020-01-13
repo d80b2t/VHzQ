@@ -23,11 +23,11 @@
 	in the WSA (no issues were found in the VSA rerun). One of
 	these objects, however, is SDSS J2220-0101, which we thought
 	had large photometric changes but now acknowledge this was due
-	to an incorrect apertureID measurement. The updated photometry
-	for SDSS J2220-0101 has the VSA J-band magnitude 19.38+/-0.04
-	and a WSA magnitude 19.24+/-0.09.
+	to an incorrect apertureID assignment, when the database was updated 
+	with new data. The updated photometry for SDSS J2220-0101 has the  
+	VSA J-band magnitude 20.32+/-0.07 mag AB and a WSA magnitude 20.30+/-0.15 mag AB.
 
-	Consequently, we have changed the approriate text (in the Abstract,
+	Consequently, we have changed the appropriate text (in the Abstract,
 	Section 3.1.1 Comparing WFCAM and VISTA and Conclusions).
 
 	We have also added an Appendix to note the update to the overall catalog. 
@@ -112,6 +112,8 @@ epochs here, in case these clearly discrepant magnitudes are due to variability.
 
 SDSS J0349+0034 was observed on MJD=54062.4 by WFCAM and MJD=55540.6 (average of 
 3 epochs from 55537 to 55542) by VISTA. We have updated the text with these values.
+We have also updated the values to AB magnitudes, as we found that we had inadvertently 
+given the Vega magnitude values.
 
 p. 8 Fig 5: Make the z=0--3 quasar cloud a little lighter grey, so that the
 z=5--6.5 quasar cloud is better visible.
