@@ -1,59 +1,48 @@
 # qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
 #
-# Results of Query: Database WSERV1000v20181217 12/02/19 11:41
-# SELECT qso.qsoName,aver.filterID,AVG(m.mjdObs) as mjd, 
-# (MAX(m.mjdObs)-MIN(m.mjdObs)) as duration, aver.aperJky3, 
-# aver.aperJky3Err,(aver.aperMag3+f.VegaToAB) as aperMag3Ab,
-# aver.aperMag3Err, aver.ppErrBits, COUNT(mfs.catalogueID) as nMeas,
-# SUM(d.totalExpTime) as totExpTime   /* In this selection we have 
-# included the average mjdObs (averaged   over all frames in a 30 day 
-# period) and the duration (the mjd of the   last frame in the period 
-# minus that of the first), the number of   frames (nMeas) and the sum 
-# of the integration times. We have also   included the calibrated 
-# fluxes (aperJky3), since in many cases the a   faint source may have 
-# very low S/N */ FROM finalQsoCatalogue as qso,
-# MapApertureIDshighzQsoMap as ma, wserv1000MapRemeasAver as aver,
-# MapProvenance as mp, MapFrameStatus as mfs,MultiframeDetector as d,
-# Multiframe as m,Filter as f, wserv1000MapRemeasurement as remeas   /* 
-# The tables to select from include MapProvenance to select the   
-# correct averaging time scale and to get the frames used in each   
-# average catalogue. Also include MultiframeDetector to get the   
-# integration time. */ WHERE qso.qsoID=ma.objectID and 
-# ma.apertureID=aver.apertureID and mp.combiCatID=aver.catalogueID and 
-# mp.avSetupID=3 and    /* Do joins and select avSetupID=3 --> average 
-# over 30 days. Other   avSetupID values can be used to change the 
-# averaging timescale */ mp.catalogueID=mfs.catalogueID and 
-# d.multiframeID=mfs.multiframeID and 
-# mfs.catalogueID=remeas.catalogueID and 
-# remeas.apertureID=aver.apertureID and remeas.extNum=d.extNum and 
-# qsoID=162 and f.filterID=d.filterID and m.multiframeID=d.multiframeID 
-#   /* Select qsoID=54 */  GROUP BY qso.qsoName,aver.filterID, 
-# aver.aperJky3,aver.aperJky3Err, aver.aperMag3,aver.aperMag3Err,
-# aver.ppErrBits,f.VegaToAB   /* GROUP BY attributes that are part of 
-# are associated with the   average so that we get statistics for 
-# properties measured at the   frame level */
+# Selected from WSERV1000v20200113
+# qso.qsoName,meas.filterID,AVG(m.mjdObs) as mjd,(MAX(m.mjdObs)-MIN(m.mjdObs)) as duration,meas.aperJky3,meas.aperJky3Err,(meas.aperMag3+f.VegaToAB) as aperMag3Ab,meas.aperMag3Err,meas.ppErrBits,COUNT(mfs.catalogueID) as nMeas,SUM(d.totalExpTime) as totExpTime
+# /* In this selection we have included the average mjdObs 
+# (averaged over all frames in a 30 day period) and the duration 
+# (the mjd of the last frame in the period minus that of the first), the 
+# number of frames (nMeas) and the sum of the integration times. We have 
+# also included the calibrated fluxes (aperJky3), since in many cases the 
+# a faint source may have very low S/N */
+# finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma,wserv1000MapRemeasAver as meas,Filter as f,MapFrameStatus as mfs,Multiframe as m,MapProvenance as v,MultiframeDetector as d,wserv1000MapRemeasurement as epoch
+# /* The tables to select from include MapProvenance to select 
+# the correct averaging time scale and to get the frames used in each average 
+# catalogue. Also include MultiframeDetector to get the integration time. */
+# qso.qsoName='SDSSJ0959+0227' and qso.qsoID=ma.objectID and ma.apertureID=meas.apertureID and meas.filterID=f.filterID and v.combiCatID=meas.catalogueID and v.avSetupID=3 and v.catalogueID=mfs.catalogueID and m.multiframeID=mfs.multiframeID and m.multiframeID=d.multiframeID and epoch.catalogueID=v.catalogueID and epoch.apertureID=meas.apertureID and epoch.extNum=d.extNum
+# /* Do joins and select avSetupID=3 --> average over 30 days. 
+# Other avSetupID values can be used to change the averaging timescale */
+# /* Select a particular QSO, qsoName='SDSSJ0959+0227' */ # /* GROUP BY attributes that are part of are associated 
+# with the average so that we get statistics for properties measured at 
+# the frame level */
+#
+# Returns 22 rows
+#
 # Column Headers at start of file AND below
 #
 # qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
-                  SDSSJ0959+0227,   2,  +5.4533062E004,     +20.7321400,-1.109970E-006,+3.364574E-007, -9.999995E008, -9.999995E008,          0,          3,   +1480.0000000
-                  SDSSJ0959+0227,   2,  +5.4162049E004,     +16.9609900,+3.306751E-007,+3.121313E-007,    +25.084497,     +1.024850,          0,          5,   +3600.0000000
-                  SDSSJ0959+0227,   2,  +5.4608769E004,      +1.0556800,+3.549949E-007,+4.107922E-007,    +25.007444,     +1.256390,          0,          2,   +1440.0000000
-                  SDSSJ0959+0227,   2,  +5.4884905E004,      +1.1193600,+7.071249E-007,+2.329002E-007,    +24.259260,     +0.357600,          0,          2,   +1440.0000000
-                  SDSSJ0959+0227,   3,  +5.6030360E004,  +0.0000000E000, -9.999995E008, -9.999995E008, -9.999995E008, -9.999995E008,          0,          1,     +40.0000000
-                  SDSSJ0959+0227,   3,  +5.4526446E004,  +0.0000000E000,-3.755476E-006,+3.178681E-006, -9.999995E008, -9.999995E008,          0,          1,     +40.0000000
-                  SDSSJ0959+0227,   3,  +5.4115831E004,      +2.0318500,+1.329940E-007,+2.720681E-007,    +26.071420,     +2.221108,          0,         21,   +1890.0000000
-                  SDSSJ0959+0227,   3,  +5.3470738E004,      +3.1440700,+6.447792E-007,+3.405567E-007,    +24.357473,     +0.573460,          0,         28,   +5040.0000000
-                  SDSSJ0959+0227,   3,  +5.3767853E004,      +1.0846700,+1.513630E-006,+4.441910E-007,    +23.430952,     +0.318621,          0,          6,   +2160.0000000
-                  SDSSJ0959+0227,   3,  +5.5211485E004,  +0.0000000E000,+1.543115E-006,+9.196670E-007,    +23.410006,     +0.647078,          0,          1,    +400.0000000
-                  SDSSJ0959+0227,   3,  +5.3859011E004,      +3.1086100,+1.603433E-006,+6.080188E-007,    +23.368374,     +0.411709,          0,          6,   +2160.0000000
-                  SDSSJ0959+0227,   3,  +5.4902442E004,  +0.0000000E000,+1.928123E-006,+8.398163E-007,    +23.168163,     +0.472905,          0,          1,    +400.0000000
-                  SDSSJ0959+0227,   3,  +5.5267395E004,      +0.0473900,+2.279447E-006,+7.797008E-007,    +22.986427,     +0.371384,          0,          2,    +800.0000000
-                  SDSSJ0959+0227,   4,  +5.4163397E004,  +0.0000000E000,-2.548911E-006,+3.977436E-006, -9.999995E008, -9.999995E008,          0,          1,     +40.0000000
-                  SDSSJ0959+0227,   4,  +5.4890898E004,      +3.0013600,+1.029875E-006,+3.587617E-007,    +23.868038,     +0.378221,          0,         12,   +1680.0000000
-                  SDSSJ0959+0227,   5,  +5.4088359E004,      +2.9292400,+8.016249E-007,+7.460502E-007,    +24.140072,     +1.010465,          0,          8,    +560.0000000
-                  SDSSJ0959+0227,   5,  +5.3495790E004,     +11.0222000,+9.851925E-007,+1.393211E-006,    +23.916197,     +1.535395,          0,          4,    +280.0000000
-                  SDSSJ0959+0227,   5,  +5.4889309E004,      +0.0080300,+2.220348E-006,+1.008633E-006,    +23.033947,     +0.493215,          0,          5,    +700.0000000
-                  SDSSJ0959+0227,   5,  +5.4137608E004,  +0.0000000E000,+8.081240E-006,+4.918772E-006,    +21.631304,     +0.660850,          0,          1,     +40.0000000
-                  SDSSJ0959+0227,   6,  +5.4929203E004,   +2516.0464400, -9.999995E008, -9.999995E008, -9.999995E008, -9.999995E008,          0,         28,  +8.0920000E004
-                  SDSSJ0959+0227,   9,  +5.4115778E004,      +2.0924700, -9.999995E008, -9.999995E008, -1.999999E009, -9.999995E008,          0,         22,  +1.9800000E004
-                  SDSSJ0959+0227,  10,  +5.5190107E004,    +698.1780400, -9.999995E008, -9.999995E008, -1.999999E009, -9.999995E008,          0,         18,  +2.5200000E004
+SDSSJ0959+0227,2,54533.06217,20.73214,-1.10996973035e-06,3.36457389949e-07,-999999488.0,-999999488.0,0,3,1480.0
+SDSSJ0959+0227,2,54162.048858,16.96099,3.30675135274e-07,3.12131334113e-07,25.0844974518,1.42263948917,0,5,3600.0
+SDSSJ0959+0227,2,54608.76928,1.05568,3.54994938334e-07,4.10792210914e-07,25.0074443817,1.92393362522,0,2,1440.0
+SDSSJ0959+0227,2,54884.9048,1.11936,7.07124911514e-07,2.32900205788e-07,24.2592601776,0.434924930334,0,2,1440.0
+SDSSJ0959+0227,3,56030.36014,0.0,-999999488.0,-999999488.0,-999999488.0,-999999488.0,0,1,40.0
+SDSSJ0959+0227,3,54526.44591,0.0,-3.75547620024e-06,3.17868057209e-06,-999999488.0,-999999488.0,0,1,40.0
+SDSSJ0959+0227,3,54115.8310067,2.03185,1.32994045998e-07,2.72068120921e-07,26.0714206696,2.72846007347,0,21,1890.0
+SDSSJ0959+0227,3,53470.7377932,3.14406999999,6.44779220238e-07,3.40556738365e-07,24.3574733734,0.707042515278,0,28,5040.0
+SDSSJ0959+0227,3,53767.8529017,1.08467,1.51363008172e-06,4.4419095957e-07,23.4309520721,0.384863168001,0,6,2160.0
+SDSSJ0959+0227,3,55211.4854,0.0,1.54311533151e-06,9.19666945265e-07,23.4100055695,1.00562012196,0,1,400.0
+SDSSJ0959+0227,3,53859.0112433,3.10861,1.60343324751e-06,6.08018751791e-07,23.3683738708,0.592987596989,0,6,2160.0
+SDSSJ0959+0227,3,54902.44175,0.0,1.92812262867e-06,8.3981632315e-07,23.1681632996,0.656087040901,0,1,400.0
+SDSSJ0959+0227,3,55267.394665,0.0473899999997,2.27944724429e-06,7.79700769726e-07,22.9864273071,0.570836007595,0,2,800.0
+SDSSJ0959+0227,4,54163.39681,0.0,-2.54891142504e-06,3.97743633584e-06,-999999488.0,-999999488.0,0,1,40.0
+SDSSJ0959+0227,4,54890.8979933,3.00136,1.02987519313e-06,3.58761724328e-07,23.8680381775,0.537987589836,0,12,1680.0
+SDSSJ0959+0227,5,54088.3589925,2.92924,8.01624878477e-07,7.46050147882e-07,24.1400718689,1.22783136368,0,8,560.0
+SDSSJ0959+0227,5,53495.7898675,11.0222,9.85192514236e-07,1.39321116421e-06,23.9161968231,1.84911870956,0,4,280.0
+SDSSJ0959+0227,5,54889.308882,0.00803000000451,2.22034850594e-06,1.00863314856e-06,23.033946991,0.678444027901,0,5,700.0
+SDSSJ0959+0227,5,54137.60816,0.0,8.08123968454e-06,4.91877199238e-06,21.6313037872,0.774022638798,0,1,40.0
+SDSSJ0959+0227,6,54929.2030532,2516.04644,-999999488.0,-999999488.0,-999999488.0,-999999488.0,0,28,80920.0
+SDSSJ0959+0227,9,54115.7779191,2.09247,-999999488.0,-999999488.0,-1999998976.0,-999999488.0,0,22,19800.0
+SDSSJ0959+0227,10,55190.1066706,698.17804,-999999488.0,-999999488.0,-1999998976.0,-999999488.0,0,18,25200.0

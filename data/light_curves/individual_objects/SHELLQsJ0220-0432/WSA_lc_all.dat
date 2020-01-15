@@ -1,2 +1,23 @@
-qsoName,mjdObs,filterID,aperMag3AverAB,aperMag3Err,ppErrBits
-               SHELLQsJ0220-0432,  +55213.1050924,   1,    +99.99,     +0.9,          0
+# qsoName,mjdObs,filterID,aperMag3AverAB,aperMag3Err,ppErrBits
+#
+# Selected from WSERV1000v20200113
+# qso.qsoName,m.mjdObs,meas.filterID,(meas.aperMag3+f.VegaToAB) as aperMag3AverAB,meas.aperMag3Err,meas.ppErrBits
+# /* Basic QSO parameters and photometry extracted from each OB   epoch. */
+# finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma,wserv1000MapRemeasurement as meas,Filter as f,MapFrameStatus as mfs,Multiframe as m
+# /* Main tables for query. MapApertureIDshighzQsoMap joins 
+# finalQsoCatalogue to wserv1000MapRemeasurement */
+# qso.qsoName='SHELLQsJ0220-0432' and qso.qsoID=ma.objectID and ma.apertureID=meas.apertureID and meas.filterID=f.filterID and meas.catalogueID=mfs.catalogueID and mfs.multiframeID=m.multiframeID
+# /* Join all the tables correctly MapFrameStatus links the 
+# catalogueID to the multiframeID, which allows us to link to the 
+# image metadate in Multiframe to get the observation time (mjdObs) */
+# /* Select a particular QSO, qsoName='SHELLQSJ0220-0432' */ #
+# Returns 5 rows
+#
+# Column Headers at start of file AND below
+#
+# qsoName,mjdObs,filterID,aperMag3AverAB,aperMag3Err,ppErrBits
+SHELLQsJ0220-0432,56988.28068,2,22.102853775,0.818551421165,0
+SHELLQsJ0220-0432,56988.28273,4,22.0479488373,1.17536902428,0
+SHELLQsJ0220-0432,56988.27965,1,22.0243377686,0.735361933708,0
+SHELLQsJ0220-0432,56988.28376,3,25.5004043579,20.8528709412,0
+SHELLQsJ0220-0432,56988.2817,5,-999999488.0,-999999488.0,0

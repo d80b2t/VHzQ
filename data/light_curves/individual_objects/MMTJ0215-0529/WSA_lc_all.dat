@@ -1,8 +1,25 @@
-qsoName,mjdObs,filterID,aperMag3AverAB,aperMag3Err,ppErrBits
-                   MMTJ0215-0529,  +5.6155581E004,   2,    +20.753760,     +0.069042,          0
-                   MMTJ0215-0529,  +5.5903371E004,   2,    +20.769897,     +0.054772,          0
-                   MMTJ0215-0529,  +5.5952318E004,   2,    +20.907593,     +0.085949,          0
-                   MMTJ0215-0529,  +5.5801616E004,   3,    +20.738520,     +0.054997,          0
-                   MMTJ0215-0529,  +5.5802607E004,   3,    +20.758055,     +0.056531,          0
-                   MMTJ0215-0529,  +5.5801587E004,   3,    +20.702060,     +0.050285,          0
-                   MMTJ0215-0529,  +5.5802594E004,   3,    +20.717697,     +0.056170,          0
+# qsoName,mjdObs,filterID,aperMag3AverAB,aperMag3Err,ppErrBits
+#
+# Selected from WSERV1000v20200113
+# qso.qsoName,m.mjdObs,meas.filterID,(meas.aperMag3+f.VegaToAB) as aperMag3AverAB,meas.aperMag3Err,meas.ppErrBits
+# /* Basic QSO parameters and photometry extracted from each OB   epoch. */
+# finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma,wserv1000MapRemeasurement as meas,Filter as f,MapFrameStatus as mfs,Multiframe as m
+# /* Main tables for query. MapApertureIDshighzQsoMap joins 
+# finalQsoCatalogue to wserv1000MapRemeasurement */
+# qso.qsoName='MMTJ0215-0529' and qso.qsoID=ma.objectID and ma.apertureID=meas.apertureID and meas.filterID=f.filterID and meas.catalogueID=mfs.catalogueID and mfs.multiframeID=m.multiframeID
+# /* Join all the tables correctly MapFrameStatus links the 
+# catalogueID to the multiframeID, which allows us to link to the 
+# image metadate in Multiframe to get the observation time (mjdObs) */
+# /* Select a particular QSO, qsoName='MMTJ0215-0529' */ #
+# Returns 7 rows
+#
+# Column Headers at start of file AND below
+#
+# qsoName,mjdObs,filterID,aperMag3AverAB,aperMag3Err,ppErrBits
+MMTJ0215-0529,56155.58118,2,20.7537593842,0.0690421387553,0
+MMTJ0215-0529,55801.6163,3,20.7385196686,0.0549972988665,0
+MMTJ0215-0529,55802.60655,3,20.7580547333,0.0565309412777,0
+MMTJ0215-0529,55801.58728,3,20.7020606995,0.0502848438919,0
+MMTJ0215-0529,55802.59436,3,20.7176971436,0.0561702400446,0
+MMTJ0215-0529,55903.37081,2,20.7698974609,0.0547717064619,0
+MMTJ0215-0529,55952.3176,2,20.9075927734,0.0859487652779,0

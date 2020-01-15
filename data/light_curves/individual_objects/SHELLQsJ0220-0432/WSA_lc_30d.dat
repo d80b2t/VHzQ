@@ -1,2 +1,31 @@
- qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
-               SHELLQsJ0220-0432,   1,  +55214.4453675,      +2.0120404,+1.741528E-006,+3.301684E-007,    +99.999,     +0.205840,          0,          3,    +720.0000000
+# qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
+#
+# Selected from WSERV1000v20200113
+# qso.qsoName,meas.filterID,AVG(m.mjdObs) as mjd,(MAX(m.mjdObs)-MIN(m.mjdObs)) as duration,meas.aperJky3,meas.aperJky3Err,(meas.aperMag3+f.VegaToAB) as aperMag3Ab,meas.aperMag3Err,meas.ppErrBits,COUNT(mfs.catalogueID) as nMeas,SUM(d.totalExpTime) as totExpTime
+# /* In this selection we have included the average mjdObs 
+# (averaged over all frames in a 30 day period) and the duration 
+# (the mjd of the last frame in the period minus that of the first), the 
+# number of frames (nMeas) and the sum of the integration times. We have 
+# also included the calibrated fluxes (aperJky3), since in many cases the 
+# a faint source may have very low S/N */
+# finalQsoCatalogue as qso,MapApertureIDshighzQsoMap as ma,wserv1000MapRemeasAver as meas,Filter as f,MapFrameStatus as mfs,Multiframe as m,MapProvenance as v,MultiframeDetector as d,wserv1000MapRemeasurement as epoch
+# /* The tables to select from include MapProvenance to select 
+# the correct averaging time scale and to get the frames used in each average 
+# catalogue. Also include MultiframeDetector to get the integration time. */
+# qso.qsoName='SHELLQsJ0220-0432' and qso.qsoID=ma.objectID and ma.apertureID=meas.apertureID and meas.filterID=f.filterID and v.combiCatID=meas.catalogueID and v.avSetupID=3 and v.catalogueID=mfs.catalogueID and m.multiframeID=mfs.multiframeID and m.multiframeID=d.multiframeID and epoch.catalogueID=v.catalogueID and epoch.apertureID=meas.apertureID and epoch.extNum=d.extNum
+# /* Do joins and select avSetupID=3 --> average over 30 days. 
+# Other avSetupID values can be used to change the averaging timescale */
+# /* Select a particular QSO, qsoName='SHELLQSJ0220-0432' */ # /* GROUP BY attributes that are part of are associated 
+# with the average so that we get statistics for properties measured at 
+# the frame level */
+#
+# Returns 5 rows
+#
+# Column Headers at start of file AND below
+#
+# qsoName,filterID,mjd,duration,aperJky3,aperJky3Err,aperMag3Ab,aperMag3Err,ppErrBits,nMeas,totExpTime
+SHELLQsJ0220-0432,1,56988.27965,0.0,5.55475116926e-06,2.57039982898e-06,22.0243377686,0.719155013561,0,1,50.0
+SHELLQsJ0220-0432,2,56988.28068,0.0,5.15298097525e-06,2.76971923086e-06,22.102853775,0.795740365982,0,1,50.0
+SHELLQsJ0220-0432,3,56988.28376,0.0,2.25029168632e-07,3.34731907969e-06,25.5004043579,-999999488.0,0,1,50.0
+SHELLQsJ0220-0432,4,56988.28273,0.0,5.50580170966e-06,4.58059048469e-06,22.0479488373,1.16251301765,0,1,50.0
+SHELLQsJ0220-0432,5,56988.2817,0.0,-3.79675884687e-06,4.80980452267e-06,-999999488.0,-999999488.0,0,1,50.0

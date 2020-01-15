@@ -212,8 +212,16 @@ xmax = 58484 ## 2019-Jan-01
 mag_offset = 0.5
 ymin = max(max(WSA_data_all['aperMag3AverAB']), max(VSA_data_all['aperMag3AverAB'])) + (mag_offset*1.00)
 ymax = min(max(WSA_data_all['aperMag3AverAB']), min(VSA_data_all['aperMag3AverAB'])) - (mag_offset*2.25)
-ymin = 27.4   ## for CFHQSJ0216-045; SHELLQsJ0220-0432   
-ymax = 16.8
+if choice == '1':
+    ymin = 21.5
+    ymax = 16.8
+if choice in ('2','3'):
+    ymin = 27.4   ## for CFHQSJ0216-045; SHELLQsJ0220-0432   
+    ymax = 16.8
+if choice == '5':
+    ymin = 31.1
+    ymax = 17.4
+print('Y min, max = ',ymin,ymax)
 
 print('Set axes limits...')
 
