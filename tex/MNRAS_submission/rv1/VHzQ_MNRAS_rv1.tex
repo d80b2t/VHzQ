@@ -911,9 +911,9 @@ we select objects with at least 8 measurements observed with intervals
 of at least 30 days, in at least one filter. The the average
 calibrated flux over all epochs must be $>0$ (i.e. {\tt aperJky3}$>0$)
 with the signal-to-noise is required to be $\geq8$ (i.e. {\tt
-aperJky3/aperJky3Err}$\geq$8). With these criteria, there are 21 WFCAM 
-and 12 VISTA objects with 1 object (VIK J1148+0056) in common to both, 
-and this sample of 32 is our starting
+aperJky3/aperJky3Err}$\geq$8). With these criteria, there are 18 WFCAM 
+and 12 VISTA objects with 2 objects (SDSSJ0221-0342B $\&$ VIK J1148+0056) in
+common to both, and this sample of 28 is our starting
 point for variability investigations.
 
 The clipped median and median absolute deviation is then calculated
@@ -928,8 +928,8 @@ where measurements have been averaged over different time-scales to improve
 the signal-to-noise. We found that two quasars showed signs of variability:
 MMT J0215-0529 (see Fig.~\ref{fig:MMTJ0215-0529}) in the $Y$-band with an average time-scale of 30 days and amplitude of 0.3 mag, and 
 SDSS J0959+0227 (see Fig.~\ref{fig:SDSSJ0959+0227}) in the $Y$ and $H$-bands, with timescales of 1 year or 6 months 
-for $Y$ only. The $H$-band amplitude was 0.9 mag and the $Y$-band amplitude was 1.2 mag if averaged over 6 months,
-or 0.9 mag if averaged over 1 year.
+for $Y$ only. The $H$-band amplitude was 0.7 mag and the $Y$-band amplitude was
+1.2 mag if averaged over 6 months, or 0.9 mag if averaged over 1 year.
 
 We present four objects that are particularly well-sampled in the NIR. 
 These are: 
@@ -944,7 +944,7 @@ We incorporate the MIR NEOWISE-R light curve data where available.
   \begin{subfigure}{}
     \centering
     % \includegraphics[width=8.5cm]{../light_curves/MMTJ0215-0529LC_20190613.png}
-    \includegraphics[width=8.5cm]{figures/MMTJ0215-0529LC_20190613.png}
+    \includegraphics[width=8.5cm]{figures/MMTJ0215-0529LC_20200115.png}
     \caption{The infrared light curve for MMT J0215-0529 with data from 
       WFCAM (smaller solid circles), VIRCAM (hexagons) and NEOWISE-R (larger solid circles).
 MMT  J0215-0529 was identified by \citet{McGreer2018}, 
@@ -960,7 +960,7 @@ MMT  J0215-0529 was identified by \citet{McGreer2018},
   \begin{subfigure}{}
     \centering
 %    \includegraphics[width=8.5cm]{../light_curves/CFHQSJ0216-0455LC_20190613.png}
-    \includegraphics[width=8.5cm]{figures/CFHQSJ0216-0455LC_20190613.png}
+    \includegraphics[width=8.5cm]{figures/CFHQSJ0216-0455LC_20200115.png}
     \caption{The same as Fig.~\ref{fig:MMTJ0215-0529} except for CFHQS J0216-0455.}
     \label{fig:CFHQSJ0216-0455}
   \end{subfigure}
@@ -970,14 +970,14 @@ MMT  J0215-0529 was identified by \citet{McGreer2018},
   \begin{subfigure}{}\quad
     \centering
   %  \includegraphics[width=8.5cm]{../light_curves/SHELLQsJ0220-0432LC_20190613.png}
-    \includegraphics[width=8.5cm]{figures/SHELLQsJ0220-0432LC_20190613.png}
+    \includegraphics[width=8.5cm]{figures/SHELLQsJ0220-0432LC_20200115.png}
     \caption{The same as Fig.~\ref{fig:MMTJ0215-0529} except for SHELLQs J0220-0432.}
     \label{fig:SHELLQsJ0220-0432}
   \end{subfigure}
   \begin{subfigure}{}\quad
     \centering
     %\includegraphics[width=8.5cm]{../light_curves/SDSSJ0959+0227LC_20190612.png}
-    \includegraphics[width=8.5cm]{figures/SDSSJ0959+0227LC_20190612.png}
+    \includegraphics[width=8.5cm]{figures/SDSSJ0959+0227LC_20200115.png}
         \caption{The near infrared light curve for SDSS J0959+0227. Note, 
       SDSS J0959+0227 is too faint in the MIR to be detected by AllWISE or unWISE.}
     \label{fig:SDSSJ0959+0227}
@@ -1017,7 +1017,7 @@ not a regular broadline ``Type 1'' AGN. Noting that the redshift of
 $z=5.07$ for SDSS J0959+0227, the $Y$, $J$, $H$, $Ks/K$-bands
 correspond to rest-wavelengths of $\sim$1690, 2055, 2690,
 3515/3625\AA\ i.e. the rest-frame UV/very blue, so, so the regular
-blue QSO continuum could be emerging Thus, with the slightest hint of
+blue QSO continuum could be emerging. Thus, with the slightest hint of
 variability, this could potentially be a high-$z$ AGN transitioning
 from a narrow-line ``Type 2'' object to a broadline Type 1 quasar.
 
@@ -1042,15 +1042,15 @@ objects and given their detection rates. We find that:
   \item SDSS and Pan-STARRS1 together identified over half of the VH$z$Q sample;
   \item There remains a quasar ``redshift desert'' at $z\approx5.3-5.7$, though efforts are being made to address this
     \citep[e.g.,][]{YangJ2018a};
-  \item 97.0\% of the VH$z$Q sample is detected in one or more NIR
+  \item 96.9\% of the VH$z$Q sample is detected in one or more NIR
     ($ZYJHK/K_{s}$) band;
-  \item The 14 objects that are not detected in the NIR are due to
+  \item The 15 objects that are not detected in the NIR are due to
     lack of coverage rather than lack of depth;
   \item 362 (78.2\%) VH$z$Qs are detected by WISE, e.g. in the deeper
     unWISE W1 catalog.
   \item All of the $z\geq7$ quasars are detected in both unWISE W1 and
     W2.
-  \item 32 of the quasars had enough NIR measurements and sufficient
+  \item 28 of the quasars had enough NIR measurements and sufficient
     NIR measurements and signal-to-noise to look for variability. Weak
     variability was detected in multiple bands of SDSS J0959+0227, and
     very marginally in the Y-band of MMT J0215-0529. Only one quasar, SDSS
