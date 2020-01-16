@@ -44,18 +44,12 @@ photometric variability of the accretion disk as observed.
 p. 2, Fig. 1: Is it useful here to plot both filter sets if they are sufficiently
 different? Please provide larger tick-marks for better readability in any case.
 
-	   We have enbiggened the  tick-marks.
+	   We have enlargened the  tick-marks.
 	   
 	   The ZYJHK filters for UKIRT and VISTA *are* different, but
-	   plotting both doesn't result in a clear figure. 
-
-
-	   ....
-		I think adding an explicit link to:
-	          d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png
-	  and
-	         d80b2t/VHzQ/SEDs/filters_vs_QSOstars_VISTA.png
-	 is the way forward here.
+	   plotting both doesn't result in a clear figure. We have added an explicit link to:
+	   d80b2t/VHzQ/SEDs/filters_vs_QSOstars_UKIRT.png and
+	   d80b2t/VHzQ/SEDs/filters_vs_QSOstars_VISTA.png.
 
 
 p. 3, Fig. 2, caption or text: You should briefly comment on why the quasar
@@ -63,11 +57,11 @@ distribution has this gap in N(z) at z~5.5?. Is this because of the relativity
 sensitivity across the filter curves, and/or the onset of complete GP-troughs at
 z>5.7?
 
-	Updated table 1,2 and figure 2. 
+	Updated table 1,2 and figure 2. This gap has partly been filled in by recent (2018) 
+	discoveries e.g. Yang et al. (2018) - which includes many of the 25 new objects that 
+	we have recently added.  
 
-	[And I think this is where some of the missing objects come in??
-	We’ll need to update: Tables 1, 2 and obviously 3 once we have those extra objects.]
-
+	
 
 p. 4, Fig. 3: Can you plot the small dots somewhat bigger for better visibility
 without loss of information?
@@ -99,7 +93,7 @@ the relative number or probability of contaminating objects at AB>20 mag inside
 your apertures should be rather small. A point worth mentioning, as it helps your
 case.
 
-		We have added approriated words in the text to address this good point. 
+		We have added approriate words in the text to address this good point. 
 
 
 p. 6 Table 3: Should mention that the number of significant digits listed here
@@ -107,7 +101,8 @@ for the YJHK W1--W4 mags is not always warranted, but needed to verify the small
 VIRCAM-WFCAM offsets in Table 5, This table is a very useful check of your global
 photometric zeropoints.
 
-Table 5 has been updated. 
+We have updated both tables 3 and 5 with the new objects and some new VISTA photometry 
+(increasing the end time to 20170101) and have added a line in the caption to Table 3.  
 
 p. 7, very end of 3.1.1: Quote the (effective) VSA and SDSS quasar IR observing
 epochs here, in case these clearly discrepant magnitudes are due to variability.
@@ -115,22 +110,26 @@ epochs here, in case these clearly discrepant magnitudes are due to variability.
 SDSS J0349+0034 was observed on MJD=54062.4 by WFCAM and MJD=55540.6 (average of 
 3 epochs from 55537 to 55542) by VISTA. We have updated the text with these values.
 We have also updated the values to AB magnitudes, as we found that we had inadvertently 
-given the Vega magnitude values.
+given the Vega magnitude values. 
 
 p. 8 Fig 5: Make the z=0--3 quasar cloud a little lighter grey, so that the
 z=5--6.5 quasar cloud is better visible.
 
+Still to do....
 
 p. 9 top left: = -0.458 : All minus signs in latex should be coded up as --
 (double hyphen), also in the tables, to appear as minus sign.
 
+Done. Table 3 and Table C1 done. 
 
 p. 10 Fig 8: Enlarge all axes label for better readability.
 
+Still to do...
      
 THROUGHOUT: signal-to-noise should always be listed as a ratio: signal-to-noise
 ratio or SNR.
 
+Done.
 
 
 

@@ -33,7 +33,7 @@ of the $z\geq7$ quasars are detected in both unWISE W1 and W2. Using
 archival WFCAM/UKIRT and VIRCAM/VISTA data we check for photometric
 variability that might be expected from super-Eddington accretion. We
 find 32 of the quasars have sufficient NIR measurements and
-signal-to-noise to look for variability. Weak variability was detected
+signal-to-noise ratio to look for variability. Weak variability was detected
 in multiple bands of SDSS J0959+0227, and very marginally in the
 $Y$-band of MMT J0215-0529. Only one quasar, SDSS J0349+0034, shows
 significant differences between WFCAM and VISTA magnitudes in one band.
@@ -211,7 +211,15 @@ logarithms are to the base 10.
   {The spectral bands used in this paper. 
     The $ZYJHK$ filter curves are from UKIRT/WFCAM.  
     The $ZYJHK_{s}$ VISTA/VIRCAM filter curves are similar, but not identical to these. 
-    The WISE passbands W1-4 are presented, though without the \citet{Brown2014b} W4 recalibration. 
+    The main difference is the $K_s$ band in VISTA that is narrower than the
+    WFCAM K, but there are other minor differences. The two sets of filters are
+    shown in
+    \href{https://github.com/d80b2t/VHzQ/blob/master/SEDs/filters$\_$vs$\_$QSOstars$\_$UKIRT.png}{\tt
+    github.com/d80b2t/VHzQ/SEDs/filters$\_$vs$\_$QSOstars$\_$UKIRT.png} and 
+    \href{https://github.com/d80b2t/VHzQ/blob/master/SEDs/filters$\_$vs$\_$QSOstars$\_$VISTA.png}{\tt
+    github.com/d80b2t/VHzQ/SEDs/filters$\_$vs$\_$QSOstars$\_$VISTA.png}
+    respectively.
+    The WISE passbands W1-4 are presented, though without the \citet{Brown2014b} W4 recalibration.
     The quasar spectrum is a composite based on \citet{VdB2001} and 
     \citet{Banados2016}. The L and T dwarf spectra are from \citet{Cushing2006}. }
   \label{fig:filters}
@@ -468,8 +476,8 @@ observe in the $Z$-band.
   we give the full recipe and relevant SQL queries for accessing both
   databases in Appendix~\ref{sec:SQL_WSA} as well as online. 
 
-  The photometry in a single epoch image often has low
-  signal-to-noise.  The advantage of matched aperture photometry on
+  The photometry in a single epoch image often has a low
+  signal-to-noise ratio. The advantage of matched aperture photometry on
   quasars is that co-adding is relatively simple if each epoch is taken
   in the same aperture and the aperture photometry has been corrected to
   total. Indeed, the standard aperture corrections work well for point
@@ -541,7 +549,12 @@ using the \citet{TokunagaVacca2005} AB system,
 and is slightly different to the transformations presented in 
 \citet{Schlafly2019}. 
 
-For the our MIR variability investigations, we use the \href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{NEOWISE-R 2019 Data Release}. NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2) single-exposure images and extracted source information that was acquired up until 2018 December 13 (MJD 58465) including the fifth year of survey operations of NEOWISE. These fifth year NEOWISE data products are concatenated with those from the first four years into a single archive from 2013 December 13 (MJD 56639).
+For the our MIR variability investigations, we use the 
+\href{http://wise2.ipac.caltech.edu/docs/release/neowise/}{NEOWISE-R 2019 Data
+Release}.  NEOWISE 2019 makes available the 3.4 and 4.6 μm (W1 and W2)
+single-exposure images  and extracted source information that was acquired up
+until  2018 December 13 (MJD 58465) including the fifth year of survey
+operations of  NEOWISE. These fifth year NEOWISE data products are concatenated with those from the first four years into a single archive from 2013 December 13 (MJD 56639).
 %%
 The WISE scan pattern leads to coverage of the full-sky approximately once every six months (a``sky pass''), but the satellite was placed in hibernation in 2011 February and then reactivated in 2013 October. Hence, our light curves have a cadence of 6 months with a 32 month sampling gap.
 
@@ -687,7 +700,8 @@ above the background noise.
     \hline \hline
   \end{tabular}
   \caption{Detection rates in the mid-infrared bands from WISE as a function of 
-    redshift. A signal-to-noise cut of {\tt w$x$snr}$>3.0$ has been used for each band.}
+    redshift. A signal-to-noise ratio cut of {\tt w$x$snr}$>3.0$ has been used
+    for each band.}
   \label{tab:mir_detection}
 \end{table}
 
@@ -701,13 +715,14 @@ Unlike the NIR coverage, the WISE satellite and mission performed an all-sky sur
  {figures/WISEmag_vs_coverage_20190605.pdf}
   \centering
   \vspace{-14pt}
-  \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} Vega magnitude against signal-to-noise,
-    colour coded by {\tt w$x$cov} the mean coverage depth, in each corresponding band.}
+  \caption[]{WISE W1/2/3/4 {\tt w$x$mpro} Vega magnitude against signal-to-noise
+  ratio, colour coded by {\tt w$x$cov} the mean coverage depth, in each
+  corresponding band.}
   \label{fig:WISEmag_vs_coverage}
 \end{figure}
 Before reporting on the detection rates, we investigate this effect
 using the AllWISE Source Catalog. Figure~\ref{fig:WISEmag_vs_coverage} 
-shows the WISE AllWISE magnitude versus signal-to-noise, colour coded
+shows the WISE AllWISE magnitude versus signal-to-noise ratio, colour coded
 by {\tt w$x$cov} the mean coverage depth, in each corresponding
 band. The {\tt w$123$cov} values are the mean pixel coverage in W1/2/3
 from the W1/2/3 Atlas Tile Coverage Map within an aperture of circular
@@ -725,7 +740,7 @@ the Atlas Images).
 
 In the two shorter bands W1/2 we see the clear and expected
 trend for brighter objects to have larger SNR, and also for the higher
-signal to noise for objects with more exposures at a given
+signal-to-noise ratio for objects with more exposures at a given
 magnitude. The behaviour for the W3/4 bands is different, with two
 populations clearly evident in W3 and although a bit more mixed, also
 in W4. With the suggested split at SNR$>2$, and no obvious
@@ -818,7 +833,7 @@ Fourteenth data release \citep[DR14Q; ][]{Paris2018} are also shown
 (grey colour-scale).
 
 The VH$z$Q with the bluest colour in (W1-W2) is DELS~J1048-0109, with
-(W1-W2) = -0.458 (i.e. 0.154 in Vega), and the WISE W1W2W3 color image
+(W1-W2) = --0.458 (i.e. 0.154 in Vega), and the WISE W1W2W3 color image
 is shown in Fig.~\ref{fig:VHzQ_W4s} {\it(a)}. The reddest object in
 (W1-W2) is SHELLQs~J2223+0326 with (W1-W2) = 0.719 (1.33 Vega).
 
@@ -910,7 +925,7 @@ Using the extended datasets described in Section~\ref{sec:NIR_data},
 we select objects with at least 8 measurements observed with intervals
 of at least 30 days, in at least one filter. The the average
 calibrated flux over all epochs must be $>0$ (i.e. {\tt aperJky3}$>0$)
-with the signal-to-noise is required to be $\geq8$ (i.e. {\tt
+with the signal-to-noise ratio is required to be $\geq8$ (i.e. {\tt
 aperJky3/aperJky3Err}$\geq$8). With these criteria, there are 18 WFCAM 
 and 12 VISTA objects with 2 objects (SDSSJ0221-0342B $\&$ VIK J1148+0056) in
 common to both, and this sample of 28 is our starting
@@ -925,7 +940,8 @@ deviation, and $\bar{\epsilon}$ is the mean of the error in each point
 in the light curve, divided by the total number of points. We apply the criteria 
 $var>=3.$ to light-curves from the original measurements and also to light-curves 
 where measurements have been averaged over different time-scales to improve 
-the signal-to-noise. We found that two quasars showed signs of variability:
+the signal-to-noise ratio. We found that two quasars showed signs of
+variability:
 MMT J0215-0529 (see Fig.~\ref{fig:MMTJ0215-0529}) in the $Y$-band with an average time-scale of 30 days and amplitude of 0.3 mag, and 
 SDSS J0959+0227 (see Fig.~\ref{fig:SDSSJ0959+0227}) in the $Y$ and $H$-bands, with timescales of 1 year or 6 months 
 for $Y$ only. The $H$-band amplitude was 0.7 mag and the $Y$-band amplitude was
@@ -1040,8 +1056,8 @@ objects and given their detection rates. We find that:
 
 \begin{itemize}
   \item SDSS and Pan-STARRS1 together identified over half of the VH$z$Q sample;
-  \item There remains a quasar ``redshift desert'' at $z\approx5.3-5.7$, though efforts are being made to address this
-    \citep[e.g.,][]{YangJ2018a};
+  \item There remains a quasar ``redshift desert'' at $z\approx5.3-5.7$,  though
+  efforts are being made to address this \citep[e.g.,][]{YangJ2018a};
   \item 96.9\% of the VH$z$Q sample is detected in one or more NIR
     ($ZYJHK/K_{s}$) band;
   \item The 15 objects that are not detected in the NIR are due to
@@ -1051,7 +1067,7 @@ objects and given their detection rates. We find that:
   \item All of the $z\geq7$ quasars are detected in both unWISE W1 and
     W2.
   \item 28 of the quasars had enough NIR measurements and sufficient
-    NIR measurements and signal-to-noise to look for variability. Weak
+    NIR measurements and signal-to-noise ratio to look for variability. Weak
     variability was detected in multiple bands of SDSS J0959+0227, and
     very marginally in the Y-band of MMT J0215-0529. Only one quasar, SDSS
     J0349+0034 had significant differences between their WFCAM and VISTA
@@ -1243,11 +1259,14 @@ Object Name                      & R.A.               & Decl.  &  redshift  & di
                                           & / deg             & / deg  &                & arcsec  \\
 \hline
 %% QSOs where pos changed (same name)
-DELS J1048-0109               & +162.0795417 & -1.1611694        & 6.678   &     12.1 \\
-SHELLQs J1429-0002          & +217.3342500 & -0.0353889        & 6.04    &  150.0 \\
+DELS J1048-0109               & +162.0795417 & --1.1611694        & 6.678   &   
+12.1 \\
+SHELLQs J1429-0002          & +217.3342500 & --0.0353889        & 6.04    & 
+150.0 \\
 DELS J1559+2212               & +239.7878750 & +22.2040083      & 6.07     &     3.0 \\
-ATLAS J332.8017-32.1036 & +332.8017500 & -32.1035556      & 6.3394  &    3.2 \\
-VIK J2318-3113                  & +349.5764625 & -31.2295417      & 6.4435  &  239.9 \\
+ATLAS J332.8017-32.1036 & +332.8017500 & --32.1035556      & 6.3394  &    3.2 \\
+VIK J2318-3113                  & +349.5764625 & --31.2295417      & 6.4435  & 
+239.9 \\
 \hline  \hline
 \end{tabular}
 \caption{Five quasars with updated coordinates.}
