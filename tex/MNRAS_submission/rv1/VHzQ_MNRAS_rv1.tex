@@ -515,18 +515,66 @@ observe in the $Z$-band.
 
 
 \subsection{MIR data}
-The MIR data for this study comes from the Wide-field Infrared Survey Explorer (WISE) mission, and we utlize data from the WISE cryogenic and the Near-Earth Object WISE \citep[NEOWISE; ][]{Mainzer2011} post-cryogenic and NEOWISE Reactivation Mission \citep[NEOWISE-R][]{Mainzer2014} survey phases.
+The MIR data for this study comes from the Wide-field Infrared Survey Explorer
+(WISE) mission, and we utlize data from the WISE cryogenic and the Near-Earth
+Object WISE \citep[NEOWISE; ][]{Mainzer2011} post-cryogenic and NEOWISE
+Reactivation Mission \citep[NEOWISE-R][]{Mainzer2014} survey phases.
 
-We use data from the beginning of the WISE mission \citep[2010 January; ][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018 December;]{Mainzer2011}.  There are several  major \href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and catalogues based on the WISE mission. Here we use two: the WISE \href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release} and the recently released ``unWISE Catalog'' \citep{Schlafly2019}. The AllWISE program combines the W1 and W2 Single-exposure data from all the WISE survey phases (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01) survey phases, and the W3 and W4 from the 4-Band Cryo phase. The unWISE effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data \citep{Lang2014, Meisner2018a, Meisner2018b}.
+We use data from the beginning of the WISE mission \citep[2010 January;
+][]{Wright2010} through the fifth-year of NEOWISE-R operations \citep[2018
+December;]{Mainzer2011}. There are several  major
+\href{https://irsa.ipac.caltech.edu/Missions/wise.html}{data releases} and  
+catalogues based on the WISE mission. Here we use two: the WISE 
+\href{http://wise2.ipac.caltech.edu/docs/release/allwise/}{AllWISE Data release}
+and the recently released ``unWISE Catalog'' \citep{Schlafly2019}. The AllWISE 
+program combines the W1 and W2 Single-exposure data from all the WISE survey
+phases  (4-Band Cryo, 3-Band Cryo and Post-Cryo; 2010-01-07 thru 2011-02-01)
+survey  phases, and the W3 and W4 from the 4-Band Cryo phase. The  unWISE
+effort\footnote{\href{http://unwise.me}{http://unwise.me}} is the unblurred 
+coadds of the WISE imaging using the AllWISE and NEOWISE-R stacked data 
+\citep{Lang2014, Meisner2018a, Meisner2018b}.
 
-For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and $\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred unWISE coadd data.  For the two longer WISE bands, $\lambda_{\rm eff}$12.1$\mu$m and $\lambda_{\rm eff}$22.8$\mu$m we use the AllWISE Data Release.  Most objects in the AllWISE Source Catalog are unresolved, so the best photometric measurements to use are the deep detection profile-fit photometry measures,  {\tt w$x$mpro},  {\tt w$x$sigmpro} and  {\tt w$x$snr}. The unWISE Catalog absolute photometric calibration derives from the photometric calibration of the unWISE coadds \citep{Meisner2017a}, which is tied to the original WISE zero points through aperture fluxes in a 27.5'' radius.
+For the two shorter WISE bands, $\lambda_{\rm eff}$3.37$\mu$m W1 and 
+$\lambda_{\rm eff}$4.62$\mu$m W2 we generally report the deeper, unblurred
+unWISE  coadd data.  For the two longer WISE bands, $\lambda_{\rm
+eff}$12.1$\mu$m  and $\lambda_{\rm eff}$22.8$\mu$m we use the AllWISE Data
+Release. Most objects in the AllWISE Source Catalog are unresolved, so the best 
+photometric measurements to use are the deep detection profile-fit photometry
+measures,   {\tt w$x$mpro},  {\tt w$x$sigmpro} and  {\tt w$x$snr}. The unWISE
+Catalog  absolute photometric calibration derives from the photometric
+calibration  of the unWISE coadds \citep{Meisner2017a}, which is tied to the 
+original WISE zero points through aperture fluxes in a 27.5'' radius.
 
-Previous works \citep[e.g., ][]{Krawczyk2013, Ross2015, Bilicki2016} found that cross-matches performed with a radius of 2-3'' between the user catalogue and WISE was a good compromise between completeness and contamination \citep[see e.g. Figure 4 of ][]{Krawczyk2013}. We thus use a cross-match radius of 2.75''. When querying the AllWISE catalogues, ``Cone Search Radius'' in the AllWISE table search was set to 2.75'' for the Spatial Constraints. The ``One to One Match'' was ``not'' checked; although possible, we consider it highly unlikely there would be more than one MIR source contributing to the flux of a single UV/optically bright rest-frame quasar. As a check, we utilize data from the {\it Spitzer} Space Telescope in IRAC Channel 2 4.5$\mu$m,  IRAC Channel 4 8$\mu$m and MIPS 24$\mu$m,  and number counts and luminosity density measurements from \citet[][see their Figures 8.11, 8.12 and 8.13]{Driver2016}. 
-%% address now the number of expected contaminating 8--25 micron sources in the apertures used, as it can be done straightforwardly. E.g., Driver et al. (2016, ApJ, 827, 107; astro-ph/1605.01523) --- the figures you need for this estimate are actually best given as Fig. A4, A5 on the astro-ph version.
-The redshift distribution of the sampled 8--24 $\mu$m foreground objects is narrow enough and their $K$-corrections advantageous enough, that the objects
-counts sharply turnover for $AB(W3, W4) \gtrsim 20$mag, and the normalized differential counts --- especially in e.g. WISE W4 --- have most of their  extragalactic background light energy emerging at AB$\sim$18--20 mag. As a consequence, the relative number or probability of contaminating objects at AB$>20$mag inside our apertures should be small.  %Investigating this in detail is very interesting but left to a future study. 
+Previous works \citep[e.g., ][]{Krawczyk2013, Ross2015, Bilicki2016} found  that
+cross-matches performed with a radius of 2-3'' between the user catalogue and 
+WISE was a good compromise between completeness and contamination  \citep[see
+e.g. Figure 4 of ][]{Krawczyk2013}. We thus use a cross-match radius of 2.75''. 
+When querying the AllWISE catalogues, ``Cone Search Radius'' in the AllWISE 
+table search was set to 2.75'' for the Spatial Constraints. The ``One to One
+Match''  was ``not'' checked; although possible, we consider it highly unlikely 
+there would be more than one MIR source contributing to the flux of a single 
+UV/optically bright rest-frame quasar. As a check, we utilize data from the 
+{\it Spitzer} Space Telescope in IRAC Channel 2 4.5$\mu$m,  IRAC Channel4
+8$\mu$m and MIPS 24$\mu$m,  and number counts and luminosity density
+measurements  from \citet[][see their Figures 8.11, 8.12 and 8.13]{Driver2016}.
+%% address now the number of expected contaminating 8--25 micron sources in the
+% apertures used, as it can be done straightforwardly. E.g., Driver et al. 
+% (2016, ApJ, 827, 107; astro-ph/1605.01523) --- the figures you need for this
+% estimate are actually best given as Fig. A4, A5 on the astro-ph version.
+The redshift distribution of the sampled 8--24 $\mu$m foreground objects is 
+narrow enough and their $K$-corrections advantageous enough, that the objects 
+counts sharply turnover for $AB(W3, W4) \gtrsim 20$mag, and the normalized 
+differential counts --- especially in e.g. WISE W4 --- have most of their  
+extragalactic background light energy emerging at AB$\sim$18--20 mag. As a 
+consequence, the relative number or probability of contaminating objects at 
+AB$>20$mag inside our apertures should be small.  %Investigating this in detail
+% is very interesting but left to a future study.
 
-Knowing we have secure detections in the near-infrared bands, and wanting to boost the number of WISE W3/W4 detections, we allow ourselves to be less conservative in querying the AllWISE catalogues and also query the AllWISE Reject Table. However, with the exception of one object (SHELLQs  J1208-0200), the AllWISE Reject Table does not contain any further W3/W4 detection information. 
+Knowing we have secure detections in the near-infrared bands, and wanting  to
+boost the number of WISE W3/W4 detections, we allow ourselves to be less 
+conservative in querying the AllWISE catalogues and also query the AllWISE 
+Reject Table. However, with the exception of one object (SHELLQs  J1208-0200), 
+the AllWISE Reject Table does not contain any further W3/W4 detection information.
 
 All fluxes in the unWISE catalog are reported there are in ``Vega
 nanoMaggies'', with the Vega magnitude of a source is given by
@@ -689,11 +737,16 @@ above the background noise.
     \multirow{ 2}{*}{$z \geq$} & \multicolumn{2}{c}{unWISE} &  \multicolumn{2}{c}{AllWISE}   \\ 
                                              & \multicolumn{1}{c}{W1} & \multicolumn{1}{c}{W2} & \multicolumn{1}{c}{W3} & \multicolumn{1}{c}{W4}  \\ 
     \hline
-    5.00   &   362 ( 78.2\%)   &   308 ( 66.5\%)  &    51 ( 11.0\%)  &    10 (  2.2\%) \\ 
-    5.70   &   186 ( 69.4\%)   &   151 ( 56.3\%)  &    15 (  5.6\%)  &     2 (  0.7\%) \\ 
-    6.00   &   109 ( 63.7\%)   &    91 ( 53.2\%)  &     8 (  4.7\%)  &     2 (  1.2\%) \\ 
-    6.19   &    63 ( 72.4\%)   &    47 ( 54.0\%)  &     3 (  3.4\%)  &     2 (  2.3\%) \\ 
-    6.50   &    34 ( 85.0\%)   &    26 ( 65.0\%)  &     1 (  2.5\%)  &     2 (  5.0\%) \\ 
+    5.00   &   389 ( 79.7\%)   &   334 ( 68.4\%)  &    59 ( 12.1\%)  &    10 ( 
+    2.0\%) \\
+    5.70   &   194 ( 71.1\%)   &   157 ( 57.5\%)  &    16 (  5.9\%)  &     6 ( 
+    2.2\%) \\
+    6.00   &   115 ( 66.1\%)   &    96 ( 55.2\%)  &     9 (  5.2\%)  &     2 ( 
+    1.1\%) \\
+    6.19   &    65 ( 74.7\%)   &    48 ( 55.2\%)  &     3 (  3.4\%)  &     2 ( 
+    2.3\%) \\
+    6.50   &    35 ( 87.5\%)   &    26 ( 65.0\%)  &     1 (  2.5\%)  &     2 ( 
+    5.0\%) \\
     6.78   &    12 ( 85.7\%)   &     9 ( 64.3\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
     7.00   &     4 (100.0\%)   &     4 (100.0\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
     7.50   &     1 (100.0\%)   &     1 (100.0\%)  &     0 (  0.0\%)  &     0 (  0.0\%) \\ 
