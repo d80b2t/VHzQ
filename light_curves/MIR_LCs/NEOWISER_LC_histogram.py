@@ -2,6 +2,7 @@
 The number of NEOWISE-R epochs for the VHzQs
 '''
 
+import os
 from astropy.io import ascii
 import numpy as np
 
@@ -10,10 +11,10 @@ from matplotlib import colors
 from matplotlib.ticker import ScalarFormatter
 
 ## Reading the data file in
-path='/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/'
-file = 'NoOfEpochs_perQuasar.dat'
+path='../../light_curves/MIR_LCs/'
+file = 'NoOfEpochs_perQuasar_20200212.dat'
 
-data_in = ascii.read(path+file) 
+data_in = ascii.read(os.path.join(path,file)) 
 print(type(data_in))
 data = np.array(data_in).astype(np.float)
 

@@ -2,6 +2,7 @@
 http://blog.marmakoide.org/?p=94
 '''
 
+import os
 from astropy.io import ascii
 
 import numpy as np
@@ -15,10 +16,10 @@ from matplotlib.backends.backend_pdf import PdfPages
 import random
 
 #path='/cos_pc19a_npr/data/highest_z_QSOs/'
-path = '/cos_pc19a_npr/programs/quasars/highest_z/light_curves/MIR_LCs/'
-file = 'NEOWISER-R_SingleExposure_L1bs.tbl'
+path = '../../data/light_curves/NEOWISE-R'
+file = 'NEOWISER-R_SingleExposure_L1bs_20200212.tbl'
 
-data = ascii.read(path+file) 
+data = ascii.read(os.path.join(path,file)) 
 type(data)
 upto_this = data['cntr_01'].max()
 
