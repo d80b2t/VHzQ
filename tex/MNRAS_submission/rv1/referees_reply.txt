@@ -119,7 +119,7 @@ epochs here, in case these clearly discrepant magnitudes are due to variability.
 p. 8 Fig 5: Make the z=0--3 quasar cloud a little lighter grey, so that the
 z=5--6.5 quasar cloud is better visible.
 
-	Still to do....
+	Done. 
 
 
 p. 9 top left: = -0.458 : All minus signs in latex should be coded up as --
@@ -130,7 +130,7 @@ p. 9 top left: = -0.458 : All minus signs in latex should be coded up as --
 
 p. 10 Fig 8: Enlarge all axes label for better readability.
 
-        Still to do...
+       Done.
 
 
 THROUGHOUT: signal-to-noise should always be listed as a ratio: signal-to-noise
