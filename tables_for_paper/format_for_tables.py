@@ -13,9 +13,9 @@ from astropy.table import Table
 ##
 ##  V H z Q    data
 ##
-path      = '/cos_pc19a_npr/programs/quasars/highest_z/tables_for_paper/'
+path      = '../data/'
 #filename  = 'WSA_wWISE.dat'
-filename   = 'VHzQs_ZYJHK_WISE.dat' 
+filename   = 'VHzQs_ZYJHK_WISE_v3.dat' 
 table     = path+filename
 VHzQ_list = ascii.read(table)
 
