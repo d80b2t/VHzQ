@@ -31,7 +31,10 @@ print(type(VHzQ_list['ra']))
 print()
 
 ## Just the top 10 or 5\% for demo purposes in the .tex manuscript
-VHzQ_Top10 = VHzQ_list[0:23]
+#VHzQ_Top10 = VHzQ_list[0:23]
+
+## For the whole table
+VHzQ_Top10 = VHzQ_list
 
 
 ## Set-up the table header
