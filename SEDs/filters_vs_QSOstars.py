@@ -461,6 +461,7 @@ ax.plot( ((VdB01_wave/10000.)*(1.0+redshift)),  (quasar_template_flux), color='k
 ##ax.plot( ((Banados_wave/10000.)*(1.0+redshift)), (Banados_strong_flux), color='b', alpha=0.85)
 ##ax.plot( ((Banados_wave/10000.)*(1.0+redshift)), (Banados_weak_flux), color='b', alpha=0.85)
 
+
 ## Labels
 #size=18   ## 18 if between K  and W1; 
 size=22    ## 22 if between W2 and W3. 
@@ -490,4 +491,5 @@ plt.savefig('filters_vs_QSOstars_temp.pdf', format='pdf')
 plt.close(fig)
 #plt.show()
 
-
+## Write out the SED::
+#ascii.write([VdB01_wave, quasar_template_flux], 'quasar_SED_temp.dat', names=['wavelength', 'flux'], overwrite=True)     
